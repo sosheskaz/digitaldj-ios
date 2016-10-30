@@ -8,32 +8,41 @@
 
 import Foundation
 
-class ZeroconfClient {
-    var netServiceBrowser: NetServiceBrowser
-    var netServiceDelegate: NetServiceDelegate
-    var data: ZeroconfData
+public class ZeroconfClient {
+    private var netServiceBrowser: NetServiceBrowser
+    private var netServiceDelegate: NetServiceDelegate
+    private var data: ZeroconfData
     
     init() {
         self.netServiceBrowser = NetServiceBrowser()
         self.data = ZeroconfData()
+        self.netServiceDelegate = ZeroconfDelegate(zeroconfData: self.data)
+    }
+
+    public func clear() {
+        self.data.discoveredServices = Array<NetService>()
+    }
+    
+    public func getFoundServices() -> Array<NetService> {
+        return self.data.discoveredServices
     }
 }
 
-class ZeroconfData {
+private class ZeroconfData {
     let PORT: UInt16 = 52773
     let SERVICE_NAME: String = "ddj"
     let DOMAIN: String = "local"
     let TYPE: String = "_ddj._tcp"
     let DEFAULT_TIMEOUT: TimeInterval = 1.0
     
-    let discoveredServices: Set<NetService>
+    var discoveredServices: Array<NetService>
     
     init() {
-        discoveredServices = MutableSet<NetService>()
+        discoveredServices = Array<NetService>()
     }
 }
 
-class ZeroconfDelegate: NetServiceDelegate {
+private class ZeroconfDelegate: NSObject, NetServiceDelegate {
     let data: ZeroconfData
     
     init(zeroconfData: ZeroconfData) {
@@ -42,7 +51,7 @@ class ZeroconfDelegate: NetServiceDelegate {
     
     func netServiceDidResolveAddress(_ sender: NetService) {
         if(!self.data.discoveredServices.contains(sender)) {
-            self.data.discoveredServices.add(sender)
+            self.data.discoveredServices.append(sender)
         }
         
         #if DEBUG
@@ -65,7 +74,7 @@ class ZeroconfDelegate: NetServiceDelegate {
     
     func netServiceDidPublish(_ sender: NetService) {
         if(!self.data.discoveredServices.contains(sender)) {
-            self.data.discoveredServices.add(sender)
+            self.data.discoveredServices.append(sender)
         }
         #if DEBUG
         print("netServiceDidPublish: " + sender.hostName)
