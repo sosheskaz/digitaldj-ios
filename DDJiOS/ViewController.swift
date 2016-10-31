@@ -9,10 +9,13 @@
 import UIKit
 
 class ViewController: UIViewController {
+    let zc: ZeroconfServer = ZeroconfServer()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        zc.start()
     }
 
     override func didReceiveMemoryWarning() {

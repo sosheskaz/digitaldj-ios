@@ -9,14 +9,26 @@
 import Foundation
 
 public class ZeroconfClient {
+    let PORT: UInt16 = 52773
+    let SERVICE_NAME: String = "ddj"
+    let DOMAIN: String = "local"
+    let TYPE: String = "_ddj._tcp"
+    let DEFAULT_TIMEOUT: TimeInterval = 1.0
+
     private var netServiceBrowser: NetServiceBrowser
-    private var netServiceDelegate: NetServiceDelegate
+    private var netServiceDelegate: ZeroconfDelegate
     private var data: ZeroconfData
     
     init() {
         self.netServiceBrowser = NetServiceBrowser()
         self.data = ZeroconfData()
         self.netServiceDelegate = ZeroconfDelegate(zeroconfData: self.data)
+        self.netServiceBrowser.delegate = netServiceDelegate
+        self.netServiceBrowser.searchForServices(ofType: TYPE, inDomain: DOMAIN)
+    }
+
+    public func searchForServices() {
+        self.netServiceBrowser.searchForServices(ofType: TYPE, inDomain: DOMAIN)
     }
 
     public func clear() {
@@ -29,12 +41,6 @@ public class ZeroconfClient {
 }
 
 private class ZeroconfData {
-    let PORT: UInt16 = 52773
-    let SERVICE_NAME: String = "ddj"
-    let DOMAIN: String = "local"
-    let TYPE: String = "_ddj._tcp"
-    let DEFAULT_TIMEOUT: TimeInterval = 1.0
-    
     var discoveredServices: Array<NetService>
     
     init() {
@@ -42,7 +48,7 @@ private class ZeroconfData {
     }
 }
 
-private class ZeroconfDelegate: NSObject, NetServiceDelegate {
+private class ZeroconfDelegate: NSObject, NetServiceBrowserDelegate {
     let data: ZeroconfData
     
     init(zeroconfData: ZeroconfData) {
@@ -55,7 +61,7 @@ private class ZeroconfDelegate: NSObject, NetServiceDelegate {
         }
         
         #if DEBUG
-            print("netServiceDidResolveAddress: " + sender.hostName)
+            print("netServiceDidResolveAddress: " + sender.hostName!)
         #endif
     }
     
@@ -63,7 +69,7 @@ private class ZeroconfDelegate: NSObject, NetServiceDelegate {
         let index: Int = self.data.discoveredServices.index(of: sender)!;
         
         #if DEBUG
-            print("netServiceDidStop: " + sender.hostName)
+            print("netServiceDidStop: " + sender.hostName!)
         #endif
         
         if(index < 0) {
@@ -71,13 +77,13 @@ private class ZeroconfDelegate: NSObject, NetServiceDelegate {
         }
         self.data.discoveredServices.remove(at: index)
     }
-    
+
     func netServiceDidPublish(_ sender: NetService) {
         if(!self.data.discoveredServices.contains(sender)) {
             self.data.discoveredServices.append(sender)
         }
         #if DEBUG
-        print("netServiceDidPublish: " + sender.hostName)
+        print("netServiceDidPublish: " + sender.hostName!)
         #endif
     }
     
