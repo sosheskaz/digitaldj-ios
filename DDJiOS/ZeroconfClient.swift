@@ -60,17 +60,13 @@ private class ZeroconfDelegate: NSObject, NetServiceBrowserDelegate {
             self.data.discoveredServices.append(sender)
         }
         
-        #if DEBUG
-            print("netServiceDidResolveAddress: " + sender.hostName!)
-        #endif
+        print("netServiceDidResolveAddress: " + sender.hostName!)
     }
     
     func netServiceDidStop(_ sender: NetService) {
         let index: Int = self.data.discoveredServices.index(of: sender)!;
         
-        #if DEBUG
-            print("netServiceDidStop: " + sender.hostName!)
-        #endif
+        print("netServiceDidStop: " + sender.hostName!)
         
         if(index < 0) {
             return
@@ -82,9 +78,7 @@ private class ZeroconfDelegate: NSObject, NetServiceBrowserDelegate {
         if(!self.data.discoveredServices.contains(sender)) {
             self.data.discoveredServices.append(sender)
         }
-        #if DEBUG
         print("netServiceDidPublish: " + sender.hostName!)
-        #endif
     }
     
     func netServiceWillPublish(_ sender: NetService) {
