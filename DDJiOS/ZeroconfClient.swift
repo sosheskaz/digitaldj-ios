@@ -23,19 +23,19 @@ public class ZeroconfClient {
         self.netServiceBrowser = NetServiceBrowser()
         self.data = ZeroconfData()
         self.netServiceDelegate = ZeroconfDelegate(zeroconfData: self.data)
-        self.netServiceBrowser.delegate = netServiceDelegate
+        self.netServiceBrowser.delegate = self.netServiceDelegate
+        self.netServiceBrowser.schedule(in: RunLoop.main, forMode: RunLoopMode.defaultRunLoopMode)
         self.netServiceBrowser.searchForServices(ofType: TYPE, inDomain: DOMAIN)
-    }
-
-    public func searchForServices() {
-        self.netServiceBrowser.searchForServices(ofType: TYPE, inDomain: DOMAIN)
+        print("zcinit")
     }
 
     public func clear() {
+        print("zcc")
         self.data.discoveredServices = Array<NetService>()
     }
     
     public func getFoundServices() -> Array<NetService> {
+        print("zcgfs")
         return self.data.discoveredServices
     }
 }
@@ -52,6 +52,7 @@ private class ZeroconfDelegate: NSObject, NetServiceBrowserDelegate {
     let data: ZeroconfData
     
     init(zeroconfData: ZeroconfData) {
+        print("delegate initialized.")
         self.data = zeroconfData
     }
     
@@ -82,26 +83,47 @@ private class ZeroconfDelegate: NSObject, NetServiceBrowserDelegate {
     }
     
     func netServiceWillPublish(_ sender: NetService) {
-        return
     }
     
     func netService(_ sender: NetService, didUpdateTXTRecord data: Data) {
-        return
     }
     
     func netService(_ sender: NetService, didNotPublish errorDict: [String : NSNumber]) {
-        return
     }
     
     func netService(_ sender: NetService, didNotResolve errorDict: [String : NSNumber]) {
-        return
+        print("DidNotResolve")
     }
     
     func netService(_ sender: NetService, didAcceptConnectionWith inputStream: InputStream, outputStream: OutputStream) {
-        return
     }
     
     func netServiceWillResolve(_ sender: NetService) {
-        return
     }
+
+    func netServiceBrowserWillSearch(_ browser: NetServiceBrowser) {
+    }
+
+    func netServiceBrowserDidStopSearch(_ browser: NetServiceBrowser) {
+        print("didstop")
+    }
+
+    func netServiceBrowser(_ browser: NetServiceBrowser, didNotSearch errorDict: [String: NSNumber]) {
+        print(errorDict)
+    }
+
+    func netServiceBrowser(_ browser: NetServiceBrowser, didFindDomain domainString: String, moreComing: Bool) {
+    }
+
+    func netServiceBrowser(_ browser: NetServiceBrowser, didFind service: NetService, moreComing: Bool) {
+        print("didfind")
+        self.data.discoveredServices.append(service)
+    }
+
+    func netServiceBrowser(_ browser: NetServiceBrowser, didRemoveDomain domainString: String, moreComing: Bool) {
+    }
+
+    func netServiceBrowser(_ browser: NetServiceBrowser, didRemove service: NetService, moreComing: Bool) {
+    }
+
 }

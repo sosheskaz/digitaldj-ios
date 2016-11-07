@@ -8,21 +8,32 @@ import Foundation
 class ZeroconfServer {
     private var service: NetService
 
-    let PORT: Int32 = 52773
-    let SERVICE_NAME: String = "ddj"
-    let DOMAIN: String = "local"
-    let TYPE: String = "_ddj._tcp"
-    let DEFAULT_TIMEOUT: TimeInterval = 1.0
+    private let PORT: Int32 = 52773
+    private var name: String
+    private let DEFAULT_NAME: String = "Digital DJ"
+    private let DOMAIN: String = "local"
+    private let TYPE: String = "_ddj._tcp"
+    private let DEFAULT_TIMEOUT: TimeInterval = 1.0
 
     init() {
-        service = NetService(domain: DOMAIN, type: TYPE, name: SERVICE_NAME, port: PORT)
+        self.name = DEFAULT_NAME
+        self.service = NetService(domain: DOMAIN, type: TYPE, name: name, port: PORT)
+    }
+    
+    public func start(name newName: String) {
+        stop()
+        self.name = newName
+        self.service = NetService(domain: DOMAIN, type: TYPE, name: self.name, port: PORT)
+        self.service.publish()
+    }
+    
+    public func start() {
+        stop()
+        self.service = NetService(domain: DOMAIN, type: TYPE, name: self.name, port: PORT)
+        self.service.publish()
     }
 
-    func start() {
-        service.publish()
-    }
-
-    func stop() {
-        service.stop()
+    public func stop() {
+        self.service.stop()
     }
 }

@@ -86,7 +86,7 @@
         <!--Server Selection-->
         <scene sceneID="b2k-gF-Gl7">
             <objects>
-                <viewController title="Server Selection" id="IoV-Gd-EBX" sceneMemberID="viewController">
+                <viewController title="Server Selection" id="IoV-Gd-EBX" customClass="ZeroconfTableView" customModule="DDJiOS" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="i1s-5F-D93"/>
                         <viewControllerLayoutGuide type="bottom" id="w1d-v6-M6e"/>
@@ -110,7 +110,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rmK-ki-4H0" userLabel="Server List" customClass="ZeroconfTableView" customModule="DDJiOS" customModuleProvider="target">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rmK-ki-4H0" userLabel="Server List">
                                 <rect key="frame" x="25" y="142" width="325" height="334"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -125,10 +125,17 @@
                                     </tableViewCell>
                                 </prototypes>
                                 <sections/>
+                                <connections>
+                                    <outlet property="dataSource" destination="IoV-Gd-EBX" id="rUR-Iq-aEx"/>
+                                    <outlet property="delegate" destination="IoV-Gd-EBX" id="4NO-oe-x0p"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
+                    <connections>
+                        <outlet property="zcTableView" destination="rmK-ki-4H0" id="dNq-5m-y74"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7yu-MJ-4Yd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -207,7 +214,7 @@
         <!--Create Server-->
         <scene sceneID="Gaq-v1-Qc8">
             <objects>
-                <viewController title="Create Server" id="HlW-KO-QJc" sceneMemberID="viewController">
+                <viewController title="Create Server" id="HlW-KO-QJc" customClass="ServerSetupViewController" customModule="DDJiOS" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="p3G-2B-m66"/>
                         <viewControllerLayoutGuide type="bottom" id="4tT-UX-c2I"/>
@@ -240,7 +247,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Create"/>
                                 <connections>
-                                    <segue destination="9RS-eU-D9j" kind="showDetail" id="C4I-lZ-P9O"/>
+                                    <segue destination="9RS-eU-D9j" kind="showDetail" identifier="createServerToServerInfo" id="C4I-lZ-P9O"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -251,6 +258,9 @@
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="nameField" destination="klN-Ji-aKQ" id="cO0-oy-XNW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="icn-4Z-NnI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -259,7 +269,7 @@
         <!--Server Currently Playing-->
         <scene sceneID="Edy-0c-jFa">
             <objects>
-                <viewController title="Server Currently Playing" id="9RS-eU-D9j" sceneMemberID="viewController">
+                <viewController title="Server Currently Playing" id="9RS-eU-D9j" customClass="ServerViewController" customModule="DDJiOS" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="FSY-Zm-gpT"/>
                         <viewControllerLayoutGuide type="bottom" id="HNu-bc-rBP"/>
@@ -300,6 +310,16 @@
                                 <rect key="frame" x="158" y="270" width="309" height="207"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="GxC-6F-nZb">
+                                        <rect key="frame" x="0.0" y="28" width="309" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GxC-6F-nZb" id="5mt-Nr-asn">
+                                            <rect key="frame" x="0.0" y="0.0" width="309" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Queue" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xy7-Ig-UIE">
                                 <rect key="frame" x="283" y="225" width="51" height="21"/>
@@ -358,6 +378,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Olc-EY-oZA"/>
+        <segue reference="FH8-qD-fWe"/>
     </inferredMetricsTieBreakers>
 </document>
