@@ -19,8 +19,8 @@ class ZeroconfTableView: UIViewController, UITableViewDataSource, UITableViewDel
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        self.myTimer = Timer(timeInterval: 2.5, target: self, selector: #selector(self.refresh), userInfo: nil, repeats: true)
-        items = client.getFoundServices()
+        self.myTimer = Timer(timeInterval: 0.5, target: self, selector: #selector(self.refresh), userInfo: nil, repeats: true)
+        items = Array<NetService>(client.getFoundServices())
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -37,7 +37,7 @@ class ZeroconfTableView: UIViewController, UITableViewDataSource, UITableViewDel
 
     func refresh() {
         print("refresh")
-        items = client.getFoundServices()
+        items = Array<NetService>(client.getFoundServices())
         print(items)
         self.zcTableView?.reloadData()
     }
