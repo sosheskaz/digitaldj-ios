@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6B2BE6431DF6BAEB005AE702 /* SpotifyAudioPlayback.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B2BE6401DF6BAEB005AE702 /* SpotifyAudioPlayback.framework */; };
+		6B2BE6441DF6BAEB005AE702 /* SpotifyAudioPlayback.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B2BE6401DF6BAEB005AE702 /* SpotifyAudioPlayback.framework */; };
+		6B2BE6451DF6BAEB005AE702 /* SpotifyAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B2BE6411DF6BAEB005AE702 /* SpotifyAuthentication.framework */; };
+		6B2BE6461DF6BAEB005AE702 /* SpotifyAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B2BE6411DF6BAEB005AE702 /* SpotifyAuthentication.framework */; };
+		6B2BE6471DF6BAEB005AE702 /* SpotifyMetadata.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B2BE6421DF6BAEB005AE702 /* SpotifyMetadata.framework */; };
+		6B2BE6481DF6BAEB005AE702 /* SpotifyMetadata.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B2BE6421DF6BAEB005AE702 /* SpotifyMetadata.framework */; };
+		6B98D7E31DF6BFF5005118E9 /* SpotifyProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B98D7E21DF6BFF5005118E9 /* SpotifyProfile.swift */; };
 		6B9E22511DC73468001F1871 /* ZeroconfClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B9E224F1DC73468001F1871 /* ZeroconfClient.swift */; };
 		6B9E22521DC73468001F1871 /* ZeroconfServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B9E22501DC73468001F1871 /* ZeroconfServer.swift */; };
 		6B9E22541DC73AAC001F1871 /* ZeroconfTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B9E22531DC73AAC001F1871 /* ZeroconfTableView.swift */; };
@@ -32,6 +39,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6B2BE6401DF6BAEB005AE702 /* SpotifyAudioPlayback.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyAudioPlayback.framework; sourceTree = "<group>"; };
+		6B2BE6411DF6BAEB005AE702 /* SpotifyAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyAuthentication.framework; sourceTree = "<group>"; };
+		6B2BE6421DF6BAEB005AE702 /* SpotifyMetadata.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyMetadata.framework; sourceTree = "<group>"; };
+		6B98D7E21DF6BFF5005118E9 /* SpotifyProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotifyProfile.swift; sourceTree = "<group>"; };
 		6B9E224F1DC73468001F1871 /* ZeroconfClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZeroconfClient.swift; sourceTree = "<group>"; };
 		6B9E22501DC73468001F1871 /* ZeroconfServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZeroconfServer.swift; sourceTree = "<group>"; };
 		6B9E22531DC73AAC001F1871 /* ZeroconfTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZeroconfTableView.swift; sourceTree = "<group>"; };
@@ -55,6 +66,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6B2BE6431DF6BAEB005AE702 /* SpotifyAudioPlayback.framework in Frameworks */,
+				6B2BE6471DF6BAEB005AE702 /* SpotifyMetadata.framework in Frameworks */,
+				6B2BE6451DF6BAEB005AE702 /* SpotifyAuthentication.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,15 +76,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6B2BE6441DF6BAEB005AE702 /* SpotifyAudioPlayback.framework in Frameworks */,
+				6B2BE6481DF6BAEB005AE702 /* SpotifyMetadata.framework in Frameworks */,
+				6B2BE6461DF6BAEB005AE702 /* SpotifyAuthentication.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6B2BE63F1DF6BA7C005AE702 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6B2BE6401DF6BAEB005AE702 /* SpotifyAudioPlayback.framework */,
+				6B2BE6411DF6BAEB005AE702 /* SpotifyAuthentication.framework */,
+				6B2BE6421DF6BAEB005AE702 /* SpotifyMetadata.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		9A1862A41DC10BFA0027D21E = {
 			isa = PBXGroup;
 			children = (
+				6B2BE63F1DF6BA7C005AE702 /* Frameworks */,
 				9A1862AF1DC10BFA0027D21E /* DDJiOS */,
 				9A1862C71DC10BFA0027D21E /* DDJiOSTests */,
 				9A1862AE1DC10BFA0027D21E /* Products */,
@@ -101,6 +129,7 @@
 				6B9E22531DC73AAC001F1871 /* ZeroconfTableView.swift */,
 				6BCF2D2D1DD028D200C67ED3 /* ServerViewController.swift */,
 				6BCF2D2F1DD0310900C67ED3 /* ServerSetupViewController.swift */,
+				6B98D7E21DF6BFF5005118E9 /* SpotifyProfile.swift */,
 			);
 			path = DDJiOS;
 			sourceTree = "<group>";
@@ -159,7 +188,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = msoe;
 				TargetAttributes = {
 					9A1862AC1DC10BFA0027D21E = {
@@ -217,6 +246,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6B98D7E31DF6BFF5005118E9 /* SpotifyProfile.swift in Sources */,
 				6B9E22511DC73468001F1871 /* ZeroconfClient.swift in Sources */,
 				6BCF2D301DD0310900C67ED3 /* ServerSetupViewController.swift in Sources */,
 				9A1862B91DC10BFA0027D21E /* DDJiOS.xcdatamodeld in Sources */,
@@ -280,10 +310,13 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -303,9 +336,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PRELINK_LIBS = "SpotifyMetadata ApotifyAuthentication SpotifyAudioPlayback";
+				"PRELINK_LIBS[arch=*]" = "SpotifyAudioPlayback SpotifyMetadata SpotifyAuthentication";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -325,10 +360,13 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -342,9 +380,12 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PRELINK_LIBS = "SpotifyMetadata ApotifyAuthentication SpotifyAudioPlayback";
+				"PRELINK_LIBS[arch=*]" = "";
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -353,6 +394,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = DDJiOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = msoesdl.DDJiOS;
@@ -365,6 +410,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = DDJiOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = msoesdl.DDJiOS;
@@ -377,6 +426,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = DDJiOSTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = msoesdl.DDJiOSTests;
@@ -390,6 +443,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = DDJiOSTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = msoesdl.DDJiOSTests;
