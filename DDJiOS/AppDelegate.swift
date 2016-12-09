@@ -43,7 +43,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SPTAudioStreamingDelegate
         
         // Start authenticating when the app is finished launching
         DispatchQueue.main.async(execute: {
-            self.startAuthenticationFlow()
+            doSpotifyAuthenticate(player: self.player!, auth: self.auth!, sourceViewController: self.window!.rootViewController!)
         });
         
         // Override point for customization after application launch.
@@ -55,32 +55,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SPTAudioStreamingDelegate
         if(self.auth?.canHandle(url as URL!))! {
             self.authViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
             self.auth!.handleAuthCallback(withTriggeredAuthURL: url as URL!, callback: {error, session in
-                if (error != nil) {
-                    assertionFailure("Spotify failed to authenticate.")
-                    return
-                }
-                if (session != nil) {
-                    self.startAuthenticationFlow()
-                } else {
-                    assertionFailure("Spotify failed to authenticate.")
-                    return
-                }
+                doSpotifyAuthenticate(player: self.player!, auth: self.auth!, sourceViewController: self.window!.rootViewController!)
             })
         }
         return true
-    }
-    
-    func startAuthenticationFlow() {
-        if (self.auth!.session != nil && (self.auth!.session.isValid())) {
-            // Use it to log in
-            self.player!.login(withAccessToken: self.auth!.session.accessToken)
-        } else {
-            // Get the URL to the Spotify authorization portal
-            let authURL = self.auth!.spotifyWebAuthenticationURL()
-            // Present in a SafariViewController
-            self.authViewController = SFSafariViewController(url: authURL!)
-            self.window?.rootViewController?.present(self.authViewController!, animated: true, completion:nil)
-        }
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
