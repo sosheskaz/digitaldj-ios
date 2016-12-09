@@ -51,29 +51,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SPTAudioStreamingDelegate
     }
     
     // callback for spotify
-    func application(_ application: UIApplication, url: URL, options: Dictionary<String, Any>) {
-        if(self.auth?.canHandle(url))! {
+    func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
+        if(self.auth?.canHandle(url as URL!))! {
             self.authViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
-            self.auth!.handleAuthCallback(withTriggeredAuthURL: url, callback: {error, session in
-                if (error == nil) {
+            self.auth!.handleAuthCallback(withTriggeredAuthURL: url as URL!, callback: {error, session in
+                if (error != nil) {
                     assertionFailure("Spotify failed to authenticate.")
                     return
                 }
                 if (session != nil) {
-                    // login to the player
-                    self.player!.login(withAccessToken: self.auth!.session.accessToken)
+                    self.startAuthenticationFlow()
                 } else {
                     assertionFailure("Spotify failed to authenticate.")
                     return
                 }
             })
         }
+        return true
     }
     
     func startAuthenticationFlow() {
         if (self.auth!.session != nil && (self.auth!.session.isValid())) {
             // Use it to log in
-            // self.startLoginFlow()
+            self.player!.login(withAccessToken: self.auth!.session.accessToken)
         } else {
             // Get the URL to the Spotify authorization portal
             let authURL = self.auth!.spotifyWebAuthenticationURL()
