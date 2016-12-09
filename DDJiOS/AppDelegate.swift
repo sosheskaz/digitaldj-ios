@@ -8,16 +8,79 @@
 
 import UIKit
 import CoreData
+import SafariServices
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
-
+class AppDelegate: UIResponder, UIApplicationDelegate, SPTAudioStreamingDelegate {
+    let CLIENT_ID = "fc6d46c6e95e4c579abd440376ba7555"
+    let CLIENT_SECRET = "b101c807436144c2848f84d2fb26c264"
+    let CALLBACK_URL = "ddj://callback/"
+    
     var window: UIWindow?
-
+    
+    var auth: SPTAuth?
+    var authViewController: UIViewController?
+    var player: SPTAudioStreamingController?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        self.auth = SPTAuth.defaultInstance()
+        // The client ID you got from the developer site
+        self.auth!.clientID = CLIENT_ID
+        // The redirect URL as you entered it at the developer site
+        self.auth!.redirectURL = URL(string: CALLBACK_URL)
+        // Setting the `sessionUserDefaultsKey` enables SPTAuth to automatically store the session object for future use.
+        self.auth!.sessionUserDefaultsKey = "current session"
+        // Set the scopes you need the user to authorize. `SPTAuthStreamingScope` is required for playing audio.
+        self.auth!.requestedScopes = [SPTAuthStreamingScope, SPTAuthUserReadTopScope, SPTAuthUserReadPrivateScope];
+        
+        // spin up player
+        self.player = SPTAudioStreamingController.sharedInstance()
+        do {
+            try self.player?.start(withClientId: self.auth!.clientID)
+        } catch {
+            assertionFailure("Spotify failed to initialize.")
+        }
+        
+        // Start authenticating when the app is finished launching
+        DispatchQueue.main.async(execute: {
+            self.startAuthenticationFlow()
+        });
+        
         // Override point for customization after application launch.
         return true
+    }
+    
+    // callback for spotify
+    func application(_ application: UIApplication, url: URL, options: Dictionary<String, Any>) {
+        if(self.auth?.canHandle(url))! {
+            self.authViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
+            self.auth!.handleAuthCallback(withTriggeredAuthURL: url, callback: {error, session in
+                if (error == nil) {
+                    assertionFailure("Spotify failed to authenticate.")
+                    return
+                }
+                if (session != nil) {
+                    // login to the player
+                    self.player!.login(withAccessToken: self.auth!.session.accessToken)
+                } else {
+                    assertionFailure("Spotify failed to authenticate.")
+                    return
+                }
+            })
+        }
+    }
+    
+    func startAuthenticationFlow() {
+        if (self.auth!.session != nil && (self.auth!.session.isValid())) {
+            // Use it to log in
+            // self.startLoginFlow()
+        } else {
+            // Get the URL to the Spotify authorization portal
+            let authURL = self.auth!.spotifyWebAuthenticationURL()
+            // Present in a SafariViewController
+            self.authViewController = SFSafariViewController(url: authURL!)
+            self.window?.rootViewController?.present(self.authViewController!, animated: true, completion:nil)
+        }
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

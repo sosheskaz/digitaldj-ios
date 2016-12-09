@@ -7,9 +7,10 @@
 //
 
 import Foundation
-import SpotifyAuthentication
+import SafariServices
 
 class SpotifyProfile {
+    
     let userId: String
     let songs: Array<String>
     

@@ -13,6 +13,7 @@
 		6B2BE6461DF6BAEB005AE702 /* SpotifyAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B2BE6411DF6BAEB005AE702 /* SpotifyAuthentication.framework */; };
 		6B2BE6471DF6BAEB005AE702 /* SpotifyMetadata.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B2BE6421DF6BAEB005AE702 /* SpotifyMetadata.framework */; };
 		6B2BE6481DF6BAEB005AE702 /* SpotifyMetadata.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B2BE6421DF6BAEB005AE702 /* SpotifyMetadata.framework */; };
+		6B8D34DB1DFA36E600023C46 /* DDJiOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B8D34DA1DFA36E600023C46 /* DDJiOSUITests.swift */; };
 		6B98D7E31DF6BFF5005118E9 /* SpotifyProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B98D7E21DF6BFF5005118E9 /* SpotifyProfile.swift */; };
 		6B9E22511DC73468001F1871 /* ZeroconfClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B9E224F1DC73468001F1871 /* ZeroconfClient.swift */; };
 		6B9E22521DC73468001F1871 /* ZeroconfServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B9E22501DC73468001F1871 /* ZeroconfServer.swift */; };
@@ -29,6 +30,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		6B8D34DD1DFA36E600023C46 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9A1862A51DC10BFA0027D21E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9A1862AC1DC10BFA0027D21E;
+			remoteInfo = DDJiOS;
+		};
 		9A1862C51DC10BFA0027D21E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 9A1862A51DC10BFA0027D21E /* Project object */;
@@ -39,9 +47,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6B12AA7B1DF73B2D00170297 /* DDJiOS-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DDJiOS-Bridging-Header.h"; sourceTree = "<group>"; };
 		6B2BE6401DF6BAEB005AE702 /* SpotifyAudioPlayback.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyAudioPlayback.framework; sourceTree = "<group>"; };
 		6B2BE6411DF6BAEB005AE702 /* SpotifyAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyAuthentication.framework; sourceTree = "<group>"; };
 		6B2BE6421DF6BAEB005AE702 /* SpotifyMetadata.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyMetadata.framework; sourceTree = "<group>"; };
+		6B8D34D81DFA36E600023C46 /* DDJiOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DDJiOSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6B8D34DA1DFA36E600023C46 /* DDJiOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDJiOSUITests.swift; sourceTree = "<group>"; };
+		6B8D34DC1DFA36E600023C46 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6B98D7E21DF6BFF5005118E9 /* SpotifyProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotifyProfile.swift; sourceTree = "<group>"; };
 		6B9E224F1DC73468001F1871 /* ZeroconfClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZeroconfClient.swift; sourceTree = "<group>"; };
 		6B9E22501DC73468001F1871 /* ZeroconfServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZeroconfServer.swift; sourceTree = "<group>"; };
@@ -62,6 +74,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		6B8D34D51DFA36E600023C46 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9A1862AA1DC10BFA0027D21E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -93,14 +112,24 @@
 				6B2BE6421DF6BAEB005AE702 /* SpotifyMetadata.framework */,
 			);
 			name = Frameworks;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		6B8D34D91DFA36E600023C46 /* DDJiOSUITests */ = {
+			isa = PBXGroup;
+			children = (
+				6B8D34DA1DFA36E600023C46 /* DDJiOSUITests.swift */,
+				6B8D34DC1DFA36E600023C46 /* Info.plist */,
+			);
+			path = DDJiOSUITests;
 			sourceTree = "<group>";
 		};
 		9A1862A41DC10BFA0027D21E = {
 			isa = PBXGroup;
 			children = (
-				6B2BE63F1DF6BA7C005AE702 /* Frameworks */,
 				9A1862AF1DC10BFA0027D21E /* DDJiOS */,
 				9A1862C71DC10BFA0027D21E /* DDJiOSTests */,
+				6B8D34D91DFA36E600023C46 /* DDJiOSUITests */,
 				9A1862AE1DC10BFA0027D21E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -110,6 +139,7 @@
 			children = (
 				9A1862AD1DC10BFA0027D21E /* DDJiOS.app */,
 				9A1862C41DC10BFA0027D21E /* DDJiOSTests.xctest */,
+				6B8D34D81DFA36E600023C46 /* DDJiOSUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -117,6 +147,7 @@
 		9A1862AF1DC10BFA0027D21E /* DDJiOS */ = {
 			isa = PBXGroup;
 			children = (
+				6B2BE63F1DF6BA7C005AE702 /* Frameworks */,
 				9A1862B01DC10BFA0027D21E /* AppDelegate.swift */,
 				9A1862B21DC10BFA0027D21E /* ViewController.swift */,
 				9A1862B41DC10BFA0027D21E /* Main.storyboard */,
@@ -130,6 +161,7 @@
 				6BCF2D2D1DD028D200C67ED3 /* ServerViewController.swift */,
 				6BCF2D2F1DD0310900C67ED3 /* ServerSetupViewController.swift */,
 				6B98D7E21DF6BFF5005118E9 /* SpotifyProfile.swift */,
+				6B12AA7B1DF73B2D00170297 /* DDJiOS-Bridging-Header.h */,
 			);
 			path = DDJiOS;
 			sourceTree = "<group>";
@@ -146,6 +178,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		6B8D34D71DFA36E600023C46 /* DDJiOSUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6B8D34E11DFA36E600023C46 /* Build configuration list for PBXNativeTarget "DDJiOSUITests" */;
+			buildPhases = (
+				6B8D34D41DFA36E600023C46 /* Sources */,
+				6B8D34D51DFA36E600023C46 /* Frameworks */,
+				6B8D34D61DFA36E600023C46 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6B8D34DE1DFA36E600023C46 /* PBXTargetDependency */,
+			);
+			name = DDJiOSUITests;
+			productName = DDJiOSUITests;
+			productReference = 6B8D34D81DFA36E600023C46 /* DDJiOSUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		9A1862AC1DC10BFA0027D21E /* DDJiOS */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9A1862CD1DC10BFA0027D21E /* Build configuration list for PBXNativeTarget "DDJiOS" */;
@@ -187,13 +237,18 @@
 		9A1862A51DC10BFA0027D21E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0730;
+				LastSwiftUpdateCheck = 0810;
 				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = msoe;
 				TargetAttributes = {
+					6B8D34D71DFA36E600023C46 = {
+						CreatedOnToolsVersion = 8.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 9A1862AC1DC10BFA0027D21E;
+					};
 					9A1862AC1DC10BFA0027D21E = {
 						CreatedOnToolsVersion = 7.3;
-						LastSwiftMigration = 0800;
+						LastSwiftMigration = 0810;
 					};
 					9A1862C31DC10BFA0027D21E = {
 						CreatedOnToolsVersion = 7.3;
@@ -217,11 +272,19 @@
 			targets = (
 				9A1862AC1DC10BFA0027D21E /* DDJiOS */,
 				9A1862C31DC10BFA0027D21E /* DDJiOSTests */,
+				6B8D34D71DFA36E600023C46 /* DDJiOSUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		6B8D34D61DFA36E600023C46 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9A1862AB1DC10BFA0027D21E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -242,6 +305,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		6B8D34D41DFA36E600023C46 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6B8D34DB1DFA36E600023C46 /* DDJiOSUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9A1862A91DC10BFA0027D21E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -269,6 +340,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		6B8D34DE1DFA36E600023C46 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9A1862AC1DC10BFA0027D21E /* DDJiOS */;
+			targetProxy = 6B8D34DD1DFA36E600023C46 /* PBXContainerItemProxy */;
+		};
 		9A1862C61DC10BFA0027D21E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 9A1862AC1DC10BFA0027D21E /* DDJiOS */;
@@ -296,6 +372,35 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		6B8D34DF1DFA36E600023C46 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				INFOPLIST_FILE = DDJiOSUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = edu.msoe.seniordesign.DDJiOSUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = DDJiOS;
+			};
+			name = Debug;
+		};
+		6B8D34E01DFA36E600023C46 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				INFOPLIST_FILE = DDJiOSUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = edu.msoe.seniordesign.DDJiOSUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = DDJiOS;
+			};
+			name = Release;
+		};
 		9A1862CB1DC10BFA0027D21E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -339,7 +444,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PRELINK_LIBS = "SpotifyMetadata ApotifyAuthentication SpotifyAudioPlayback";
+				OTHER_LDFLAGS = "-ObjC";
+				PRELINK_LIBS = "SpotifyMetadata SpotifyAuthentication SpotifyAudioPlayback";
 				"PRELINK_LIBS[arch=*]" = "SpotifyAudioPlayback SpotifyMetadata SpotifyAuthentication";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -382,7 +488,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRELINK_LIBS = "SpotifyMetadata ApotifyAuthentication SpotifyAudioPlayback";
+				OTHER_LDFLAGS = "-ObjC";
+				PRELINK_LIBS = "SpotifyMetadata SpotifyAuthentication SpotifyAudioPlayback";
 				"PRELINK_LIBS[arch=*]" = "";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -394,6 +501,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -402,6 +510,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = msoesdl.DDJiOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "DDJiOS/DDJiOS-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -410,6 +520,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -418,6 +529,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = msoesdl.DDJiOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "DDJiOS/DDJiOS-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
@@ -459,6 +571,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		6B8D34E11DFA36E600023C46 /* Build configuration list for PBXNativeTarget "DDJiOSUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6B8D34DF1DFA36E600023C46 /* Debug */,
+				6B8D34E01DFA36E600023C46 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		9A1862A81DC10BFA0027D21E /* Build configuration list for PBXProject "DDJiOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
