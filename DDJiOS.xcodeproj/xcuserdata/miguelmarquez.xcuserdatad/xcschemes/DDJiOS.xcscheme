@@ -38,6 +38,16 @@
                ReferencedContainer = "container:DDJiOS.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "6B8D34D71DFA36E600023C46"
+               BuildableName = "DDJiOSUITests.xctest"
+               BlueprintName = "DDJiOSUITests"
+               ReferencedContainer = "container:DDJiOS.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
