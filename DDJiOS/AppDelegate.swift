@@ -52,6 +52,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SPTAudioStreamingDelegate
     
     // callback for spotify
     func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
+        print("Opened with URL!")
         if(self.auth?.canHandle(url as URL!))! {
             self.authViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
             self.auth!.handleAuthCallback(withTriggeredAuthURL: url as URL!, callback: {error, session in
