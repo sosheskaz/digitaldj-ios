@@ -42,9 +42,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SPTAudioStreamingDelegate
         }
         
         // Start authenticating when the app is finished launching
-        DispatchQueue.main.async(execute: {
+        /*DispatchQueue.main.async(execute: {
             doSpotifyAuthenticate(player: self.player!, auth: self.auth!, sourceViewController: self.window!.rootViewController!)
-        });
+        });*/
         
         // Override point for customization after application launch.
         return true
@@ -53,11 +53,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SPTAudioStreamingDelegate
     // callback for spotify
     func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
         print("Opened with URL!")
+        
         if(self.auth?.canHandle(url as URL!))! {
             self.authViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
             self.auth!.handleAuthCallback(withTriggeredAuthURL: url as URL!, callback: {error, session in
-                doSpotifyAuthenticate(player: self.player!, auth: self.auth!, sourceViewController: self.window!.rootViewController!)
+                doSpotifyAuthCallback(error: error, session: session)
             })
+        } else {
+            print("Could not handle URL: \"" + (url as URL!).absoluteString + "\"")
         }
         return true
     }
