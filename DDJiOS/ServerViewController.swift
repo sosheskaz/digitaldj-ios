@@ -21,6 +21,14 @@ class ServerViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
+        var req = DDJSPlaylistRequest(oauthTokens: [auth!.session.accessToken])
+        print("doing request")
+        req.doRequest(callback: {items in
+            print("Callback is here!")
+            print(String(describing: items))
+        })
+        
         SPTUser.requestCurrentUser(withAccessToken: auth!.session.accessToken, callback: {error, user in
             do {
                 let req = try SPTRequest.createRequest(for: URL(string: "https://api.spotify.com/v1/me/top/tracks"), withAccessToken: self.auth!.session.accessToken, httpMethod: "GET", values: nil, valueBodyIsJSON: false, sendDataAsQueryString: false)

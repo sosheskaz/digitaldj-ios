@@ -18,6 +18,9 @@
 		6B2BE6481DF6BAEB005AE702 /* SpotifyMetadata.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B2BE6421DF6BAEB005AE702 /* SpotifyMetadata.framework */; };
 		6B8D34DB1DFA36E600023C46 /* DDJiOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B8D34DA1DFA36E600023C46 /* DDJiOSUITests.swift */; };
 		6B98D7E31DF6BFF5005118E9 /* SpotifyProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B98D7E21DF6BFF5005118E9 /* SpotifyProfile.swift */; };
+		6B9DB7A71E01D16F00BAAF73 /* DDJSPlaylistRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B9DB7A61E01D16F00BAAF73 /* DDJSPlaylistRequest.swift */; };
+		6B9DB7AA1E01D4FF00BAAF73 /* DDJSPlaylistResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B9DB7A91E01D4FF00BAAF73 /* DDJSPlaylistResponse.swift */; };
+		6B9DB7AC1E01D69300BAAF73 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 6B9DB7AB1E01D69300BAAF73 /* Podfile */; };
 		6B9E22511DC73468001F1871 /* ZeroconfClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B9E224F1DC73468001F1871 /* ZeroconfClient.swift */; };
 		6B9E22521DC73468001F1871 /* ZeroconfServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B9E22501DC73468001F1871 /* ZeroconfServer.swift */; };
 		6B9E22541DC73AAC001F1871 /* ZeroconfTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B9E22531DC73AAC001F1871 /* ZeroconfTableView.swift */; };
@@ -61,6 +64,9 @@
 		6B8D34DA1DFA36E600023C46 /* DDJiOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDJiOSUITests.swift; sourceTree = "<group>"; };
 		6B8D34DC1DFA36E600023C46 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6B98D7E21DF6BFF5005118E9 /* SpotifyProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotifyProfile.swift; sourceTree = "<group>"; };
+		6B9DB7A61E01D16F00BAAF73 /* DDJSPlaylistRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DDJSPlaylistRequest.swift; path = ../DDJSPlaylistRequest.swift; sourceTree = "<group>"; };
+		6B9DB7A91E01D4FF00BAAF73 /* DDJSPlaylistResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDJSPlaylistResponse.swift; sourceTree = "<group>"; };
+		6B9DB7AB1E01D69300BAAF73 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 		6B9E224F1DC73468001F1871 /* ZeroconfClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZeroconfClient.swift; sourceTree = "<group>"; };
 		6B9E22501DC73468001F1871 /* ZeroconfServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZeroconfServer.swift; sourceTree = "<group>"; };
 		6B9E22531DC73AAC001F1871 /* ZeroconfTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZeroconfTableView.swift; sourceTree = "<group>"; };
@@ -130,6 +136,15 @@
 			path = DDJiOSUITests;
 			sourceTree = "<group>";
 		};
+		6B9DB7A81E01D17700BAAF73 /* DDJS */ = {
+			isa = PBXGroup;
+			children = (
+				6B9DB7A61E01D16F00BAAF73 /* DDJSPlaylistRequest.swift */,
+				6B9DB7A91E01D4FF00BAAF73 /* DDJSPlaylistResponse.swift */,
+			);
+			name = DDJS;
+			sourceTree = "<group>";
+		};
 		9A1862A41DC10BFA0027D21E = {
 			isa = PBXGroup;
 			children = (
@@ -153,6 +168,7 @@
 		9A1862AF1DC10BFA0027D21E /* DDJiOS */ = {
 			isa = PBXGroup;
 			children = (
+				6B9DB7A81E01D17700BAAF73 /* DDJS */,
 				6B2BE63F1DF6BA7C005AE702 /* Frameworks */,
 				9A1862B01DC10BFA0027D21E /* AppDelegate.swift */,
 				9A1862B21DC10BFA0027D21E /* ViewController.swift */,
@@ -171,6 +187,7 @@
 				6B12AA7B1DF73B2D00170297 /* DDJiOS-Bridging-Header.h */,
 				6B0744CD1DFB66FE0052AE50 /* SpotifyAuthentication.swift */,
 				6B21193A1DFF7D5400F12963 /* LandingViewController.swift */,
+				6B9DB7AB1E01D69300BAAF73 /* Podfile */,
 			);
 			path = DDJiOS;
 			sourceTree = "<group>";
@@ -300,6 +317,7 @@
 			files = (
 				9A1862BE1DC10BFA0027D21E /* LaunchScreen.storyboard in Resources */,
 				9A1862BB1DC10BFA0027D21E /* Assets.xcassets in Resources */,
+				6B9DB7AC1E01D69300BAAF73 /* Podfile in Resources */,
 				9A1862B61DC10BFA0027D21E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -327,11 +345,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				6B98D7E31DF6BFF5005118E9 /* SpotifyProfile.swift in Sources */,
+				6B9DB7AA1E01D4FF00BAAF73 /* DDJSPlaylistResponse.swift in Sources */,
 				6B9E22511DC73468001F1871 /* ZeroconfClient.swift in Sources */,
 				6B21193B1DFF7D5400F12963 /* LandingViewController.swift in Sources */,
 				6BCF2D301DD0310900C67ED3 /* ServerSetupViewController.swift in Sources */,
 				9A1862B91DC10BFA0027D21E /* DDJiOS.xcdatamodeld in Sources */,
 				6B21193D1DFFBFDC00F12963 /* StreamingViewController.swift in Sources */,
+				6B9DB7A71E01D16F00BAAF73 /* DDJSPlaylistRequest.swift in Sources */,
 				6B9E22521DC73468001F1871 /* ZeroconfServer.swift in Sources */,
 				9A1862B31DC10BFA0027D21E /* ViewController.swift in Sources */,
 				6B0744CE1DFB66FE0052AE50 /* SpotifyAuthentication.swift in Sources */,
