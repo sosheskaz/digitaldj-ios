@@ -28,7 +28,6 @@
 		6BD3B4A11E08C569005CF098 /* ClientData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD3B4A01E08C569005CF098 /* ClientData.swift */; };
 		6BD3B4A31E08C5E4005CF098 /* ServerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD3B4A21E08C5E4005CF098 /* ServerData.swift */; };
 		6BF4C5121E0B146E0091BA0E /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = 6BF4C5111E0B146E0091BA0E /* Cartfile */; };
-		6BF4C5141E0B18B10091BA0E /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BF4C5131E0B18B10091BA0E /* Alamofire.framework */; };
 		9A1862B11DC10BFA0027D21E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1862B01DC10BFA0027D21E /* AppDelegate.swift */; };
 		9A1862B31DC10BFA0027D21E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1862B21DC10BFA0027D21E /* ViewController.swift */; };
 		9A1862B61DC10BFA0027D21E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A1862B41DC10BFA0027D21E /* Main.storyboard */; };
@@ -79,7 +78,6 @@
 		6BD3B4A01E08C569005CF098 /* ClientData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientData.swift; sourceTree = "<group>"; };
 		6BD3B4A21E08C5E4005CF098 /* ServerData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerData.swift; sourceTree = "<group>"; };
 		6BF4C5111E0B146E0091BA0E /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
-		6BF4C5131E0B18B10091BA0E /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = DDJiOS/Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		9A1862AD1DC10BFA0027D21E /* DDJiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DDJiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A1862B01DC10BFA0027D21E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9A1862B21DC10BFA0027D21E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -105,7 +103,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				6B71EF051E0B2E46002400C9 /* SpotifyMetadata.framework in Frameworks */,
-				6BF4C5141E0B18B10091BA0E /* Alamofire.framework in Frameworks */,
 				6B71EF041E0B2E46002400C9 /* SpotifyAuthentication.framework in Frameworks */,
 				6B71EF031E0B2E46002400C9 /* SpotifyAudioPlayback.framework in Frameworks */,
 			);
@@ -127,7 +124,6 @@
 				6B71EF001E0B2E46002400C9 /* SpotifyAudioPlayback.framework */,
 				6B71EF011E0B2E46002400C9 /* SpotifyAuthentication.framework */,
 				6B71EF021E0B2E46002400C9 /* SpotifyMetadata.framework */,
-				6BF4C5131E0B18B10091BA0E /* Alamofire.framework */,
 			);
 			name = Frameworks;
 			path = ..;
