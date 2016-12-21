@@ -9,11 +9,11 @@
 import XCTest
 @testable import DDJiOS
 
-let sampleUserTokens: Array<String> = ["User Token 1", "User Token 2", "User Token 3", "User Token 4", "User Token 5"].sorted()
-let deserializableString: String = "{\"userTokens\": [ \"User Token 1\", \"User Token 2\", \"User Token 3\", \"User Token 4\", \"User Token 5\"]}"
+private let sampleUserTokens: Array<String> = ["User Token 1", "User Token 2", "User Token 3", "User Token 4", "User Token 5"].sorted()
+private let deserializableString: String = "{\"userTokens\": [ \"User Token 1\", \"User Token 2\", \"User Token 3\", \"User Token 4\", \"User Token 5\"]}"
 
 class ServerDataTest: XCTestCase {
-    var data: ServerData = ServerData()
+    var data: ServerData? = ServerData()
     
     override func setUp() {
         super.setUp()
@@ -30,10 +30,10 @@ class ServerDataTest: XCTestCase {
     
     func testAddTokens() {
         for token in sampleUserTokens {
-            data.addUserToken(token: token)
+            data!.addUserToken(token: token)
         }
         
-        var resultingTokens = data.getUserTokens().sorted()
+        var resultingTokens = data!.getUserTokens().sorted()
         
         for i in 0...(sampleUserTokens.count - 1) {
             XCTAssert(sampleUserTokens[i] == resultingTokens[i])
@@ -46,11 +46,13 @@ class ServerDataTest: XCTestCase {
     func testRemoveTokens() {
         data = ServerData(userTokens: sampleUserTokens)
         
-        data.removeUserToken(token: sampleUserTokens[0])
-        data.removeUserToken(token: sampleUserTokens[3])
-        data.removeUserToken(token: sampleUserTokens[4])
+        XCTAssert(self.data != nil, "data was nil.")
         
-        let resultingTokens = data.getUserTokens().sorted()
+        data!.removeUserToken(token: sampleUserTokens[0])
+        data!.removeUserToken(token: sampleUserTokens[3])
+        data!.removeUserToken(token: sampleUserTokens[4])
+        
+        let resultingTokens = data!.getUserTokens().sorted()
         
         XCTAssert(resultingTokens.contains(sampleUserTokens[1]))
         XCTAssert(resultingTokens.contains(sampleUserTokens[2]))
@@ -60,32 +62,27 @@ class ServerDataTest: XCTestCase {
         XCTAssert(resultingTokens.count == sampleUserTokens.count - 3)
     }
     
-    func testSerialize() {
-        data = ServerData(userTokens: sampleUserTokens)
-        let json = data.toJson()!
-        
-        data = ServerData()
-        data.fill(fromJson: json)
-        
-        let resultingTokens = data.getUserTokens().sorted()
+    func testInitFromJson() {
+        self.data = ServerData(fromJson: deserializableString)
+        XCTAssert(self.data != nil, "data was nil.")
+        let resultingTokens = self.data!.getUserTokens().sorted()
         for i in 0...(sampleUserTokens.count - 1) {
             XCTAssert(sampleUserTokens[i] == resultingTokens[i])
         }
     }
     
-    func testDeserialize() {
-        do {
-            data = ServerData()
-            data.fill(fromJson: deserializableString)
-            
-            let resultingTokens = data.getUserTokens().sorted()
-            XCTAssert(resultingTokens.count == 5)
-            for i in 0...(sampleUserTokens.count - 1) {
-                XCTAssert(sampleUserTokens[i] == resultingTokens[i])
-            }
-            
-        } catch {
-            XCTAssert(false)
+    func testToJson() {
+        self.data = ServerData(fromJson: deserializableString)
+        XCTAssert(self.data != nil, "data was nil.")
+        let jsonString: String? = self.data!.toJson()
+        self.data = (ServerData(fromJson: jsonString!))!
+        XCTAssert(self.data != nil, "data was nil")
+        
+        let resultingTokens = self.data!.getUserTokens().sorted()
+        XCTAssert(resultingTokens != nil, "User tokens was nil")
+        XCTAssert(resultingTokens.count == sampleUserTokens.count)
+        for i in 0...(sampleUserTokens.count - 1) {
+            XCTAssert(sampleUserTokens[i] == resultingTokens[i])
         }
     }
 }

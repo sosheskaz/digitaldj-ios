@@ -9,20 +9,26 @@
 import Foundation
 import WebKit
 
-let defaultEndpoint: String = "http://digitaldj.us-west-2.elasticbeanstalk.com/api/v1"
+let defaultEndpoint: String = "https://DigitalDJ-1142864711.us-west-2.elb.amazonaws.com"
 
 class DDJSPlaylistRequest {
-    let endpoint: String
-    let endpointUrl: URL
-    let session = URLSession(configuration: .default)
+    var endpoint: String = defaultEndpoint
+    var endpointUrl: URL
+    var session = URLSession(configuration: .default)
     var jsonDict: Any
     
-    init(endpoint: String = defaultEndpoint, oauthTokens: Array<String>) {
+    convenience init(endpoint: String = defaultEndpoint, oauthTokens: Array<String>) {
+        self.init()
         self.endpoint = endpoint
         self.endpointUrl = URL(string: self.endpoint)!
         self.jsonDict = [
             "authTokens": oauthTokens
         ]
+    }
+    
+    init() {
+        self.endpointUrl = URL(string: self.endpoint)!
+        self.jsonDict = []
     }
     
     func doRequest(callback: @escaping (Any) -> Void) -> Void {
@@ -31,16 +37,18 @@ class DDJSPlaylistRequest {
             var request = URLRequest(url: self.endpointUrl)
             request.httpMethod = "POST"
             do {
-                var json = try JSONSerialization.data(withJSONObject: self.jsonDict)
+                let json = try JSONSerialization.data(withJSONObject: self.jsonDict)
                 let postString = "\"" + String(data: json, encoding: String.Encoding.utf8)! + "\""
+                request.httpBody = postString.data(using: String.Encoding.utf8)
             } catch {
                 print("uh oh spaggettios")
             }
             
             let task = self.session.dataTask(with: request, completionHandler: { data, response, error in
                 print("Doing URLSession DataTask")
+                print(data == nil)
                 guard let data = data, error == nil else {                                                 // check for fundamental networking error
-                    print("error=\(error)")
+                    print("error=\(error!)")
                     return
                 }
                 

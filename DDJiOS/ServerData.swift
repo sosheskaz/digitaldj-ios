@@ -8,15 +8,10 @@
 
 import Foundation
 
-let tokensName = "userTokens"
+private let tokensName = "userTokens"
 
-class ServerData: NSCoding {
+class ServerData {
     private var oauthTokens: Set<String> = Set<String>()
-    
-    required convenience init(coder decoder: NSCoder) {
-        self.init()
-        self.oauthTokens = Set(decoder.decodeObject(forKey: tokensName) as! Array<String>)
-    }
     
     convenience init(userTokens: Array<String> = []) {
         self.init()
@@ -29,8 +24,16 @@ class ServerData: NSCoding {
         self.oauthTokens = Set(data[tokensName] as! Array<String>)
     }
     
-    func encode(with aCoder: NSCoder) {
-        aCoder.encode(oauthTokens, forKey: tokensName)
+    init() {
+    }
+    
+    init?(fromJson json: String) {
+        do {
+            let data = try JSONSerialization.jsonObject(with: json.data(using: String.Encoding.utf8)!, options: JSONSerialization.ReadingOptions()) as AnyObject
+            self.oauthTokens = Set<String>(data[tokensName] as! Array<String>)
+        } catch {
+            return nil
+        }
     }
     
     public func addUserToken(token: String) {
@@ -51,18 +54,6 @@ class ServerData: NSCoding {
     
     public func clear() {
         oauthTokens.removeAll()
-    }
-    
-    public func fill(fromJson json: String) -> Bool{
-        do {
-            let data = try JSONSerialization.jsonObject(with: json.data(using: String.Encoding.utf8)!, options: JSONSerialization.ReadingOptions()) as AnyObject
-            
-            self.oauthTokens = self.oauthTokens.union(Set(data[tokensName] as! Array<String>))
-        } catch {
-            return false
-        }
-        
-        return true
     }
     
     public func toJson() -> String? {

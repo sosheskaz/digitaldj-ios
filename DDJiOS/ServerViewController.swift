@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import Alamofire
 
 class ServerViewController: UIViewController {
     let player: SPTAudioStreamingController = SPTAudioStreamingController.sharedInstance()
@@ -34,8 +35,13 @@ class ServerViewController: UIViewController {
                 let req = try SPTRequest.createRequest(for: URL(string: "https://api.spotify.com/v1/me/top/tracks"), withAccessToken: self.auth!.session.accessToken, httpMethod: "GET", values: nil, valueBodyIsJSON: false, sendDataAsQueryString: false)
                 SPTRequest.sharedHandler().perform(req, callback: {error, response, data in
                     do {
-                        var pll = String(bytes: data!, encoding: String.Encoding.utf8)
-                    print(pll)
+                        guard let data = data, error == nil else {
+                            print("error=\(error)")
+                            return
+                        }
+                        
+                        var pll = String(bytes: data, encoding: String.Encoding.utf8)
+                        print(pll)
                     } catch {
                         
                     }
