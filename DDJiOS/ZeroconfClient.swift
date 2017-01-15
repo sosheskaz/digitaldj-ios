@@ -60,6 +60,7 @@ private class ZeroconfDelegate: NSObject, NetServiceBrowserDelegate {
         if(!self.data.discoveredServices.contains(sender)) {
             self.data.discoveredServices.insert(sender)
         }
+        
         print("netServiceDidPublish: " + sender.hostName!)
     }
 

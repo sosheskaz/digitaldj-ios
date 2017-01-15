@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="igE-oT-Pej">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -30,7 +30,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Spotify Login" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eft-20-Pz7">
-                                <rect key="frame" x="112" y="28" width="150" height="36"/>
+                                <rect key="frame" x="111.5" y="28" width="150" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <nil key="textColor"/>
@@ -71,12 +71,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1084" y="443.92803598200902"/>
+            <point key="canvasLocation" x="802" y="457"/>
         </scene>
         <!--Mode Selector-->
         <scene sceneID="fgd-wb-4ee">
             <objects>
-                <viewController title="Mode Selector" id="igE-oT-Pej" sceneMemberID="viewController">
+                <viewController title="Mode Selector" id="igE-oT-Pej" customClass="LandingViewController" customModule="DDJiOS" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="guy-MG-IRi"/>
                         <viewControllerLayoutGuide type="bottom" id="Qxx-fV-7MB"/>
@@ -374,7 +374,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <state key="normal" title="Disconnect"/>
                                 <connections>
-                                    <segue destination="pkQ-Hw-f7M" kind="show" id="gJr-GI-ysT"/>
+                                    <segue destination="igE-oT-Pej" kind="show" id="FH8-qD-fWe"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -405,7 +405,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Vd9-FG-zPR"/>
-        <segue reference="gJr-GI-ysT"/>
+        <segue reference="FH8-qD-fWe"/>
     </inferredMetricsTieBreakers>
 </document>
