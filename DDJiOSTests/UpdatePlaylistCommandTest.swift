@@ -51,6 +51,8 @@ class UpdatePlaylistCommandTest: XCTestCase {
             XCTAssert(false, "Deserialization failed.")
             return
         }
+        
+        XCTAssert(des!["command"] as! String == "updatePlaylist", "Expected=updatePlaylist Actual=\(des!["command"])")
         XCTAssert(des != nil, "deserialization downcast failed.")
         XCTAssert(des!["currentlyPlaying"] as! String == sampleQueue[0],
                   "Currently Playing: Expected=\(sampleQueue[0]) Actual=\(cmd.currentlyPlaying)")
