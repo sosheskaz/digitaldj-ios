@@ -14,6 +14,7 @@
 		6B1AE2291E2B01F200FD2D68 /* HeartbeatCommandTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1AE2281E2B01F200FD2D68 /* HeartbeatCommandTest.swift */; };
 		6B1AE22B1E2B070900FD2D68 /* HeartbeatAckCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1AE22A1E2B070900FD2D68 /* HeartbeatAckCommand.swift */; };
 		6B1AE22D1E2B077100FD2D68 /* HeartbeatTimeoutCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1AE22C1E2B077100FD2D68 /* HeartbeatTimeoutCommand.swift */; };
+		6B1AE22F1E2B0AF000FD2D68 /* SwiftSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B1AE22E1E2B0AF000FD2D68 /* SwiftSocket.framework */; };
 		6B21193B1DFF7D5400F12963 /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B21193A1DFF7D5400F12963 /* LandingViewController.swift */; };
 		6B21193D1DFFBFDC00F12963 /* StreamingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B21193C1DFFBFDC00F12963 /* StreamingViewController.swift */; };
 		6B6BBE341E08CAD4004A311F /* ServerDataTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6BBE331E08CAD4004A311F /* ServerDataTest.swift */; };
@@ -96,6 +97,7 @@
 		6B1AE2281E2B01F200FD2D68 /* HeartbeatCommandTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeartbeatCommandTest.swift; sourceTree = "<group>"; };
 		6B1AE22A1E2B070900FD2D68 /* HeartbeatAckCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeartbeatAckCommand.swift; sourceTree = "<group>"; };
 		6B1AE22C1E2B077100FD2D68 /* HeartbeatTimeoutCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeartbeatTimeoutCommand.swift; sourceTree = "<group>"; };
+		6B1AE22E1E2B0AF000FD2D68 /* SwiftSocket.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftSocket.framework; path = Carthage/Build/iOS/SwiftSocket.framework; sourceTree = "<group>"; };
 		6B21193A1DFF7D5400F12963 /* LandingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
 		6B21193C1DFFBFDC00F12963 /* StreamingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StreamingViewController.swift; sourceTree = "<group>"; };
 		6B6BBE331E08CAD4004A311F /* ServerDataTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerDataTest.swift; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 				6BD7080E1E22A5A90008E7A2 /* SpotifyAudioPlayback.framework in Frameworks */,
 				6BD7080F1E22A5A90008E7A2 /* SpotifyAuthentication.framework in Frameworks */,
 				6BD708101E22A5A90008E7A2 /* SpotifyMetadata.framework in Frameworks */,
+				6B1AE22F1E2B0AF000FD2D68 /* SwiftSocket.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -172,6 +175,7 @@
 		6B2BE63F1DF6BA7C005AE702 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6B1AE22E1E2B0AF000FD2D68 /* SwiftSocket.framework */,
 				6BD707FF1E22A3E30008E7A2 /* Alamofire.framework */,
 				6B71EF001E0B2E46002400C9 /* SpotifyAudioPlayback.framework */,
 				6B71EF011E0B2E46002400C9 /* SpotifyAuthentication.framework */,
