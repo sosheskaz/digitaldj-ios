@@ -12,10 +12,22 @@ private let userIdLabel = "spotifyId"
 private let topTracksLabel = "topTracks"
 
 class NewUserCommand: ClientHostCommand {
-    static var command: String = "newUser"
+    static var command: CommandType = .newUser
+    static var destPort: CommandPort = .host
     
     var spotifyId: String = ""
     var topTracks: [String] = []
+    
+    required init?(from data: Data) {
+        do {
+            let dict = try JSONSerialization.jsonObject(with: data, options: []) as AnyObject
+            
+            self.spotifyId = dict[userIdLabel] as! String
+            self.topTracks = dict[topTracksLabel] as! [String]
+        } catch {
+            return nil
+        }
+    }
     
     init(userId: String, topTracks: [String]) {
         self.spotifyId = userId
@@ -24,7 +36,7 @@ class NewUserCommand: ClientHostCommand {
     
     var json: Data? {
         let dict: Dictionary<String, AnyObject> =
-            [commandLabel: NewUserCommand.command as AnyObject,
+            [commandLabel: NewUserCommand.command.rawValue as AnyObject,
              userIdLabel: self.spotifyId as AnyObject,
              topTracksLabel: self.topTracks as AnyObject]
         do {

@@ -12,12 +12,27 @@ private let currentlyPlayingLabel: String = "currentlyPlaying"
 private let queueLabel: String = "queue"
 
 class UpdatePlaylistCommand: HostClientCommand {
-    static var command: String = "updatePlaylist"
+    static var command: CommandType = .updatePlaylist
+    static var destPort: CommandPort = .client
+    
     var currentlyPlaying: String
     var queue: Array<String>
+    
+    required init?(from data: Data) {
+        do {
+            let dict = try JSONSerialization.jsonObject(with: data, options: []) as AnyObject
+            
+            self.currentlyPlaying = dict[currentlyPlayingLabel] as! String
+            self.queue = dict[queueLabel] as! [String]
+        } catch {
+            return nil
+        }
+    }
+    
+    
     var json: Data? {
         let dict: Dictionary<String, AnyObject> =
-            [commandLabel: UpdatePlaylistCommand.command as AnyObject,
+            [commandLabel: UpdatePlaylistCommand.command.rawValue as AnyObject,
              currentlyPlayingLabel: self.currentlyPlaying as AnyObject,
              queueLabel: self.queue as AnyObject]
         do {

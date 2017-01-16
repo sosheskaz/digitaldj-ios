@@ -9,11 +9,22 @@
 import Foundation
 
 class HeartbeatCommand: HostClientCommand {
-    static var command: String = "heartbeat"
+    static var command: CommandType = .heartbeat
+    static var destPort: CommandPort = .client
+    
+    init() {}
+    
+    required init?(from data: Data) {
+        do {
+            let _ = try JSONSerialization.jsonObject(with: data, options: []) as AnyObject
+        } catch {
+            return nil
+        }
+    }
     
     var json: Data? {
         let dict: Dictionary<String, AnyObject> =
-            [commandLabel: HeartbeatCommand.command as AnyObject]
+            [commandLabel: HeartbeatCommand.command.rawValue as AnyObject]
         do {
             return try JSONSerialization.data(withJSONObject: dict, options: [])
         } catch {

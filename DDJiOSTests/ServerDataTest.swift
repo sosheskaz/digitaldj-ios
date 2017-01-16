@@ -79,7 +79,6 @@ class ServerDataTest: XCTestCase {
         XCTAssert(self.data != nil, "data was nil")
         
         let resultingTokens = self.data!.getUserTokens().sorted()
-        XCTAssert(resultingTokens != nil, "User tokens was nil")
         XCTAssert(resultingTokens.count == sampleUserTokens.count)
         for i in 0...(sampleUserTokens.count - 1) {
             XCTAssert(sampleUserTokens[i] == resultingTokens[i])

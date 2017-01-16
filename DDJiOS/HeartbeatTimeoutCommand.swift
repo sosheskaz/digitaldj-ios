@@ -7,12 +7,21 @@
 //
 
 import Foundation
-class HeartbeatTimeoutCommand {
-    static var command: String = "heartbeatTimeout"
+class HeartbeatTimeoutCommand: HostClientCommand {
+    static var command: CommandType = .heartbeatTimeout
+    static var destPort: CommandPort = .client
+    
+    required init?(from data: Data) {
+        do {
+            _ = try JSONSerialization.jsonObject(with: data, options: []) as AnyObject
+        } catch {
+            return nil
+        }
+    }
     
     var json: Data? {
         let dict: Dictionary<String, AnyObject> =
-            [commandLabel: HeartbeatTimeoutCommand.command as AnyObject]
+            [commandLabel: HeartbeatTimeoutCommand.command.rawValue as AnyObject]
         do {
             return try JSONSerialization.data(withJSONObject: dict, options: [])
         } catch {
