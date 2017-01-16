@@ -20,12 +20,6 @@ protocol Command {
 }
 
 extension Command {
-    var destPort: CommandPort {
-        get {
-            return CommandPort.commandPort
-        }
-    }
-    
     func execute(_ address: String)  -> Bool {
         let client = TCPClient(address: address, port: Self.destPort.rawValue)
         

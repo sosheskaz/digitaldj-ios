@@ -11,3 +11,11 @@ import Foundation
 protocol HostClientCommand: Command {
     
 }
+
+extension HostClientCommand {
+    static var destPort: CommandPort {
+        get {
+            return .client
+        }
+    }
+}

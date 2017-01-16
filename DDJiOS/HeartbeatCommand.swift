@@ -10,13 +10,23 @@ import Foundation
 
 class HeartbeatCommand: HostClientCommand {
     static var command: CommandType = .heartbeat
-    static var destPort: CommandPort = .client
+    
+    var address: String? = nil
     
     init() {}
     
     required init?(from data: Data) {
         do {
             let _ = try JSONSerialization.jsonObject(with: data, options: []) as AnyObject
+        } catch {
+            return nil
+        }
+    }
+    
+    init?(from data: Data, address: String){
+        do {
+            let _ = try JSONSerialization.jsonObject(with: data, options: []) as AnyObject
+            self.address = address
         } catch {
             return nil
         }

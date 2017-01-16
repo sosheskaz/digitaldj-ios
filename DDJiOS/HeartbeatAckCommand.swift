@@ -12,7 +12,6 @@ private let userIdLabel = "userId"
 
 class HeartbeatAckCommand: ClientHostCommand {
     static var command: CommandType = .heartbeatAck
-    static var destPort: CommandPort = .host
     
     var userId: String?
     

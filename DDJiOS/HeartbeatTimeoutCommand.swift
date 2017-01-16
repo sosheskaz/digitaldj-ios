@@ -9,7 +9,6 @@
 import Foundation
 class HeartbeatTimeoutCommand: HostClientCommand {
     static var command: CommandType = .heartbeatTimeout
-    static var destPort: CommandPort = .client
     
     required init?(from data: Data) {
         do {

@@ -81,7 +81,7 @@ class CommandRunner {
             var cmd: Command?
             switch cmdType! {
             case .heartbeat:
-                cmd = HeartbeatCommand(from: data)
+                cmd = HeartbeatCommand(from: data, address: address)
                 break
             case .heartbeatAck:
                 cmd = HeartbeatAckCommand(from: data, client: address)

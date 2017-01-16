@@ -13,7 +13,6 @@ private let queueLabel: String = "queue"
 
 class UpdatePlaylistCommand: HostClientCommand {
     static var command: CommandType = .updatePlaylist
-    static var destPort: CommandPort = .client
     
     var currentlyPlaying: String
     var queue: Array<String>

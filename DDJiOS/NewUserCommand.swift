@@ -13,7 +13,6 @@ private let topTracksLabel = "topTracks"
 
 class NewUserCommand: ClientHostCommand {
     static var command: CommandType = .newUser
-    static var destPort: CommandPort = .host
     
     var spotifyId: String = ""
     var topTracks: [String] = []
