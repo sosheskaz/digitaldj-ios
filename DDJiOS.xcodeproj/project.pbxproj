@@ -32,6 +32,8 @@
 		6B8D34DB1DFA36E600023C46 /* DDJiOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B8D34DA1DFA36E600023C46 /* DDJiOSUITests.swift */; };
 		6B973A211E2D517B002DCE12 /* ClientCommandListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B973A201E2D517B002DCE12 /* ClientCommandListener.swift */; };
 		6B973A241E2D576E002DCE12 /* ServerIdTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B973A231E2D576E002DCE12 /* ServerIdTableCell.swift */; };
+		6B973A261E2DBFFE002DCE12 /* HostCommandListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B973A251E2DBFFE002DCE12 /* HostCommandListener.swift */; };
+		6B973A281E2DC11A002DCE12 /* TimeoutTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B973A271E2DC11A002DCE12 /* TimeoutTable.swift */; };
 		6B98D7E31DF6BFF5005118E9 /* SpotifyProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B98D7E21DF6BFF5005118E9 /* SpotifyProfile.swift */; };
 		6B9DB7A71E01D16F00BAAF73 /* DDJSPlaylistRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B9DB7A61E01D16F00BAAF73 /* DDJSPlaylistRequest.swift */; };
 		6B9DB7AA1E01D4FF00BAAF73 /* DDJSPlaylistResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B9DB7A91E01D4FF00BAAF73 /* DDJSPlaylistResponse.swift */; };
@@ -127,6 +129,8 @@
 		6B8D34DC1DFA36E600023C46 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6B973A201E2D517B002DCE12 /* ClientCommandListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientCommandListener.swift; sourceTree = "<group>"; };
 		6B973A231E2D576E002DCE12 /* ServerIdTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerIdTableCell.swift; sourceTree = "<group>"; };
+		6B973A251E2DBFFE002DCE12 /* HostCommandListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HostCommandListener.swift; sourceTree = "<group>"; };
+		6B973A271E2DC11A002DCE12 /* TimeoutTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeoutTable.swift; sourceTree = "<group>"; };
 		6B98D7E21DF6BFF5005118E9 /* SpotifyProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotifyProfile.swift; sourceTree = "<group>"; };
 		6B9DB7A61E01D16F00BAAF73 /* DDJSPlaylistRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DDJSPlaylistRequest.swift; path = ../DDJSPlaylistRequest.swift; sourceTree = "<group>"; };
 		6B9DB7A91E01D4FF00BAAF73 /* DDJSPlaylistResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDJSPlaylistResponse.swift; sourceTree = "<group>"; };
@@ -213,6 +217,7 @@
 				6B1AE22C1E2B077100FD2D68 /* HeartbeatTimeoutCommand.swift */,
 				6B08B8A71E2C1F7800D94898 /* CommandRunner.swift */,
 				6B973A201E2D517B002DCE12 /* ClientCommandListener.swift */,
+				6B973A251E2DBFFE002DCE12 /* HostCommandListener.swift */,
 			);
 			name = Commands;
 			sourceTree = "<group>";
@@ -271,6 +276,7 @@
 				6B7110EC1E2AEB88007E28B8 /* Commands */,
 				6BD3B4A01E08C569005CF098 /* ClientData.swift */,
 				6BD3B4A21E08C5E4005CF098 /* ServerData.swift */,
+				6B973A271E2DC11A002DCE12 /* TimeoutTable.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -499,6 +505,7 @@
 				6B1AE2251E2B017200FD2D68 /* HeartbeatCommand.swift in Sources */,
 				6B9DB7AA1E01D4FF00BAAF73 /* DDJSPlaylistResponse.swift in Sources */,
 				6B973A211E2D517B002DCE12 /* ClientCommandListener.swift in Sources */,
+				6B973A261E2DBFFE002DCE12 /* HostCommandListener.swift in Sources */,
 				6B08B8A81E2C1F7800D94898 /* CommandRunner.swift in Sources */,
 				6B9E22511DC73468001F1871 /* ZeroconfClient.swift in Sources */,
 				6B21193B1DFF7D5400F12963 /* LandingViewController.swift in Sources */,
@@ -515,6 +522,7 @@
 				6B7110F21E2AEC7D007E28B8 /* ClientHostCommand.swift in Sources */,
 				6BCF2D2E1DD028D200C67ED3 /* ServerViewController.swift in Sources */,
 				6BD3B4A31E08C5E4005CF098 /* ServerData.swift in Sources */,
+				6B973A281E2DC11A002DCE12 /* TimeoutTable.swift in Sources */,
 				6B9E22541DC73AAC001F1871 /* ZeroconfTableView.swift in Sources */,
 				6B1AE22B1E2B070900FD2D68 /* HeartbeatAckCommand.swift in Sources */,
 				9A1862B11DC10BFA0027D21E /* AppDelegate.swift in Sources */,

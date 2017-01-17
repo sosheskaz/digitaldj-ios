@@ -14,6 +14,7 @@ class HeartbeatAckCommand: ClientHostCommand {
     static var command: CommandType = .heartbeatAck
     
     var userId: String?
+    var address: String?
     
     required init?(from data: Data) {
         do {
@@ -28,7 +29,7 @@ class HeartbeatAckCommand: ClientHostCommand {
     
     convenience init?(from data: Data, client: String? = nil) {
         self.init(from: data)
-        self.userId = userId!
+        self.address = client
     }
     
     var json: Data? {
