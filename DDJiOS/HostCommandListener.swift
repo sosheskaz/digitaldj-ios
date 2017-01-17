@@ -9,9 +9,7 @@
 import Foundation
 
 class HostCommandListener: CommandRunner {
-    static let shared = HostCommandListener()
-    
-    var clientTimeouts: TimeoutTable = TimeoutTable()
+    static let sharedHostListener = HostCommandListener()
     
     init() {
         super.init(.host)

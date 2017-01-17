@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import WebKit
 
 class ZeroconfTableView: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet var zcTableView: UITableView? = nil
@@ -22,7 +23,7 @@ class ZeroconfTableView: UIViewController, UITableViewDataSource, UITableViewDel
         self.myTimer = Timer(timeInterval: 0.5, target: self, selector: #selector(self.refresh), userInfo: nil, repeats: true)
         items = Array<NetService>(client.getFoundServices())
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // https://www.weheartswift.com/how-to-make-a-simple-table-view-with-ios-8-and-swift/
         
@@ -30,21 +31,79 @@ class ZeroconfTableView: UIViewController, UITableViewDataSource, UITableViewDel
         cell.textLabel?.text = items[indexPath.row].name
         return cell
     }
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return items.count
     }
-
+    
     func refresh() {
         print("refresh")
         items = Array<NetService>(client.getFoundServices())
         print(items)
         self.zcTableView?.reloadData()
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         RunLoop.main.add(self.myTimer!, forMode: RunLoopMode.defaultRunLoopMode)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ServerSelectSegue" {
+            if let destination = segue.destination as? ClientViewController {
+                destination.hostAddress = netServiceDidResolveAddress(items[selected])
+            }
+        }
+    }
+    
+    // http://stackoverflow.com/questions/38197198/swift-3-how-to-resolve-netservice-ip
+    // ;_; what has my life become
+    func netServiceDidResolveAddress(_ sender: NetService) -> String? {
+        guard sender.addresses != nil else {
+            return nil
+        }
+        guard sender.addresses!.count > 0 else {
+            return nil
+        }
+        
+        let address = addresses.first
+        let data = address as NSData
+        
+        let inetAddress: sockaddr_in = data.castToCPointer()
+        if inetAddress.sin_family == __uint8_t(AF_INET) {
+            if let ip = String(cString: inet_ntoa(inetAddress.sin_addr), encoding: .ascii) {
+                // IPv4
+                return ip
+            }
+        } else if inetAddress.sin_family == __uint8_t(AF_INET6) {
+            let inetAddress6: sockaddr_in6 = data.castToCPointer()
+            let ipStringBuffer = UnsafeMutablePointer<Int8>.allocate(capacity: Int(INET6_ADDRSTRLEN))
+            var addr = inetAddress6.sin6_addr
+            
+            if let ipString = inet_ntop(Int32(inetAddress6.sin6_family), &addr, ipStringBuffer, __uint32_t(INET6_ADDRSTRLEN)) {
+                if let ip = String(cString: ipString, encoding: .ascii) {
+                    // IPv6
+                    return ip
+                }
+            }
+            
+            ipStringBuffer.deallocate(capacity: Int(INET6_ADDRSTRLEN))
+        } else {
+            return nil
+        }
+    }
+    
+    struct ip_socket_address {
+        let sa: sockaddr
+        let ipv4: sockaddr_in
+        let ipv6: sockaddr_in6
+    }
+}
 
+extension NSData {
+    func castToCPointer<T>() -> T {
+        let mem = UnsafeMutablePointer<T>.alloc(sizeof(T.Type))
+        self.getBytes(mem, length: sizeof(T.Type))
+        return mem.move()
+    }
 }

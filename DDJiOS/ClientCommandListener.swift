@@ -9,7 +9,6 @@
 import Foundation
 
 class ClientCommandListener: CommandRunner {
-    private
     
     init() {
         super.init(.client)

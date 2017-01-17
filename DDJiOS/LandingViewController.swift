@@ -15,12 +15,9 @@ class LandingViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        print("ViewDidLoad")
-
 
         self.player = SPTAudioStreamingController.sharedInstance()
         self.auth = SPTAuth.defaultInstance()
         doSpotifyAuthenticate(player: self.player!, auth: self.auth!, sourceViewController: self)
-        print("ViewDidLoad 2")
     }
 }
