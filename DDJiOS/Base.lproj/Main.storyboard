@@ -174,7 +174,7 @@
         <!--Currently Playing-->
         <scene sceneID="WWb-r9-m33">
             <objects>
-                <viewController title="Currently Playing" id="LjO-MP-Pcf" sceneMemberID="viewController">
+                <viewController title="Currently Playing" id="LjO-MP-Pcf" customClass="ClientViewController" customModule="DDJiOS" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="KiO-MZ-VRf"/>
                         <viewControllerLayoutGuide type="bottom" id="iYg-Bd-CfA"/>
@@ -218,7 +218,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ServerName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gSJ-Kl-HdI">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ServerName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gSJ-Kl-HdI" userLabel="serverNameLabel">
                                 <rect key="frame" x="219" y="268" width="95" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -236,6 +236,9 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
+                    <connections>
+                        <outlet property="hostAddressLabel" destination="gSJ-Kl-HdI" id="nFK-vY-gkh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SRc-MR-gw5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

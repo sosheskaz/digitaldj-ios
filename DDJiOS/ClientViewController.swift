@@ -10,9 +10,10 @@ import Foundation
 
 class ClientViewController: UIViewController {
     var hostAddress: String? = ""
+    @IBOutlet weak var hostAddressLabel: UILabel!
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        self.hostAddressLabel.text = hostAddress!
     }
 }

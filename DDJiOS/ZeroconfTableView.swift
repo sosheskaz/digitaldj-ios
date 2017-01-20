@@ -16,7 +16,7 @@ class ZeroconfTableView: UIViewController, UITableViewDataSource, UITableViewDel
     var myTimer: Timer? = nil
     private var client: ZeroconfClient = ZeroconfClient()
     private var items: Array<NetService> = []
-    private var selected: Int = -1
+    private var selectedCell: Int = -1
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -43,15 +43,22 @@ class ZeroconfTableView: UIViewController, UITableViewDataSource, UITableViewDel
         self.zcTableView?.reloadData()
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedCell = indexPath.row
+        print(selectedCell)
+        self.performSegue(withIdentifier: "ServerSelectSegue", sender: self)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         RunLoop.main.add(self.myTimer!, forMode: RunLoopMode.defaultRunLoopMode)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        print("SEGUE: \(segue.identifier)")
         if segue.identifier == "ServerSelectSegue" {
             if let destination = segue.destination as? ClientViewController {
-                destination.hostAddress = netServiceDidResolveAddress(items[selected])
+                destination.hostAddress = netServiceDidResolveAddress(items[selectedCell])!
             }
         }
     }
@@ -59,20 +66,27 @@ class ZeroconfTableView: UIViewController, UITableViewDataSource, UITableViewDel
     // http://stackoverflow.com/questions/38197198/swift-3-how-to-resolve-netservice-ip
     // ;_; what has my life become
     func netServiceDidResolveAddress(_ sender: NetService) -> String? {
-        guard sender.addresses != nil else {
+        guard let addresses = sender.addresses else {
+            print("addresses is nil!")
             return nil
         }
-        guard sender.addresses!.count > 0 else {
+        guard addresses.count > 0 else {
+            print("sender: ")
+            print("no addresses!")
+            return nil
+        }
+        guard let address = addresses.first else {
+            print("no first address???")
             return nil
         }
         
-        let address = addresses.first
-        let data = address as NSData
+        let data = NSData(data: address)
         
         let inetAddress: sockaddr_in = data.castToCPointer()
         if inetAddress.sin_family == __uint8_t(AF_INET) {
             if let ip = String(cString: inet_ntoa(inetAddress.sin_addr), encoding: .ascii) {
                 // IPv4
+                print("ipv4: \(ip)")
                 return ip
             }
         } else if inetAddress.sin_family == __uint8_t(AF_INET6) {
@@ -83,14 +97,17 @@ class ZeroconfTableView: UIViewController, UITableViewDataSource, UITableViewDel
             if let ipString = inet_ntop(Int32(inetAddress6.sin6_family), &addr, ipStringBuffer, __uint32_t(INET6_ADDRSTRLEN)) {
                 if let ip = String(cString: ipString, encoding: .ascii) {
                     // IPv6
+                    print("ipv6: \(ip)")
                     return ip
                 }
             }
             
             ipStringBuffer.deallocate(capacity: Int(INET6_ADDRSTRLEN))
-        } else {
-            return nil
         }
+        
+        print("nil af")
+        // shouldn't happen unless used incorrectly.
+        return nil
     }
     
     struct ip_socket_address {
@@ -102,8 +119,8 @@ class ZeroconfTableView: UIViewController, UITableViewDataSource, UITableViewDel
 
 extension NSData {
     func castToCPointer<T>() -> T {
-        let mem = UnsafeMutablePointer<T>.alloc(sizeof(T.Type))
-        self.getBytes(mem, length: sizeof(T.Type))
+        let mem = UnsafeMutablePointer<T>.allocate(capacity: MemoryLayout<T.Type>.size)
+        self.getBytes(mem, length: MemoryLayout<T>.size)
         return mem.move()
     }
 }
