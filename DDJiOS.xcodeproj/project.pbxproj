@@ -422,7 +422,7 @@
 				TargetAttributes = {
 					6B8D34D71DFA36E600023C46 = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = E7NF7S5WRQ;
+						DevelopmentTeam = 29AXZA23P4;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 9A1862AC1DC10BFA0027D21E;
 					};
@@ -433,7 +433,7 @@
 					};
 					9A1862C31DC10BFA0027D21E = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = E7NF7S5WRQ;
+						DevelopmentTeam = 29AXZA23P4;
 						LastSwiftMigration = 0800;
 						TestTargetID = 9A1862AC1DC10BFA0027D21E;
 					};
@@ -637,7 +637,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = E7NF7S5WRQ;
+				DEVELOPMENT_TEAM = 29AXZA23P4;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -690,7 +690,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = E7NF7S5WRQ;
+				DEVELOPMENT_TEAM = 29AXZA23P4;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -718,6 +718,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = E7NF7S5WRQ;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -732,6 +733,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "DDJiOS/DDJiOS-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -741,6 +743,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = E7NF7S5WRQ;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -754,6 +757,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "DDJiOS/DDJiOS-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
