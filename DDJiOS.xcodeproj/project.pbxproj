@@ -422,7 +422,7 @@
 				TargetAttributes = {
 					6B8D34D71DFA36E600023C46 = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = 29AXZA23P4;
+						DevelopmentTeam = E7NF7S5WRQ;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 9A1862AC1DC10BFA0027D21E;
 					};
@@ -433,7 +433,7 @@
 					};
 					9A1862C31DC10BFA0027D21E = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = 29AXZA23P4;
+						DevelopmentTeam = E7NF7S5WRQ;
 						LastSwiftMigration = 0800;
 						TestTargetID = 9A1862AC1DC10BFA0027D21E;
 					};
@@ -637,7 +637,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = 29AXZA23P4;
+				DEVELOPMENT_TEAM = E7NF7S5WRQ;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -654,7 +654,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-ObjC";
@@ -690,7 +690,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = 29AXZA23P4;
+				DEVELOPMENT_TEAM = E7NF7S5WRQ;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -701,7 +701,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				PRELINK_LIBS = "SwiftSocket SpotifyAudioPlayback SpotifyAuthentication SpotifyMetadata";
