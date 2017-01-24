@@ -812,7 +812,7 @@
 				6B8D34E01DFA36E600023C46 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		9A1862A81DC10BFA0027D21E /* Build configuration list for PBXProject "DDJiOS" */ = {
 			isa = XCConfigurationList;
@@ -821,7 +821,7 @@
 				9A1862CC1DC10BFA0027D21E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		9A1862CD1DC10BFA0027D21E /* Build configuration list for PBXNativeTarget "DDJiOS" */ = {
 			isa = XCConfigurationList;
@@ -830,7 +830,7 @@
 				9A1862CF1DC10BFA0027D21E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		9A1862D01DC10BFA0027D21E /* Build configuration list for PBXNativeTarget "DDJiOSTests" */ = {
 			isa = XCConfigurationList;
@@ -839,7 +839,7 @@
 				9A1862D21DC10BFA0027D21E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 
