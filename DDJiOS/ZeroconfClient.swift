@@ -65,6 +65,7 @@ private class ZeroconfDelegate: NSObject, NetServiceBrowserDelegate {
     }
 
     func netServiceBrowser(_ browser: NetServiceBrowser, didFind service: NetService, moreComing: Bool) {
+        service.resolve(withTimeout: 2.5)
         self.data.discoveredServices.insert(service)
     }
 
