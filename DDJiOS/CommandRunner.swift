@@ -95,6 +95,9 @@ class CommandRunner {
             case .updatePlaylist:
                 cmd = UpdatePlaylistCommand(from: data)
                 break
+            default:
+                // 💩
+                break
             }
             
             if(cmd == nil){
@@ -112,8 +115,4 @@ class CommandRunner {
     func subscribe(to commandType: CommandType, callback: @escaping (Command) -> Void) {
         self.callbacks[commandType]?.append(callback)
     }
-}
-
-enum CommandPort: Int32 {
-    case host = 52773, client = 52774, commandPort = 52775
 }

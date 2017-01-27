@@ -34,8 +34,7 @@ class HeartbeatAckCommand: ClientHostCommand {
     
     var json: Data? {
         let dict: Dictionary<String, AnyObject> =
-            [commandLabel: HeartbeatAckCommand.command.rawValue as AnyObject,
-             userIdLabel: self.userId as AnyObject]
+            [commandLabel: HeartbeatAckCommand.command.rawValue as AnyObject]
         do {
             return try JSONSerialization.data(withJSONObject: dict, options: [])
         } catch {

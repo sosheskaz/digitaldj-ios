@@ -7,6 +7,9 @@
 //
 
 import Foundation
+import Alamofire
+
+private let server = ""
 
 class HostCommandListener: CommandRunner {
     static let sharedHostListener = HostCommandListener()
@@ -24,10 +27,51 @@ class HostCommandListener: CommandRunner {
                 self.subscribe(to: cmdType, callback: closure)
             }
         }
+        
+        startSession()
     }
     
-    private func handleNewUser(cmd: Command) -> Void {
+    deinit {
+        endSession()
+    }
+    
+    private func startSession() {
         
+    }
+    
+    private func endSession() {
+        
+    }
+    
+    private func handleNewUser(cmd rawCmd: Command) -> Void {
+        guard let cmd = rawCmd as? NewUserCommand else {
+            return
+        }
+        
+        let id = cmd.spotifyId
+        
+        func finishHandleNewUser(anyerror: Any?, anyuser: Any?) {
+            guard anyerror == nil else {
+                print("Failed to auth user.")
+                print("Error: \(anyerror as! Error)")
+                print("User:  \(anyuser as! SPTUser)")
+                
+                return
+            }
+            
+            guard let user = anyuser as? SPTUser else {
+                print("Something happened... user object returned is not SPTUser and an error was not thrown.")
+                print("User:  \(anyuser)")
+                
+                return
+            }
+            
+            
+        }
+        
+        SPTUser.request(id, withAccessToken: SPTAuth.defaultInstance().session.accessToken, callback: finishHandleNewUser)
+        
+        let songs = cmd.topTracks
     }
     
     private func handleHeartbeatAck(cmd: Command) {

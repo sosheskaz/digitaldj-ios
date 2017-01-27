@@ -51,3 +51,7 @@ enum CommandType: String {
 }
 
 let allCommandTypes: [CommandType] = [.newUser, .updatePlaylist, .heartbeat, .heartbeatAck, .heartbeatTimeout]
+
+enum CommandPort: Int32 {
+    case host = 52773, client = 52774, commandPort = 52775, server = 80
+}
