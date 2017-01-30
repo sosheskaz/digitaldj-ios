@@ -23,27 +23,30 @@ var authenticatedViewController: UIViewController? = nil
  */
 func doSpotifyAuthenticate(player: SPTAudioStreamingController?, auth: SPTAuth!, sourceViewController: UIViewController!) -> Void {
     DispatchQueue.main.async(execute: {
-    if (auth.session != nil && (auth.session.isValid())) {
-        print("Auth Session Valid")
-        authViewController?.dismiss(animated: true, completion: nil)
-        // Use it to log in
-        player?.login(withAccessToken:auth.session.accessToken)
-    } else {
-        print("Auth Session not valid; Presenting Auth Window")
-        // Get the URL to the Spotify authorization portal
-        let authURL = auth.spotifyWebAuthenticationURL()
-        
-        authViewController?.dismiss(animated: true, completion: { () -> Void in
-            DispatchQueue.main.async(execute: {
-                doSpotifyAuthenticate(player: player!, auth: auth!, sourceViewController: sourceViewController)
-            })})
-        
-        // Present in a SafariViewController
-        if(authViewController == nil) {
-            authViewController = SFSafariViewController(url: authURL!)
+        MySpt.shared.touch()
+        usleep(10000)
+        if (auth.session != nil && (auth.session.isValid())) {
+            print("Auth Session Valid")
+            MySpt.shared.touch()
+            authViewController?.dismiss(animated: true, completion: nil)
+            // Use it to log in
+            player?.login(withAccessToken:auth.session.accessToken)
+        } else {
+            print("Auth Session not valid; Presenting Auth Window")
+            // Get the URL to the Spotify authorization portal
+            let authURL = auth.spotifyWebAuthenticationURL()
+            
+            authViewController?.dismiss(animated: true, completion: { () -> Void in
+                DispatchQueue.main.async(execute: {
+                    doSpotifyAuthenticate(player: player!, auth: auth!, sourceViewController: sourceViewController)
+                })})
+            
+            // Present in a SafariViewController
+            if(authViewController == nil) {
+                authViewController = SFSafariViewController(url: authURL!)
+            }
+            sourceViewController.present(authViewController!, animated: true, completion:nil)
         }
-        sourceViewController.present(authViewController!, animated: true, completion:nil)
-    }
     })
 }
 
