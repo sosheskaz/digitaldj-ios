@@ -47,10 +47,11 @@ enum CommandType: String {
     updatePlaylist = "updatePlaylist",
     heartbeat = "heartbeat",
     heartbeatAck = "heartbeatAck",
-    heartbeatTimeout = "heartbeatTimeout"
+    heartbeatTimeout = "heartbeatTimeout",
+    removeUser = "removeUser"
 }
 
-let allCommandTypes: [CommandType] = [.newUser, .updatePlaylist, .heartbeat, .heartbeatAck, .heartbeatTimeout]
+let allCommandTypes: [CommandType] = [.newUser, .updatePlaylist, .heartbeat, .heartbeatAck, .heartbeatTimeout, .removeUser]
 
 enum CommandPort: Int32 {
     case host = 52773, client = 52774, commandPort = 52775, server = 80
