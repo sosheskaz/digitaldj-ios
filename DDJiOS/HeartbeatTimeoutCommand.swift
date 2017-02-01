@@ -10,6 +10,8 @@ import Foundation
 class HeartbeatTimeoutCommand: HostClientCommand {
     static var command: CommandType = .heartbeatTimeout
     
+    init() {}
+    
     required init?(from data: Data) {
         do {
             _ = try JSONSerialization.jsonObject(with: data, options: []) as AnyObject

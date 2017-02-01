@@ -9,13 +9,15 @@
 import XCTest
 @testable import DDJiOS
 
-class HeartbeatAckCommandTest: XCTestCase {
-    var cmd: HeartbeatAckCommand?
+class HeartbeatTimeoutCommandTest: XCTestCase {
+    var cmd: HeartbeatTimeoutCommand?
+    let jsonObj = ["from":"127.0.0.1"]
+    var sampleData: Data?
     
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
-        cmd = HeartbeatAckCommand()
+        cmd = HeartbeatTimeoutCommand()
     }
     
     override func tearDown() {
@@ -35,7 +37,7 @@ class HeartbeatAckCommandTest: XCTestCase {
             return
         }
         XCTAssert(des != nil, "deserialization downcast failed.")
-        XCTAssert(des!["command"] as! String == "heartbeatAck", "Expected=heartbeatAck Actual=\(des!["command"])")
+        XCTAssert(des!["command"] as! String == "heartbeatTimeout", "Expected=heartbeatTimeout Actual=\(des!["command"])")
     }
     
 }
