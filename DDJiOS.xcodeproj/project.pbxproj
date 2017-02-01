@@ -15,7 +15,6 @@
 		6B08B8AD1E2C27B800D94898 /* SwiftSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B08B8AB1E2C27B800D94898 /* SwiftSocket.framework */; };
 		6B08B8AE1E2C282300D94898 /* SwiftSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B1AE22E1E2B0AF000FD2D68 /* SwiftSocket.framework */; };
 		6B08B8AF1E2C282300D94898 /* SwiftSocket.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6B1AE22E1E2B0AF000FD2D68 /* SwiftSocket.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		6B08B8B11E2C8C3800D94898 /* CommandTestManual.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B08B8B01E2C8C3800D94898 /* CommandTestManual.swift */; };
 		6B1AE2211E2AFAA400FD2D68 /* NewUserCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1AE2201E2AFAA400FD2D68 /* NewUserCommand.swift */; };
 		6B1AE2231E2AFE5500FD2D68 /* NewUserCommandTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1AE2221E2AFE5500FD2D68 /* NewUserCommandTest.swift */; };
 		6B1AE2251E2B017200FD2D68 /* HeartbeatCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1AE2241E2B017200FD2D68 /* HeartbeatCommand.swift */; };
@@ -116,7 +115,6 @@
 		6B08B8A51E2C1DBC00D94898 /* ExecuteTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExecuteTest.swift; sourceTree = "<group>"; };
 		6B08B8A71E2C1F7800D94898 /* CommandRunner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommandRunner.swift; sourceTree = "<group>"; };
 		6B08B8AB1E2C27B800D94898 /* SwiftSocket.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftSocket.framework; path = Carthage/Build/iOS/SwiftSocket.framework; sourceTree = "<group>"; };
-		6B08B8B01E2C8C3800D94898 /* CommandTestManual.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommandTestManual.swift; sourceTree = "<group>"; };
 		6B12AA7B1DF73B2D00170297 /* DDJiOS-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DDJiOS-Bridging-Header.h"; sourceTree = "<group>"; };
 		6B1AE2201E2AFAA400FD2D68 /* NewUserCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewUserCommand.swift; sourceTree = "<group>"; };
 		6B1AE2221E2AFE5500FD2D68 /* NewUserCommandTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewUserCommandTest.swift; sourceTree = "<group>"; };
@@ -266,11 +264,10 @@
 				6B1AE2221E2AFE5500FD2D68 /* NewUserCommandTest.swift */,
 				6B379EA81E42877200D0182A /* RemoveUserCommandTest.swift */,
 				6B1AE2281E2B01F200FD2D68 /* HeartbeatCommandTest.swift */,
-				6B08B8A51E2C1DBC00D94898 /* ExecuteTest.swift */,
-				6B08B8B01E2C8C3800D94898 /* CommandTestManual.swift */,
-				6B893A7C1E3BEB570094B9CD /* NewSessionTest.swift */,
 				6B55FD3E1E4283F6006BE71E /* HeartbeatAckCommandTest.swift */,
 				6BC693AD1E4284DC00BED8A4 /* HeartbeatTimeoutCommandTest.swift */,
+				6B08B8A51E2C1DBC00D94898 /* ExecuteTest.swift */,
+				6B893A7C1E3BEB570094B9CD /* NewSessionTest.swift */,
 			);
 			name = Commands;
 			sourceTree = "<group>";
@@ -635,7 +632,6 @@
 				6B7110F61E2AEF89007E28B8 /* UpdatePlaylistCommandTest.swift in Sources */,
 				6BC693AE1E4284DC00BED8A4 /* HeartbeatTimeoutCommandTest.swift in Sources */,
 				6BD707FE1E229E390008E7A2 /* PlaylistRequestTest.swift in Sources */,
-				6B08B8B11E2C8C3800D94898 /* CommandTestManual.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

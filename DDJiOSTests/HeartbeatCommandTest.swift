@@ -38,4 +38,26 @@ class HeartbeatCommandTest: XCTestCase {
         XCTAssert(des!["command"] as! String == "heartbeat", "Expected=heartbeat Actual=\(des!["command"])")
     }
     
+    func testHeartbeatReceipt() {
+        let hb = HeartbeatCommand()
+        let listener = CommandRunner(.client)
+        
+        var didComplete = false
+        
+        listener.subscribe(to: .heartbeat, callback: {cmd in
+            print("Heartbeat received:")
+            print(String(data: cmd.json!, encoding: .utf8)!)
+            didComplete = true
+        })
+        
+        let exRes = hb.execute("127.0.0.1")
+        
+        sleep(2)
+        
+        listener.off()
+        
+        XCTAssert(exRes)
+        XCTAssert(didComplete)
+    }
+    
 }
