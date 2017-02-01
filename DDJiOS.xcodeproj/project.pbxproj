@@ -26,6 +26,7 @@
 		6B21193D1DFFBFDC00F12963 /* StreamingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B21193C1DFFBFDC00F12963 /* StreamingViewController.swift */; };
 		6B25FDBD1E3F1238004113CA /* Shuffle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B25FDBC1E3F1238004113CA /* Shuffle.swift */; };
 		6B25FDC11E3F14F0004113CA /* IteratorUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B25FDC01E3F14F0004113CA /* IteratorUtil.swift */; };
+		6B55FD3F1E4283F6006BE71E /* HeartbeatAckCommandTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B55FD3E1E4283F6006BE71E /* HeartbeatAckCommandTest.swift */; };
 		6B6BBE341E08CAD4004A311F /* ServerDataTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6BBE331E08CAD4004A311F /* ServerDataTest.swift */; };
 		6B7110EB1E2AEA3C007E28B8 /* Command.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7110EA1E2AEA3C007E28B8 /* Command.swift */; };
 		6B7110EE1E2AEBCB007E28B8 /* UpdatePlaylistCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7110ED1E2AEBCB007E28B8 /* UpdatePlaylistCommand.swift */; };
@@ -125,6 +126,7 @@
 		6B21193C1DFFBFDC00F12963 /* StreamingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StreamingViewController.swift; sourceTree = "<group>"; };
 		6B25FDBC1E3F1238004113CA /* Shuffle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shuffle.swift; sourceTree = "<group>"; };
 		6B25FDC01E3F14F0004113CA /* IteratorUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IteratorUtil.swift; sourceTree = "<group>"; };
+		6B55FD3E1E4283F6006BE71E /* HeartbeatAckCommandTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeartbeatAckCommandTest.swift; sourceTree = "<group>"; };
 		6B6BBE331E08CAD4004A311F /* ServerDataTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerDataTest.swift; sourceTree = "<group>"; };
 		6B7110EA1E2AEA3C007E28B8 /* Command.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Command.swift; sourceTree = "<group>"; };
 		6B7110ED1E2AEBCB007E28B8 /* UpdatePlaylistCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdatePlaylistCommand.swift; sourceTree = "<group>"; };
@@ -260,6 +262,7 @@
 				6B08B8A51E2C1DBC00D94898 /* ExecuteTest.swift */,
 				6B08B8B01E2C8C3800D94898 /* CommandTestManual.swift */,
 				6B893A7C1E3BEB570094B9CD /* NewSessionTest.swift */,
+				6B55FD3E1E4283F6006BE71E /* HeartbeatAckCommandTest.swift */,
 			);
 			name = Commands;
 			sourceTree = "<group>";
@@ -611,6 +614,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6B55FD3F1E4283F6006BE71E /* HeartbeatAckCommandTest.swift in Sources */,
 				6B08B8A61E2C1DBC00D94898 /* ExecuteTest.swift in Sources */,
 				6B1AE2231E2AFE5500FD2D68 /* NewUserCommandTest.swift in Sources */,
 				6B74C5051E09CA3D003CB483 /* ClientDataTest.swift in Sources */,

@@ -10,11 +10,6 @@ import Foundation
 import SafariServices
 import Alamofire
 
-
-private let CLIENT_ID = "fc6d46c6e95e4c579abd440376ba7555"
-private let CLIENT_SECRET = "b101c807436144c2848f84d2fb26c264"
-private let CALLBACK_URL = "ddj://callback/"
-
 class MySpt {
     static var shared = MySpt()
     private static let numTracks = 50
@@ -26,25 +21,14 @@ class MySpt {
     private var myTopTracks: [String] = []
     
     private init() {
-        SPTAuth.defaultInstance()
-        // The client ID you got from the developer site
-        SPTAuth.defaultInstance()!.clientID = CLIENT_ID
-        // The redirect URL as you entered it at the developer site
-        SPTAuth.defaultInstance()!.redirectURL = URL(string: CALLBACK_URL)
-        // Setting the `sessionUserDefaultsKey` enables SPTAuth to automatically store the session object for future use.
-        SPTAuth.defaultInstance()!.sessionUserDefaultsKey = "current session"
-        // Set the scopes you need the user to authorize. `SPTAuthStreamingScope` is required for playing audio.
-        SPTAuth.defaultInstance()!.requestedScopes = [SPTAuthStreamingScope, SPTAuthUserReadTopScope, SPTAuthUserReadPrivateScope];
-        
-        print(SPTAuth.defaultInstance().session)
         self.startExpirationDaemon()
         self.fetchTopTracks()
     }
     
-    var token: String! {
+    var token: String? {
         get {
             
-            let token = self.session.accessToken
+            let token = self.session?.accessToken
             
             return token
         }
@@ -52,19 +36,23 @@ class MySpt {
     
     var userId: String! {
         get {
-            return session.canonicalUsername
+            return self.session?.canonicalUsername
         }
     }
     
-    var session: SPTSession {
+    var session: SPTSession? {
         get {
-            return SPTAuth.defaultInstance().session
+            do {
+                return SPTAuth.defaultInstance().session
+            } catch {
+                return nil
+            }
         }
     }
     
     func touch() { }
     
-    private func startExpirationDaemon() {
+    private func startExpirationDaemon() {/*
         DispatchQueue.global().async {
             while(true) {
                 guard let expireTime = self.session.expirationDate else {
@@ -76,12 +64,12 @@ class MySpt {
                 sleep(UInt32(secondsUntilExpireTime))
                 self.refreshToken()
             }
-        }
+        }*/
     }
     
     private func refreshToken() {
         print("Trying for refresh token...")
-        guard self.session.encryptedRefreshToken != nil else {
+        guard self.session?.encryptedRefreshToken != nil else {
             print("No refresh token found.")
             return
         }
@@ -91,7 +79,7 @@ class MySpt {
     
     private func fetchTopTracks() {
         DispatchQueue.global().async {
-            while(!self.session.isValid()) {
+            while(!(self.session?.isValid() ?? false) ) {
                 sleep(1)
             }
             
@@ -124,7 +112,7 @@ class MySpt {
                     // fill in extra items with spares from their library
                     if(finalTracks.count < MySpt.numTracks) {
                         do {
-                            let req2 = try SPTRequest.createRequest(for: URL(string: "https://api.spotify.com/v1/me/top/tracks"), withAccessToken: self.token, httpMethod: "GET", values: ["limit": MySpt.numTracks], valueBodyIsJSON: false, sendDataAsQueryString: true)
+                            let req2 = try SPTRequest.createRequest(for: URL(string: "https://api.spotify.com/v1/me/tracks"), withAccessToken: self.token, httpMethod: "GET", values: ["limit": MySpt.numTracks], valueBodyIsJSON: false, sendDataAsQueryString: true)
                             
                             Alamofire.request(req2).responseJSON(completionHandler: {response in
                                 guard response.result.error == nil else {
@@ -142,8 +130,9 @@ class MySpt {
                                 do {
                                     let json = try JSONSerialization.jsonObject(with: data, options: []) as AnyObject
                                     let jsonItems: [AnyObject] = json["items"] as! [AnyObject]
+                                    print(jsonItems)
                                     let trimmed = jsonItems.map({ jsonItem in
-                                        return ((jsonItem as AnyObject)["track"] as AnyObject)["id"]
+                                        return ((jsonItem as AnyObject)["track"] as AnyObject)["id"]!!
                                     }).filter({ jsonItem in
                                         do {
                                             return (jsonItem as? String) != nil
@@ -153,12 +142,9 @@ class MySpt {
                                         }
                                     }).shuffled()
                                     let trimmedArr = Array(trimmed) as! [String]
-                                    
                                     finalTracks.append(contentsOf: trimmedArr.take(min(trimmedArr.count, MySpt.numTracks - finalTracks.count)))
                                     
                                     self.myTopTracks = finalTracks
-                                    
-                                    print(self.myTopTracks)
                                 } catch {
                                     print("Could not deserialize JSON 2!")
                                 }

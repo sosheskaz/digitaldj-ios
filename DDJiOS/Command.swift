@@ -46,7 +46,7 @@ enum CommandType: String {
     case newUser = "newUser",
     updatePlaylist = "updatePlaylist",
     heartbeat = "heartbeat",
-    heartbeatAck = "heartbeatAcq",
+    heartbeatAck = "heartbeatAck",
     heartbeatTimeout = "heartbeatTimeout"
 }
 

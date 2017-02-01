@@ -31,7 +31,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SPTAudioStreamingDelegate
         // Setting the `sessionUserDefaultsKey` enables SPTAuth to automatically store the session object for future use.
         self.auth!.sessionUserDefaultsKey = "current session"
         // Set the scopes you need the user to authorize. `SPTAuthStreamingScope` is required for playing audio.
-        self.auth!.requestedScopes = [SPTAuthStreamingScope, SPTAuthUserReadTopScope, SPTAuthUserReadPrivateScope];
+        self.auth!.requestedScopes = [SPTAuthStreamingScope, SPTAuthUserReadTopScope, SPTAuthUserReadPrivateScope,
+            SPTAuthUserLibraryReadScope];
         
         // spin up player
         self.player = SPTAudioStreamingController.sharedInstance()
