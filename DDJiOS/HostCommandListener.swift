@@ -65,13 +65,7 @@ class HostCommandListener: CommandRunner {
                 
                 return
             }
-            
-            
         }
-        
-        SPTUser.request(id, withAccessToken: SPTAuth.defaultInstance().session.accessToken, callback: finishHandleNewUser)
-        
-        let songs = cmd.topTracks
     }
     
     private func handleHeartbeatAck(cmd: Command) {

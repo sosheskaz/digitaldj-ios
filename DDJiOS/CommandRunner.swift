@@ -104,6 +104,8 @@ class CommandRunner {
                 return
             }
             
+            cmd!.source = address
+            
             for closure in callbacks[cmdType!]! {
                 closure(cmd!)
             }

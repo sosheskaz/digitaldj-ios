@@ -10,11 +10,18 @@ import Foundation
 import SwiftSocket
 
 let commandLabel: String = "command"
+
+// don't delete this
+private struct associatedKeys {
+    static var source: String?
+}
+
 protocol Command {
     static var command: CommandType {get}
     static var destPort: CommandPort {get}
     var json: Data? {get} // Failable
     
+    var source: String? {get set}
     
     init?(from data: Data)
 }
@@ -38,6 +45,19 @@ extension Command {
         }
         
         return success
+    }
+    
+    // "extensions may not contain stored properties" 🐇 🎩
+    var source: String? {
+        get {
+            guard let value = objc_getAssociatedObject(self, &associatedKeys.source) as? String? else {
+                return nil
+            }
+            return value
+        }
+        set(value) {
+            objc_setAssociatedObject(self, &associatedKeys.source, value, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+        }
     }
 }
 

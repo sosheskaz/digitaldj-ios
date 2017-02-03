@@ -16,6 +16,7 @@ class NewUserCommand: ClientHostCommand {
     
     var spotifyId: String = ""
     var topTracks: [String] = []
+    var from: String?
     
     required init?(from data: Data) {
         do {
@@ -26,6 +27,11 @@ class NewUserCommand: ClientHostCommand {
         } catch {
             return nil
         }
+    }
+    
+    convenience init?(from data: Data, ip: String) {
+        self.init(from: data)
+        self.from = ip
     }
     
     init(userId: String, topTracks: [String]) {
