@@ -50,10 +50,8 @@ class DDJSPlaylistRequest {
         let req = Alamofire.request(endpoint, method: .post, parameters: self.jsonDict, encoding: JSONEncoding.default, headers: headers).validate().response(queue: queue, completionHandler: { response in
             print("HIT")
             
-            print(String(data: response.data!, encoding: String.Encoding.utf8))
+            print(String(data: response.data!, encoding: String.Encoding.utf8) ?? "nil")
             callback(response.response?.statusCode, response.data)
-            
-            print(response.data)
         })
         
         req.resume()
@@ -66,7 +64,7 @@ class DDJSPlaylistRequest {
             request.httpMethod = "POST"
             do {
                 let json = try JSONSerialization.data(withJSONObject: self.jsonDict)
-                var bodyString = "\"\(String(data: json, encoding: String.Encoding.utf8)!.replacingOccurrences(of: "\"", with: "'"))\""
+                let bodyString = "\"\(String(data: json, encoding: String.Encoding.utf8)!.replacingOccurrences(of: "\"", with: "'"))\""
                 print(bodyString)
                 request.allHTTPHeaderFields?["Content-Type"] = "application/text"
                 request.httpBody = bodyString.data(using: .utf8)

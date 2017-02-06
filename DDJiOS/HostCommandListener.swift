@@ -59,7 +59,7 @@ class HostCommandListener: CommandRunner {
                 return
             }
             
-            guard let user = anyuser as? SPTUser else {
+            guard (anyuser as? SPTUser) != nil else {
                 print("Something happened... user object returned is not SPTUser and an error was not thrown.")
                 print("User:  \(anyuser)")
                 

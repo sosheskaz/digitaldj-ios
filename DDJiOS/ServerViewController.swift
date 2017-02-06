@@ -23,7 +23,7 @@ class ServerViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        var req = DDJSPlaylistRequest(oauthTokens: [auth!.session.accessToken])
+        let req = DDJSPlaylistRequest(oauthTokens: [auth!.session.accessToken])
         print("doing request")
         req.doRequest(callback: {items in
             print("Callback is here!")
@@ -34,17 +34,13 @@ class ServerViewController: UIViewController {
             do {
                 let req = try SPTRequest.createRequest(for: URL(string: "https://api.spotify.com/v1/me/top/tracks"), withAccessToken: self.auth!.session.accessToken, httpMethod: "GET", values: nil, valueBodyIsJSON: false, sendDataAsQueryString: false)
                 SPTRequest.sharedHandler().perform(req, callback: {error, response, data in
-                    do {
-                        guard let data = data, error == nil else {
-                            print("error=\(error)")
-                            return
-                        }
-                        
-                        var pll = String(bytes: data, encoding: String.Encoding.utf8)
-                        print(pll)
-                    } catch {
-                        
+                    guard let data = data, error == nil else {
+                        print("error=\(error)")
+                        return
                     }
+                    
+                    let pll = String(bytes: data, encoding: String.Encoding.utf8)
+                    print(pll ?? "nil")
                 })
             } catch {
                 
@@ -81,12 +77,12 @@ class ServerViewController: UIViewController {
         isStarted = false
         zc.stop()
     }
-
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         start()
     }
-
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         stop()

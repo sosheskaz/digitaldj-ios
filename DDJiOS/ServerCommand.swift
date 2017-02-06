@@ -36,6 +36,20 @@ extension ServerCommand {
             }
         }
     }
+    
+    static func parseResponse(_ responseData: Data?) -> AnyObject? {
+        print("parseResponse")
+        guard let data = responseData else {
+            print("nil")
+            return nil
+        }
+        
+        do {
+            return try JSONSerialization.jsonObject(with: data, options: []) as AnyObject
+        } catch {
+            return nil
+        }
+    }
 }
 
 enum ServerCommandType: String {

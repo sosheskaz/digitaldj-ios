@@ -32,5 +32,6 @@ class ServerEndSessionCommand: ServerCommand {
     func subscribe(_ listener: @escaping (Data?) -> Void) {
         _subscribers.append(listener)
     }
-
+    
+    
 }

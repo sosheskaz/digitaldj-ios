@@ -12,6 +12,7 @@ import DDJiOS
 
 class NewSessionTest: XCTestCase {
     var cmd: ServerNewSessionCommand?
+    var sessionIdsToCleanUp: [String] = []
     
     override func setUp() {
         super.setUp()
@@ -21,19 +22,36 @@ class NewSessionTest: XCTestCase {
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
+        for sessionId in sessionIdsToCleanUp {
+            ServerEndSessionCommand(sessionId: sessionId).execute()
+        }
     }
     
     func testNewSession() {
         var success = false
         let testRegex = EZRegex(pattern: "^[\\da-f]{8}-[\\da-f]{4}-[\\da-f]{4}-[\\da-f]{4}-[\\da-f]{12}$", options: .caseInsensitive)
         cmd!.subscribe({data in
-            let str = ServerNewSessionCommand.parseResponse(data)
-            print(str!)
+            guard let myData = data else {
+                XCTFail("data was nil.")
+                return
+            }
+            guard let responseData = ServerNewSessionCommand.parseResponse(myData) else {
+                XCTFail("responseData was nil. Response was: \n\(String(data: myData, encoding: .utf8))")
+                return
+            }
+            guard let sessionId = responseData["sessionId"] else {
+                XCTFail("sessionId was not present in response. Response was: \n\(String(data: myData, encoding: .utf8))")
+                return
+            }
+            guard let sessionIdStr = sessionId as? String else {
+                XCTFail("sessionId was not a string. Response was: \n\(String(data: myData, encoding: .utf8))")
+                return
+            }
             if(testRegex == nil) {
                 XCTFail("regex failed to init")
                 return
             }
-            let result = testRegex!.test(against: str!)
+            let result = testRegex!.test(against: sessionIdStr)
             XCTAssert(result, "Result did not match regex.")
             success = true
         })
