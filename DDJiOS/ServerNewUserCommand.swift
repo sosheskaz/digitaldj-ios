@@ -9,7 +9,7 @@
 import Foundation
 import Alamofire
 
-class ServerNewUserComand: ServerCommand {
+class ServerNewUserCommand: ServerCommand {
     private var _subscribers: [(Data?) -> Void] = []
     private var userId: String
     private var topTracks: [String]
@@ -25,7 +25,6 @@ class ServerNewUserComand: ServerCommand {
     
     var parameters: Parameters? {
         return ["sessionId": self.sessionId,
-                "spotifyId": self.userId,
                 "songIds": self.topTracks]
     }
     
@@ -44,7 +43,11 @@ class ServerNewUserComand: ServerCommand {
     }
     
     static func getUserId(from data: Data) -> String? {
-        let anyobj = ServerNewUserComand.parseResponse(data)
-        return anyobj as? String
+        guard var id = ServerNewUserCommand.parseResponse(data) as? String else {
+            return nil
+        }
+        
+        id = id.trimmingCharacters(in: CharacterSet(charactersIn: "\"' "))
+        return id
     }
 }

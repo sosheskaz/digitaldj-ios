@@ -43,7 +43,7 @@ class NewSessionTest: XCTestCase {
                 XCTFail("regex failed to init")
                 return
             }
-            let result = testRegex!.test(against: sessionIdStr)
+            let result = testRegex!.test(against: sessionId)
             XCTAssert(result, "Result did not match regex.")
             success = true
         })
