@@ -47,7 +47,7 @@ extension ServerCommand {
         do {
             return try JSONSerialization.jsonObject(with: data, options: []) as AnyObject
         } catch {
-            return nil
+            return String(data: data, encoding: .utf8) as AnyObject?
         }
     }
 }

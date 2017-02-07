@@ -35,16 +35,8 @@ class NewSessionTest: XCTestCase {
                 XCTFail("data was nil.")
                 return
             }
-            guard let responseData = ServerNewSessionCommand.parseResponse(myData) else {
-                XCTFail("responseData was nil. Response was: \n\(String(data: myData, encoding: .utf8))")
-                return
-            }
-            guard let sessionId = responseData["sessionId"] else {
+            guard let sessionId = ServerNewSessionCommand.getSessionId(from: myData) else {
                 XCTFail("sessionId was not present in response. Response was: \n\(String(data: myData, encoding: .utf8))")
-                return
-            }
-            guard let sessionIdStr = sessionId as? String else {
-                XCTFail("sessionId was not a string. Response was: \n\(String(data: myData, encoding: .utf8))")
                 return
             }
             if(testRegex == nil) {

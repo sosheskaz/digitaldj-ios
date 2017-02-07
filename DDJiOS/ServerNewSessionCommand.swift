@@ -25,4 +25,13 @@ class ServerNewSessionCommand: ServerCommand {
     func subscribe(_ listener: @escaping (Data?) -> Void) {
         _subscribers.append(listener)
     }
+    
+    static func getSessionId(from data: Data) -> String? {
+        guard var id = ServerNewSessionCommand.parseResponse(data) as? String else {
+            return nil
+        }
+        id = id.trimmingCharacters(in: CharacterSet(charactersIn: "\"' "))
+        
+        return id
+    }
 }

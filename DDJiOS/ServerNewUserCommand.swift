@@ -42,4 +42,9 @@ class ServerNewUserComand: ServerCommand {
     func subscribe(_ listener: @escaping (Data?) -> Void) {
         self._subscribers.append(listener)
     }
+    
+    static func getUserId(from data: Data) -> String? {
+        let anyobj = ServerNewUserComand.parseResponse(data)
+        return anyobj as? String
+    }
 }
