@@ -51,6 +51,7 @@ class HeartbeatCommandTest: XCTestCase {
         })
         
         let exRes = hb.execute("127.0.0.1")
+        sleep(1)
         
         listener.off()
         
