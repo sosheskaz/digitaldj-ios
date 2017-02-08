@@ -17,24 +17,19 @@ class EndSessionTest: XCTestCase {
         super.setUp()
         let nsCmd = ServerNewSessionCommand()
         nsCmd.subscribe({ data in
-            guard let myData = data else {
-                XCTFail("Failed to get session. Data was nil.")
+            guard let myData = data?.value else {
+                print("Failed to get session. Data was nil.")
+                print("Error: \(data?.debugDescription)")
                 return
             }
-            guard let responseData = ServerNewSessionCommand.parseResponse(myData) else {
-                XCTFail("Failed to get session. ResponseData was nil. Response was: \n\(String(data: myData, encoding: .utf8))")
+            guard let sessionId = ServerNewSessionCommand.getValue(from: myData) else {
+                print("Failed to get session. ResponseData was nil. Response was: \n\(String(data: myData, encoding: .utf8))")
                 return
             }
-            guard let sessionId = responseData["sessionId"] else {
-                XCTFail("Failed to get session. SessionId was not present in response. Response was: \n\(String(data: myData, encoding: .utf8))")
-                return
-            }
-            guard let sessionIdStr = sessionId as? String else {
-                XCTFail("Failed to get session. SessionId was not a string. Response was: \n\(String(data: myData, encoding: .utf8))")
-                return
-            }
-            self.sessionId = sessionIdStr
+            self.sessionId = sessionId
         })
+        nsCmd.execute()
+        sleep(3)
     }
     
     override func tearDown() {
@@ -46,33 +41,47 @@ class EndSessionTest: XCTestCase {
     }
     
     func testEndSession() {
-        guard let sessionId = self.sessionId else {
+        /*guard let sessionId = self.sessionId else {
             XCTFail("sessionId was nil; setup failed.")
             return
-        }
+        }*/
+        let sessionId = self.sessionId ?? "id"
         var success = false
         let esCmd = ServerEndSessionCommand(sessionId: sessionId)
         esCmd.subscribe({ data in
-            guard let myData = data else {
+            guard let myData = data?.value else {
+                print("Error: \(data?.debugDescription)")
                 XCTFail("data was nil.")
                 return
             }
-            guard let responseData = ServerEndSessionCommand.parseResponse(myData) else {
-                XCTFail("responseData was nil. Response was: \n\(String(data: myData, encoding: .utf8))")
-                return
+            let reqWasSuccess = ServerEndSessionCommand.getValue(from: myData)
+            if(reqWasSuccess) {
+                self.sessionId = nil
             }
-            guard let reqWasSuccess = responseData["success"] else {
-                XCTFail("success was not present in response. Response was: \n\(String(data: myData, encoding: .utf8))")
-                return
-            }
-            guard let reqWasSuccessBool = reqWasSuccess as? Bool else {
-                XCTFail("success was not a boolean. Response was: \n\(String(data: myData, encoding: .utf8))")
-                return
-            }
-            success = reqWasSuccessBool
+            XCTAssert(reqWasSuccess, "response was failure. Response was: \n\(String(data: myData, encoding: .utf8))")
+            success = reqWasSuccess
         })
         esCmd.execute()
-        sleep(6)
+        sleep(3)
+        XCTAssert(success)
+    }
+    
+    func testEndSessionFailure() {
+        let sessionId = "not-a-real-id"
+        var success = false
+        let esCmd = ServerEndSessionCommand(sessionId: sessionId)
+        esCmd.subscribe({ data in
+            guard let myData = data?.value else {
+                print("Error: \(data?.debugDescription)")
+                XCTFail("data was nil.")
+                return
+            }
+            let reqWasSuccess = ServerEndSessionCommand.getValue(from: myData)
+            XCTAssert(!reqWasSuccess, "response was success. Should have failed.. Response was: \n\(String(data: myData, encoding: .utf8))")
+            success = !reqWasSuccess
+        })
+        esCmd.execute()
+        sleep(3)
         XCTAssert(success)
     }
     

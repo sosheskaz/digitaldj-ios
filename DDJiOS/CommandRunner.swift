@@ -66,6 +66,7 @@ class CommandRunner {
     func off() {
         if(isOn) {
             self.server.close()
+            self.isOn = false
         }
     }
     

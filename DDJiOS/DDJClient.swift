@@ -10,6 +10,8 @@ import Foundation
 import Alamofire
 
 class DDJClient {
+    let shared = DDJClient(heartbeatInterval: 45)
+    
     private let heartbeatWait: UInt32
     
     private var ip: String?

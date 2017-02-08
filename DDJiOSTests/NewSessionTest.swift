@@ -7,7 +7,7 @@
 //
 
 import XCTest
-import DDJiOS
+import Alamofire
 @testable import DDJiOS
 
 class NewSessionTest: XCTestCase {
@@ -31,11 +31,13 @@ class NewSessionTest: XCTestCase {
         var success = false
         let testRegex = EZRegex(pattern: "^[\\da-f]{8}-[\\da-f]{4}-[\\da-f]{4}-[\\da-f]{4}-[\\da-f]{12}$", options: .caseInsensitive)
         cmd!.subscribe({data in
-            guard let myData = data else {
-                XCTFail("data was nil.")
+            guard let myData = data?.value else {
+                print("response data was nil.")
+                print("\(data?.debugDescription)")
+                XCTFail("data was nil!")
                 return
             }
-            guard let sessionId = ServerNewSessionCommand.getSessionId(from: myData) else {
+            guard let sessionId = ServerNewSessionCommand.getValue(from: myData) else {
                 XCTFail("sessionId was not present in response. Response was: \n\(String(data: myData, encoding: .utf8))")
                 return
             }
@@ -44,7 +46,7 @@ class NewSessionTest: XCTestCase {
                 return
             }
             let result = testRegex!.test(against: sessionId)
-            XCTAssert(result, "Result did not match regex.")
+            XCTAssert(result, "Result did not match regex. Actual was \(sessionId)")
             success = true
         })
         cmd!.execute()

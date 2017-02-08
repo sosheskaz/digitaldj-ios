@@ -10,7 +10,8 @@ import Foundation
 import Alamofire
 
 class ServerGetPlaylistCommand: ServerCommand {
-    private var _subscribers: [(Data?) -> Void] = []
+    typealias T = [String]
+    private var _subscribers: [(Result<Data>?) -> Void] = []
     private var sessionId: String
     
     class var command: ServerCommandType {
@@ -25,7 +26,7 @@ class ServerGetPlaylistCommand: ServerCommand {
         return ["sessionId": self.sessionId]
     }
     
-    var subscribers: [(Data?) -> Void] {
+    var subscribers: [(Result<Data>?) -> Void] {
         return _subscribers
     }
     
@@ -33,7 +34,11 @@ class ServerGetPlaylistCommand: ServerCommand {
         self.sessionId = sessionId
     }
     
-    func subscribe(_ listener: @escaping (Data?) -> Void) {
+    func subscribe(_ listener: @escaping (Result<Data>?) -> Void) {
         _subscribers.append(listener)
+    }
+    
+    static func getValue(from data: Data?) -> Array<String> {
+        return ServerGetPlaylistCommand.parseResponse(data) as? [String] ?? []
     }
 }

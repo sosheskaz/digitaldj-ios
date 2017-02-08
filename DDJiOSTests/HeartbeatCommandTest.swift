@@ -40,7 +40,7 @@ class HeartbeatCommandTest: XCTestCase {
     
     func testHeartbeatReceipt() {
         let hb = HeartbeatCommand()
-        let listener = CommandRunner(.client)
+        let listener = ClientCommandListener()
         
         var didComplete = false
         
@@ -51,8 +51,6 @@ class HeartbeatCommandTest: XCTestCase {
         })
         
         let exRes = hb.execute("127.0.0.1")
-        
-        sleep(2)
         
         listener.off()
         

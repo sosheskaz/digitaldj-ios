@@ -17,11 +17,11 @@ class SrvNewUserTest: XCTestCase {
         super.setUp()
         let nsCmd = ServerNewSessionCommand()
         nsCmd.subscribe({ data in
-            guard let myData = data else {
+            guard let myData = data?.value else {
                 XCTFail("Failed to get session. Data was nil.")
                 return
             }
-            guard let sessionId = ServerNewSessionCommand.getSessionId(from: myData) else {
+            guard let sessionId = ServerNewSessionCommand.getValue(from: myData) else {
                 print("SESSIONID: nil")
                 XCTFail("Failed to get session. SessionId was not present in response. Response was: \n\(String(data: myData, encoding: .utf8))")
                 return
@@ -29,6 +29,7 @@ class SrvNewUserTest: XCTestCase {
             self.sessionId = sessionId
         })
         nsCmd.execute()
+        sleep(3)
     }
     
     override func tearDown() {
@@ -41,7 +42,6 @@ class SrvNewUserTest: XCTestCase {
     }
     
     func testNewUser() {
-        sleep(3)
         guard let sessionId = self.sessionId else {
             XCTFail("sessionId was nil; setup failed.")
             return
@@ -50,11 +50,11 @@ class SrvNewUserTest: XCTestCase {
         var success = false
         let nuCmd = ServerNewUserCommand("sosheskaz", tracks: ["6Fbsun5UAWFjeBpRatOITI", "06WPoSERagUDPT4DnjCK1S"], sessionId: sessionId)
         nuCmd.subscribe({ data in
-            guard let myData = data else {
+            guard let myData = data?.value else {
                 XCTFail("data was nil.")
                 return
             }
-            guard let id = ServerNewUserCommand.getUserId(from: myData) else {
+            guard let id = ServerNewUserCommand.getValue(from: myData) else {
                 XCTFail("sessionId was not present in response. Response was: \n\(String(data: myData, encoding: .utf8))")
                 return
             }

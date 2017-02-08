@@ -10,7 +10,8 @@ import Foundation
 import Alamofire
 
 class ServerEndSessionCommand: ServerCommand {
-    private var _subscribers: [(Data?) -> Void] = []
+    typealias T = Bool
+    private var _subscribers: [(Result<Data>?) -> Void] = []
     private let sessionId: String
 
     init(sessionId: String) {
@@ -26,12 +27,17 @@ class ServerEndSessionCommand: ServerCommand {
     var parameters: Alamofire.Parameters? {
         return ["sessionId": sessionId]
     }
-    var subscribers: [(Data?) -> Void] {
+    var subscribers: [(Result<Data>?) -> Void] {
         return _subscribers
     }
-    func subscribe(_ listener: @escaping (Data?) -> Void) {
+    func subscribe(_ listener: @escaping (Result<Data>?) -> Void) {
         _subscribers.append(listener)
     }
     
-    
+    static func getValue(from data: Data?) -> Bool {
+        guard let rtrn = ServerNewSessionCommand.parseResponse(data) as? String else {
+            return false
+        }
+        return Bool(rtrn) ?? false
+    }
 }

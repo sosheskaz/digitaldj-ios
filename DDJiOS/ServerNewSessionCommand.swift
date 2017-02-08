@@ -7,8 +7,9 @@ import Foundation
 import Alamofire
 
 class ServerNewSessionCommand: ServerCommand {
-    private var _subscribers: [(Data?) -> Void] = []
-    var subscribers: [(Data?) -> Void] {
+    typealias T = String?
+    private var _subscribers: [(Result<Data>?) -> Void] = []
+    var subscribers: [(Result<Data>?) -> Void] {
         return _subscribers
     }
     
@@ -16,17 +17,17 @@ class ServerNewSessionCommand: ServerCommand {
         return .newSession
     }
     class var method: HTTPMethod {
-        return .get
+        return .post
     }
     var parameters: Parameters? {
         return [:]
     }
     
-    func subscribe(_ listener: @escaping (Data?) -> Void) {
+    func subscribe(_ listener: @escaping (Result<Data>?) -> Void) {
         _subscribers.append(listener)
     }
     
-    static func getSessionId(from data: Data) -> String? {
+    static func getValue(from data: Data?) -> String? {
         guard var id = ServerNewSessionCommand.parseResponse(data) as? String else {
             return nil
         }
