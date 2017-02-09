@@ -15,6 +15,7 @@ class ServerViewController: UIViewController {
     let auth = SPTAuth.defaultInstance()
     
     private let zc: ZeroconfServer = ZeroconfServer()
+    private let host = DDJHost.shared
     private let DEFAULT_ZC_NAME: String = "iOS Digital DJ"
     
     private var zcName: String
@@ -22,35 +23,12 @@ class ServerViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-        let req = DDJSPlaylistRequest(oauthTokens: [auth!.session.accessToken])
-        print("doing request")
-        req.doRequest(callback: {items in
-            print("Callback is here!")
-            print(String(describing: items))
-        })
-        
-        SPTUser.requestCurrentUser(withAccessToken: auth!.session.accessToken, callback: {error, user in
-            do {
-                let req = try SPTRequest.createRequest(for: URL(string: "https://api.spotify.com/v1/me/top/tracks"), withAccessToken: self.auth!.session.accessToken, httpMethod: "GET", values: nil, valueBodyIsJSON: false, sendDataAsQueryString: false)
-                SPTRequest.sharedHandler().perform(req, callback: {error, response, data in
-                    guard let data = data, error == nil else {
-                        print("error=\(error)")
-                        return
-                    }
-                    
-                    let pll = String(bytes: data, encoding: String.Encoding.utf8)
-                    print(pll ?? "nil")
-                })
-            } catch {
-                
-            }
-        })
+        host.clearSubscribers()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        player.setIsPlaying(false, callback: nil)
+        host.clearSubscribers()
     }
     
     func play(spotifyUri: String) {

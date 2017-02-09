@@ -49,7 +49,7 @@ class SrvGetPlaylistTest: XCTestCase {
             return
         }
         
-        let gpCmd = ServerGetPlaylistCommand(sessionId: session)
+        let gpCmd = ServerGetPlaylistCommand(sessionId: session, nTracks: 10)
         let res = gpCmd.executeSync()
         guard let data = res.data else {
             XCTFail("Didn't get data back. \(res.error!)")
@@ -65,7 +65,7 @@ class SrvGetPlaylistTest: XCTestCase {
             return
         }
         
-        let gpCmd = ServerGetPlaylistCommand(sessionId: session)
+        let gpCmd = ServerGetPlaylistCommand(sessionId: session, nTracks: 10)
         self.measure {
             _ = gpCmd.executeSync()
         }

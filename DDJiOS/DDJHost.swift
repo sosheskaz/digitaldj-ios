@@ -11,29 +11,40 @@ import Foundation
 class DDJHost {
     static var shared: DDJHost = DDJHost(timeoutSeconds: 60 * 15, checkSeconds: 60)
     
+    private let numToHaveInQueue: UInt = 10
+    
     private var ttlSeconds: Int
     private var checkSeconds: UInt32
     
     private var users: [String: UserEntry] = [:]
     private var ips: [String: UserEntry] = [:]
-    private var playlist: [String] = []
+    private var _playlist: [String] = []
     private var ttlDaemonQueue: DispatchQueue = DispatchQueue(label: "ddj.host.ttl.daemon", attributes: .concurrent)
     private var ttlQueueIsRunning = false
     private var ttlQueueShouldStop = false
+    private var subscribers: [CommandType: [(Command) -> Void]]
+    private var sessionId: String?
     
     private var hostListener = HostCommandListener()
     
     private init(timeoutSeconds: Int, checkSeconds: UInt32) {
         self.checkSeconds = checkSeconds
+        self.subscribers = [:]
         self.ttlSeconds = timeoutSeconds
         
         hostListener.subscribe(to: .newUser, callback: handleNewUser)
         hostListener.subscribe(to: .removeUser, callback: handleRemoveUser)
         hostListener.subscribe(to: .heartbeat, callback: handleHeartbeat)
+        hostListener.on()
+        
+        let nsCmd = ServerNewSessionCommand()
+        self.sessionId = ServerNewSessionCommand.getValue(from: nsCmd.executeSync().data)
+        putUser(MySpt.shared.userId, tracks: MySpt.shared.topTracks, ipAddr: "127.0.0.1")
+        
         ttlDaemon()
     }
     
-    var tracks: [String] {
+    var topTracks: [String] {
         get {
             var arr: [String] = []
             
@@ -45,13 +56,44 @@ class DDJHost {
         }
     }
     
+    var playlist: [String] {
+        get {
+            return _playlist
+        }
+    }
+    
+    func subscribe(to ct: CommandType, _ callback: @escaping (Command) -> Void) {
+        if(self.subscribers[ct] == nil) {
+            self.subscribers[ct] = []
+        }
+        self.subscribers[ct]?.append(callback)
+    }
+    
+    func clearSubscribers() {
+        self.subscribers = [:]
+    }
+    
     func putUser(_ userId: String, tracks: [String], ipAddr: String) {
-        let entry = UserEntry(userId: userId, ip: ipAddr, ttl: Date().addingTimeInterval(TimeInterval(ttlSeconds)), trackIds: tracks)
+        let numPrevUsers = users.count
+        
+        let nuCmd = ServerNewUserCommand(tracks: tracks, sessionId: self.sessionId!)
+        let uid = ServerNewUserCommand.getValue(from: nuCmd.executeSync().data)
+        
+        let entry = UserEntry(userId: userId, ip: ipAddr, ttl: Date().addingTimeInterval(TimeInterval(ttlSeconds)), trackIds: tracks, serverId: uid!)
         users[userId] = entry
         ips[ipAddr] = entry
+        
+        let songsToReplace = Int(numPrevUsers > 0 ? (1 / sqrt(Double(numPrevUsers))) * 10 : 15)
+        self._playlist.removeLast(songsToReplace)
+        let gpCmd = ServerGetPlaylistCommand(sessionId: self.sessionId!, numTracksToGet: UInt(songsToReplace))
+        let items = ServerGetPlaylistCommand.getValue(from: gpCmd.executeSync().data)
+        self._playlist += items
     }
     
     func ttlDaemon() {
+        if(self.ttlQueueIsRunning) {
+            return
+        }
         ttlDaemonQueue.async {
             if(self.ttlQueueIsRunning) {
                 return
@@ -87,6 +129,14 @@ class DDJHost {
         }
         
         putUser(nuCmd.spotifyId, tracks: nuCmd.topTracks, ipAddr: source)
+        
+        guard let subscribers = self.subscribers[.newUser] else {
+            return
+        }
+        
+        for subscriber in subscribers {
+            subscriber(cmd)
+        }
     }
     
     private func handleRemoveUser(_ cmd: Command) {
@@ -105,6 +155,14 @@ class DDJHost {
         
         users.removeValue(forKey: entry.userId)
         ips.removeValue(forKey: source)
+        
+        guard let subscribers = self.subscribers[.newUser] else {
+            return
+        }
+        
+        for subscriber in subscribers {
+            subscriber(cmd)
+        }
     }
     
     private func handleHeartbeat(_ cmd: Command) {
@@ -122,6 +180,14 @@ class DDJHost {
         
         let ackCmd = HeartbeatAckCommand()
         _ = ackCmd.execute(source)
+        
+        guard let subscribers = self.subscribers[.newUser] else {
+            return
+        }
+        
+        for subscriber in subscribers {
+            subscriber(cmd)
+        }
     }
     
     static func sharedTestable(timeoutSeconds: Int, checkSeconds: UInt32) -> DDJHost{
@@ -136,12 +202,14 @@ class DDJHost {
         let ip: String
         var ttl: Date
         var trackIds: [String]
+        let serverId: String
         
-        init(userId: String, ip: String, ttl: Date, trackIds: [String]) {
+        init(userId: String, ip: String, ttl: Date, trackIds: [String], serverId: String) {
             self.userId = userId
             self.ip = ip
             self.ttl = ttl
             self.trackIds = trackIds
+            self.serverId = serverId
         }
     }
 }

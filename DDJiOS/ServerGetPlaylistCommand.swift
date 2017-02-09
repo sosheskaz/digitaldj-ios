@@ -13,6 +13,7 @@ class ServerGetPlaylistCommand: ServerCommand {
     typealias T = [String]
     private var _subscribers: [(Result<Data>?) -> Void] = []
     private var sessionId: String
+    private var numItems: UInt
     
     class var command: ServerCommandType {
         return .getPlaylist
@@ -24,15 +25,16 @@ class ServerGetPlaylistCommand: ServerCommand {
     
     var parameters: Parameters? {
         return ["sessionId": self.sessionId,
-                "playlistLength": 25]
+                "playlistLength": numItems]
     }
     
     var subscribers: [(Result<Data>?) -> Void] {
         return _subscribers
     }
     
-    init(sessionId: String) {
+    init(sessionId: String, numTracksToGet nTracks: UInt) {
         self.sessionId = sessionId
+        self.numItems = nTracks
     }
     
     func subscribe(_ listener: @escaping (Result<Data>?) -> Void) {
