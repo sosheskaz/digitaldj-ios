@@ -24,7 +24,7 @@ class DDJHostTest: XCTestCase {
     
     func testPutUser() {
         shared.putUser("sosheskaz", tracks: ["track a", "track b"], ipAddr: "127.0.0.1")
-        let tracks = shared.tracks
+        let tracks = shared.playlist
         XCTAssert(tracks.contains("track a"))
         XCTAssert(tracks.contains("track b"))
     }
