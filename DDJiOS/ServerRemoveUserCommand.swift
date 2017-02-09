@@ -1,21 +1,21 @@
 //
-//  ServerAddUserComand.swift
+//  ServerRemoveUserCommand.swift
 //  DDJiOS
 //
-//  Created by Eric Miller on 2/6/17.
+//  Created by Eric Miller on 2/8/17.
 //  Copyright © 2017 msoe. All rights reserved.
 //
 
 import Foundation
 import Alamofire
 
-class ServerNewUserCommand: ServerCommand {
-    typealias T = String?
+class ServerRemoveUserCommand: ServerCommand {
+    typealias T = Bool
     private var _subscribers: [(Result<Data>?) -> Void] = []
-    private var topTracks: [String]
+    private var userId: String
     private var sessionId: String
     class var command: ServerCommandType {
-        return .newUser
+        return .removeUser
     }
     
     class var method: HTTPMethod {
@@ -24,15 +24,15 @@ class ServerNewUserCommand: ServerCommand {
     
     var parameters: Parameters? {
         return ["sessionId": self.sessionId,
-                "songIds": self.topTracks]
+                "userId": self.userId]
     }
     
     var subscribers: [(Result<Data>?) -> Void] {
         return _subscribers
     }
     
-    init(tracks: [String], sessionId: String) {
-        self.topTracks = tracks
+    init(_ userId: String, sessionId: String) {
+        self.userId = userId
         self.sessionId = sessionId
     }
     
@@ -40,12 +40,10 @@ class ServerNewUserCommand: ServerCommand {
         self._subscribers.append(listener)
     }
     
-    static func getValue(from data: Data?) -> String? {
-        guard var id = ServerNewUserCommand.parseResponse(data) as? String else {
-            return nil
+    static func getValue(from data: Data?) -> Bool {
+        guard let rtrn = ServerNewSessionCommand.parseResponse(data) as? String else {
+            return false
         }
-        
-        id = id.trimmingCharacters(in: CharacterSet(charactersIn: "\"' "))
-        return id
+        return Bool(rtrn) ?? false
     }
 }

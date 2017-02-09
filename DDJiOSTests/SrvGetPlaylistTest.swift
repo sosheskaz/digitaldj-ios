@@ -28,7 +28,7 @@ class SrvGetPlaylistTest: XCTestCase {
         self.sessionId = sessionId
         
         
-        let nuCmd = ServerNewUserCommand("sosheskaz", tracks: ["6Fbsun5UAWFjeBpRatOITI", "06WPoSERagUDPT4DnjCK1S"], sessionId: sessionId)
+        let nuCmd = ServerNewUserCommand(tracks: ["6Fbsun5UAWFjeBpRatOITI", "06WPoSERagUDPT4DnjCK1S"], sessionId: sessionId)
         for _ in 0...10 {
             _ = nuCmd.executeSync()
         }

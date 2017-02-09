@@ -44,7 +44,7 @@ class SrvNewUserTest: XCTestCase {
             return
         }
         let testRegex = EZRegex(pattern: "^[\\da-f]{8}-[\\da-f]{4}-[\\da-f]{4}-[\\da-f]{4}-[\\da-f]{12}$", options: .caseInsensitive)
-        let nuCmd = ServerNewUserCommand("sosheskaz", tracks: ["6Fbsun5UAWFjeBpRatOITI", "06WPoSERagUDPT4DnjCK1S"], sessionId: sessionId)
+        let nuCmd = ServerNewUserCommand(tracks: ["6Fbsun5UAWFjeBpRatOITI", "06WPoSERagUDPT4DnjCK1S"], sessionId: sessionId)
         let res = nuCmd.executeSync()
         guard let myData = res.data else {
             XCTFail("data was nil.")
