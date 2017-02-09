@@ -16,73 +16,49 @@ class EndSessionTest: XCTestCase {
     override func setUp() {
         super.setUp()
         let nsCmd = ServerNewSessionCommand()
-        nsCmd.subscribe({ data in
-            guard let myData = data?.value else {
-                print("Failed to get session. Data was nil.")
-                print("Error: \(data?.debugDescription)")
-                return
-            }
-            guard let sessionId = ServerNewSessionCommand.getValue(from: myData) else {
-                print("Failed to get session. ResponseData was nil. Response was: \n\(String(data: myData, encoding: .utf8))")
-                return
-            }
-            self.sessionId = sessionId
-        })
-        nsCmd.execute()
-        sleep(3)
+        self.sessionId = ServerNewSessionCommand.getValue(from: nsCmd.executeSync().data)
+        print("New Session: \(ServerNewSessionCommand.getValue(from: nsCmd.executeSync().data))")
     }
     
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
         if(sessionId != nil) {
-            ServerEndSessionCommand(sessionId: self.sessionId!).execute()
+            _ = ServerEndSessionCommand(sessionId: self.sessionId!).executeSync()
+            sessionId = nil
         }
     }
     
     func testEndSession() {
-        /*guard let sessionId = self.sessionId else {
+        guard let sessionId = self.sessionId else {
             XCTFail("sessionId was nil; setup failed.")
             return
-        }*/
-        let sessionId = self.sessionId ?? "id"
-        var success = false
+        }
         let esCmd = ServerEndSessionCommand(sessionId: sessionId)
-        esCmd.subscribe({ data in
-            guard let myData = data?.value else {
-                print("Error: \(data?.debugDescription)")
-                XCTFail("data was nil.")
-                return
-            }
-            let reqWasSuccess = ServerEndSessionCommand.getValue(from: myData)
-            if(reqWasSuccess) {
-                self.sessionId = nil
-            }
-            XCTAssert(reqWasSuccess, "response was failure. Response was: \n\(String(data: myData, encoding: .utf8))")
-            success = reqWasSuccess
-        })
-        esCmd.execute()
-        sleep(3)
+        let success = ServerEndSessionCommand.getValue(from: esCmd.executeSync().data)
+        self.sessionId = nil
         XCTAssert(success)
     }
     
     func testEndSessionFailure() {
         let sessionId = "not-a-real-id"
-        var success = false
         let esCmd = ServerEndSessionCommand(sessionId: sessionId)
-        esCmd.subscribe({ data in
-            guard let myData = data?.value else {
-                print("Error: \(data?.debugDescription)")
-                XCTFail("data was nil.")
-                return
-            }
-            let reqWasSuccess = ServerEndSessionCommand.getValue(from: myData)
-            XCTAssert(!reqWasSuccess, "response was success. Should have failed.. Response was: \n\(String(data: myData, encoding: .utf8))")
-            success = !reqWasSuccess
-        })
-        esCmd.execute()
-        sleep(3)
+        let success = !ServerEndSessionCommand.getValue(from: esCmd.executeSync().data)
         XCTAssert(success)
+        self.sessionId = nil
     }
     
+    func testPerformanceNewSessionEndSessionRoundTrip() {
+        if(self.sessionId != nil) {
+            let didEnd = ServerEndSessionCommand.getValue(from: ServerEndSessionCommand(sessionId: self.sessionId!).executeSync().data)
+            XCTAssert(didEnd)
+            self.sessionId = nil
+        }
+        
+        measure {
+            let sessionId = ServerNewSessionCommand.getValue(from: ServerNewSessionCommand().executeSync().data)!
+            let didEnd = ServerEndSessionCommand.getValue(from: ServerEndSessionCommand(sessionId: sessionId).executeSync().data)
+            XCTAssert(didEnd)
+        }
+    }
 }

@@ -23,7 +23,8 @@ class ServerGetPlaylistCommand: ServerCommand {
     }
     
     var parameters: Parameters? {
-        return ["sessionId": self.sessionId]
+        return ["sessionId": self.sessionId,
+                "playlistLength": 25]
     }
     
     var subscribers: [(Result<Data>?) -> Void] {

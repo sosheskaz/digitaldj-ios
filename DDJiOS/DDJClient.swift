@@ -10,7 +10,7 @@ import Foundation
 import Alamofire
 
 class DDJClient {
-    let shared = DDJClient(heartbeatInterval: 45)
+    static let shared = DDJClient(heartbeatInterval: 45)
     
     private let heartbeatWait: UInt32
     
@@ -26,15 +26,46 @@ class DDJClient {
         listener.subscribe(to: .heartbeatAck, callback: handleHeartbeatAck)
         listener.subscribe(to: .heartbeatTimeout, callback: handleHeartbeatTimeout)
         listener.subscribe(to: .updatePlaylist, callback: handleUpdatePlaylist)
+        self.heartbeatDaemon()
     }
     
     func connect(to ip: String) {
+        listener.on()
+        usleep(20000)
         self.ip = ip
+        _ = self.sendNewUserCommand()
     }
     
     func disconnect() {
         listener.off()
         self.ip = nil
+    }
+    
+    func sendNewUserCommand() -> Bool{
+        guard let ip = self.ip else {
+            return false
+        }
+        return NewUserCommand(userId: MySpt.shared.userId, topTracks: MySpt.shared.topTracks).execute(ip)
+    }
+    
+    func sendHeartbeat() -> Bool {
+        guard let ip = self.ip else {
+            return false
+        }
+        return HeartbeatCommand().execute(ip)
+    }
+    
+    private func heartbeatDaemon() {
+        DispatchQueue.global().async {
+            while(true) {
+                guard self.ip != nil else {
+                    sleep(self.heartbeatWait)
+                    continue
+                }
+                _ = self.sendHeartbeat()
+                sleep(self.heartbeatWait)
+            }
+        }
     }
     
     private func handleHeartbeatAck(_ cmd: Command) {
@@ -44,6 +75,7 @@ class DDJClient {
         guard haCmd.source == ip else {
             return
         }
+        print("Heartbeat ack received.")
         
         // do nothing... for now
     }

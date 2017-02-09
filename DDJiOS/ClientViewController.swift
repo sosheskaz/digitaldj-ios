@@ -9,12 +9,12 @@
 import Foundation
 
 class ClientViewController: UIViewController {
-    //private let sharedClient: DDJClient = DDJClient.
+    private let client: DDJClient = DDJClient.shared
     var hostAddress: String? = ""
     @IBOutlet weak var hostAddressLabel: UILabel!
     
     override func viewWillAppear(_ animated: Bool) {
-        //sharedClient.connect(to: hostAddress!)
+        client.connect(to: hostAddress!)
         
         super.viewWillAppear(animated)
         self.hostAddressLabel.text = hostAddress!

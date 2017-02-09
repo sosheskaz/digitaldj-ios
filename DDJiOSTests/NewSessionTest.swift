@@ -28,30 +28,38 @@ class NewSessionTest: XCTestCase {
     }
     
     func testNewSession() {
-        var success = false
+        guard let nsCmd = cmd else {
+            XCTFail("NewSessionCommand failed to init.")
+            return
+        }
         let testRegex = EZRegex(pattern: "^[\\da-f]{8}-[\\da-f]{4}-[\\da-f]{4}-[\\da-f]{4}-[\\da-f]{12}$", options: .caseInsensitive)
-        cmd!.subscribe({data in
-            guard let myData = data?.value else {
-                print("response data was nil.")
-                print("\(data?.debugDescription)")
-                XCTFail("data was nil!")
-                return
-            }
-            guard let sessionId = ServerNewSessionCommand.getValue(from: myData) else {
-                XCTFail("sessionId was not present in response. Response was: \n\(String(data: myData, encoding: .utf8))")
-                return
-            }
-            if(testRegex == nil) {
-                XCTFail("regex failed to init")
-                return
-            }
-            let result = testRegex!.test(against: sessionId)
-            XCTAssert(result, "Result did not match regex. Actual was \(sessionId)")
-            success = true
-        })
-        cmd!.execute()
-        sleep(3)
-        XCTAssert(success)
+        
+        let response = nsCmd.executeSync()
+        guard let myData = response.value else {
+            print("response data was nil.")
+            print("\(response.debugDescription)")
+            XCTFail("data was nil!")
+            return
+        }
+        guard let sessionId = ServerNewSessionCommand.getValue(from: myData) else {
+            XCTFail("sessionId was not present in response. Response was: \n\(String(data: myData, encoding: .utf8))")
+            return
+        }
+        if(testRegex == nil) {
+            XCTFail("regex failed to init")
+            return
+        }
+        let result = testRegex!.test(against: sessionId)
+        XCTAssert(result, "Result did not match regex. Actual was \(sessionId)")
+        if(result) {
+            sessionIdsToCleanUp.append(sessionId)
+        }
+    }
+    
+    func testPerformanceNewSession() {
+        self.measure {
+            self.testNewSession()
+        }
     }
     
 }

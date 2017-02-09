@@ -43,6 +43,12 @@ extension ServerCommand {
         req.resume()
     }
     
+    func executeSync() -> DataResponse<Data> {
+        let endpoint = baseEndpoint + Self.command.rawValue
+        let res = Alamofire.request(endpoint, method: Self.method, parameters: self.parameters, encoding: self.parameterEncoding).responseData()
+        return res
+    }
+    
     private func completionHandler(response: DataResponse<Data>) {
         print("completion")
         for callback in self.subscribers {

@@ -16,20 +16,17 @@ class SrvNewUserTest: XCTestCase {
     override func setUp() {
         super.setUp()
         let nsCmd = ServerNewSessionCommand()
-        nsCmd.subscribe({ data in
-            guard let myData = data?.value else {
-                XCTFail("Failed to get session. Data was nil.")
-                return
-            }
-            guard let sessionId = ServerNewSessionCommand.getValue(from: myData) else {
-                print("SESSIONID: nil")
-                XCTFail("Failed to get session. SessionId was not present in response. Response was: \n\(String(data: myData, encoding: .utf8))")
-                return
-            }
-            self.sessionId = sessionId
-        })
-        nsCmd.execute()
-        sleep(3)
+        let res = nsCmd.executeSync()
+        guard let myData = res.data else {
+            XCTFail("Failed to get session. Data was nil.")
+            return
+        }
+        guard let sessionId = ServerNewSessionCommand.getValue(from: myData) else {
+            print("SESSIONID: nil")
+            XCTFail("Failed to get session. SessionId was not present in response. Response was: \n\(String(data: myData, encoding: .utf8))")
+            return
+        }
+        self.sessionId = sessionId
     }
     
     override func tearDown() {
@@ -47,29 +44,29 @@ class SrvNewUserTest: XCTestCase {
             return
         }
         let testRegex = EZRegex(pattern: "^[\\da-f]{8}-[\\da-f]{4}-[\\da-f]{4}-[\\da-f]{4}-[\\da-f]{12}$", options: .caseInsensitive)
-        var success = false
         let nuCmd = ServerNewUserCommand("sosheskaz", tracks: ["6Fbsun5UAWFjeBpRatOITI", "06WPoSERagUDPT4DnjCK1S"], sessionId: sessionId)
-        nuCmd.subscribe({ data in
-            guard let myData = data?.value else {
-                XCTFail("data was nil.")
-                return
-            }
-            guard let id = ServerNewUserCommand.getValue(from: myData) else {
-                XCTFail("sessionId was not present in response. Response was: \n\(String(data: myData, encoding: .utf8))")
-                return
-            }
-            if(testRegex == nil) {
-                XCTFail("regex failed to init")
-                return
-            }
-            let result = testRegex!.test(against: id)
-            
-            XCTAssert(result, "Result did not match regex. Actual: \(id)\nData: \(String(data: myData, encoding: .utf8))")
-            success = true
-        })
-        nuCmd.execute()
-        sleep(3)
-        XCTAssert(success)
+        let res = nuCmd.executeSync()
+        guard let myData = res.data else {
+            XCTFail("data was nil.")
+            return
+        }
+        guard let id = ServerNewUserCommand.getValue(from: myData) else {
+            XCTFail("sessionId was not present in response. Response was: \n\(String(data: myData, encoding: .utf8))")
+            return
+        }
+        if(testRegex == nil) {
+            XCTFail("regex failed to init")
+            return
+        }
+        let result = testRegex!.test(against: id)
+        
+        XCTAssert(result, "Result did not match regex. Actual: \(id)\nData: \(String(data: myData, encoding: .utf8))")
+    }
+    
+    func testPerformanceNewUser() {
+        self.measure {
+            self.testNewUser()
+        }
     }
     
 }
