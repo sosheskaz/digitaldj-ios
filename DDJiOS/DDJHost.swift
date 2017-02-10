@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Alamofire
 
 class DDJHost {
     static var shared: DDJHost = DDJHost(timeoutSeconds: 60 * 15, checkSeconds: 60)
@@ -18,18 +19,18 @@ class DDJHost {
     
     private var users: [String: UserEntry] = [:]
     private var ips: [String: UserEntry] = [:]
-    private var _playlist: [String] = []
+    private var _playlist: [SPTTrack] = []
     private var ttlDaemonQueue: DispatchQueue = DispatchQueue(label: "ddj.host.ttl.daemon", attributes: .concurrent)
     private var ttlQueueIsRunning = false
     private var ttlQueueShouldStop = false
-    private var subscribers: [CommandType: [(Command) -> Void]]
+    private var subscribers: [CommandType: [(Command) -> Void]] = [:]
     private var sessionId: String?
+    private var toDoOnPlaylistUpdate: [(DDJHost) -> Void] = []
     
     private var hostListener = HostCommandListener()
     
     private init(timeoutSeconds: Int, checkSeconds: UInt32) {
         self.checkSeconds = checkSeconds
-        self.subscribers = [:]
         self.ttlSeconds = timeoutSeconds
         
         hostListener.subscribe(to: .newUser, callback: handleNewUser)
@@ -39,9 +40,10 @@ class DDJHost {
         
         let nsCmd = ServerNewSessionCommand()
         self.sessionId = ServerNewSessionCommand.getValue(from: nsCmd.executeSync().data)
-        putUser(MySpt.shared.userId, tracks: MySpt.shared.topTracks, ipAddr: "127.0.0.1")
         
         ttlDaemon()
+        
+        self.putUser(MySpt.shared.userId, tracks: MySpt.shared.topTracks, ipAddr: "127.0.0.1")
     }
     
     var topTracks: [String] {
@@ -56,7 +58,7 @@ class DDJHost {
         }
     }
     
-    var playlist: [String] {
+    var playlist: [SPTTrack] {
         get {
             return _playlist
         }
@@ -83,11 +85,34 @@ class DDJHost {
         users[userId] = entry
         ips[ipAddr] = entry
         
-        let songsToReplace = Int(numPrevUsers > 0 ? (1 / sqrt(Double(numPrevUsers))) * 10 : 15)
+        let songsToReplace = min(Int(numPrevUsers > 0 ? (1 / sqrt(Double(numPrevUsers))) * 10 : 15), self._playlist.count)
         self._playlist.removeLast(songsToReplace)
-        let gpCmd = ServerGetPlaylistCommand(sessionId: self.sessionId!, numTracksToGet: UInt(songsToReplace))
-        let items = ServerGetPlaylistCommand.getValue(from: gpCmd.executeSync().data)
-        self._playlist += items
+        let songsToGet = 15 - self._playlist.count
+        let gpCmd = ServerGetPlaylistCommand(sessionId: self.sessionId!, numTracksToGet: UInt(songsToGet))
+        let result = gpCmd.executeSync()
+        let items = ServerGetPlaylistCommand.getValue(from: result.data)
+        print(items)
+        do {
+            print("REQ")
+            let uriItems = items.map { URL(string: "spotify:track:\($0)")! }
+            
+            let req = try SPTTrack.createRequest(forTracks: uriItems, withAccessToken: MySpt.shared.session!.accessToken!, market: "US")
+            let afReq = Alamofire.request(req)
+            let res = afReq.responseData()
+            let tracks = try SPTTrack.tracks(from: res.data!, with: res.response) as! [SPTTrack]
+            self._playlist += tracks
+        } catch {
+            
+        }
+        self.toDoOnPlaylistUpdate.forEach { closure in
+            DispatchQueue.global().async {
+                closure(self)
+            }
+        }
+    }
+    
+    func onPlaylistUpdate(do closure: @escaping (DDJHost) -> Void) {
+        self.toDoOnPlaylistUpdate.append(closure)
     }
     
     func ttlDaemon() {

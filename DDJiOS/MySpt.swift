@@ -103,8 +103,10 @@ class MySpt {
                     
                     do {
                         let json = try JSONSerialization.jsonObject(with: data, options: []) as AnyObject
-                        print(json)
-                        finalTracks.append(contentsOf: json["items"] as! Array)
+                        let toAppend = (json["items"] as! [AnyObject]).map {
+                            return $0["id"] as! String
+                        }
+                        finalTracks += toAppend
                     } catch {
                         print("Could not deserialize JSON!")
                     }

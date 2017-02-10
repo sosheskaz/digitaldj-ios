@@ -10,7 +10,9 @@ import Foundation
 import UIKit
 import Alamofire
 
-class ServerViewController: UIViewController {
+class ServerViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    @IBOutlet var playlistTableView: UITableView? = nil
+    
     let player: SPTAudioStreamingController = SPTAudioStreamingController.sharedInstance()
     let auth = SPTAuth.defaultInstance()
     
@@ -24,6 +26,12 @@ class ServerViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         host.clearSubscribers()
+        host.onPlaylistUpdate(do: { host in
+            self.playlistTableView?.reloadData()
+        })
+        self.playlistTableView?.reloadData()
+        sleep(1)
+        print(self.host.playlist)
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -64,6 +72,16 @@ class ServerViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         stop()
+    }
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return host.playlist.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell()
+        cell.textLabel?.text = host.playlist[indexPath.row].name
+        return cell
     }
 }
 
