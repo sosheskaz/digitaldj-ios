@@ -12,7 +12,7 @@ import XCTest
 class HeartbeatCommandTest: XCTestCase {
     var cmd: HeartbeatCommand?
     
-    let listener = ClientCommandListener()
+    let listener = ClientCommandListener.shared
     
     override func setUp() {
         super.setUp()

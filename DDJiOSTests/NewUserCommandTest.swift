@@ -53,9 +53,6 @@ class NewUserCommandTest: XCTestCase {
     }
     
     func testSend() {
-        
-        var didComplete = false
-        
         class Delegate: HostCommandListenerDelegate {
             var didComplete = false
             
@@ -66,6 +63,9 @@ class NewUserCommandTest: XCTestCase {
                 print("New User received:")
                 print(String(data: newUser.json!, encoding: .utf8)!)
                 didComplete = true
+            }
+            func hostCommandListener(removeUserCommand: RemoveUserCommand) {
+                
             }
         }
         let d = Delegate()

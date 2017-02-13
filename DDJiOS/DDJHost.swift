@@ -160,23 +160,6 @@ class DDJHost: HostCommandListenerDelegate {
     }
     
     private func handleRemoveUser(_ cmd: Command) {
-        guard let ruCmd = cmd as? RemoveUserCommand else {
-            return
-        }
-        guard let source = ruCmd.source else {
-            return
-        }
-        guard source == users[ruCmd.spotifyId]?.ip else {
-            return
-        }
-        guard let entry = ips[source] else {
-            return
-        }
-        
-        users.removeValue(forKey: entry.userId)
-        ips.removeValue(forKey: source)
-        
-        DispatchQueue.global().async { self.delegate?.ddjHost(removeUser: ruCmd) }
     }
     
     func hostCommandListener(newUser: NewUserCommand) {
@@ -191,8 +174,24 @@ class DDJHost: HostCommandListenerDelegate {
         DispatchQueue.global().async { self.delegate?.ddjHost(newUser: newUser) }
     }
     
-    func hostCommandListener(heartbeatAck: HeartbeatAckCommand) {
+    func hostCommandListener(removeUserCommand: RemoveUserCommand) {
+        guard let source = removeUserCommand.source else {
+            return
+        }
+        guard source == users[removeUserCommand.spotifyId]?.ip else {
+            return
+        }
+        guard let entry = ips[source] else {
+            return
+        }
+        
+        users.removeValue(forKey: entry.userId)
+        ips.removeValue(forKey: source)
+        
+        DispatchQueue.global().async { self.delegate?.ddjHost(removeUser: removeUserCommand) }
     }
+    
+    func hostCommandListener(heartbeatAck: HeartbeatAckCommand) {}
     
     static func sharedTestable(timeoutSeconds: Int, checkSeconds: UInt32) -> DDJHost{
         let host = DDJHost(timeoutSeconds: timeoutSeconds, checkSeconds: checkSeconds)

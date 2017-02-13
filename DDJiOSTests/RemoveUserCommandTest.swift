@@ -12,16 +12,19 @@ import XCTest
 class RemoveUserCommandTest: XCTestCase {
     private let mockUserId = "imauser"
     private var cmd: RemoveUserCommand?
+    let listener = HostCommandListener.shared
     
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
         cmd = RemoveUserCommand(userId: mockUserId)
+        listener.on()
     }
     
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
+        listener.off()
     }
     
     func testInit() {
@@ -46,4 +49,26 @@ class RemoveUserCommandTest: XCTestCase {
                   "Spotify ID: Expected=\(mockUserId) Actual=\(des!["spotifyId"])")
     }
     
+    func testSend() {
+        class Delegate: HostCommandListenerDelegate {
+            var didComplete = false
+            
+            func hostCommandListener(heartbeatAck: HeartbeatAckCommand) {
+                
+            }
+            func hostCommandListener(newUser: NewUserCommand) {
+            }
+            func hostCommandListener(removeUserCommand: RemoveUserCommand) {
+                didComplete = true
+            }
+        }
+        let d = Delegate()
+        listener.delegate = d
+        
+        let exRes = cmd!.execute("127.0.0.1")
+        sleep(1)
+        
+        XCTAssert(exRes)
+        XCTAssert(d.didComplete)
+    }
 }

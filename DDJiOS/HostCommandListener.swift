@@ -21,7 +21,8 @@ class HostCommandListener: CommandRunner {
         
         let actions: [CommandType: [(_: Command) -> Void]] = [
             .newUser: [handleNewUser],
-            .heartbeatAck: [handleHeartbeatAck]
+            .heartbeatAck: [handleHeartbeatAck],
+            .removeUser: [handleRemoveUser]
         ]
         
         for (cmdType, closures) in actions {
@@ -58,9 +59,17 @@ class HostCommandListener: CommandRunner {
         }
         self.delegate?.hostCommandListener(heartbeatAck: haCmd)
     }
+    
+    private func handleRemoveUser(cmd: Command) {
+        guard let ruCmd = cmd as? RemoveUserCommand else {
+            return
+        }
+        self.delegate?.hostCommandListener(removeUserCommand: ruCmd)
+    }
 }
 
 protocol HostCommandListenerDelegate {
     func hostCommandListener(newUser: NewUserCommand)
     func hostCommandListener(heartbeatAck: HeartbeatAckCommand)
+    func hostCommandListener(removeUserCommand: RemoveUserCommand)
 }

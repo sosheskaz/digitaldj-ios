@@ -11,16 +11,19 @@ import XCTest
 
 class HeartbeatAckCommandTest: XCTestCase {
     var cmd: HeartbeatAckCommand?
+    let listener = HostCommandListener.shared
     
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
         cmd = HeartbeatAckCommand()
+        listener.on()
     }
     
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
+        listener.off()
     }
     
     func testJson() {
@@ -38,4 +41,26 @@ class HeartbeatAckCommandTest: XCTestCase {
         XCTAssert(des!["command"] as! String == "heartbeatAck", "Expected=heartbeatAck Actual=\(des!["command"])")
     }
     
+    func testSend() {
+        class Delegate: HostCommandListenerDelegate {
+            var didComplete = false
+            
+            func hostCommandListener(heartbeatAck: HeartbeatAckCommand) {
+                didComplete = true
+            }
+            func hostCommandListener(newUser: NewUserCommand) {
+            }
+            func hostCommandListener(removeUserCommand: RemoveUserCommand) {
+                
+            }
+        }
+        let d = Delegate()
+        listener.delegate = d
+        
+        let exRes = cmd!.execute("127.0.0.1")
+        sleep(1)
+        
+        XCTAssert(exRes)
+        XCTAssert(d.didComplete)
+    }
 }

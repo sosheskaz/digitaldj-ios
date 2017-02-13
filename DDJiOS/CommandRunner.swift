@@ -108,6 +108,9 @@ class CommandRunner {
             case .updatePlaylist:
                 cmd = UpdatePlaylistCommand(from: data)
                 break
+            case .removeUser:
+                cmd = RemoveUserCommand(from: data)
+                break
             default:
                 // 💩
                 break
