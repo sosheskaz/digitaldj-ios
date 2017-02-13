@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import Alamofire
 
-class ServerViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, SPTAudioStreamingPlaybackDelegate {
+class ServerViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, DDJHostDelegate, SPTAudioStreamingPlaybackDelegate {
     @IBOutlet var playlistTableView: UITableView? = nil
     @IBOutlet var serverNameLabel: UILabel? = nil
     @IBOutlet var nowPlayingLabelTrackName: UILabel? = nil
@@ -32,7 +32,6 @@ class ServerViewController: UIViewController, UITableViewDataSource, UITableView
         self.serverNameLabel?.text = zcName
         
         super.viewDidAppear(animated)
-        host.clearSubscribers()
         print(host.playlist.first!.playableUri.absoluteString)
         let track = host.playlistPop()
         
@@ -61,7 +60,6 @@ class ServerViewController: UIViewController, UITableViewDataSource, UITableView
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        host.clearSubscribers()
     }
     
     func play(spotifyUri: String) {
@@ -107,6 +105,18 @@ class ServerViewController: UIViewController, UITableViewDataSource, UITableView
         let cell = UITableViewCell()
         cell.textLabel?.text = host.playlist[indexPath.row].name
         return cell
+    }
+    
+    func ddjHost(newUser: NewUserCommand) {
+        
+    }
+    
+    func ddjHost(updatePlaylist: [SPTTrack]) {
+        
+    }
+    
+    func ddjHost(removeUser: RemoveUserCommand) {
+        
     }
 
     func audioStreaming(_ audioStreaming: SPTAudioStreamingController!, didReceive event: SpPlaybackEvent) {

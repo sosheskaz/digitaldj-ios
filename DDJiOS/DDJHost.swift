@@ -23,11 +23,11 @@ class DDJHost {
     private var ttlDaemonQueue: DispatchQueue = DispatchQueue(label: "ddj.host.ttl.daemon", attributes: .concurrent)
     private var ttlQueueIsRunning = false
     private var ttlQueueShouldStop = false
-    private var subscribers: [CommandType: [(Command) -> Void]] = [:]
     private var sessionId: String?
-    private var toDoOnPlaylistUpdate: [(DDJHost) -> Void] = []
     
     private var hostListener = HostCommandListener()
+    
+    var delegate: DDJHostDelegate?
     
     private init(timeoutSeconds: Int, checkSeconds: UInt32) {
         self.checkSeconds = checkSeconds
@@ -78,6 +78,7 @@ class DDJHost {
 
     func playlistClear() {
         self._playlist.removeAll()
+        DispatchQueue.global().async { self.delegate?.ddjHost(updatePlaylist: self.playlist) }
     }
 
     func fillPlaylist() {
@@ -92,17 +93,8 @@ class DDJHost {
             return
         }
         self._playlist += tracks
-    }
-    
-    func subscribe(to ct: CommandType, _ callback: @escaping (Command) -> Void) {
-        if(self.subscribers[ct] == nil) {
-            self.subscribers[ct] = []
-        }
-        self.subscribers[ct]?.append(callback)
-    }
-    
-    func clearSubscribers() {
-        self.subscribers = [:]
+        
+        DispatchQueue.global().async { self.delegate?.ddjHost(updatePlaylist: self.playlist) }
     }
     
     func putUser(_ userId: String, tracks: [String], ipAddr: String) {
@@ -128,15 +120,14 @@ class DDJHost {
         }
         self._playlist += tracks
         
-        self.toDoOnPlaylistUpdate.forEach { closure in
-            DispatchQueue.global().async {
-                closure(self)
+        DispatchQueue.global().async {
+            let upCmd: UpdatePlaylistCommand = UpdatePlaylistCommand(fullQueue: self.playlist.map { $0.identifier })
+            for (_, user) in self.users {
+                DispatchQueue.global().async { _ = upCmd.execute(user.ip) }
             }
         }
-    }
-    
-    func onPlaylistUpdate(do closure: @escaping (DDJHost) -> Void) {
-        self.toDoOnPlaylistUpdate.append(closure)
+        
+        DispatchQueue.global().async { self.delegate?.ddjHost(updatePlaylist: self.playlist) }
     }
     
     func ttlDaemon() {
@@ -170,29 +161,25 @@ class DDJHost {
     }
     
     private func handleNewUser(_ cmd: Command) {
+        print("NEW USER")
         guard let nuCmd = cmd as? NewUserCommand else {
             return
         }
-        guard let source = (nuCmd as Command).source else {
+        guard let source = nuCmd.source else {
             return
         }
         
         putUser(nuCmd.spotifyId, tracks: nuCmd.topTracks, ipAddr: source)
         
-        guard let subscribers = self.subscribers[.newUser] else {
-            return
-        }
-        
-        for subscriber in subscribers {
-            subscriber(cmd)
-        }
+        DispatchQueue.global().async { _ = UpdatePlaylistCommand(fullQueue: self.playlist.map { $0.identifier }).execute(source) }
+        DispatchQueue.global().async { self.delegate?.ddjHost(newUser: nuCmd) }
     }
     
     private func handleRemoveUser(_ cmd: Command) {
         guard let ruCmd = cmd as? RemoveUserCommand else {
             return
         }
-        guard let source = cmd.source else {
+        guard let source = ruCmd.source else {
             return
         }
         guard source == users[ruCmd.spotifyId]?.ip else {
@@ -205,13 +192,7 @@ class DDJHost {
         users.removeValue(forKey: entry.userId)
         ips.removeValue(forKey: source)
         
-        guard let subscribers = self.subscribers[.newUser] else {
-            return
-        }
-        
-        for subscriber in subscribers {
-            subscriber(cmd)
-        }
+        DispatchQueue.global().async { self.delegate?.ddjHost(removeUser: ruCmd) }
     }
     
     private func handleHeartbeat(_ cmd: Command) {
@@ -229,14 +210,6 @@ class DDJHost {
         
         let ackCmd = HeartbeatAckCommand()
         _ = ackCmd.execute(source)
-        
-        guard let subscribers = self.subscribers[.newUser] else {
-            return
-        }
-        
-        for subscriber in subscribers {
-            subscriber(cmd)
-        }
     }
     
     static func sharedTestable(timeoutSeconds: Int, checkSeconds: UInt32) -> DDJHost{

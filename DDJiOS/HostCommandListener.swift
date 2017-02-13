@@ -51,6 +51,7 @@ class HostCommandListener: CommandRunner {
         let id = cmd.spotifyId
         
         func finishHandleNewUser(anyerror: Any?, anyuser: Any?) {
+            print("FINISH HANDLE NEW USER")
             guard anyerror == nil else {
                 print("Failed to auth user.")
                 print("Error: \(anyerror as! Error)")

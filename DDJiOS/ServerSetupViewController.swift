@@ -12,6 +12,7 @@ import UIKit
 class ServerSetupViewController: UIViewController {
     @IBOutlet var nameField: UITextField? = nil
     
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let svc = segue.destination as? ServerViewController;
         if(svc != nil) {

@@ -37,15 +37,12 @@ class ZeroconfTableView: UIViewController, UITableViewDataSource, UITableViewDel
     }
     
     func refresh() {
-        print("refresh")
         items = Array<NetService>(client.getFoundServices())
-        print(items)
         self.zcTableView?.reloadData()
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedCell = indexPath.row
-        print(selectedCell)
         self.performSegue(withIdentifier: "ServerSelectSegue", sender: self)
     }
     
@@ -55,10 +52,10 @@ class ZeroconfTableView: UIViewController, UITableViewDataSource, UITableViewDel
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        print("SEGUE: \(segue.identifier)")
         if segue.identifier == "ServerSelectSegue" {
             if let destination = segue.destination as? ClientViewController {
                 destination.hostAddress = netServiceDidResolveAddress(items[selectedCell])!
+                destination.hostName = items[selectedCell].hostName ?? ""
             }
         }
     }
@@ -86,7 +83,6 @@ class ZeroconfTableView: UIViewController, UITableViewDataSource, UITableViewDel
         if inetAddress.sin_family == __uint8_t(AF_INET) {
             if let ip = String(cString: inet_ntoa(inetAddress.sin_addr), encoding: .ascii) {
                 // IPv4
-                print("ipv4: \(ip)")
                 return ip
             }
         } else if inetAddress.sin_family == __uint8_t(AF_INET6) {
@@ -97,7 +93,6 @@ class ZeroconfTableView: UIViewController, UITableViewDataSource, UITableViewDel
             if let ipString = inet_ntop(Int32(inetAddress6.sin6_family), &addr, ipStringBuffer, __uint32_t(INET6_ADDRSTRLEN)) {
                 if let ip = String(cString: ipString, encoding: .ascii) {
                     // IPv6
-                    print("ipv6: \(ip)")
                     return ip
                 }
             }

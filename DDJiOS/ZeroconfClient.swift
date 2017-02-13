@@ -26,16 +26,13 @@ public class ZeroconfClient {
         self.netServiceBrowser.delegate = self.netServiceDelegate
         self.netServiceBrowser.schedule(in: RunLoop.main, forMode: RunLoopMode.defaultRunLoopMode)
         self.netServiceBrowser.searchForServices(ofType: TYPE, inDomain: DOMAIN)
-        print("zcinit")
     }
 
     public func clear() {
-        print("zcc")
         self.data.discoveredServices = Set<NetService>()
     }
     
     public func getFoundServices() -> Set<NetService> {
-        print("zcgfs")
         return self.data.discoveredServices
     }
 }

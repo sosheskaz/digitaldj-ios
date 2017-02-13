@@ -29,7 +29,7 @@ protocol Command {
 extension Command {
     func execute(_ address: String)  -> Bool {
         let client = TCPClient(address: address, port: Self.destPort.rawValue)
-        
+        print(address)
         var success = false
         
         switch client.connect(timeout: 10) {
@@ -39,7 +39,7 @@ extension Command {
             break
         case .failure(let error):
             // 💩
-            print(error)
+            print("COMMAND FAILED TO SEND \(error)")
             success = false
             break
         }

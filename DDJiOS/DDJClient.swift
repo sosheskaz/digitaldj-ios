@@ -19,6 +19,10 @@ class DDJClient {
     private var trackData: [String: SPTTrack] = [:]
     private var _playlist: [SPTTrack] = []
     
+    private var clientListener: ClientCommandListener = ClientCommandListener()
+    
+    var delegate: DDJClientDelegate?
+    
     private init(heartbeatInterval: UInt32) {
         self.heartbeatWait = heartbeatInterval
         
@@ -27,13 +31,22 @@ class DDJClient {
         listener.subscribe(to: .heartbeatTimeout, callback: handleHeartbeatTimeout)
         listener.subscribe(to: .updatePlaylist, callback: handleUpdatePlaylist)
         self.heartbeatDaemon()
+        clientListener.subscribe(to: .updatePlaylist, callback: handleUpdatePlaylist)
+        clientListener.on()
+    }
+    
+    var playlist: [SPTTrack] {
+        get {
+            return _playlist
+        }
     }
     
     func connect(to ip: String) {
         listener.on()
         usleep(20000)
         self.ip = ip
-        _ = self.sendNewUserCommand()
+        let didSend = self.sendNewUserCommand()
+        print(didSend)
     }
     
     func disconnect() {
@@ -45,6 +58,7 @@ class DDJClient {
         guard let ip = self.ip else {
             return false
         }
+
         return NewUserCommand(userId: MySpt.shared.userId, topTracks: MySpt.shared.topTracks).execute(ip)
     }
     
@@ -88,10 +102,11 @@ class DDJClient {
             return
         }
         
-        // todo
+        delegate?.ddjClientHeartbeatTimeout()
     }
     
     private func handleUpdatePlaylist(cmd: Command) {
+        print("UPDATE PLAYLIST")
         guard let upCmd = cmd as? UpdatePlaylistCommand else {
             return
         }
@@ -99,37 +114,24 @@ class DDJClient {
             return
         }
         
-        let toGet = upCmd.queue.filter({ trackId in
-            return self.trackData[trackId] == nil
-        })
+        let toGet = upCmd.queue.filter { self.trackData[$0] == nil }
         
-        do {
-            let req = try SPTTrack.createRequest(forTracks: toGet, withAccessToken: MySpt.shared.token, market: "US")
-            Alamofire.request(req).validate().responseJSON(completionHandler: { response in
-                do {
-                    let trackData = try SPTTrack.tracks(from: response.data!, with: response.response)
-                    for trackDatum in trackData {
-                        guard let track = trackDatum as? SPTTrack else {
-                            return
-                        }
-                        self.trackData[track.identifier] = track
-                    }
-                    
-                    self._playlist = upCmd.queue.map({ trackId in
-                        return self.trackData[trackId]!
-                    })
-                    
-                    for (key, value) in self.trackData {
-                        if(!self._playlist.contains(value)) {
-                            self.trackData.removeValue(forKey: key)
-                        }
-                    }
-                } catch {
-                    return
-                }
-            }).resume()
-        } catch {
+        guard let trackData = DDJSPTTools.SPTTracksFromIdsOrUris(toGet) else {
             return
         }
+        for trackDatum in trackData {
+            self.trackData[trackDatum.identifier] = trackDatum
+        }
+        self._playlist = upCmd.queue.map { self.trackData[$0]! }
+        
+        DispatchQueue.global().async {
+            for (key, value) in self.trackData {
+                if(!self._playlist.contains(value)) {
+                    self.trackData.removeValue(forKey: key)
+                }
+            }
+        }
+        
+        delegate?.ddjClient(updatePlaylist: self.playlist)
     }
 }
