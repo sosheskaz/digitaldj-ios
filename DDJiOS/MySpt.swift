@@ -43,7 +43,7 @@ class MySpt {
     var session: SPTSession? {
         get {
             do {
-                return SPTAuth.defaultInstance().session
+                return SPTAuth.defaultInstance()?.session
             } catch {
                 return nil
             }

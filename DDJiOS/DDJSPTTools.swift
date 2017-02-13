@@ -17,7 +17,10 @@ class DDJSPTTools {
             return URL(string: uriStr)!
         })
         do {
-            let tracksRequest = try SPTTrack.createRequest(forTracks: uris, withAccessToken: nil, market: "US")
+            let accessToken = MySpt.shared.session?.accessToken
+            let market = accessToken == nil ? "US" : SPTMarketFromToken
+            
+            let tracksRequest = try SPTTrack.createRequest(forTracks: uris, withAccessToken: accessToken, market: market)
             let responseData = Alamofire.request(tracksRequest).responseData()
             
             guard let data = responseData.data else {
