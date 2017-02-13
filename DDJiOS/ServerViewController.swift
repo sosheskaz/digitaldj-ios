@@ -9,9 +9,8 @@
 import Foundation
 import UIKit
 import Alamofire
-import MediaPlayer
 
-class ServerViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, SPTAudioStreamingPlaybackDelegate, {
+class ServerViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, SPTAudioStreamingPlaybackDelegate {
     @IBOutlet var playlistTableView: UITableView? = nil
     @IBOutlet var serverNameLabel: UILabel? = nil
     @IBOutlet var nowPlayingLabelTrackName: UILabel? = nil
