@@ -43,7 +43,9 @@ class DDJHost {
         
         ttlDaemon()
         
-        self.putUser(MySpt.shared.userId, tracks: MySpt.shared.topTracks, ipAddr: "127.0.0.1")
+        if(MySpt.shared.session?.isValid() ?? false) {
+            self.putUser(MySpt.shared.userId, tracks: MySpt.shared.topTracks, ipAddr: "127.0.0.1")
+        }
     }
     
     var topTracks: [String] {
