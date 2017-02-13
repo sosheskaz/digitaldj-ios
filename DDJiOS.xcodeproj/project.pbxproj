@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		37D1F7AA9DDE8D959E8D32F0 /* DDJSPTTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D1F73F4F2321E13B1A6D68 /* DDJSPTTools.swift */; };
 		37D1F7FB3D47D847D87FA983 /* ServerNewSessionCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D1FC9DC934147FBAC5E114 /* ServerNewSessionCommand.swift */; };
+		37D1FA1908DBFDA475248817 /* SPTManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D1F272AB009E43B4A67202 /* SPTManager.swift */; };
 		37D1FDDCB21FBF7337B3EFFB /* ServerCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D1F704BCFBA4A74CA53542 /* ServerCommand.swift */; };
 		6B0744CE1DFB66FE0052AE50 /* SpotifyAuthentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B0744CD1DFB66FE0052AE50 /* SpotifyAuthentication.swift */; };
 		6B08B8A61E2C1DBC00D94898 /* ExecuteTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B08B8A51E2C1DBC00D94898 /* ExecuteTest.swift */; };
@@ -50,7 +52,6 @@
 		6B973A261E2DBFFE002DCE12 /* HostCommandListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B973A251E2DBFFE002DCE12 /* HostCommandListener.swift */; };
 		6B973A281E2DC11A002DCE12 /* TimeoutTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B973A271E2DC11A002DCE12 /* TimeoutTable.swift */; };
 		6B973A2A1E2DCA9E002DCE12 /* ClientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B973A291E2DCA9E002DCE12 /* ClientViewController.swift */; };
-		6B98D7E31DF6BFF5005118E9 /* SpotifyProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B98D7E21DF6BFF5005118E9 /* SpotifyProfile.swift */; };
 		6B9DB7A71E01D16F00BAAF73 /* DDJSPlaylistRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B9DB7A61E01D16F00BAAF73 /* DDJSPlaylistRequest.swift */; };
 		6B9DB7AA1E01D4FF00BAAF73 /* DDJSPlaylistResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B9DB7A91E01D4FF00BAAF73 /* DDJSPlaylistResponse.swift */; };
 		6B9E22511DC73468001F1871 /* ZeroconfClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B9E224F1DC73468001F1871 /* ZeroconfClient.swift */; };
@@ -61,6 +62,7 @@
 		6BC39EE81E483EDE00CF13DE /* DDJClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC39EE71E483EDE00CF13DE /* DDJClient.swift */; };
 		6BC39EEA1E4854B200CF13DE /* ServerGetPlaylistCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC39EE91E4854B200CF13DE /* ServerGetPlaylistCommand.swift */; };
 		6BC693AE1E4284DC00BED8A4 /* HeartbeatTimeoutCommandTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC693AD1E4284DC00BED8A4 /* HeartbeatTimeoutCommandTest.swift */; };
+		6BCB701F1E513F6200965207 /* SPTToolsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BCB701E1E513F6200965207 /* SPTToolsTest.swift */; };
 		6BCF2D2E1DD028D200C67ED3 /* ServerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BCF2D2D1DD028D200C67ED3 /* ServerViewController.swift */; };
 		6BCF2D301DD0310900C67ED3 /* ServerSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BCF2D2F1DD0310900C67ED3 /* ServerSetupViewController.swift */; };
 		6BD3B4A11E08C569005CF098 /* ClientData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD3B4A01E08C569005CF098 /* ClientData.swift */; };
@@ -121,7 +123,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		37D1F272AB009E43B4A67202 /* SPTManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPTManager.swift; sourceTree = "<group>"; };
 		37D1F704BCFBA4A74CA53542 /* ServerCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerCommand.swift; sourceTree = "<group>"; };
+		37D1F73F4F2321E13B1A6D68 /* DDJSPTTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDJSPTTools.swift; sourceTree = "<group>"; };
 		37D1FC9DC934147FBAC5E114 /* ServerNewSessionCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerNewSessionCommand.swift; sourceTree = "<group>"; };
 		6B0744CD1DFB66FE0052AE50 /* SpotifyAuthentication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotifyAuthentication.swift; sourceTree = "<group>"; };
 		6B08B8A51E2C1DBC00D94898 /* ExecuteTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExecuteTest.swift; sourceTree = "<group>"; };
@@ -169,7 +173,6 @@
 		6B973A251E2DBFFE002DCE12 /* HostCommandListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HostCommandListener.swift; sourceTree = "<group>"; };
 		6B973A271E2DC11A002DCE12 /* TimeoutTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeoutTable.swift; sourceTree = "<group>"; };
 		6B973A291E2DCA9E002DCE12 /* ClientViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientViewController.swift; sourceTree = "<group>"; };
-		6B98D7E21DF6BFF5005118E9 /* SpotifyProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotifyProfile.swift; sourceTree = "<group>"; };
 		6B9DB7A61E01D16F00BAAF73 /* DDJSPlaylistRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DDJSPlaylistRequest.swift; path = ../DDJSPlaylistRequest.swift; sourceTree = "<group>"; };
 		6B9DB7A91E01D4FF00BAAF73 /* DDJSPlaylistResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDJSPlaylistResponse.swift; sourceTree = "<group>"; };
 		6B9E224F1DC73468001F1871 /* ZeroconfClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZeroconfClient.swift; sourceTree = "<group>"; };
@@ -180,6 +183,7 @@
 		6BC39EE71E483EDE00CF13DE /* DDJClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDJClient.swift; sourceTree = "<group>"; };
 		6BC39EE91E4854B200CF13DE /* ServerGetPlaylistCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerGetPlaylistCommand.swift; sourceTree = "<group>"; };
 		6BC693AD1E4284DC00BED8A4 /* HeartbeatTimeoutCommandTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeartbeatTimeoutCommandTest.swift; sourceTree = "<group>"; };
+		6BCB701E1E513F6200965207 /* SPTToolsTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPTToolsTest.swift; sourceTree = "<group>"; };
 		6BCF2D2D1DD028D200C67ED3 /* ServerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerViewController.swift; sourceTree = "<group>"; };
 		6BCF2D2F1DD0310900C67ED3 /* ServerSetupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerSetupViewController.swift; sourceTree = "<group>"; };
 		6BD3B4A01E08C569005CF098 /* ClientData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientData.swift; sourceTree = "<group>"; };
@@ -243,6 +247,8 @@
 				6B25FDC01E3F14F0004113CA /* IteratorUtil.swift */,
 				6BA25D9C1E4ACDB700DFE97F /* DebugPrint.swift */,
 				6B5D17C81E4BE2DA0082D2FB /* Alamofire-Synchronous.swift */,
+				37D1F73F4F2321E13B1A6D68 /* DDJSPTTools.swift */,
+				6BE67AA01E3F01020022E482 /* MySpt.swift */,
 			);
 			name = Utility;
 			sourceTree = "<group>";
@@ -316,6 +322,15 @@
 				6B5D17C61E4BDC100082D2FB /* ServerCommands */,
 			);
 			name = Commands;
+			sourceTree = "<group>";
+		};
+		6B8190421E513BC9004B59B7 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				37D1F272AB009E43B4A67202 /* SPTManager.swift */,
+				6BCB701E1E513F6200965207 /* SPTToolsTest.swift */,
+			);
+			name = Utility;
 			sourceTree = "<group>";
 		};
 		6B8D34D91DFA36E600023C46 /* DDJiOSUITests */ = {
@@ -480,8 +495,6 @@
 				9A1862B71DC10BFA0027D21E /* DDJiOS.xcdatamodeld */,
 				6B9E224F1DC73468001F1871 /* ZeroconfClient.swift */,
 				6B9E22501DC73468001F1871 /* ZeroconfServer.swift */,
-				6B98D7E21DF6BFF5005118E9 /* SpotifyProfile.swift */,
-				6BE67AA01E3F01020022E482 /* MySpt.swift */,
 				6B12AA7B1DF73B2D00170297 /* DDJiOS-Bridging-Header.h */,
 				6B0744CD1DFB66FE0052AE50 /* SpotifyAuthentication.swift */,
 			);
@@ -491,6 +504,7 @@
 		9A1862C71DC10BFA0027D21E /* DDJiOSTests */ = {
 			isa = PBXGroup;
 			children = (
+				6B8190421E513BC9004B59B7 /* Utility */,
 				6BC39EE41E483DCB00CF13DE /* DDJHost */,
 				6B7110F31E2AEF62007E28B8 /* Models */,
 				9A1862CA1DC10BFA0027D21E /* Info.plist */,
@@ -650,7 +664,6 @@
 				6BC39EE81E483EDE00CF13DE /* DDJClient.swift in Sources */,
 				6B973A2A1E2DCA9E002DCE12 /* ClientViewController.swift in Sources */,
 				6B7110EB1E2AEA3C007E28B8 /* Command.swift in Sources */,
-				6B98D7E31DF6BFF5005118E9 /* SpotifyProfile.swift in Sources */,
 				6BFCF5EB1E3BFE270064C868 /* ServerEndSessionCommand.swift in Sources */,
 				6B1AE2251E2B017200FD2D68 /* HeartbeatCommand.swift in Sources */,
 				6B9DB7AA1E01D4FF00BAAF73 /* DDJSPlaylistResponse.swift in Sources */,
@@ -689,6 +702,8 @@
 				6BA25D9D1E4ACDB700DFE97F /* DebugPrint.swift in Sources */,
 				6B5D17CD1E4BF2A50082D2FB /* ServerRemoveUserCommand.swift in Sources */,
 				6B90B48C1E4538D100987AB0 /* DDJHost.swift in Sources */,
+				37D1FA1908DBFDA475248817 /* SPTManager.swift in Sources */,
+				37D1F7AA9DDE8D959E8D32F0 /* DDJSPTTools.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -706,6 +721,7 @@
 				6B1AE2291E2B01F200FD2D68 /* HeartbeatCommandTest.swift in Sources */,
 				6B6BBE341E08CAD4004A311F /* ServerDataTest.swift in Sources */,
 				6B5D17C51E4BDC0D0082D2FB /* SrvGetPlaylistTest.swift in Sources */,
+				6BCB701F1E513F6200965207 /* SPTToolsTest.swift in Sources */,
 				6B5D17D11E4BF32D0082D2FB /* SrvRemoveUserTest.swift in Sources */,
 				6B7110F61E2AEF89007E28B8 /* UpdatePlaylistCommandTest.swift in Sources */,
 				6BC693AE1E4284DC00BED8A4 /* HeartbeatTimeoutCommandTest.swift in Sources */,

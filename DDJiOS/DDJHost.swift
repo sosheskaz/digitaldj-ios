@@ -85,25 +85,19 @@ class DDJHost {
         users[userId] = entry
         ips[ipAddr] = entry
         
-        let songsToReplace = min(Int(numPrevUsers > 0 ? (1 / sqrt(Double(numPrevUsers))) * 10 : 15), self._playlist.count)
+        let songsToReplace = min(Int(numPrevUsers > 1 ? (1 / sqrt(Double(numPrevUsers))) * 10 : 15), self._playlist.count)
         self._playlist.removeLast(songsToReplace)
         let songsToGet = 15 - self._playlist.count
         let gpCmd = ServerGetPlaylistCommand(sessionId: self.sessionId!, numTracksToGet: UInt(songsToGet))
         let result = gpCmd.executeSync()
         let items = ServerGetPlaylistCommand.getValue(from: result.data)
-        print(items)
-        do {
-            print("REQ")
-            let uriItems = items.map { URL(string: "spotify:track:\($0)")! }
-            
-            let req = try SPTTrack.createRequest(forTracks: uriItems, withAccessToken: MySpt.shared.session!.accessToken!, market: "US")
-            let afReq = Alamofire.request(req)
-            let res = afReq.responseData()
-            let tracks = try SPTTrack.tracks(from: res.data!, with: res.response) as! [SPTTrack]
-            self._playlist += tracks
-        } catch {
-            
+        
+        guard let tracks = DDJSPTTools.SPTTracksFromIdsOrUris(items) else {
+            //TODO: Notify user of error
+            return
         }
+        self._playlist += tracks
+        
         self.toDoOnPlaylistUpdate.forEach { closure in
             DispatchQueue.global().async {
                 closure(self)

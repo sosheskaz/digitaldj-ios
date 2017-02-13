@@ -23,9 +23,12 @@ class DDJHostTest: XCTestCase {
     }
     
     func testPutUser() {
-        shared.putUser("sosheskaz", tracks: ["track a", "track b"], ipAddr: "127.0.0.1")
+        shared.putUser("sosheskaz", tracks: SPTManager.shared.tracks50, ipAddr: "127.0.0.1")
         let tracks = shared.playlist
-        XCTAssert(tracks.contains("track a"))
-        XCTAssert(tracks.contains("track b"))
+        print(tracks)
+        for track in tracks {
+            // make sure the tracks we got are the ones we submitted!
+            XCTAssertTrue(SPTManager.shared.tracks50.contains(track.identifier), "\(track.identifier) not found!")
+        }
     }
 }

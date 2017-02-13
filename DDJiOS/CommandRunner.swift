@@ -50,8 +50,6 @@ class CommandRunner {
                         let data = Data(bytes: bytes!)
                         self.handleCommand(data, address: client.address)
                         client.close()
-                    } else {
-                        print("accept error")
                     }
                 }
             }
