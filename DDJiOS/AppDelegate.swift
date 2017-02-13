@@ -12,10 +12,6 @@ import SafariServices
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, SPTAudioStreamingDelegate {
-    let CLIENT_ID = "fc6d46c6e95e4c579abd440376ba7555"
-    let CLIENT_SECRET = "b101c807436144c2848f84d2fb26c264"
-    let CALLBACK_URL = "ddj://callback/"
-    
     var window: UIWindow?
     
     var auth: SPTAuth?

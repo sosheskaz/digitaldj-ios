@@ -9,9 +9,15 @@
 import Foundation
 import UIKit
 import Alamofire
+import MediaPlayer
 
-class ServerViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ServerViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, SPTAudioStreamingPlaybackDelegate, {
     @IBOutlet var playlistTableView: UITableView? = nil
+    @IBOutlet var serverNameLabel: UILabel? = nil
+    @IBOutlet var nowPlayingLabelTrackName: UILabel? = nil
+    @IBOutlet var nowPlayingLabelTrackAlbum: UILabel? = nil
+    @IBOutlet var nowPlayingLabelTrackArtist: UILabel? = nil
+    @IBOutlet var albumArt: UIImageView? = nil
     
     let player: SPTAudioStreamingController = SPTAudioStreamingController.sharedInstance()
     let auth = SPTAuth.defaultInstance()
@@ -24,14 +30,34 @@ class ServerViewController: UIViewController, UITableViewDataSource, UITableView
     private var isStarted = false
     
     override func viewDidAppear(_ animated: Bool) {
+        self.serverNameLabel?.text = zcName
+        
         super.viewDidAppear(animated)
         host.clearSubscribers()
-        host.onPlaylistUpdate(do: { host in
-            self.playlistTableView?.reloadData()
+        print(host.playlist.first!.playableUri.absoluteString)
+        let track = host.playlistPop()
+        
+        self.player.playbackDelegate = self
+        
+        self.player.playSpotifyURI(track.playableUri.absoluteString, startingWith: 0, startingWithPosition: 0, callback: nil)
+        
+        self.nowPlayingLabelTrackName?.text = track.name
+        self.nowPlayingLabelTrackAlbum?.text = track.album.name
+        self.nowPlayingLabelTrackArtist?.text = track.artists.map({ return ($0 as! SPTPartialArtist).name }).joined(separator: ", ")
+        
+        self.player.queueSpotifyURI(host.playlist.first!.playableUri.absoluteString, callback: { error in
+            print("QUEUED! \(error)")
         })
+        self.player.setIsPlaying(true, callback: nil)
+        
+        DispatchQueue.global().async {
+            let imageUrl = track.album.largestCover.imageURL
+            let data = Alamofire.request(imageUrl!).responseData()
+            let image = UIImage(data: data.data!)
+            self.albumArt?.image = image
+        }
+        
         self.playlistTableView?.reloadData()
-        sleep(1)
-        print(self.host.playlist)
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -73,16 +99,69 @@ class ServerViewController: UIViewController, UITableViewDataSource, UITableView
         super.viewWillDisappear(animated)
         stop()
     }
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return host.playlist.count
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
         cell.textLabel?.text = host.playlist[indexPath.row].name
         return cell
     }
+
+    func audioStreaming(_ audioStreaming: SPTAudioStreamingController!, didReceive event: SpPlaybackEvent) {
+    }
+
+    func audioStreaming(_ audioStreaming: SPTAudioStreamingController!, didChangePosition position: TimeInterval) {
+    }
+
+    func audioStreaming(_ audioStreaming: SPTAudioStreamingController!, didChangePlaybackStatus isPlaying: Bool) {
+    }
+
+    func audioStreaming(_ audioStreaming: SPTAudioStreamingController!, didSeekToPosition position: TimeInterval) {
+    }
+
+    func audioStreaming(_ audioStreaming: SPTAudioStreamingController!, didChangeVolume volume: SPTVolume) {
+    }
+
+    func audioStreaming(_ audioStreaming: SPTAudioStreamingController!, didChangeShuffleStatus enabled: Bool) {
+    }
+
+    func audioStreaming(_ audioStreaming: SPTAudioStreamingController!, didChangeRepeatStatus repeateMode: SPTRepeatMode) {
+    }
+
+    func audioStreaming(_ audioStreaming: SPTAudioStreamingController!, didChange metadata: SPTPlaybackMetadata!) {
+    }
+
+    func audioStreaming(_ audioStreaming: SPTAudioStreamingController!, didStartPlayingTrack trackUri: String!) {
+    }
+
+    func audioStreaming(_ audioStreaming: SPTAudioStreamingController!, didStopPlayingTrack trackUri: String!) {
+    }
+
+    func audioStreamingDidSkip(toNextTrack audioStreaming: SPTAudioStreamingController!) {
+        _ = self.host.playlistPop()
+        self.player.queueSpotifyURI(self.host.playlist.first!.playableUri.absoluteString, callback: nil)
+    }
+
+    func audioStreamingDidSkip(toPreviousTrack audioStreaming: SPTAudioStreamingController!) {
+    }
+
+    func audioStreamingDidBecomeActivePlaybackDevice(_ audioStreaming: SPTAudioStreamingController!) {
+    }
+
+    func audioStreamingDidBecomeInactivePlaybackDevice(_ audioStreaming: SPTAudioStreamingController!) {
+    }
+
+    func audioStreamingDidLosePermission(forPlayback audioStreaming: SPTAudioStreamingController!) {
+    }
+
+    func audioStreamingDidPopQueue(_ audioStreaming: SPTAudioStreamingController!) {
+        _ = self.host.playlistPop()
+        self.player.queueSpotifyURI(self.host.playlist.first!.playableUri.absoluteString, callback: nil)
+    }
+
 }
 
 protocol ServerViewControllerNameDelegate {

@@ -63,6 +63,34 @@ class DDJHost {
             return _playlist
         }
     }
+
+    func playlistPop() -> SPTTrack {
+        let track = self._playlist.removeFirst()
+        DispatchQueue.global().async { self.fillPlaylist()}
+        return track
+    }
+
+    func playlistPeek() -> SPTTrack? {
+        return self.playlist.first
+    }
+
+    func playlistClear() {
+        self._playlist.removeAll()
+    }
+
+    func fillPlaylist() {
+        let numToGet = 15 - self.playlist.count
+
+        let gpCmd = ServerGetPlaylistCommand(sessionId: self.sessionId!, numTracksToGet: UInt(numToGet))
+        let result = gpCmd.executeSync()
+        let items = ServerGetPlaylistCommand.getValue(from: result.data)
+
+        guard let tracks = DDJSPTTools.SPTTracksFromIdsOrUris(items) else {
+            //TODO: Notify user of error
+            return
+        }
+        self._playlist += tracks
+    }
     
     func subscribe(to ct: CommandType, _ callback: @escaping (Command) -> Void) {
         if(self.subscribers[ct] == nil) {
