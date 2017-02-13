@@ -9,7 +9,7 @@
 import Foundation
 import Alamofire
 
-class DDJHost {
+class DDJHost: HostCommandListenerDelegate {
     static var shared: DDJHost = DDJHost(timeoutSeconds: 60 * 15, checkSeconds: 60)
     
     private let numToHaveInQueue: UInt = 10
@@ -25,7 +25,7 @@ class DDJHost {
     private var ttlQueueShouldStop = false
     private var sessionId: String?
     
-    private var hostListener = HostCommandListener()
+    private var hostListener = HostCommandListener.shared
     
     var delegate: DDJHostDelegate?
     
@@ -33,9 +33,8 @@ class DDJHost {
         self.checkSeconds = checkSeconds
         self.ttlSeconds = timeoutSeconds
         
-        hostListener.subscribe(to: .newUser, callback: handleNewUser)
+        hostListener.delegate = self
         hostListener.subscribe(to: .removeUser, callback: handleRemoveUser)
-        hostListener.subscribe(to: .heartbeat, callback: handleHeartbeat)
         hostListener.on()
         
         let nsCmd = ServerNewSessionCommand()
@@ -65,29 +64,29 @@ class DDJHost {
             return _playlist
         }
     }
-
+    
     func playlistPop() -> SPTTrack {
         let track = self._playlist.removeFirst()
         DispatchQueue.global().async { self.fillPlaylist()}
         return track
     }
-
+    
     func playlistPeek() -> SPTTrack? {
         return self.playlist.first
     }
-
+    
     func playlistClear() {
         self._playlist.removeAll()
         DispatchQueue.global().async { self.delegate?.ddjHost(updatePlaylist: self.playlist) }
     }
-
+    
     func fillPlaylist() {
         let numToGet = 15 - self.playlist.count
-
+        
         let gpCmd = ServerGetPlaylistCommand(sessionId: self.sessionId!, numTracksToGet: UInt(numToGet))
         let result = gpCmd.executeSync()
         let items = ServerGetPlaylistCommand.getValue(from: result.data)
-
+        
         guard let tracks = DDJSPTTools.SPTTracksFromIdsOrUris(items) else {
             //TODO: Notify user of error
             return
@@ -107,7 +106,7 @@ class DDJHost {
         users[userId] = entry
         ips[ipAddr] = entry
         
-        let songsToReplace = min(Int(numPrevUsers > 1 ? (1 / sqrt(Double(numPrevUsers))) * 10 : 15), self._playlist.count)
+        let songsToReplace = min(Int(numPrevUsers > 1 ? (1 / sqrt(Double(numPrevUsers))) * 10 : 14), self._playlist.count)
         self._playlist.removeLast(songsToReplace)
         let songsToGet = 15 - self._playlist.count
         let gpCmd = ServerGetPlaylistCommand(sessionId: self.sessionId!, numTracksToGet: UInt(songsToGet))
@@ -160,21 +159,6 @@ class DDJHost {
         }
     }
     
-    private func handleNewUser(_ cmd: Command) {
-        print("NEW USER")
-        guard let nuCmd = cmd as? NewUserCommand else {
-            return
-        }
-        guard let source = nuCmd.source else {
-            return
-        }
-        
-        putUser(nuCmd.spotifyId, tracks: nuCmd.topTracks, ipAddr: source)
-        
-        DispatchQueue.global().async { _ = UpdatePlaylistCommand(fullQueue: self.playlist.map { $0.identifier }).execute(source) }
-        DispatchQueue.global().async { self.delegate?.ddjHost(newUser: nuCmd) }
-    }
-    
     private func handleRemoveUser(_ cmd: Command) {
         guard let ruCmd = cmd as? RemoveUserCommand else {
             return
@@ -195,21 +179,19 @@ class DDJHost {
         DispatchQueue.global().async { self.delegate?.ddjHost(removeUser: ruCmd) }
     }
     
-    private func handleHeartbeat(_ cmd: Command) {
-        guard let hbCmd = cmd as? HeartbeatCommand else {
-            return
-        }
-        guard let source = hbCmd.source else {
-            return
-        }
-        guard let entry = ips[source] else {
+    func hostCommandListener(newUser: NewUserCommand) {
+        print("NEW USER")
+        guard let source = newUser.source else {
             return
         }
         
-        self.putUser(entry.userId, tracks: entry.trackIds, ipAddr: entry.ip)
+        putUser(newUser.spotifyId, tracks: newUser.topTracks, ipAddr: source)
         
-        let ackCmd = HeartbeatAckCommand()
-        _ = ackCmd.execute(source)
+        DispatchQueue.global().async { _ = UpdatePlaylistCommand(fullQueue: self.playlist.map { $0.identifier }).execute(source) }
+        DispatchQueue.global().async { self.delegate?.ddjHost(newUser: newUser) }
+    }
+    
+    func hostCommandListener(heartbeatAck: HeartbeatAckCommand) {
     }
     
     static func sharedTestable(timeoutSeconds: Int, checkSeconds: UInt32) -> DDJHost{

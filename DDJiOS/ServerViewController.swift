@@ -33,7 +33,7 @@ class ServerViewController: UIViewController, UITableViewDataSource, UITableView
         
         super.viewDidAppear(animated)
         print(host.playlist.first!.playableUri.absoluteString)
-        let track = host.playlistPop()
+        let track = host.playlist[0]
         
         self.player.playbackDelegate = self
         
@@ -48,14 +48,13 @@ class ServerViewController: UIViewController, UITableViewDataSource, UITableView
         })
         self.player.setIsPlaying(true, callback: nil)
         
-        DispatchQueue.global().async {
+        DispatchQueue.main.async {
+            self.playlistTableView?.reloadData()
             let imageUrl = track.album.largestCover.imageURL
             let data = Alamofire.request(imageUrl!).responseData()
             let image = UIImage(data: data.data!)
             self.albumArt?.image = image
         }
-        
-        self.playlistTableView?.reloadData()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -98,21 +97,24 @@ class ServerViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return host.playlist.count
+        return host.playlist.count - 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
-        cell.textLabel?.text = host.playlist[indexPath.row].name
+        guard host.playlist.count > indexPath.row - 1 else {
+            return cell
+        }
+        cell.textLabel?.text = host.playlist[indexPath.row + 1].name
         return cell
     }
     
     func ddjHost(newUser: NewUserCommand) {
-        
+        self.playlistTableView?.reloadData()
     }
     
     func ddjHost(updatePlaylist: [SPTTrack]) {
-        
+        self.playlistTableView?.reloadData()
     }
     
     func ddjHost(removeUser: RemoveUserCommand) {

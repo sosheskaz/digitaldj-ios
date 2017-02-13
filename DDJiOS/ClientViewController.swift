@@ -8,7 +8,7 @@
 
 import Foundation
 
-class ClientViewController: UIViewController, DDJClientDelegate {
+class ClientViewController: UIViewController, DDJClientDelegate, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet var playlistTableView: UITableView? = nil
     @IBOutlet var serverNameLabel: UILabel? = nil
     @IBOutlet var nowPlayingLabelTrackName: UILabel? = nil
@@ -28,6 +28,10 @@ class ClientViewController: UIViewController, DDJClientDelegate {
         super.viewWillAppear(animated)
         self.hostAddressLabel?.text = hostAddress
         self.serverNameLabel?.text = hostName
+        self.nowPlayingLabelTrackName?.text = ""
+        self.nowPlayingLabelTrackAlbum?.text = ""
+        self.nowPlayingLabelTrackArtist?.text = ""
+        client.delegate = self
     }
     
     func ddjClientHeartbeatTimeout() {
@@ -35,16 +39,32 @@ class ClientViewController: UIViewController, DDJClientDelegate {
     }
     
     func ddjClient(updatePlaylist: [SPTTrack]) {
+        print("CLIENT UPDATE")
         guard let track = updatePlaylist.first else {
             return
         }
-        self.nowPlayingLabelTrackName?.text = track.name
-        self.nowPlayingLabelTrackAlbum?.text = track.album.name
-        self.nowPlayingLabelTrackArtist?.text = track.artists.map({ return ($0 as! SPTPartialArtist).name }).joined(separator: ", ")
-        updateAlbumArt(for: track)
+        print(track)
+        
+        DispatchQueue.main.async {
+            self.playlistTableView?.reloadData()
+            self.nowPlayingLabelTrackName?.text = track.name
+            self.nowPlayingLabelTrackAlbum?.text = track.album.name
+            self.nowPlayingLabelTrackArtist?.text = track.artists.map({ return ($0 as! SPTPartialArtist).name }).joined(separator: ", ")
+            self.updateAlbumArt(for: track)
+        }
     }
     
-    func updateAlbumArt(for track: SPTTrack?) {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return client.playlist.count - 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell()
+        cell.textLabel?.text = client.playlist[indexPath.row + 1].name
+        return cell
+    }
+    
+    private func updateAlbumArt(for track: SPTTrack?) {
         guard let t = track else {
             return
         }

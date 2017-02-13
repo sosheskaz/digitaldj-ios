@@ -15,6 +15,7 @@ protocol ClientHostCommand: Command {
 extension ClientHostCommand {
     static var destPort: CommandPort {
         get {
+            print("DESTPORT: \(CommandPort.host.rawValue)")
             return .host
         }
     }

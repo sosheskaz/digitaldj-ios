@@ -13,13 +13,17 @@ class CommandRunner {
     private let port: Int32
     private var callbacks: [CommandType: [(_: Command) -> Void]] = [:]
     
-    private let server: TCPServer
+    private let servers: [TCPServer]
     
     private var isOn: Bool = false
     
     init(_ listeningPort: CommandPort) {
-        self.port = listeningPort.rawValue
-        self.server = TCPServer(address: "127.0.0.1", port: self.port)
+        let port = listeningPort.rawValue
+        self.port = port
+        
+        let addresses = Set(getIFAddresses() + ["127.0.0.1"])
+        
+        self.servers = addresses.map {TCPServer(address: $0, port: port)}
         
         for type in allCommandTypes {
             self.callbacks[type] = []
@@ -28,7 +32,9 @@ class CommandRunner {
     }
     
     deinit {
-        server.close()
+        for server in servers {
+            server.close()
+        }
     }
     
     func on() {
@@ -36,34 +42,42 @@ class CommandRunner {
             return
         }
         
-        switch self.server.listen() {
-        case .success:
-            isOn = true
+        print("LISTENER ON")
+        
+        self.isOn = true
+        for server in servers {
             DispatchQueue.global().async {
-                while true {
-                    if(!self.isOn) {
-                        break
+                switch server.listen() {
+                case .success:
+                    DispatchQueue.global().async {
+                        while true {
+                            if(!self.isOn) {
+                                break
+                            }
+                            
+                            if let client = server.accept() {
+                                let bytes = client.read(1024 * 1024)
+                                let data = Data(bytes: bytes!)
+                                self.handleCommand(data, address: client.address)
+                                client.close()
+                            }
+                        }
                     }
                     
-                    if let client = self.server.accept() {
-                        let bytes = client.read(1024 * 1024)
-                        let data = Data(bytes: bytes!)
-                        self.handleCommand(data, address: client.address)
-                        client.close()
-                    }
+                    break
+                case .failure(let error):
+                    print(error)
+                    break
                 }
             }
-            
-            break
-        case .failure(let error):
-            print(error)
-            break
         }
     }
     
     func off() {
         if(isOn) {
-            self.server.close()
+            for server in servers {
+                server.close()
+            }
             self.isOn = false
         }
     }

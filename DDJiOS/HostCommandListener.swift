@@ -12,9 +12,11 @@ import Alamofire
 private let server = ""
 
 class HostCommandListener: CommandRunner {
-    static let sharedHostListener = HostCommandListener()
+    static let shared = HostCommandListener()
     
-    init() {
+    var delegate: HostCommandListenerDelegate?
+    
+    private init() {
         super.init(.host)
         
         let actions: [CommandType: [(_: Command) -> Void]] = [
@@ -47,29 +49,18 @@ class HostCommandListener: CommandRunner {
         guard let cmd = rawCmd as? NewUserCommand else {
             return
         }
-        
-        let id = cmd.spotifyId
-        
-        func finishHandleNewUser(anyerror: Any?, anyuser: Any?) {
-            print("FINISH HANDLE NEW USER")
-            guard anyerror == nil else {
-                print("Failed to auth user.")
-                print("Error: \(anyerror as! Error)")
-                print("User:  \(anyuser as! SPTUser)")
-                
-                return
-            }
-            
-            guard (anyuser as? SPTUser) != nil else {
-                print("Something happened... user object returned is not SPTUser and an error was not thrown.")
-                print("User:  \(anyuser)")
-                
-                return
-            }
-        }
+        self.delegate?.hostCommandListener(newUser: cmd)
     }
     
     private func handleHeartbeatAck(cmd: Command) {
-        
+        guard let haCmd = cmd as? HeartbeatAckCommand else {
+            return
+        }
+        self.delegate?.hostCommandListener(heartbeatAck: haCmd)
     }
+}
+
+protocol HostCommandListenerDelegate {
+    func hostCommandListener(newUser: NewUserCommand)
+    func hostCommandListener(heartbeatAck: HeartbeatAckCommand)
 }

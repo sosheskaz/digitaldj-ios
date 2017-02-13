@@ -9,30 +9,25 @@
 import Foundation
 import Alamofire
 
-class DDJClient {
+class DDJClient: ClientCommandListenerDelegate {
     static let shared = DDJClient(heartbeatInterval: 45)
     
     private let heartbeatWait: UInt32
     
     private var ip: String?
-    private var listener: ClientCommandListener
     private var trackData: [String: SPTTrack] = [:]
     private var _playlist: [SPTTrack] = []
     
-    private var clientListener: ClientCommandListener = ClientCommandListener()
+    private var clientListener: ClientCommandListener = ClientCommandListener.shared
     
     var delegate: DDJClientDelegate?
     
     private init(heartbeatInterval: UInt32) {
         self.heartbeatWait = heartbeatInterval
         
-        listener = ClientCommandListener()
-        listener.subscribe(to: .heartbeatAck, callback: handleHeartbeatAck)
-        listener.subscribe(to: .heartbeatTimeout, callback: handleHeartbeatTimeout)
-        listener.subscribe(to: .updatePlaylist, callback: handleUpdatePlaylist)
         self.heartbeatDaemon()
-        clientListener.subscribe(to: .updatePlaylist, callback: handleUpdatePlaylist)
         clientListener.on()
+        clientListener.delegate = self
     }
     
     var playlist: [SPTTrack] {
@@ -42,7 +37,7 @@ class DDJClient {
     }
     
     func connect(to ip: String) {
-        listener.on()
+        clientListener.on()
         usleep(20000)
         self.ip = ip
         let didSend = self.sendNewUserCommand()
@@ -50,7 +45,7 @@ class DDJClient {
     }
     
     func disconnect() {
-        listener.off()
+        clientListener.off()
         self.ip = nil
     }
     
@@ -69,6 +64,33 @@ class DDJClient {
         return HeartbeatCommand().execute(ip)
     }
     
+    func clientCommandListener(updatePlaylist: UpdatePlaylistCommand) {
+        guard let cp = updatePlaylist.currentlyPlaying else {
+            return
+        }
+        
+        let masterList = [cp] + updatePlaylist.queue
+        let toGet = masterList.filter { self.trackData[$0] == nil }
+        
+        guard let trackData = DDJSPTTools.SPTTracksFromIdsOrUris(toGet) else {
+            return
+        }
+        for trackDatum in trackData {
+            self.trackData[trackDatum.identifier] = trackDatum
+        }
+        self._playlist =  masterList.map { self.trackData[$0]! }
+        
+        delegate?.ddjClient(updatePlaylist: self.playlist)
+    }
+    
+    func clientCommandListener(heartbeatTimeout: HeartbeatTimeoutCommand) {
+        delegate?.ddjClientHeartbeatTimeout()
+    }
+    
+    func clientCommandListener(heartbeat: HeartbeatCommand) {
+        
+    }
+    
     private func heartbeatDaemon() {
         DispatchQueue.global().async {
             while(true) {
@@ -80,58 +102,5 @@ class DDJClient {
                 sleep(self.heartbeatWait)
             }
         }
-    }
-    
-    private func handleHeartbeatAck(_ cmd: Command) {
-        guard let haCmd = cmd as? HeartbeatAckCommand else {
-            return
-        }
-        guard haCmd.source == ip else {
-            return
-        }
-        print("Heartbeat ack received.")
-        
-        // do nothing... for now
-    }
-    
-    private func handleHeartbeatTimeout(_ cmd: Command) {
-        guard let htCmd = cmd as? HeartbeatTimeoutCommand else {
-            return
-        }
-        guard htCmd.source == ip else {
-            return
-        }
-        
-        delegate?.ddjClientHeartbeatTimeout()
-    }
-    
-    private func handleUpdatePlaylist(cmd: Command) {
-        print("UPDATE PLAYLIST")
-        guard let upCmd = cmd as? UpdatePlaylistCommand else {
-            return
-        }
-        guard upCmd.source == ip else {
-            return
-        }
-        
-        let toGet = upCmd.queue.filter { self.trackData[$0] == nil }
-        
-        guard let trackData = DDJSPTTools.SPTTracksFromIdsOrUris(toGet) else {
-            return
-        }
-        for trackDatum in trackData {
-            self.trackData[trackDatum.identifier] = trackDatum
-        }
-        self._playlist = upCmd.queue.map { self.trackData[$0]! }
-        
-        DispatchQueue.global().async {
-            for (key, value) in self.trackData {
-                if(!self._playlist.contains(value)) {
-                    self.trackData.removeValue(forKey: key)
-                }
-            }
-        }
-        
-        delegate?.ddjClient(updatePlaylist: self.playlist)
     }
 }

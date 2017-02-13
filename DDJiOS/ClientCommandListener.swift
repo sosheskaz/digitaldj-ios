@@ -9,12 +9,15 @@
 import Foundation
 
 class ClientCommandListener: CommandRunner {
+    static let shared = ClientCommandListener()
     
-    init() {
+    var delegate: ClientCommandListenerDelegate?
+    
+    private init() {
         super.init(.client)
         
         let actions: [CommandType: [(_: Command) -> Void]] = [
-            .heartbeat: [sendHeartbeatAck],
+            .heartbeat: [handleHeartbeat],
             .updatePlaylist: [updatePlaylist],
             .heartbeatTimeout: [heartbeatTimeout]
         ]
@@ -26,7 +29,7 @@ class ClientCommandListener: CommandRunner {
         }
     }
     
-    private func sendHeartbeatAck(heartbeat: Command) -> Void {
+    private func handleHeartbeat(heartbeat: Command) -> Void {
         guard heartbeat is HeartbeatCommand else {
             print("not a heartbeat command.")
             return
@@ -38,16 +41,28 @@ class ClientCommandListener: CommandRunner {
         
         let hb = heartbeat as! HeartbeatCommand
         let ack = HeartbeatAckCommand()
-        let succeed = ack.execute(hb.address!)
+        _ = ack.execute(hb.address!)
         
-        print("Sent ack: \(succeed)")
+        delegate?.clientCommandListener(heartbeat: hb)
     }
     
     private func updatePlaylist(cmd: Command) -> Void {
-        // TODO
+        guard let upCmd = cmd as? UpdatePlaylistCommand else {
+            return
+        }
+        delegate?.clientCommandListener(updatePlaylist: upCmd)
     }
     
     private func heartbeatTimeout(cmd: Command) -> Void {
-        // TODO
+        guard let htCmd = cmd as? HeartbeatTimeoutCommand else {
+            return
+        }
+        delegate?.clientCommandListener(heartbeatTimeout: htCmd)
     }
+}
+
+protocol ClientCommandListenerDelegate {
+    func clientCommandListener(heartbeat: HeartbeatCommand)
+    func clientCommandListener(updatePlaylist: UpdatePlaylistCommand)
+    func clientCommandListener(heartbeatTimeout: HeartbeatTimeoutCommand)
 }

@@ -1,15 +1,15 @@
 //
-//  ExecuteTest.swift
+//  IFAddresses.swift
 //  DDJiOS
 //
-//  Created by Eric Miller on 1/15/17.
+//  Created by Eric Miller on 2/13/17.
 //  Copyright © 2017 msoe. All rights reserved.
 //
 
 import XCTest
 @testable import DDJiOS
 
-class ExecuteTest: XCTestCase {
+class IFAddresses: XCTestCase {
     
     override func setUp() {
         super.setUp()
@@ -19,6 +19,18 @@ class ExecuteTest: XCTestCase {
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
+    }
+    
+    func testGetIFAddresses() {
+        let addresses = getIFAddresses()
+        print(addresses)
+    }
+    
+    func testPerformanceExample() {
+        // This is an example of a performance test case.
+        self.measure {
+            // Put the code you want to measure the time of here.
+        }
     }
     
 }

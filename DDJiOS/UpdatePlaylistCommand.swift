@@ -14,7 +14,7 @@ private let queueLabel: String = "queue"
 class UpdatePlaylistCommand: HostClientCommand {
     static var command: CommandType = .updatePlaylist
     
-    var currentlyPlaying: String
+    var currentlyPlaying: String?
     var queue: Array<String>
     
     required init?(from data: Data) {
@@ -48,7 +48,11 @@ class UpdatePlaylistCommand: HostClientCommand {
     }
     
     init(fullQueue: Array<String>) {
-        self.currentlyPlaying = fullQueue[0]
-        self.queue = Array(fullQueue[1..<fullQueue.count])
+        self.currentlyPlaying = fullQueue.first
+        if(fullQueue.count > 1) {
+            self.queue = Array(fullQueue[1..<fullQueue.count])
+        } else {
+            self.queue = []
+        }
     }
 }
