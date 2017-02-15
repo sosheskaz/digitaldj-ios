@@ -34,6 +34,11 @@ class ClientViewController: UIViewController, DDJClientDelegate, UITableViewData
         client.delegate = self
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        RemoveUserCommand(userId: MySpt.shared.userId).execute(hostAddress)
+    }
+    
     func ddjClientHeartbeatTimeout() {
         // TODO
     }
