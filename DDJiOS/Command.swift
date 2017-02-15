@@ -11,6 +11,8 @@ import SwiftSocket
 
 let commandLabel: String = "command"
 
+private var tcpClients: [String:TCPClient] = [:]
+
 // don't delete this
 private struct associatedKeys {
     static var source: String?
@@ -29,20 +31,23 @@ protocol Command {
 extension Command {
     func execute(_ address: String)  -> Bool {
         let client = TCPClient(address: address, port: Self.destPort.rawValue)
-        print(address)
+        
+        print("Sending command \(String(describing: Self.command)) to \(address):\(Self.destPort.rawValue)")
         var success = false
         
         switch client.connect(timeout: 10) {
         case .success:
             // Connection successful 🎉
             success = client.send(data: json!).isSuccess
+            print("command \(String(describing: Self.command)) successful.")
             break
         case .failure(let error):
             // 💩
-            print("COMMAND FAILED TO SEND \(error)")
+            print("COMMAND FAILED TO SEND \(error.localizedDescription)")
             success = false
             break
         }
+        client.close()
         
         return success
     }
@@ -74,5 +79,5 @@ enum CommandType: String {
 let allCommandTypes: [CommandType] = [.newUser, .updatePlaylist, .heartbeat, .heartbeatAck, .heartbeatTimeout, .removeUser]
 
 enum CommandPort: Int32 {
-    case host = 52773, client = 52774, commandPort = 52775, server = 80
+    case host = 55789, client = 55788, commandPort = 52775, server = 80
 }

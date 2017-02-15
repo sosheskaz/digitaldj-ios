@@ -126,7 +126,7 @@ class DDJHost: HostCommandListenerDelegate {
             }
         }
         
-        DispatchQueue.global().async { self.delegate?.ddjHost(updatePlaylist: self.playlist) }
+        // DispatchQueue.global().async { self.delegate?.ddjHost(updatePlaylist: self.playlist) }
     }
     
     func ttlDaemon() {

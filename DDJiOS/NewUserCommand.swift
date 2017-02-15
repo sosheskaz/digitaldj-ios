@@ -42,8 +42,8 @@ class NewUserCommand: ClientHostCommand {
     var json: Data? {
         let dict: Dictionary<String, AnyObject> =
             [commandLabel: NewUserCommand.command.rawValue as AnyObject,
-             userIdLabel: self.spotifyId as AnyObject,
-             topTracksLabel: self.topTracks as AnyObject]
+             topTracksLabel: self.topTracks as AnyObject,
+             userIdLabel: self.spotifyId as AnyObject]
         do {
             return try JSONSerialization.data(withJSONObject: dict, options: [])
         } catch {

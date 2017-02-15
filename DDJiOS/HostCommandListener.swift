@@ -50,6 +50,7 @@ class HostCommandListener: CommandRunner {
         guard let cmd = rawCmd as? NewUserCommand else {
             return
         }
+        print("Got new user command. \n\tIP: \(cmd.source) \n\tSpotifyId: \(cmd.spotifyId) \n\tTopTracks: \(cmd.topTracks)")
         self.delegate?.hostCommandListener(newUser: cmd)
     }
     
