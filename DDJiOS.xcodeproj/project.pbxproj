@@ -11,11 +11,10 @@
 		37D1F7FB3D47D847D87FA983 /* ServerNewSessionCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D1FC9DC934147FBAC5E114 /* ServerNewSessionCommand.swift */; };
 		37D1FA1908DBFDA475248817 /* SPTManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D1F272AB009E43B4A67202 /* SPTManager.swift */; };
 		37D1FDDCB21FBF7337B3EFFB /* ServerCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D1F704BCFBA4A74CA53542 /* ServerCommand.swift */; };
+		47F6B867A03A7E3D557EECD4 /* Pods_DDJiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C0BCF19C25A3DC5122DFFBA /* Pods_DDJiOS.framework */; };
+		49B2ED349EB188CC75E8A966 /* Pods_DDJiOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9ECEB5FEAB836C0F72D02DA /* Pods_DDJiOSUITests.framework */; };
 		6B0744CE1DFB66FE0052AE50 /* SpotifyAuthentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B0744CD1DFB66FE0052AE50 /* SpotifyAuthentication.swift */; };
 		6B08B8A81E2C1F7800D94898 /* CommandRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B08B8A71E2C1F7800D94898 /* CommandRunner.swift */; };
-		6B08B8AD1E2C27B800D94898 /* SwiftSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B08B8AB1E2C27B800D94898 /* SwiftSocket.framework */; };
-		6B08B8AE1E2C282300D94898 /* SwiftSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B1AE22E1E2B0AF000FD2D68 /* SwiftSocket.framework */; };
-		6B08B8AF1E2C282300D94898 /* SwiftSocket.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6B1AE22E1E2B0AF000FD2D68 /* SwiftSocket.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6B1AE2211E2AFAA400FD2D68 /* NewUserCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1AE2201E2AFAA400FD2D68 /* NewUserCommand.swift */; };
 		6B1AE2231E2AFE5500FD2D68 /* NewUserCommandTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1AE2221E2AFE5500FD2D68 /* NewUserCommandTest.swift */; };
 		6B1AE2251E2B017200FD2D68 /* HeartbeatCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1AE2241E2B017200FD2D68 /* HeartbeatCommand.swift */; };
@@ -23,6 +22,7 @@
 		6B1AE22B1E2B070900FD2D68 /* HeartbeatAckCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1AE22A1E2B070900FD2D68 /* HeartbeatAckCommand.swift */; };
 		6B1AE22D1E2B077100FD2D68 /* HeartbeatTimeoutCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1AE22C1E2B077100FD2D68 /* HeartbeatTimeoutCommand.swift */; };
 		6B21193B1DFF7D5400F12963 /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B21193A1DFF7D5400F12963 /* LandingViewController.swift */; };
+		6B22906D1E79B41700E522D1 /* SSLService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B22906C1E79B41700E522D1 /* SSLService.swift */; };
 		6B23ABDA1E485A4E002AA441 /* EndSessionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B23ABD91E485A4E002AA441 /* EndSessionTest.swift */; };
 		6B23ABDC1E485E4E002AA441 /* ServerNewUserCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B23ABDB1E485E4E002AA441 /* ServerNewUserCommand.swift */; };
 		6B23ABDE1E485FEA002AA441 /* SrvNewUserTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B23ABDD1E485FEA002AA441 /* SrvNewUserTest.swift */; };
@@ -30,6 +30,9 @@
 		6B25FDC11E3F14F0004113CA /* IteratorUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B25FDC01E3F14F0004113CA /* IteratorUtil.swift */; };
 		6B379EA91E42877200D0182A /* RemoveUserCommandTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B379EA81E42877200D0182A /* RemoveUserCommandTest.swift */; };
 		6B379EAB1E4287AD00D0182A /* RemoveUserCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B379EAA1E4287AD00D0182A /* RemoveUserCommand.swift */; };
+		6B39878B1E82421E00985CA4 /* Pods_DDJiOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B39878A1E82421E00985CA4 /* Pods_DDJiOSTests.framework */; };
+		6B39878D1E82422B00985CA4 /* Pods_DDJiOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B39878C1E82422B00985CA4 /* Pods_DDJiOSUITests.framework */; };
+		6B3987911E82427E00985CA4 /* Pods_DDJiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B3987901E82427E00985CA4 /* Pods_DDJiOS.framework */; };
 		6B55FD3F1E4283F6006BE71E /* HeartbeatAckCommandTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B55FD3E1E4283F6006BE71E /* HeartbeatAckCommandTest.swift */; };
 		6B5D17C51E4BDC0D0082D2FB /* SrvGetPlaylistTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B5D17C41E4BDC0D0082D2FB /* SrvGetPlaylistTest.swift */; };
 		6B5D17C91E4BE2DA0082D2FB /* Alamofire-Synchronous.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B5D17C81E4BE2DA0082D2FB /* Alamofire-Synchronous.swift */; };
@@ -70,15 +73,8 @@
 		6BD3B4A11E08C569005CF098 /* ClientData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD3B4A01E08C569005CF098 /* ClientData.swift */; };
 		6BD3B4A31E08C5E4005CF098 /* ServerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD3B4A21E08C5E4005CF098 /* ServerData.swift */; };
 		6BD707FE1E229E390008E7A2 /* PlaylistRequestTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD707FD1E229E390008E7A2 /* PlaylistRequestTest.swift */; };
-		6BD708021E22A5770008E7A2 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6BD707FF1E22A3E30008E7A2 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		6BD708041E22A5770008E7A2 /* SpotifyAudioPlayback.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6B71EF001E0B2E46002400C9 /* SpotifyAudioPlayback.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		6BD708061E22A5770008E7A2 /* SpotifyAuthentication.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6B71EF011E0B2E46002400C9 /* SpotifyAuthentication.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		6BD708081E22A5770008E7A2 /* SpotifyMetadata.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6B71EF021E0B2E46002400C9 /* SpotifyMetadata.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		6BD7080E1E22A5A90008E7A2 /* SpotifyAudioPlayback.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BD7080B1E22A5A90008E7A2 /* SpotifyAudioPlayback.framework */; };
-		6BD7080F1E22A5A90008E7A2 /* SpotifyAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BD7080C1E22A5A90008E7A2 /* SpotifyAuthentication.framework */; };
-		6BD708101E22A5A90008E7A2 /* SpotifyMetadata.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BD7080D1E22A5A90008E7A2 /* SpotifyMetadata.framework */; };
-		6BD708111E22A5B40008E7A2 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BD707FF1E22A3E30008E7A2 /* Alamofire.framework */; };
 		6BE67AA11E3F01020022E482 /* MySpt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BE67AA01E3F01020022E482 /* MySpt.swift */; };
+		6BF1ED2A1E79B6D500B8AA3F /* EZSSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF1ED291E79B6D500B8AA3F /* EZSSL.swift */; };
 		6BF2C4161E39465200579142 /* ServerHostCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF2C4151E39465200579142 /* ServerHostCommand.swift */; };
 		6BFCF5E91E3BFA070064C868 /* EZRegex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BFCF5E81E3BFA070064C868 /* EZRegex.swift */; };
 		6BFCF5EB1E3BFE270064C868 /* ServerEndSessionCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BFCF5EA1E3BFE270064C868 /* ServerEndSessionCommand.swift */; };
@@ -87,6 +83,7 @@
 		9A1862B91DC10BFA0027D21E /* DDJiOS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9A1862B71DC10BFA0027D21E /* DDJiOS.xcdatamodeld */; };
 		9A1862BB1DC10BFA0027D21E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A1862BA1DC10BFA0027D21E /* Assets.xcassets */; };
 		9A1862BE1DC10BFA0027D21E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A1862BC1DC10BFA0027D21E /* LaunchScreen.storyboard */; };
+		D27D4E1241684CA6535A73E3 /* Pods_DDJiOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 525463D0ADF16FB1A45928D8 /* Pods_DDJiOSTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,11 +110,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				6BD708081E22A5770008E7A2 /* SpotifyMetadata.framework in Embed Frameworks */,
-				6BD708021E22A5770008E7A2 /* Alamofire.framework in Embed Frameworks */,
-				6BD708061E22A5770008E7A2 /* SpotifyAuthentication.framework in Embed Frameworks */,
-				6BD708041E22A5770008E7A2 /* SpotifyAudioPlayback.framework in Embed Frameworks */,
-				6B08B8AF1E2C282300D94898 /* SwiftSocket.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -125,13 +117,15 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		13898BD6582F1A2F6D37E644 /* Pods-DDJiOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DDJiOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DDJiOS/Pods-DDJiOS.debug.xcconfig"; sourceTree = "<group>"; };
 		37D1F272AB009E43B4A67202 /* SPTManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPTManager.swift; sourceTree = "<group>"; };
 		37D1F704BCFBA4A74CA53542 /* ServerCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerCommand.swift; sourceTree = "<group>"; };
 		37D1F73F4F2321E13B1A6D68 /* DDJSPTTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDJSPTTools.swift; sourceTree = "<group>"; };
 		37D1FC9DC934147FBAC5E114 /* ServerNewSessionCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerNewSessionCommand.swift; sourceTree = "<group>"; };
+		525463D0ADF16FB1A45928D8 /* Pods_DDJiOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DDJiOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		610CAC45FCBFE71222D36158 /* Pods-DDJiOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DDJiOSTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DDJiOSTests/Pods-DDJiOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		6B0744CD1DFB66FE0052AE50 /* SpotifyAuthentication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotifyAuthentication.swift; sourceTree = "<group>"; };
 		6B08B8A71E2C1F7800D94898 /* CommandRunner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommandRunner.swift; sourceTree = "<group>"; };
-		6B08B8AB1E2C27B800D94898 /* SwiftSocket.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftSocket.framework; path = Carthage/Build/iOS/SwiftSocket.framework; sourceTree = "<group>"; };
 		6B12AA7B1DF73B2D00170297 /* DDJiOS-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DDJiOS-Bridging-Header.h"; sourceTree = "<group>"; };
 		6B1AE2201E2AFAA400FD2D68 /* NewUserCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewUserCommand.swift; sourceTree = "<group>"; };
 		6B1AE2221E2AFE5500FD2D68 /* NewUserCommandTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewUserCommandTest.swift; sourceTree = "<group>"; };
@@ -139,8 +133,8 @@
 		6B1AE2281E2B01F200FD2D68 /* HeartbeatCommandTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeartbeatCommandTest.swift; sourceTree = "<group>"; };
 		6B1AE22A1E2B070900FD2D68 /* HeartbeatAckCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeartbeatAckCommand.swift; sourceTree = "<group>"; };
 		6B1AE22C1E2B077100FD2D68 /* HeartbeatTimeoutCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeartbeatTimeoutCommand.swift; sourceTree = "<group>"; };
-		6B1AE22E1E2B0AF000FD2D68 /* SwiftSocket.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftSocket.framework; path = Carthage/Build/iOS/SwiftSocket.framework; sourceTree = "<group>"; };
 		6B21193A1DFF7D5400F12963 /* LandingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
+		6B22906C1E79B41700E522D1 /* SSLService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSLService.swift; sourceTree = "<group>"; };
 		6B23ABD91E485A4E002AA441 /* EndSessionTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndSessionTest.swift; sourceTree = "<group>"; };
 		6B23ABDB1E485E4E002AA441 /* ServerNewUserCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerNewUserCommand.swift; sourceTree = "<group>"; };
 		6B23ABDD1E485FEA002AA441 /* SrvNewUserTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SrvNewUserTest.swift; sourceTree = "<group>"; };
@@ -148,6 +142,11 @@
 		6B25FDC01E3F14F0004113CA /* IteratorUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IteratorUtil.swift; sourceTree = "<group>"; };
 		6B379EA81E42877200D0182A /* RemoveUserCommandTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoveUserCommandTest.swift; sourceTree = "<group>"; };
 		6B379EAA1E4287AD00D0182A /* RemoveUserCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoveUserCommand.swift; sourceTree = "<group>"; };
+		6B3987881E82421300985CA4 /* Pods_DDJiOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Pods_DDJiOS.framework; sourceTree = "<group>"; };
+		6B39878A1E82421E00985CA4 /* Pods_DDJiOSTests.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Pods_DDJiOSTests.framework; sourceTree = "<group>"; };
+		6B39878C1E82422B00985CA4 /* Pods_DDJiOSUITests.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Pods_DDJiOSUITests.framework; sourceTree = "<group>"; };
+		6B3987901E82427E00985CA4 /* Pods_DDJiOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods_DDJiOS.framework; path = "../../../../Library/Developer/Xcode/DerivedData/DDJiOS-dhdelbmdtzjurmharpfdowxssrtp/Build/Products/Debug-iphonesimulator/Pods_DDJiOS.framework"; sourceTree = "<group>"; };
+		6B3987921E82428600985CA4 /* RainbowSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RainbowSwift.framework; path = "../../../../Library/Developer/Xcode/DerivedData/DDJiOS-dhdelbmdtzjurmharpfdowxssrtp/Build/Products/Debug-iphonesimulator/RainbowSwift/RainbowSwift.framework"; sourceTree = "<group>"; };
 		6B55FD3E1E4283F6006BE71E /* HeartbeatAckCommandTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeartbeatAckCommandTest.swift; sourceTree = "<group>"; };
 		6B5D17C41E4BDC0D0082D2FB /* SrvGetPlaylistTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SrvGetPlaylistTest.swift; sourceTree = "<group>"; };
 		6B5D17C81E4BE2DA0082D2FB /* Alamofire-Synchronous.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Alamofire-Synchronous.swift"; sourceTree = "<group>"; };
@@ -159,9 +158,6 @@
 		6B7110EF1E2AEC63007E28B8 /* HostClientCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HostClientCommand.swift; sourceTree = "<group>"; };
 		6B7110F11E2AEC7D007E28B8 /* ClientHostCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientHostCommand.swift; sourceTree = "<group>"; };
 		6B7110F51E2AEF89007E28B8 /* UpdatePlaylistCommandTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdatePlaylistCommandTest.swift; sourceTree = "<group>"; };
-		6B71EF001E0B2E46002400C9 /* SpotifyAudioPlayback.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpotifyAudioPlayback.framework; path = DDJiOS/SpotifyAudioPlayback.framework; sourceTree = "<group>"; };
-		6B71EF011E0B2E46002400C9 /* SpotifyAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpotifyAuthentication.framework; path = DDJiOS/SpotifyAuthentication.framework; sourceTree = "<group>"; };
-		6B71EF021E0B2E46002400C9 /* SpotifyMetadata.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpotifyMetadata.framework; path = DDJiOS/SpotifyMetadata.framework; sourceTree = "<group>"; };
 		6B74C5041E09CA3D003CB483 /* ClientDataTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientDataTest.swift; sourceTree = "<group>"; };
 		6B893A7C1E3BEB570094B9CD /* NewSessionTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewSessionTest.swift; sourceTree = "<group>"; };
 		6B8D34D81DFA36E600023C46 /* DDJiOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DDJiOSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -193,14 +189,14 @@
 		6BD3B4A01E08C569005CF098 /* ClientData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientData.swift; sourceTree = "<group>"; };
 		6BD3B4A21E08C5E4005CF098 /* ServerData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerData.swift; sourceTree = "<group>"; };
 		6BD707FD1E229E390008E7A2 /* PlaylistRequestTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaylistRequestTest.swift; sourceTree = "<group>"; };
-		6BD707FF1E22A3E30008E7A2 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
-		6BD7080B1E22A5A90008E7A2 /* SpotifyAudioPlayback.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyAudioPlayback.framework; sourceTree = "<group>"; };
-		6BD7080C1E22A5A90008E7A2 /* SpotifyAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyAuthentication.framework; sourceTree = "<group>"; };
-		6BD7080D1E22A5A90008E7A2 /* SpotifyMetadata.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyMetadata.framework; sourceTree = "<group>"; };
 		6BE67AA01E3F01020022E482 /* MySpt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MySpt.swift; sourceTree = "<group>"; };
+		6BF1ED291E79B6D500B8AA3F /* EZSSL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EZSSL.swift; sourceTree = "<group>"; };
 		6BF2C4151E39465200579142 /* ServerHostCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerHostCommand.swift; sourceTree = "<group>"; };
 		6BFCF5E81E3BFA070064C868 /* EZRegex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EZRegex.swift; sourceTree = "<group>"; };
 		6BFCF5EA1E3BFE270064C868 /* ServerEndSessionCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerEndSessionCommand.swift; sourceTree = "<group>"; };
+		757E05A56B20E6E57D7DDCDE /* Pods-DDJiOSUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DDJiOSUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DDJiOSUITests/Pods-DDJiOSUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		7C0BCF19C25A3DC5122DFFBA /* Pods_DDJiOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DDJiOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D5EBBF1515CB9D967049504 /* Pods-DDJiOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DDJiOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-DDJiOS/Pods-DDJiOS.release.xcconfig"; sourceTree = "<group>"; };
 		9A1862AD1DC10BFA0027D21E /* DDJiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DDJiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A1862B01DC10BFA0027D21E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9A1862B51DC10BFA0027D21E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -210,6 +206,9 @@
 		9A1862BF1DC10BFA0027D21E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9A1862C41DC10BFA0027D21E /* DDJiOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DDJiOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A1862CA1DC10BFA0027D21E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A9ECEB5FEAB836C0F72D02DA /* Pods_DDJiOSUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DDJiOSUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EEE9E0795A1E1300C15D6758 /* Pods-DDJiOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DDJiOSTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DDJiOSTests/Pods-DDJiOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		EF79F7EF9EC2A92F35DC825D /* Pods-DDJiOSUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DDJiOSUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DDJiOSUITests/Pods-DDJiOSUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -217,6 +216,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6B39878D1E82422B00985CA4 /* Pods_DDJiOSUITests.framework in Frameworks */,
+				49B2ED349EB188CC75E8A966 /* Pods_DDJiOSUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -224,11 +225,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6BD708111E22A5B40008E7A2 /* Alamofire.framework in Frameworks */,
-				6BD7080E1E22A5A90008E7A2 /* SpotifyAudioPlayback.framework in Frameworks */,
-				6BD7080F1E22A5A90008E7A2 /* SpotifyAuthentication.framework in Frameworks */,
-				6BD708101E22A5A90008E7A2 /* SpotifyMetadata.framework in Frameworks */,
-				6B08B8AE1E2C282300D94898 /* SwiftSocket.framework in Frameworks */,
+				6B3987911E82427E00985CA4 /* Pods_DDJiOS.framework in Frameworks */,
+				47F6B867A03A7E3D557EECD4 /* Pods_DDJiOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -236,7 +234,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6B08B8AD1E2C27B800D94898 /* SwiftSocket.framework in Frameworks */,
+				6B39878B1E82421E00985CA4 /* Pods_DDJiOSTests.framework in Frameworks */,
+				D27D4E1241684CA6535A73E3 /* Pods_DDJiOSTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -246,7 +245,9 @@
 		6B25FDBB1E3F1229004113CA /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				6B22906C1E79B41700E522D1 /* SSLService.swift */,
 				6BFCF5E81E3BFA070064C868 /* EZRegex.swift */,
+				6BF1ED291E79B6D500B8AA3F /* EZSSL.swift */,
 				6B25FDBC1E3F1238004113CA /* Shuffle.swift */,
 				6B25FDC01E3F14F0004113CA /* IteratorUtil.swift */,
 				6BA25D9C1E4ACDB700DFE97F /* DebugPrint.swift */,
@@ -257,19 +258,6 @@
 				6BCB70271E51B8EF00965207 /* IFAddresses.swift */,
 			);
 			name = Utility;
-			sourceTree = "<group>";
-		};
-		6B2BE63F1DF6BA7C005AE702 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				6B1AE22E1E2B0AF000FD2D68 /* SwiftSocket.framework */,
-				6BD707FF1E22A3E30008E7A2 /* Alamofire.framework */,
-				6B71EF001E0B2E46002400C9 /* SpotifyAudioPlayback.framework */,
-				6B71EF011E0B2E46002400C9 /* SpotifyAuthentication.framework */,
-				6B71EF021E0B2E46002400C9 /* SpotifyMetadata.framework */,
-			);
-			name = Frameworks;
-			path = ..;
 			sourceTree = "<group>";
 		};
 		6B5D17C61E4BDC100082D2FB /* ServerCommands */ = {
@@ -344,6 +332,7 @@
 			children = (
 				6B8D34DA1DFA36E600023C46 /* DDJiOSUITests.swift */,
 				6B8D34DC1DFA36E600023C46 /* Info.plist */,
+				6B39878C1E82422B00985CA4 /* Pods_DDJiOSUITests.framework */,
 			);
 			path = DDJiOSUITests;
 			sourceTree = "<group>";
@@ -410,10 +399,11 @@
 		6BD7080A1E22A5A90008E7A2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				6B08B8AB1E2C27B800D94898 /* SwiftSocket.framework */,
-				6BD7080B1E22A5A90008E7A2 /* SpotifyAudioPlayback.framework */,
-				6BD7080C1E22A5A90008E7A2 /* SpotifyAuthentication.framework */,
-				6BD7080D1E22A5A90008E7A2 /* SpotifyMetadata.framework */,
+				6B3987921E82428600985CA4 /* RainbowSwift.framework */,
+				6B3987901E82427E00985CA4 /* Pods_DDJiOS.framework */,
+				7C0BCF19C25A3DC5122DFFBA /* Pods_DDJiOS.framework */,
+				525463D0ADF16FB1A45928D8 /* Pods_DDJiOSTests.framework */,
+				A9ECEB5FEAB836C0F72D02DA /* Pods_DDJiOSUITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -479,6 +469,7 @@
 				6B8D34D91DFA36E600023C46 /* DDJiOSUITests */,
 				9A1862AE1DC10BFA0027D21E /* Products */,
 				6BD7080A1E22A5A90008E7A2 /* Frameworks */,
+				D76BBBF5422E3E549CDFBE69 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -500,7 +491,6 @@
 				6B973A221E2D574D002DCE12 /* UI */,
 				6BD3B49F1E08C53B005CF098 /* Models */,
 				6B9DB7A81E01D17700BAAF73 /* DDJS */,
-				6B2BE63F1DF6BA7C005AE702 /* Frameworks */,
 				9A1862B01DC10BFA0027D21E /* AppDelegate.swift */,
 				9A1862B41DC10BFA0027D21E /* Main.storyboard */,
 				9A1862BA1DC10BFA0027D21E /* Assets.xcassets */,
@@ -511,6 +501,7 @@
 				6B9E22501DC73468001F1871 /* ZeroconfServer.swift */,
 				6B12AA7B1DF73B2D00170297 /* DDJiOS-Bridging-Header.h */,
 				6B0744CD1DFB66FE0052AE50 /* SpotifyAuthentication.swift */,
+				6B3987881E82421300985CA4 /* Pods_DDJiOS.framework */,
 			);
 			path = DDJiOS;
 			sourceTree = "<group>";
@@ -523,8 +514,22 @@
 				6B7110F31E2AEF62007E28B8 /* Models */,
 				9A1862CA1DC10BFA0027D21E /* Info.plist */,
 				6BD707FD1E229E390008E7A2 /* PlaylistRequestTest.swift */,
+				6B39878A1E82421E00985CA4 /* Pods_DDJiOSTests.framework */,
 			);
 			path = DDJiOSTests;
+			sourceTree = "<group>";
+		};
+		D76BBBF5422E3E549CDFBE69 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				13898BD6582F1A2F6D37E644 /* Pods-DDJiOS.debug.xcconfig */,
+				8D5EBBF1515CB9D967049504 /* Pods-DDJiOS.release.xcconfig */,
+				EEE9E0795A1E1300C15D6758 /* Pods-DDJiOSTests.debug.xcconfig */,
+				610CAC45FCBFE71222D36158 /* Pods-DDJiOSTests.release.xcconfig */,
+				757E05A56B20E6E57D7DDCDE /* Pods-DDJiOSUITests.debug.xcconfig */,
+				EF79F7EF9EC2A92F35DC825D /* Pods-DDJiOSUITests.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -534,9 +539,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6B8D34E11DFA36E600023C46 /* Build configuration list for PBXNativeTarget "DDJiOSUITests" */;
 			buildPhases = (
+				96B193F800AE0D651ECC3C84 /* [CP] Check Pods Manifest.lock */,
 				6B8D34D41DFA36E600023C46 /* Sources */,
 				6B8D34D51DFA36E600023C46 /* Frameworks */,
 				6B8D34D61DFA36E600023C46 /* Resources */,
+				FEDE69DBD3F673E88C8577D5 /* [CP] Embed Pods Frameworks */,
+				604F5F6CC49E45A9836FFF45 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -552,10 +560,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9A1862CD1DC10BFA0027D21E /* Build configuration list for PBXNativeTarget "DDJiOS" */;
 			buildPhases = (
+				FDCCF4CF7E49663043BDC350 /* [CP] Check Pods Manifest.lock */,
 				9A1862A91DC10BFA0027D21E /* Sources */,
 				9A1862AA1DC10BFA0027D21E /* Frameworks */,
 				9A1862AB1DC10BFA0027D21E /* Resources */,
 				6BD708091E22A5770008E7A2 /* Embed Frameworks */,
+				F8E11E84CBC3B8A17604E312 /* [CP] Embed Pods Frameworks */,
+				F08111D3790019ED659BD014 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -570,9 +581,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9A1862D01DC10BFA0027D21E /* Build configuration list for PBXNativeTarget "DDJiOSTests" */;
 			buildPhases = (
+				F102C95B91A0E20AE8AFAE68 /* [CP] Check Pods Manifest.lock */,
 				9A1862C01DC10BFA0027D21E /* Sources */,
 				9A1862C11DC10BFA0027D21E /* Frameworks */,
 				9A1862C21DC10BFA0027D21E /* Resources */,
+				DCB33FABC3AC2AC90767F260 /* [CP] Embed Pods Frameworks */,
+				33E1FCC17966F086A4BA361F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -659,6 +673,144 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		33E1FCC17966F086A4BA361F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DDJiOSTests/Pods-DDJiOSTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		604F5F6CC49E45A9836FFF45 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DDJiOSUITests/Pods-DDJiOSUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		96B193F800AE0D651ECC3C84 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		DCB33FABC3AC2AC90767F260 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DDJiOSTests/Pods-DDJiOSTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F08111D3790019ED659BD014 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DDJiOS/Pods-DDJiOS-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F102C95B91A0E20AE8AFAE68 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F8E11E84CBC3B8A17604E312 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DDJiOS/Pods-DDJiOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FDCCF4CF7E49663043BDC350 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		FEDE69DBD3F673E88C8577D5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DDJiOSUITests/Pods-DDJiOSUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		6B8D34D41DFA36E600023C46 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -683,6 +835,7 @@
 				6B9DB7AA1E01D4FF00BAAF73 /* DDJSPlaylistResponse.swift in Sources */,
 				6B973A211E2D517B002DCE12 /* ClientCommandListener.swift in Sources */,
 				6BCB70211E514C2800965207 /* Global.swift in Sources */,
+				6B22906D1E79B41700E522D1 /* SSLService.swift in Sources */,
 				6B973A261E2DBFFE002DCE12 /* HostCommandListener.swift in Sources */,
 				6B08B8A81E2C1F7800D94898 /* CommandRunner.swift in Sources */,
 				6B9E22511DC73468001F1871 /* ZeroconfClient.swift in Sources */,
@@ -714,6 +867,7 @@
 				37D1F7FB3D47D847D87FA983 /* ServerNewSessionCommand.swift in Sources */,
 				6BC39EEA1E4854B200CF13DE /* ServerGetPlaylistCommand.swift in Sources */,
 				6BCB70281E51B8EF00965207 /* IFAddresses.swift in Sources */,
+				6BF1ED2A1E79B6D500B8AA3F /* EZSSL.swift in Sources */,
 				37D1FDDCB21FBF7337B3EFFB /* ServerCommand.swift in Sources */,
 				6BA25D9D1E4ACDB700DFE97F /* DebugPrint.swift in Sources */,
 				6B5D17CD1E4BF2A50082D2FB /* ServerRemoveUserCommand.swift in Sources */,
@@ -784,11 +938,16 @@
 /* Begin XCBuildConfiguration section */
 		6B8D34DF1DFA36E600023C46 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 757E05A56B20E6E57D7DDCDE /* Pods-DDJiOSUITests.debug.xcconfig */;
 			buildSettings = {
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/DDJiOSUITests",
+				);
 				INFOPLIST_FILE = DDJiOSUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.msoe.seniordesign.DDJiOSUITests;
@@ -801,11 +960,16 @@
 		};
 		6B8D34E01DFA36E600023C46 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EF79F7EF9EC2A92F35DC825D /* Pods-DDJiOSUITests.release.xcconfig */;
 			buildSettings = {
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/DDJiOSUITests",
+				);
 				INFOPLIST_FILE = DDJiOSUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.msoe.seniordesign.DDJiOSUITests;
@@ -818,7 +982,7 @@
 		9A1862CB1DC10BFA0027D21E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -861,7 +1025,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-ObjC";
-				PRELINK_LIBS = "SwiftSocket SpotifyAudioPlayback SpotifyAuthentication SpotifyMetadata";
+				PRELINK_LIBS = "";
 				"PRELINK_LIBS[arch=*]" = "";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -871,7 +1035,7 @@
 		9A1862CC1DC10BFA0027D21E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -907,7 +1071,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "-ObjC";
-				PRELINK_LIBS = "SwiftSocket SpotifyAudioPlayback SpotifyAuthentication SpotifyMetadata";
+				PRELINK_LIBS = "";
 				"PRELINK_LIBS[arch=*]" = "";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -917,17 +1081,21 @@
 		};
 		9A1862CE1DC10BFA0027D21E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 13898BD6582F1A2F6D37E644 /* Pods-DDJiOS.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = E7NF7S5WRQ;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
-					"$(PROJECT_DIR)/DDJiOS/Carthage/Build/iOS",
 					"$(PROJECT_DIR)/DDJiOS",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/build/Release-iphoneos",
+					"$(PROJECT_DIR)/build/Release-iphoneos/SwiftSocket",
+					"$(PROJECT_DIR)/build/Release-iphoneos/Spotify-iOS-SDK",
+					"$(PROJECT_DIR)/build/Release-iphoneos/Alamofire",
+					"$(PROJECT_DIR)/build/Release-iphoneos/RainbowSwift",
 				);
 				INFOPLIST_FILE = DDJiOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -942,17 +1110,21 @@
 		};
 		9A1862CF1DC10BFA0027D21E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8D5EBBF1515CB9D967049504 /* Pods-DDJiOS.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = E7NF7S5WRQ;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
-					"$(PROJECT_DIR)/DDJiOS/Carthage/Build/iOS",
 					"$(PROJECT_DIR)/DDJiOS",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/build/Release-iphoneos",
+					"$(PROJECT_DIR)/build/Release-iphoneos/SwiftSocket",
+					"$(PROJECT_DIR)/build/Release-iphoneos/Spotify-iOS-SDK",
+					"$(PROJECT_DIR)/build/Release-iphoneos/Alamofire",
+					"$(PROJECT_DIR)/build/Release-iphoneos/RainbowSwift",
 				);
 				INFOPLIST_FILE = DDJiOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -966,12 +1138,13 @@
 		};
 		9A1862D11DC10BFA0027D21E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EEE9E0795A1E1300C15D6758 /* Pods-DDJiOSTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/DDJiOSTests",
 				);
 				INFOPLIST_FILE = DDJiOSTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -985,12 +1158,13 @@
 		};
 		9A1862D21DC10BFA0027D21E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 610CAC45FCBFE71222D36158 /* Pods-DDJiOSTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/DDJiOSTests",
 				);
 				INFOPLIST_FILE = DDJiOSTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

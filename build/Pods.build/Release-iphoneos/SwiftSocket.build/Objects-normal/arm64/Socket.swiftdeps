@@ -1,0 +1,147 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "Byte"
+- "Socket"
+- "SocketError"
+- "=="
+provides-nominal:
+- "C11SwiftSocket6Socket"
+- "O11SwiftSocket11SocketError"
+provides-member:
+- ["C11SwiftSocket6Socket", ""]
+- ["O11SwiftSocket11SocketError", ""]
+provides-dynamic-lookup:
+depends-top-level:
+- "Error"
+- "String"
+- "Byte"
+- "UInt8"
+- !private "IntegerLiteralType"
+- "Int32"
+- !private "FloatLiteralType"
+- "Socket"
+- "SocketError"
+- "=="
+- "AssignmentPrecedence"
+depends-member:
+- !private ["Ps9AnyObject", "address"]
+- !private ["Ps9AnyObject", "port"]
+- ["Ps9AnyObject", ""]
+- !private ["Ps17BitwiseOperations", "hashValue"]
+- !private ["Ps7CVarArg", "hashValue"]
+- !private ["Ps10Comparable", "hashValue"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "hashValue"]
+- !private ["Ps17CustomReflectable", "hashValue"]
+- !private ["Ps23CustomStringConvertible", "hashValue"]
+- ["Ps9Equatable", "_code"]
+- ["Ps9Equatable", "_domain"]
+- ["Ps9Equatable", "_getEmbeddedNSError"]
+- ["Ps9Equatable", "_toAnyHashable"]
+- ["Ps9Equatable", "_userInfo"]
+- ["Ps9Equatable", "hashValue"]
+- ["Ps9Equatable", ""]
+- ["Ps5Error", "_code"]
+- ["Ps5Error", "_domain"]
+- ["Ps5Error", "_getEmbeddedNSError"]
+- ["Ps5Error", "_toAnyHashable"]
+- ["Ps5Error", "_userInfo"]
+- ["Ps5Error", "hashValue"]
+- ["Ps5Error", ""]
+- !private ["Ps27ExpressibleByIntegerLiteral", "hashValue"]
+- ["Ps8Hashable", "_code"]
+- ["Ps8Hashable", "_domain"]
+- ["Ps8Hashable", "_getEmbeddedNSError"]
+- ["Ps8Hashable", "_toAnyHashable"]
+- ["Ps8Hashable", "_userInfo"]
+- ["Ps8Hashable", "hashValue"]
+- ["Ps8Hashable", ""]
+- ["Si", "deinit"]
+- !private ["Si", "hashValue"]
+- ["Vs5Int32", "deinit"]
+- !private ["Ps7Integer", "hashValue"]
+- !private ["Ps17IntegerArithmetic", "hashValue"]
+- !private ["Ps10MirrorPath", "hashValue"]
+- ["Sq", "deinit"]
+- !private ["Ps13SignedInteger", "hashValue"]
+- !private ["Ps12SignedNumber", "hashValue"]
+- ["C11SwiftSocket6Socket", "Int32"]
+- ["C11SwiftSocket6Socket", "String"]
+- ["C11SwiftSocket6Socket", "address"]
+- ["C11SwiftSocket6Socket", "deinit"]
+- ["C11SwiftSocket6Socket", "fd"]
+- ["C11SwiftSocket6Socket", "init"]
+- ["C11SwiftSocket6Socket", "port"]
+- ["O11SwiftSocket11SocketError", "=="]
+- ["O11SwiftSocket11SocketError", "_code"]
+- ["O11SwiftSocket11SocketError", "_domain"]
+- ["O11SwiftSocket11SocketError", "_getEmbeddedNSError"]
+- ["O11SwiftSocket11SocketError", "_toAnyHashable"]
+- ["O11SwiftSocket11SocketError", "_userInfo"]
+- ["O11SwiftSocket11SocketError", "connectionClosed"]
+- ["O11SwiftSocket11SocketError", "connectionTimeout"]
+- ["O11SwiftSocket11SocketError", "deinit"]
+- ["O11SwiftSocket11SocketError", "hashValue"]
+- ["O11SwiftSocket11SocketError", "queryFailed"]
+- ["O11SwiftSocket11SocketError", "unknownError"]
+- !private ["Ps10Strideable", "hashValue"]
+- ["SS", "deinit"]
+- !private ["Ps35_ExpressibleByBuiltinIntegerLiteral", "hashValue"]
+- ["Ps9_Hashable", "_code"]
+- ["Ps9_Hashable", "_domain"]
+- ["Ps9_Hashable", "_getEmbeddedNSError"]
+- ["Ps9_Hashable", "_toAnyHashable"]
+- ["Ps9_Hashable", "_userInfo"]
+- ["Ps9_Hashable", "hashValue"]
+- ["Ps9_Hashable", ""]
+- !private ["Ps14_Incrementable", "hashValue"]
+- !private ["Ps8_Integer", "hashValue"]
+- !private ["Ps18_IntegerArithmetic", "hashValue"]
+- !private ["Ps21_ObjectiveCBridgeable", "hashValue"]
+- !private ["Ps14_SignedInteger", "hashValue"]
+- !private ["Ps11_Strideable", "hashValue"]
+depends-nominal:
+- "Ps9AnyObject"
+- !private "Ps17BitwiseOperations"
+- !private "Ps7CVarArg"
+- !private "Ps10Comparable"
+- !private "Ps29CustomPlaygroundQuickLookable"
+- !private "Ps17CustomReflectable"
+- !private "Ps23CustomStringConvertible"
+- "Ps9Equatable"
+- "Ps5Error"
+- !private "Ps27ExpressibleByIntegerLiteral"
+- "Ps8Hashable"
+- "Si"
+- "Vs5Int32"
+- !private "Ps7Integer"
+- !private "Ps17IntegerArithmetic"
+- !private "Ps10MirrorPath"
+- "Sq"
+- !private "Ps13SignedInteger"
+- !private "Ps12SignedNumber"
+- "C11SwiftSocket6Socket"
+- "O11SwiftSocket11SocketError"
+- !private "Ps10Strideable"
+- "SS"
+- !private "Ps35_ExpressibleByBuiltinIntegerLiteral"
+- "Ps9_Hashable"
+- !private "Ps14_Incrementable"
+- !private "Ps8_Integer"
+- !private "Ps18_IntegerArithmetic"
+- !private "Ps21_ObjectiveCBridgeable"
+- !private "Ps14_SignedInteger"
+- !private "Ps11_Strideable"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Swift.swiftmodule"
+- "/Users/ericmiller/Documents/MSOE/Senior Design/ddjios/Pods/Target Support Files/SwiftSocket/SwiftSocket-umbrella.h"
+- "/Users/ericmiller/Documents/MSOE/Senior Design/ddjios/build/Pods.build/Release-iphoneos/SwiftSocket.build/unextended-module.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/QuartzCore.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreImage.swiftmodule"
+interface-hash: "9ef29178bd1d774c40423bab1c1e8b41"

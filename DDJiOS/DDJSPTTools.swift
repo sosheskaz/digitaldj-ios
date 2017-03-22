@@ -9,6 +9,7 @@ import Alamofire
 class DDJSPTTools {
     static func SPTTracksFromIdsOrUris(_ idsOrUris: [String]) -> [SPTTrack]? {
         guard let regex = EZRegex(pattern: "^spotify:track:.+$") else {
+            print("Regex failed to init.")
             return nil
         }
         let uris = idsOrUris.map( { item -> URL in
@@ -24,9 +25,11 @@ class DDJSPTTools {
             let responseData = Alamofire.request(tracksRequest).responseData()
             
             guard let data = responseData.data else {
+                print(responseData.result.error)
                 return nil
             }
             guard let response = responseData.response else {
+                print(responseData.result.error)
                 return nil
             }
             
@@ -42,6 +45,7 @@ class DDJSPTTools {
             
             return tracks
         } catch {
+            print("An error occurred.")
             return nil
         }
     }

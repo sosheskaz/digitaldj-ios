@@ -9,6 +9,10 @@
 import UIKit
 import CoreData
 import SafariServices
+import SwiftyBeaver
+
+import SwiftyBeaver
+let log = SwiftyBeaver.self
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, SPTAudioStreamingDelegate {
@@ -19,6 +23,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SPTAudioStreamingDelegate
     var player: SPTAudioStreamingController?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        
+        log.addDestination(ConsoleDestination())
+        log.info("Application started.")
+        
         self.auth = SPTAuth.defaultInstance()
         // The client ID you got from the developer site
         self.auth!.clientID = CLIENT_ID

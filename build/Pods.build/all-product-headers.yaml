@@ -1,0 +1,329 @@
+{
+  'version': 0,
+  'case-sensitive': 'false',
+  'roots': [
+    {
+      'type': 'directory',
+      'name': "/Users/ericmiller/Documents/MSOE/Senior Design/ddjios/build/Release-iphoneos/Alamofire/Alamofire.framework/Headers",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "Alamofire-Swift.h",
+          'external-contents': "/Users/ericmiller/Documents/MSOE/Senior Design/ddjios/build/Release-iphoneos/Alamofire/Alamofire.framework/Headers/Alamofire-Swift.h"
+        },
+        {
+          'type': 'file',
+          'name': "Alamofire-umbrella.h",
+          'external-contents': "/Users/ericmiller/Documents/MSOE/Senior Design/ddjios/Pods/Target Support Files/Alamofire/Alamofire-umbrella.h"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/ericmiller/Documents/MSOE/Senior Design/ddjios/build/Release-iphoneos/Alamofire/Alamofire.framework/Modules",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "module.modulemap",
+          'external-contents': "/Users/ericmiller/Documents/MSOE/Senior Design/ddjios/build/Pods.build/Release-iphoneos/Alamofire.build/module.modulemap"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/ericmiller/Documents/MSOE/Senior Design/ddjios/build/Release-iphoneos/Pods_DDJiOS.framework/Headers",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "Pods-DDJiOS-umbrella.h",
+          'external-contents': "/Users/ericmiller/Documents/MSOE/Senior Design/ddjios/Pods/Target Support Files/Pods-DDJiOS/Pods-DDJiOS-umbrella.h"
+        },
+        {
+          'type': 'file',
+          'name': "Pods_DDJiOS-Swift.h",
+          'external-contents': "/Users/ericmiller/Documents/MSOE/Senior Design/ddjios/build/Release-iphoneos/Pods_DDJiOS.framework/Headers/Pods_DDJiOS-Swift.h"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/ericmiller/Documents/MSOE/Senior Design/ddjios/build/Release-iphoneos/Pods_DDJiOS.framework/Modules",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "module.modulemap",
+          'external-contents': "/Users/ericmiller/Documents/MSOE/Senior Design/ddjios/build/Pods.build/Release-iphoneos/Pods-DDJiOS.build/module.modulemap"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/ericmiller/Documents/MSOE/Senior Design/ddjios/build/Release-iphoneos/Spotify-iOS-SDK/Spotify.framework/Headers",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "SPTAlbum.h",
+          'external-contents': "/Users/ericmiller/Documents/MSOE/Senior Design/ddjios/Pods/Spotify-iOS-SDK/SPTAlbum.h"
+        },
+        {
+          'type': 'file',
+          'name': "SPTArtist.h",
+          'external-contents': "/Users/ericmiller/Documents/MSOE/Senior Design/ddjios/Pods/Spotify-iOS-SDK/SPTArtist.h"
+        },
+        {
+          'type': 'file',
+          'name': "SPTAudioPlaybackTypes.h",
+          'external-contents': "/Users/ericmiller/Documents/MSOE/Senior Design/ddjios/Pods/Spotify-iOS-SDK/SPTAudioPlaybackTypes.h"
+        },
+        {
+          'type': 'file',
+          'name': "SPTAudioStreamingController.h",
+          'external-contents': "/Users/ericmiller/Documents/MSOE/Senior Design/ddjios/Pods/Spotify-iOS-SDK/SPTAudioStreamingController.h"
+        },
+        {
+          'type': 'file',
+          'name': "SPTAudioStreamingController_ErrorCodes.h",
+          'external-contents': "/Users/ericmiller/Documents/MSOE/Senior Design/ddjios/Pods/Spotify-iOS-SDK/SPTAudioStreamingController_ErrorCodes.h"
+        },
+        {
+          'type': 'file',
+          'name': "SPTAuth.h",
+          'external-contents': "/Users/ericmiller/Documents/MSOE/Senior Design/ddjios/Pods/Spotify-iOS-SDK/SPTAuth.h"
+        },
+        {
+          'type': 'file',
+          'name': "SPTAuthViewController.h",
+          'external-contents': "/Users/ericmiller/Documents/MSOE/Senior Design/ddjios/Pods/Spotify-iOS-SDK/SPTAuthViewController.h"
+        },
+        {
+          'type': 'file',
+          'name': "SPTBrowse.h",
+          'external-contents': "/Users/ericmiller/Documents/MSOE/Senior Design/ddjios/Pods/Spotify-iOS-SDK/SPTBrowse.h"
+        },
+        {
+          'type': 'file',
+          'name': "SPTCircularBuffer.h",
+          'external-contents': "/Users/ericmiller/Documents/MSOE/Senior Design/ddjios/Pods/Spotify-iOS-SDK/SPTCircularBuffer.h"
+        },
+        {
+          'type': 'file',
+          'name': "SPTConnectButton.h",
+          'external-contents': "/Users/ericmiller/Documents/MSOE/Senior Design/ddjios/Pods/Spotify-iOS-SDK/SPTConnectButton.h"
+        },
+        {
+          'type': 'file',
+          'name': "SPTCoreAudioController.h",
+          'external-contents': "/Users/ericmiller/Documents/MSOE/Senior Design/ddjios/Pods/Spotify-iOS-SDK/SPTCoreAudioController.h"
+        },
+        {
+          'type': 'file',
+          'name': "SPTDiskCache.h",
+          'external-contents': "/Users/ericmiller/Documents/MSOE/Senior Design/ddjios/Pods/Spotify-iOS-SDK/SPTDiskCache.h"
+        },
+        {
+          'type': 'file',
+          'name': "SPTDiskCaching.h",
+          'external-contents': "/Users/ericmiller/Documents/MSOE/Senior Design/ddjios/Pods/Spotify-iOS-SDK/SPTDiskCaching.h"
+        },
+        {
+          'type': 'file',
+          'name': "SPTEmbeddedImages.h",
+          'external-contents': "/Users/ericmiller/Documents/MSOE/Senior Design/ddjios/Pods/Spotify-iOS-SDK/SPTEmbeddedImages.h"
+        },
+        {
+          'type': 'file',
+          'name': "SPTFeaturedPlaylistList.h",
+          'external-contents': "/Users/ericmiller/Documents/MSOE/Senior Design/ddjios/Pods/Spotify-iOS-SDK/SPTFeaturedPlaylistList.h"
+        },
+        {
+          'type': 'file',
+          'name': "SPTFollow.h",
+          'external-contents': "/Users/ericmiller/Documents/MSOE/Senior Design/ddjios/Pods/Spotify-iOS-SDK/SPTFollow.h"
+        },
+        {
+          'type': 'file',
+          'name': "SPTImage.h",
+          'external-contents': "/Users/ericmiller/Documents/MSOE/Senior Design/ddjios/Pods/Spotify-iOS-SDK/SPTImage.h"
+        },
+        {
+          'type': 'file',
+          'name': "SPTJSONDecoding.h",
+          'external-contents': "/Users/ericmiller/Documents/MSOE/Senior Design/ddjios/Pods/Spotify-iOS-SDK/SPTJSONDecoding.h"
+        },
+        {
+          'type': 'file',
+          'name': "SPTListPage.h",
+          'external-contents': "/Users/ericmiller/Documents/MSOE/Senior Design/ddjios/Pods/Spotify-iOS-SDK/SPTListPage.h"
+        },
+        {
+          'type': 'file',
+          'name': "SPTMetadataTypes.h",
+          'external-contents': "/Users/ericmiller/Documents/MSOE/Senior Design/ddjios/Pods/Spotify-iOS-SDK/SPTMetadataTypes.h"
+        },
+        {
+          'type': 'file',
+          'name': "SPTPartialAlbum.h",
+          'external-contents': "/Users/ericmiller/Documents/MSOE/Senior Design/ddjios/Pods/Spotify-iOS-SDK/SPTPartialAlbum.h"
+        },
+        {
+          'type': 'file',
+          'name': "SPTPartialArtist.h",
+          'external-contents': "/Users/ericmiller/Documents/MSOE/Senior Design/ddjios/Pods/Spotify-iOS-SDK/SPTPartialArtist.h"
+        },
+        {
+          'type': 'file',
+          'name': "SPTPartialObject.h",
+          'external-contents': "/Users/ericmiller/Documents/MSOE/Senior Design/ddjios/Pods/Spotify-iOS-SDK/SPTPartialObject.h"
+        },
+        {
+          'type': 'file',
+          'name': "SPTPartialPlaylist.h",
+          'external-contents': "/Users/ericmiller/Documents/MSOE/Senior Design/ddjios/Pods/Spotify-iOS-SDK/SPTPartialPlaylist.h"
+        },
+        {
+          'type': 'file',
+          'name': "SPTPartialTrack.h",
+          'external-contents': "/Users/ericmiller/Documents/MSOE/Senior Design/ddjios/Pods/Spotify-iOS-SDK/SPTPartialTrack.h"
+        },
+        {
+          'type': 'file',
+          'name': "SPTPlaybackMetadata.h",
+          'external-contents': "/Users/ericmiller/Documents/MSOE/Senior Design/ddjios/Pods/Spotify-iOS-SDK/SPTPlaybackMetadata.h"
+        },
+        {
+          'type': 'file',
+          'name': "SPTPlaybackState.h",
+          'external-contents': "/Users/ericmiller/Documents/MSOE/Senior Design/ddjios/Pods/Spotify-iOS-SDK/SPTPlaybackState.h"
+        },
+        {
+          'type': 'file',
+          'name': "SPTPlaylistList.h",
+          'external-contents': "/Users/ericmiller/Documents/MSOE/Senior Design/ddjios/Pods/Spotify-iOS-SDK/SPTPlaylistList.h"
+        },
+        {
+          'type': 'file',
+          'name': "SPTPlaylistSnapshot.h",
+          'external-contents': "/Users/ericmiller/Documents/MSOE/Senior Design/ddjios/Pods/Spotify-iOS-SDK/SPTPlaylistSnapshot.h"
+        },
+        {
+          'type': 'file',
+          'name': "SPTPlaylistTrack.h",
+          'external-contents': "/Users/ericmiller/Documents/MSOE/Senior Design/ddjios/Pods/Spotify-iOS-SDK/SPTPlaylistTrack.h"
+        },
+        {
+          'type': 'file',
+          'name': "SPTRequest.h",
+          'external-contents': "/Users/ericmiller/Documents/MSOE/Senior Design/ddjios/Pods/Spotify-iOS-SDK/SPTRequest.h"
+        },
+        {
+          'type': 'file',
+          'name': "SPTSavedTrack.h",
+          'external-contents': "/Users/ericmiller/Documents/MSOE/Senior Design/ddjios/Pods/Spotify-iOS-SDK/SPTSavedTrack.h"
+        },
+        {
+          'type': 'file',
+          'name': "SPTSearch.h",
+          'external-contents': "/Users/ericmiller/Documents/MSOE/Senior Design/ddjios/Pods/Spotify-iOS-SDK/SPTSearch.h"
+        },
+        {
+          'type': 'file',
+          'name': "SPTSession.h",
+          'external-contents': "/Users/ericmiller/Documents/MSOE/Senior Design/ddjios/Pods/Spotify-iOS-SDK/SPTSession.h"
+        },
+        {
+          'type': 'file',
+          'name': "SPTStoreViewController.h",
+          'external-contents': "/Users/ericmiller/Documents/MSOE/Senior Design/ddjios/Pods/Spotify-iOS-SDK/SPTStoreViewController.h"
+        },
+        {
+          'type': 'file',
+          'name': "SPTTrack.h",
+          'external-contents': "/Users/ericmiller/Documents/MSOE/Senior Design/ddjios/Pods/Spotify-iOS-SDK/SPTTrack.h"
+        },
+        {
+          'type': 'file',
+          'name': "SPTTrackProvider.h",
+          'external-contents': "/Users/ericmiller/Documents/MSOE/Senior Design/ddjios/Pods/Spotify-iOS-SDK/SPTTrackProvider.h"
+        },
+        {
+          'type': 'file',
+          'name': "SPTUser.h",
+          'external-contents': "/Users/ericmiller/Documents/MSOE/Senior Design/ddjios/Pods/Spotify-iOS-SDK/SPTUser.h"
+        },
+        {
+          'type': 'file',
+          'name': "SPTYourMusic.h",
+          'external-contents': "/Users/ericmiller/Documents/MSOE/Senior Design/ddjios/Pods/Spotify-iOS-SDK/SPTYourMusic.h"
+        },
+        {
+          'type': 'file',
+          'name': "SpPlaybackEvent.h",
+          'external-contents': "/Users/ericmiller/Documents/MSOE/Senior Design/ddjios/Pods/Spotify-iOS-SDK/SpPlaybackEvent.h"
+        },
+        {
+          'type': 'file',
+          'name': "Spotify-Swift.h",
+          'external-contents': "/Users/ericmiller/Documents/MSOE/Senior Design/ddjios/build/Release-iphoneos/Spotify-iOS-SDK/Spotify.framework/Headers/Spotify-Swift.h"
+        },
+        {
+          'type': 'file',
+          'name': "Spotify-iOS-SDK-umbrella.h",
+          'external-contents': "/Users/ericmiller/Documents/MSOE/Senior Design/ddjios/Pods/Target Support Files/Spotify-iOS-SDK/Spotify-iOS-SDK-umbrella.h"
+        },
+        {
+          'type': 'file',
+          'name': "SpotifyAudioPlayback.h",
+          'external-contents': "/Users/ericmiller/Documents/MSOE/Senior Design/ddjios/Pods/Spotify-iOS-SDK/SpotifyAudioPlayback.h"
+        },
+        {
+          'type': 'file',
+          'name': "SpotifyAuthentication.h",
+          'external-contents': "/Users/ericmiller/Documents/MSOE/Senior Design/ddjios/Pods/Spotify-iOS-SDK/SpotifyAuthentication.h"
+        },
+        {
+          'type': 'file',
+          'name': "SpotifyMetadata.h",
+          'external-contents': "/Users/ericmiller/Documents/MSOE/Senior Design/ddjios/Pods/Spotify-iOS-SDK/SpotifyMetadata.h"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/ericmiller/Documents/MSOE/Senior Design/ddjios/build/Release-iphoneos/Spotify-iOS-SDK/Spotify.framework/Modules",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "module.modulemap",
+          'external-contents': "/Users/ericmiller/Documents/MSOE/Senior Design/ddjios/build/Pods.build/Release-iphoneos/Spotify-iOS-SDK.build/module.modulemap"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/ericmiller/Documents/MSOE/Senior Design/ddjios/build/Release-iphoneos/SwiftSocket/SwiftSocket.framework/Headers",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "SwiftSocket-Swift.h",
+          'external-contents': "/Users/ericmiller/Documents/MSOE/Senior Design/ddjios/build/Release-iphoneos/SwiftSocket/SwiftSocket.framework/Headers/SwiftSocket-Swift.h"
+        },
+        {
+          'type': 'file',
+          'name': "SwiftSocket-umbrella.h",
+          'external-contents': "/Users/ericmiller/Documents/MSOE/Senior Design/ddjios/Pods/Target Support Files/SwiftSocket/SwiftSocket-umbrella.h"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/ericmiller/Documents/MSOE/Senior Design/ddjios/build/Release-iphoneos/SwiftSocket/SwiftSocket.framework/Modules",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "module.modulemap",
+          'external-contents': "/Users/ericmiller/Documents/MSOE/Senior Design/ddjios/build/Pods.build/Release-iphoneos/SwiftSocket.build/module.modulemap"
+        }
+      ]
+    }
+  ]
+}

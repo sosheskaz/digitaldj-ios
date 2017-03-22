@@ -19,7 +19,8 @@ class HeartbeatTimeoutCommandTest: XCTestCase {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
         cmd = HeartbeatTimeoutCommand()
-        listener.on()
+        _ = listener.on()
+        usleep(10000)
     }
     
     override func tearDown() {

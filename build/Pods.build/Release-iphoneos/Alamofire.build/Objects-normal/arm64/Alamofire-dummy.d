@@ -1,0 +1,3 @@
+dependencies: \
+  /Users/ericmiller/Documents/MSOE/Senior\ Design/ddjios/Pods/Target\ Support\ Files/Alamofire/Alamofire-dummy.m \
+  /Users/ericmiller/Documents/MSOE/Senior\ Design/ddjios/Pods/Target\ Support\ Files/Alamofire/Alamofire-prefix.pch

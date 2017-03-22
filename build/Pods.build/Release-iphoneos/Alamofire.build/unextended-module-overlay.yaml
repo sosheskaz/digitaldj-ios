@@ -1,0 +1,13 @@
+{
+  'version': 0,
+  'case-sensitive': 'false',
+  'roots': [{
+    'type': 'directory',
+    'name': '/Users/ericmiller/Documents/MSOE/Senior Design/ddjios/build/Release-iphoneos/Alamofire/Alamofire.framework/Modules'
+    'contents': [{
+      'type': 'file',
+      'name': 'module.modulemap',
+      'external-contents': '/Users/ericmiller/Documents/MSOE/Senior Design/ddjios/build/Pods.build/Release-iphoneos/Alamofire.build/unextended-module.modulemap',
+    }]
+  }]
+}

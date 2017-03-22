@@ -7,13 +7,15 @@
 //
 
 import Foundation
-import SwiftSocket
+import BlueSocket
 
 class CommandRunner {
-    private let port: Int32
+    private let port: Int
     private var callbacks: [CommandType: [(_: Command) -> Void]] = [:]
     
-    private let servers: [TCPServer]
+    private let bufSize = 65536 // 2^16
+    private var socket: Socket = EZSSL()!.socket
+    private let handlerQueue = DispatchQueue(label: "command_runner_dq", attributes: .concurrent)
     
     private var isOn: Bool = false
     
@@ -21,64 +23,113 @@ class CommandRunner {
         let port = listeningPort.rawValue
         self.port = port
         
-        let addresses = Set(getIFAddresses() + ["127.0.0.1"])
-        
-        self.servers = addresses.map {TCPServer(address: $0, port: port)}
-        
         for type in allCommandTypes {
             self.callbacks[type] = []
         }
-        on()
+        
+        let didTurnOn = self.on()
+        if !didTurnOn {
+            log.warning("CommandRunner failed to turn on.")
+        }
     }
     
     deinit {
-        for server in servers {
-            server.close()
-        }
+        socket.close()
     }
     
-    func on() {
-        guard !isOn else {
-            return
-        }
+    func on() -> Bool {
+        var exitValue: Bool? = nil
         
-        print("LISTENER ON")
-        
-        self.isOn = true
-        for server in servers {
-            DispatchQueue.global().async {
-                switch server.listen() {
-                case .success:
-                    DispatchQueue.global().async {
-                        while true {
-                            if(!self.isOn) {
-                                break
-                            }
-                            
-                            if let client = server.accept() {
-                                let bytes = client.read(1024 * 1024)
-                                let data = Data(bytes: bytes!)
-                                self.handleCommand(data, address: client.address)
-                                client.close()
-                            }
-                        }
-                    }
-                    
-                    break
-                case .failure(let error):
-                    print(error)
-                    break
-                }
+        // Handles race conditions - make sure we're not already on.
+        self.handlerQueue.sync {
+            log.info("Attempting to turn CommandListener on. Is it already on? \(self.isOn)")
+            guard !isOn else {
+                log.warning("CommandListener is already on. Exiting early.")
+                exitValue = true // Already on. Nothing to do.
+                return
+            }
+            
+            do {
+                log.info("Trying to open socket for CommandListener.")
+                self.socket = EZSSL()!.socket
+                try socket.listen(on: self.port)
+                log.info("Socket is \(socket.isListening ? "" : "not ")listening on \(socket.listeningPort).")
+            } catch {
+                log.warning("The port is already locked by something else. Exiting because there's not much else we can do for now.")
+                exitValue = isOn // we may fail because the port is already locked by
+                // another instance of this process. That's ok.
             }
         }
+        
+        if exitValue != nil {
+            return exitValue!
+        }
+        
+        self.isOn = true
+        self.handlerQueue.async {
+            repeat {
+                if(!self.isOn) {
+                    break
+                }
+                
+                do {
+                    log.info("Server waiting for connections on port \(self.port)")
+                    let newSocket = try self.socket.acceptClientConnection()
+                    log.info("Accepted a connection.")
+                    
+                    // Handle the request asynchronously so we can handle another right away.
+                    self.handlerQueue.async {
+                        log.info("Accepted connection from: \(newSocket.remoteHostname) on port \(newSocket.remotePort)")
+                        
+                        var readData = Data(capacity: self.bufSize)
+                        do {
+                            _ = try newSocket.read(into: &readData)
+                        } catch let error {
+                            log.error("Failed to read from the socket!")
+                            
+                            if error is Socket.Error {
+                                let serr = error as! Socket.Error
+                                log.error("Socket.Error: \(serr.description)")
+                            }
+                            
+                            return
+                        }
+                        
+                        log.info("Handling a command from \(newSocket.remoteHostname)")
+                        self.handleCommand(readData, address: newSocket.remoteHostname)
+                    }
+                } catch let error as Socket.Error {
+                    if error.errorCode == -9994 {
+                        log.warning("IMPORTANT! Most likely, the above error was caused by the application terminating. It should be nothing to worry about. But I've left the messages (following) in case something goes wrong we're not suppressing potentially helpful output.")
+                        log.warning("Socket failed to open for listening on port \(self.port)")
+                        log.warning(error.description)
+                        break
+                    }
+                    log.error("Socket failed to open for listening on port \(self.port)")
+                    log.error(error.description)
+                } catch let error {
+                    log.error("Socket failed to open for listening on port \(self.port)")
+                    log.error("Error: \(error.localizedDescription)")
+                    log.error("This error doesn't have a specific logging operation associated with it. Send Eric this log. eric.the.miller@icloud.com")
+                    
+                    guard let serr = error as? Socket.Error else {
+                        break
+                    }
+                    
+                    log.error(serr.description)
+                }
+            } while true
+        }
+        
+        return true
     }
     
     func off() {
-        if(isOn) {
-            for server in servers {
-                server.close()
+        handlerQueue.sync {
+            if(isOn) {
+                socket.close()
+                self.isOn = false
             }
-            self.isOn = false
         }
     }
     
