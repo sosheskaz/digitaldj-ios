@@ -14,6 +14,8 @@ Cocoapods, like most package managers, only installs packages if they have not a
 It's recommended to open the XCode project by opening the `.xcworkspace` file, ***NOT*** the `.xcproj` file. Opening it this way makes it behave better with CocoaPods.
 
 ## Overall Breakdown
+The CI is located [here](http://miller-machine.ddns.net:8080/). If it's down, or not working properly, let Eric know immediately.
+
 The project is divided into a few subgroups.
 
 * DDJClient - Handles the main logic for client mode.
@@ -28,6 +30,11 @@ There are some top-level files, including:
 * Launchscreen.storyboard - the launch screen.
 * Info.plist - project file. Don't edit this manually, use the project menu.
 * DDJiOS-Bridging-Header.h - This is needed for some things that count on Objective-C libraries. If adding an Objective-C library, you will need to edit this file as appropriate.
+
+## Development Practices
+* Log
+* Write tests for what you write, at least the happy path. It's by far the easiest way to make sure things work in most cases.
+* When developing, develop off of a feature branch, named similarly to "feature/yourfeature". BitBucket can automatically do this using the "Git Flow" button. When you've finished, merge into development. Only merge into master if it's production ready.
 
 ## Third-Party Frameworks
 * AlamoFire - used for all HTTP/HTTPS networking. It is WAY easier and cleaner than Apple's native solution, and is industry standard.
@@ -79,3 +86,41 @@ To edit properties of the project or the individual targets, select the top-leve
 &nbsp;
 
 Regex in Swift sucks. Use Utility > EZRegex. If EZRegex doesn't have what you need, add it.
+
+&nbsp;
+
+Abstract superclasses don't exist in Swift. You need to use a combination of `protocol` (which is similar to Java's `interface` and `extension`, which is similar to C#'s extension method functionality, but at a higher level. Command.swift is a great example of this, and the following.
+
+Worth noting is that extensions and protocols aren't allowed to have stored properties. You can get around this, and usually should because it's the cleanest workaround. Check out [this StackOverflow question](http://stackoverflow.com/questions/25426780/how-to-have-stored-properties-in-swift-the-same-way-i-had-on-objective-c) and the following code snippets:
+
+From Command.swift:
+
+    // "extensions may not contain stored properties" 🐇 🎩
+    var source: String? {
+        get {
+            guard let value = objc_getAssociatedObject(self, &associatedKeys.source) as? String? else {
+                return nil
+            }
+            return value
+        }
+        set(value) {
+            objc_setAssociatedObject(self, &associatedKeys.source, value, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+        }
+    }
+    
+And from the StackOverflow question above:
+
+    import ObjectiveC
+    
+    private var xoAssociationKey: UInt8 = 0
+
+    extension UIView {
+        var xo: PFObject! {
+            get {
+                return objc_getAssociatedObject(self, &xoAssociationKey) as? PFObject
+            }
+            set(newValue) {
+                objc_setAssociatedObject(self, &xoAssociationKey, newValue, objc_AssociationPolicy(OBJC_ASSOCIATION_RETAIN))
+            }
+        }
+    }
