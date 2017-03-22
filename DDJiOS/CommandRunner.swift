@@ -52,6 +52,7 @@ class CommandRunner {
             do {
                 log.info("Trying to open socket for CommandListener.")
                 self.socket = EZSSL()!.socket
+                // socket.enableSSL()
                 try socket.listen(on: self.port)
                 log.info("Socket is \(socket.isListening ? "" : "not ")listening on \(socket.listeningPort).")
             } catch {

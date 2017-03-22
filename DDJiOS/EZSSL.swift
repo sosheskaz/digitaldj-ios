@@ -8,6 +8,7 @@
 
 import Foundation
 import BlueSocket
+import Security
 
 private class MySSL {
     static var global = MySSL()
@@ -23,7 +24,7 @@ private class MySSL {
     }
     
     var _config: SSLService.Configuration
-    var _service: SSLService
+    var _service: SSLService?
     
     var config: SSLService.Configuration {
         get {
@@ -33,19 +34,26 @@ private class MySSL {
     
     var service: SSLService {
         get {
-            return _service
+            return _service!
         }
     }
     
     init?() {
-        let cfg = SSLService.Configuration(withCipherSuite: "ALL")
+        let cfg = SSLService.Configuration(/*withCipherSuite: "ALL"*/)
+        var err: UnsafeMutablePointer<Unmanaged<CFError>?>?
+        //print(SecKeyCreateRandomKey(nil, err))
         self._config = cfg
-        self._config.cipherSuite = "ALL"
+        // self._config.cipherSuite = "ALL"
         do {
             self._service = try SSLService(usingConfiguration: cfg)!
-            self._service.skipVerification = true
-        } catch {
-            print("An error occurred while trying to initialize the SSL service.")
+            print(self._service == nil)
+            // self._service!.skipVerification = true
+        } catch let error as SSLError {
+            log.error("An error occurred while trying to initialize the SSL service.")
+            log.error(error.description)
+        } catch let error {
+            log.error("An error occurred while trying to initialize the SSL service.")
+            log.error(error.localizedDescription)
             return nil
         }
     }
@@ -58,17 +66,31 @@ class EZSSL {
         do {
             // This sets SSLService as a delegate to the socket, so the protocol is used automatically.
             self.socket = try Socket.create(family: .inet, type: .stream, proto: .tcp)
-            // self.socket.delegate = MySSL.service
+            self.socket.enableSSL()
+        } catch let error as Socket.Error {
+            log.error("Failed to initialize TCP socket.")
+            log.error(error.description)
+            return nil
         } catch let error {
-            print("Failed to initialize TCP socket.")
-            print(error.localizedDescription)
-            
-            guard let err = error as? Socket.Error else {
-                return nil
-            }
-            print(err.description)
+            log.error("Failed to initialize TCP socket.")
+            log.error(error.localizedDescription)
             
             return nil
+        }
+    }
+}
+
+extension Socket {
+    func enableSSL() {
+        do {
+            let service = try SSLService(usingConfiguration: MySSL.config!)!
+            self.delegate = service
+        } catch let error as SSLError {
+            log.error("An error occurred while trying to initialize the SSL service.")
+            log.error(error.description)
+        } catch let error {
+            log.error("An error occurred while trying to initialize the SSL service.")
+            log.error(error.localizedDescription)
         }
     }
 }

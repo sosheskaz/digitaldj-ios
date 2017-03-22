@@ -73,7 +73,7 @@ extension ServerCommand {
 }
 
 enum ServerCommandType: String {
-    case heartbeat = "Geartbeat", newSession = "NewSession", endSession = "EndSession", newUser = "NewUser", removeUser = "RemoveUser", updateUser = "UpdateUser", getPlaylist = "GetPlaylist"
+    case heartbeat = "Heartbeat", newSession = "NewSession", endSession = "EndSession", newUser = "NewUser", removeUser = "RemoveUser", updateUser = "UpdateUser", getPlaylist = "GetPlaylist"
 }
 
 

@@ -26,7 +26,7 @@ class DDJClient: ClientCommandListenerDelegate {
         self.heartbeatWait = heartbeatInterval
         
         self.heartbeatDaemon()
-        clientListener.on()
+        _ = clientListener.on()
         clientListener.delegate = self
     }
     
@@ -37,7 +37,7 @@ class DDJClient: ClientCommandListenerDelegate {
     }
     
     func connect(to ip: String) {
-        clientListener.on()
+        _ = clientListener.on()
         usleep(20000)
         self.ip = ip
         let didSend = self.sendNewUserCommand()
