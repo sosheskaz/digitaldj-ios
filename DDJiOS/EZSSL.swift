@@ -40,13 +40,14 @@ private class MySSL {
     
     init?() {
         let cfg = SSLService.Configuration(/*withCipherSuite: "ALL"*/)
-        var err: UnsafeMutablePointer<Unmanaged<CFError>?>?
+        
+        //var err: UnsafeMutablePointer<Unmanaged<CFError>?>?
         //print(SecKeyCreateRandomKey(nil, err))
         self._config = cfg
         // self._config.cipherSuite = "ALL"
         do {
             self._service = try SSLService(usingConfiguration: cfg)!
-            print(self._service == nil)
+            self._service?.skipVerification = true
             // self._service!.skipVerification = true
         } catch let error as SSLError {
             log.error("An error occurred while trying to initialize the SSL service.")
