@@ -9,6 +9,8 @@
 import Foundation
 import UIKit
 import Alamofire
+import AVFoundation
+import AVKit
 
 class ServerViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, DDJHostDelegate, SPTAudioStreamingPlaybackDelegate, SPTAudioStreamingDelegate {
     @IBOutlet var playlistTableView: UITableView? = nil
@@ -20,7 +22,7 @@ class ServerViewController: UIViewController, UITableViewDataSource, UITableView
     
     private let dq = DispatchQueue(label: "digitaldj_severViewController")
     
-    let player: SPTAudioStreamingController = SPTAudioStreamingController.sharedInstance()
+    let sptPlayer: SPTAudioStreamingController = SPTAudioStreamingController.sharedInstance()
     let auth = SPTAuth.defaultInstance()
     
     private let zc: ZeroconfServer = ZeroconfServer()
@@ -33,7 +35,7 @@ class ServerViewController: UIViewController, UITableViewDataSource, UITableView
     required init?(coder aDecoder: NSCoder) {
         self.zcName = DEFAULT_ZC_NAME
         super.init(coder: aDecoder)
-        self.player.delegate = self
+        self.sptPlayer.delegate = self
     }
     
     func passZcNameData(_ name: String) {
@@ -63,8 +65,11 @@ class ServerViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func ddjHost(removeUser: RemoveUserCommand) {
-        
+        // TODO
     }
+    
+    // MARK: - AVPlayer
+    
     
     // MARK: - ViewController
     
@@ -85,15 +90,15 @@ class ServerViewController: UIViewController, UITableViewDataSource, UITableView
         print(host.playlist.first!.playableUri.absoluteString)
         let track = host.playlist[0]
         
-        self.player.playbackDelegate = self
+        self.sptPlayer.playbackDelegate = self
         
-        self.player.playSpotifyURI(track.playableUri.absoluteString, startingWith: 0, startingWithPosition: 0, callback: nil)
+        self.sptPlayer.playSpotifyURI(track.playableUri.absoluteString, startingWith: 0, startingWithPosition: 0, callback: nil)
         
         self.nowPlayingLabelTrackName?.text = track.name
         self.nowPlayingLabelTrackAlbum?.text = track.album.name
         self.nowPlayingLabelTrackArtist?.text = track.artists.map({ return ($0 as! SPTPartialArtist).name }).joined(separator: ", ")
         
-        self.player.queueSpotifyURI(host.playlist.first!.playableUri.absoluteString, callback: { error in
+        self.sptPlayer.queueSpotifyURI(host.playlist.first!.playableUri.absoluteString, callback: { error in
             print("NOT QUEUED! \(error)")
         })
         play()
@@ -181,7 +186,6 @@ class ServerViewController: UIViewController, UITableViewDataSource, UITableView
             break
         case SPPlaybackNotifyAudioDeliveryDone:
             eventStr = ("SPPlaybackNotifyAudioDeliveryDoneFired. Rawvalue: \(event)")
-            
             break
         default:
             eventStr = "Unknown event fired. Rawvalue: \(event)"
@@ -236,7 +240,7 @@ class ServerViewController: UIViewController, UITableViewDataSource, UITableView
     func audioStreamingDidSkip(toNextTrack audioStreaming: SPTAudioStreamingController!) {
         log.verbose("Spotify player did skip to next track.")
         _ = self.host.playlistPop()
-        self.player.queueSpotifyURI(self.host.playlist.first!.playableUri.absoluteString, callback: nil)
+        self.sptPlayer.queueSpotifyURI(self.host.playlist.first!.playableUri.absoluteString, callback: nil)
     }
     
     func audioStreaming(_ audioStreaming: SPTAudioStreamingController!, didReceiveError error: Error!) {
@@ -264,21 +268,21 @@ class ServerViewController: UIViewController, UITableViewDataSource, UITableView
     func audioStreamingDidPopQueue(_ audioStreaming: SPTAudioStreamingController!) {
         log.verbose("Spotify player did pop its queue.")
         _ = self.host.playlistPop()
-        self.player.queueSpotifyURI(self.host.playlist.first!.playableUri.absoluteString, callback: nil)
+        self.sptPlayer.queueSpotifyURI(self.host.playlist.first!.playableUri.absoluteString, callback: nil)
     }
 
     // MARK: - Private functions
     
     private func pause() -> Void {
-        self.player.setIsPlaying(false, callback: nil)
+        self.sptPlayer.setIsPlaying(false, callback: nil)
     }
     
     private func play() {
-        self.player.setIsPlaying(true, callback: nil)
+        self.sptPlayer.setIsPlaying(true, callback: nil)
     }
     
     private func playSong(_ spotifyUri: String) {
-        player.playSpotifyURI(spotifyUri, startingWith: 0, startingWithPosition: 0, callback: nil)
+        sptPlayer.playSpotifyURI(spotifyUri, startingWith: 0, startingWithPosition: 0, callback: nil)
         // metadata changed will be called, and it will play.
     }
     
