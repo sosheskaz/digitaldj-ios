@@ -15,9 +15,15 @@ class LandingViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-
+    }
+    
+    
+    @IBAction func LoginToSpotify(_ sender: Any) {
         self.player = SPTAudioStreamingController.sharedInstance()
         self.auth = SPTAuth.defaultInstance()
         doSpotifyAuthenticate(player: self.player!, auth: self.auth!, sourceViewController: self)
     }
+    
+    
+    
 }

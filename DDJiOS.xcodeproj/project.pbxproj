@@ -74,6 +74,7 @@
 		9A1862B91DC10BFA0027D21E /* DDJiOS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9A1862B71DC10BFA0027D21E /* DDJiOS.xcdatamodeld */; };
 		9A1862BB1DC10BFA0027D21E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A1862BA1DC10BFA0027D21E /* Assets.xcassets */; };
 		9A1862BE1DC10BFA0027D21E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A1862BC1DC10BFA0027D21E /* LaunchScreen.storyboard */; };
+		9AB872E11E8AFA2B00F04781 /* Pods_DDJiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AB872E01E8AFA2B00F04781 /* Pods_DDJiOS.framework */; };
 		D27D4E1241684CA6535A73E3 /* Pods_DDJiOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 525463D0ADF16FB1A45928D8 /* Pods_DDJiOSTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -133,7 +134,6 @@
 		6B25FDC01E3F14F0004113CA /* IteratorUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IteratorUtil.swift; sourceTree = "<group>"; };
 		6B379EA81E42877200D0182A /* RemoveUserCommandTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoveUserCommandTest.swift; sourceTree = "<group>"; };
 		6B379EAA1E4287AD00D0182A /* RemoveUserCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoveUserCommand.swift; sourceTree = "<group>"; };
-		6B3987881E82421300985CA4 /* Pods_DDJiOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Pods_DDJiOS.framework; sourceTree = "<group>"; };
 		6B39878A1E82421E00985CA4 /* Pods_DDJiOSTests.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Pods_DDJiOSTests.framework; sourceTree = "<group>"; };
 		6B39878C1E82422B00985CA4 /* Pods_DDJiOSUITests.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Pods_DDJiOSUITests.framework; sourceTree = "<group>"; };
 		6B3987901E82427E00985CA4 /* Pods_DDJiOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods_DDJiOS.framework; path = "../../../../Library/Developer/Xcode/DerivedData/DDJiOS-dhdelbmdtzjurmharpfdowxssrtp/Build/Products/Debug-iphonesimulator/Pods_DDJiOS.framework"; sourceTree = "<group>"; };
@@ -188,6 +188,7 @@
 		9A1862BF1DC10BFA0027D21E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9A1862C41DC10BFA0027D21E /* DDJiOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DDJiOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A1862CA1DC10BFA0027D21E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9AB872E01E8AFA2B00F04781 /* Pods_DDJiOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Pods_DDJiOS.framework; sourceTree = "<group>"; };
 		A9ECEB5FEAB836C0F72D02DA /* Pods_DDJiOSUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DDJiOSUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEE9E0795A1E1300C15D6758 /* Pods-DDJiOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DDJiOSTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DDJiOSTests/Pods-DDJiOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		EF79F7EF9EC2A92F35DC825D /* Pods-DDJiOSUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DDJiOSUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DDJiOSUITests/Pods-DDJiOSUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -207,6 +208,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9AB872E11E8AFA2B00F04781 /* Pods_DDJiOS.framework in Frameworks */,
 				6B3987911E82427E00985CA4 /* Pods_DDJiOS.framework in Frameworks */,
 				47F6B867A03A7E3D557EECD4 /* Pods_DDJiOS.framework in Frameworks */,
 			);
@@ -475,7 +477,7 @@
 				9A1862BF1DC10BFA0027D21E /* Info.plist */,
 				9A1862B71DC10BFA0027D21E /* DDJiOS.xcdatamodeld */,
 				6B12AA7B1DF73B2D00170297 /* DDJiOS-Bridging-Header.h */,
-				6B3987881E82421300985CA4 /* Pods_DDJiOS.framework */,
+				9AB872E01E8AFA2B00F04781 /* Pods_DDJiOS.framework */,
 			);
 			path = DDJiOS;
 			sourceTree = "<group>";

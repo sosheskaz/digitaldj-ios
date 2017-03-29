@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="igE-oT-Pej">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="pkQ-Hw-f7M">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -71,12 +71,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="802" y="457"/>
+            <point key="canvasLocation" x="1038" y="444"/>
         </scene>
         <!--Mode Selector-->
         <scene sceneID="fgd-wb-4ee">
             <objects>
-                <viewController title="Mode Selector" id="igE-oT-Pej" customClass="LandingViewController" customModule="DDJiOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Mode Selector" id="igE-oT-Pej" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="guy-MG-IRi"/>
                         <viewControllerLayoutGuide type="bottom" id="Qxx-fV-7MB"/>
@@ -116,7 +116,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cz0-MH-SRP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2586" y="444"/>
+            <point key="canvasLocation" x="3051" y="457"/>
         </scene>
         <!--Server Selection-->
         <scene sceneID="b2k-gF-Gl7">
@@ -146,7 +146,7 @@
                                         <rect key="frame" x="0.0" y="28" width="325" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="99V-aU-RbL" id="prP-PV-PWz">
-                                            <rect key="frame" x="0.0" y="0.0" width="325" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="325" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
@@ -200,7 +200,7 @@
                                         <rect key="frame" x="0.0" y="28" width="309" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="center" tableViewCell="sOg-Su-O02" id="bKR-ib-0ep">
-                                            <rect key="frame" x="0.0" y="0.0" width="309" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="309" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -326,7 +326,7 @@
                                         <rect key="frame" x="0.0" y="28" width="309" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="center" tableViewCell="GxC-6F-nZb" id="5mt-Nr-asn">
-                                            <rect key="frame" x="0.0" y="0.0" width="309" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="309" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -410,15 +410,44 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="igE-oT-Pej" kind="relationship" relationship="rootViewController" id="Vd9-FG-zPR"/>
+                        <segue destination="FXf-ei-AFc" kind="relationship" relationship="rootViewController" id="lsg-ud-2mq"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Hm-RK-qdM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1809" y="444"/>
+            <point key="canvasLocation" x="2097" y="421"/>
+        </scene>
+        <!--Landing View Controller-->
+        <scene sceneID="BBY-Et-Dbx">
+            <objects>
+                <viewController id="FXf-ei-AFc" customClass="LandingViewController" customModule="DDJiOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="qkU-km-iBH"/>
+                        <viewControllerLayoutGuide type="bottom" id="mt2-bV-iz6"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="1ar-zH-a75">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="szC-so-Srn">
+                                <rect key="frame" x="168" y="257" width="38" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Login"/>
+                                <connections>
+                                    <action selector="LoginToSpotify:" destination="FXf-ei-AFc" eventType="touchUpInside" id="IqI-Ya-IdZ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="FJt-ZC-7Cp"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3lS-n0-Yfs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2339" y="1193"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="FH8-qD-fWe"/>
+        <segue reference="Olc-EY-oZA"/>
     </inferredMetricsTieBreakers>
 </document>
