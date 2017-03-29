@@ -47,8 +47,7 @@ private class MySSL {
         // self._config.cipherSuite = "ALL"
         do {
             self._service = try SSLService(usingConfiguration: cfg)!
-            self._service?.skipVerification = true
-            // self._service!.skipVerification = true
+            //self._service?.skipVerification = true
         } catch let error as SSLError {
             log.error("An error occurred while trying to initialize the SSL service.")
             log.error(error.description)
@@ -67,7 +66,7 @@ class EZSSL {
         do {
             // This sets SSLService as a delegate to the socket, so the protocol is used automatically.
             self.socket = try Socket.create(family: .inet, type: .stream, proto: .tcp)
-            self.socket.enableSSL()
+            // self.socket.enableSSL()
         } catch let error as Socket.Error {
             log.error("Failed to initialize TCP socket.")
             log.error(error.description)
