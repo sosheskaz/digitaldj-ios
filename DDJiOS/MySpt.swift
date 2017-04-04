@@ -21,7 +21,6 @@ class MySpt {
     private var myTopTracks: [String] = []
     
     private init() {
-        self.startExpirationDaemon()
         self.fetchTopTracks()
     }
     
@@ -50,22 +49,16 @@ class MySpt {
         }
     }
     
-    func touch() { }
-    
-    private func startExpirationDaemon() {/*
-        DispatchQueue.global().async {
-            while(true) {
-                guard let expireTime = self.session.expirationDate else {
-                    sleep(1) // we're waiting for auth.
-                    continue
-                }
-                
-                let secondsUntilExpireTime = max(expireTime.seconds(from: Date()), 0)
-                sleep(UInt32(secondsUntilExpireTime))
-                self.refreshToken()
+    func logout() {
+        let cookies = HTTPCookieStorage.shared.cookies!
+        for cookie in cookies {
+            if cookie.domain.hasSuffix("spotify.com") {
+                HTTPCookieStorage.shared.deleteCookie(cookie)
             }
-        }*/
+        }
     }
+    
+    func touch() { }
     
     private func refreshToken() {
         print("Trying for refresh token...")
