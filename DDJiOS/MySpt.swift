@@ -56,6 +56,7 @@ class MySpt {
                 HTTPCookieStorage.shared.deleteCookie(cookie)
             }
         }
+        SPTAudioStreamingController.sharedInstance().logout()
     }
     
     func touch() { }
