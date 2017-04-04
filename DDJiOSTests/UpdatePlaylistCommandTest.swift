@@ -30,14 +30,14 @@ class UpdatePlaylistCommandTest: XCTestCase {
             currentlyPlaying: sampleQueue[0],
             queue: shortQueue)
         XCTAssert(cmd.currentlyPlaying == sampleQueue[0],
-                  "Currently Playing: Expected=\(sampleQueue[0]) Actual=\(cmd.currentlyPlaying)")
+                  "Currently Playing: Expected=\(sampleQueue[0]) Actual=\(String(describing: cmd.currentlyPlaying))")
         XCTAssert(cmd.queue.elementsEqual(shortQueue), "Queue: Expected=\(shortQueue) Actual=\(cmd.queue)")
     }
     
     func testInitFullQueue() {
         let cmd: UpdatePlaylistCommand = UpdatePlaylistCommand(fullQueue: sampleQueue)
         XCTAssert(cmd.currentlyPlaying == sampleQueue[0],
-                  "Currently Playing: Expected=\(sampleQueue[0]) Actual=\(cmd.currentlyPlaying)")
+                  "Currently Playing: Expected=\(sampleQueue[0]) Actual=\(String(describing: cmd.currentlyPlaying))")
         XCTAssert(cmd.queue.elementsEqual(shortQueue), "Queue: Expected=\(shortQueue) Actual=\(cmd.queue)")
     }
     
@@ -54,10 +54,10 @@ class UpdatePlaylistCommandTest: XCTestCase {
             return
         }
         
-        XCTAssert(des!["command"] as! String == "updatePlaylist", "Expected=updatePlaylist Actual=\(des!["command"])")
+        XCTAssert(des!["command"] as! String == "updatePlaylist", "Expected=updatePlaylist Actual=\(String(describing: des!["command"]))")
         XCTAssert(des != nil, "deserialization downcast failed.")
         XCTAssert(des!["currentlyPlaying"] as! String == sampleQueue[0],
-                  "Currently Playing: Expected=\(sampleQueue[0]) Actual=\(cmd.currentlyPlaying)")
+                  "Currently Playing: Expected=\(sampleQueue[0]) Actual=\(String(describing: cmd.currentlyPlaying))")
         XCTAssert((des!["queue"] as! [String]).elementsEqual(shortQueue), "Queue: Expected=\(shortQueue) Actual=\(cmd.queue)")
     }
     
