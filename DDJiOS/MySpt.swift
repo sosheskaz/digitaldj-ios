@@ -73,6 +73,7 @@ class MySpt {
     func touch() { }
     
     func login() {
+        self.initializeAuth()
         self.ensureAuthenticated()
     }
     
@@ -96,7 +97,6 @@ class MySpt {
         self.auth.redirectURL = URL(string: CALLBACK_URL)
         self.auth.sessionUserDefaultsKey = "current SPT session"
         self.auth.requestedScopes = self.scopes;
-        self.ensureAuthenticated()
     }
     
     private func refreshToken() {
@@ -120,6 +120,7 @@ class MySpt {
                 self.presentAuthWindow()
                 return
             }
+            log.info("Already authenticated.")
         }
     }
     
