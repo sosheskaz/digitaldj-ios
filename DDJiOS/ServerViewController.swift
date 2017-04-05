@@ -23,7 +23,6 @@ class ServerViewController: UIViewController, UITableViewDataSource, UITableView
     private let dq = DispatchQueue(label: "digitaldj_severViewController")
     
     let sptPlayer: SPTAudioStreamingController = SPTAudioStreamingController.sharedInstance()
-    let auth = SPTAuth.defaultInstance()
     
     private let zc: ZeroconfServer = ZeroconfServer()
     private let host = DDJHost.shared

@@ -106,7 +106,7 @@ class MySpt {
             return
         }
         log.info("Attempting to renew session")
-        SPTAuth.renewSession(SPTAuth.defaultInstance())(self.session, callback: nil)
+        SPTAuth.renewSession(self._auth)(self.session, callback: nil)
     }
     private func ensureAuthenticated() -> Void {
         DispatchQueue.main.async {
