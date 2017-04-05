@@ -35,7 +35,9 @@ class DDJHost: HostCommandListenerDelegate {
         
         hostListener.delegate = self
         hostListener.subscribe(to: .removeUser, callback: handleRemoveUser)
-        hostListener.on()
+        if !hostListener.on() {
+            log.error("Host listener seems to have failed to turn on.")
+        }
         
         let nsCmd = ServerNewSessionCommand()
         self.sessionId = ServerNewSessionCommand.getValue(from: nsCmd.executeSync().data)
