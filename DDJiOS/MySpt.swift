@@ -100,12 +100,12 @@ class MySpt {
     }
     
     private func refreshToken() {
-        print("Trying for refresh token...")
+        log.info("Trying for refresh token...")
         guard self.session?.encryptedRefreshToken != nil else {
-            print("No refresh token found.")
+            log.warning("No refresh token found.")
             return
         }
-        print("Attempting to renew session")
+        log.info("Attempting to renew session")
         SPTAuth.renewSession(SPTAuth.defaultInstance())(self.session, callback: nil)
     }
     private func ensureAuthenticated() -> Void {

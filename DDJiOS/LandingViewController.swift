@@ -10,4 +10,15 @@ import Foundation
 import UIKit
 
 class LandingViewController: UIViewController {
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+    }
+    
+    
+    @IBAction func LoginToSpotify(_ sender: Any) {
+        MySpt.shared.login()
+    }
+    
+    
+    
 }

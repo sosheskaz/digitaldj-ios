@@ -42,7 +42,7 @@ class NewSessionTest: XCTestCase {
             return
         }
         guard let sessionId = ServerNewSessionCommand.getValue(from: myData) else {
-            XCTFail("sessionId was not present in response. Response was: \n\(String(data: myData, encoding: .utf8))")
+            XCTFail("sessionId was not present in response. Response was: \n\(String(describing: String(data: myData, encoding: .utf8)))")
             return
         }
         if(testRegex == nil) {

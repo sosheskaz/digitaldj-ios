@@ -44,11 +44,11 @@ class NewUserCommandTest: XCTestCase {
             return
         }
         
-        XCTAssert(des!["command"] as! String == "newUser", "Expected=newUser Actual=\(des!["command"])")
+        XCTAssert(des!["command"] as! String == "newUser", "Expected=newUser Actual=\(String(describing: des!["command"]))")
         XCTAssert(des != nil, "deserialization downcast failed.")
         XCTAssert(des!["spotifyId"] as! String == mockUserId,
-                  "Spotify ID: Expected=\(mockUserId) Actual=\(des!["spotifyId"])")
-        XCTAssert((des!["topTracks"] as! [String]).elementsEqual(mockTrackIds), "Queue: Expected=\(mockTrackIds) Actual=\(des!["topTracks"])")
+                  "Spotify ID: Expected=\(mockUserId) Actual=\(String(describing: des!["spotifyId"]))")
+        XCTAssert((des!["topTracks"] as! [String]).elementsEqual(mockTrackIds), "Queue: Expected=\(mockTrackIds) Actual=\(String(describing: des!["topTracks"]))")
     }
     
     func testSend() {

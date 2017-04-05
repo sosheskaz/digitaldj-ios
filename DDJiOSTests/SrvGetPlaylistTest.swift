@@ -22,7 +22,7 @@ class SrvGetPlaylistTest: XCTestCase {
         }
         guard let sessionId = ServerNewSessionCommand.getValue(from: myData) else {
             print("SESSIONID: nil")
-            XCTFail("Failed to get session. SessionId was not present in response. Response was: \n\(String(data: myData, encoding: .utf8))")
+            XCTFail("Failed to get session. SessionId was not present in response. Response was: \n\(String(describing: String(data: myData, encoding: .utf8)))")
             return
         }
         self.sessionId = sessionId

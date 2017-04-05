@@ -64,6 +64,7 @@
 		6BCB702A1E51B93B00965207 /* IFAddresses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BCB70291E51B93B00965207 /* IFAddresses.swift */; };
 		6BCF2D2E1DD028D200C67ED3 /* ServerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BCF2D2D1DD028D200C67ED3 /* ServerViewController.swift */; };
 		6BCF2D301DD0310900C67ED3 /* ServerSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BCF2D2F1DD0310900C67ED3 /* ServerSetupViewController.swift */; };
+		6BD4BC331E8AE19200E9556E /* DDJAV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD4BC321E8AE19200E9556E /* DDJAV.swift */; };
 		6BE67AA11E3F01020022E482 /* MySpt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BE67AA01E3F01020022E482 /* MySpt.swift */; };
 		6BF1ED2A1E79B6D500B8AA3F /* EZSSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF1ED291E79B6D500B8AA3F /* EZSSL.swift */; };
 		6BFCF5E91E3BFA070064C868 /* EZRegex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BFCF5E81E3BFA070064C868 /* EZRegex.swift */; };
@@ -73,6 +74,7 @@
 		9A1862B91DC10BFA0027D21E /* DDJiOS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9A1862B71DC10BFA0027D21E /* DDJiOS.xcdatamodeld */; };
 		9A1862BB1DC10BFA0027D21E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A1862BA1DC10BFA0027D21E /* Assets.xcassets */; };
 		9A1862BE1DC10BFA0027D21E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A1862BC1DC10BFA0027D21E /* LaunchScreen.storyboard */; };
+		9AB872E11E8AFA2B00F04781 /* Pods_DDJiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AB872E01E8AFA2B00F04781 /* Pods_DDJiOS.framework */; };
 		D27D4E1241684CA6535A73E3 /* Pods_DDJiOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 525463D0ADF16FB1A45928D8 /* Pods_DDJiOSTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -131,7 +133,6 @@
 		6B25FDC01E3F14F0004113CA /* IteratorUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IteratorUtil.swift; sourceTree = "<group>"; };
 		6B379EA81E42877200D0182A /* RemoveUserCommandTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoveUserCommandTest.swift; sourceTree = "<group>"; };
 		6B379EAA1E4287AD00D0182A /* RemoveUserCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoveUserCommand.swift; sourceTree = "<group>"; };
-		6B3987881E82421300985CA4 /* Pods_DDJiOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Pods_DDJiOS.framework; sourceTree = "<group>"; };
 		6B39878A1E82421E00985CA4 /* Pods_DDJiOSTests.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Pods_DDJiOSTests.framework; sourceTree = "<group>"; };
 		6B39878C1E82422B00985CA4 /* Pods_DDJiOSUITests.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Pods_DDJiOSUITests.framework; sourceTree = "<group>"; };
 		6B3987901E82427E00985CA4 /* Pods_DDJiOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods_DDJiOS.framework; path = "../../../../Library/Developer/Xcode/DerivedData/DDJiOS-dhdelbmdtzjurmharpfdowxssrtp/Build/Products/Debug-iphonesimulator/Pods_DDJiOS.framework"; sourceTree = "<group>"; };
@@ -170,12 +171,13 @@
 		6BCB70291E51B93B00965207 /* IFAddresses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IFAddresses.swift; sourceTree = "<group>"; };
 		6BCF2D2D1DD028D200C67ED3 /* ServerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerViewController.swift; sourceTree = "<group>"; };
 		6BCF2D2F1DD0310900C67ED3 /* ServerSetupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerSetupViewController.swift; sourceTree = "<group>"; };
+		6BD4BC321E8AE19200E9556E /* DDJAV.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDJAV.swift; sourceTree = "<group>"; };
+		6BD4BC341E8AE4CE00E9556E /* DDJiOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DDJiOS.entitlements; sourceTree = "<group>"; };
 		6BE67AA01E3F01020022E482 /* MySpt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MySpt.swift; sourceTree = "<group>"; };
 		6BF1ED291E79B6D500B8AA3F /* EZSSL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EZSSL.swift; sourceTree = "<group>"; };
 		6BFCF5E81E3BFA070064C868 /* EZRegex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EZRegex.swift; sourceTree = "<group>"; };
 		6BFCF5EA1E3BFE270064C868 /* ServerEndSessionCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerEndSessionCommand.swift; sourceTree = "<group>"; };
 		757E05A56B20E6E57D7DDCDE /* Pods-DDJiOSUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DDJiOSUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DDJiOSUITests/Pods-DDJiOSUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		7C0BCF19C25A3DC5122DFFBA /* Pods_DDJiOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DDJiOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D5EBBF1515CB9D967049504 /* Pods-DDJiOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DDJiOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-DDJiOS/Pods-DDJiOS.release.xcconfig"; sourceTree = "<group>"; };
 		9A1862AD1DC10BFA0027D21E /* DDJiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DDJiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A1862B01DC10BFA0027D21E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -186,6 +188,7 @@
 		9A1862BF1DC10BFA0027D21E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9A1862C41DC10BFA0027D21E /* DDJiOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DDJiOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A1862CA1DC10BFA0027D21E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9AB872E01E8AFA2B00F04781 /* Pods_DDJiOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Pods_DDJiOS.framework; sourceTree = "<group>"; };
 		A9ECEB5FEAB836C0F72D02DA /* Pods_DDJiOSUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DDJiOSUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEE9E0795A1E1300C15D6758 /* Pods-DDJiOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DDJiOSTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DDJiOSTests/Pods-DDJiOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		EF79F7EF9EC2A92F35DC825D /* Pods-DDJiOSUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DDJiOSUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DDJiOSUITests/Pods-DDJiOSUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -197,7 +200,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				6B39878D1E82422B00985CA4 /* Pods_DDJiOSUITests.framework in Frameworks */,
-				49B2ED349EB188CC75E8A966 /* Pods_DDJiOSUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -205,8 +207,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9AB872E11E8AFA2B00F04781 /* Pods_DDJiOS.framework in Frameworks */,
 				6B3987911E82427E00985CA4 /* Pods_DDJiOS.framework in Frameworks */,
-				47F6B867A03A7E3D557EECD4 /* Pods_DDJiOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -215,7 +217,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				6B39878B1E82421E00985CA4 /* Pods_DDJiOSTests.framework in Frameworks */,
-				D27D4E1241684CA6535A73E3 /* Pods_DDJiOSTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -343,6 +344,7 @@
 				6B90B48B1E4538D100987AB0 /* DDJHost.swift */,
 				6BCB70251E51A27800965207 /* DDJHostDelegate.swift */,
 				6B9E22501DC73468001F1871 /* ZeroconfServer.swift */,
+				6BD4BC321E8AE19200E9556E /* DDJAV.swift */,
 			);
 			name = DDJHost;
 			sourceTree = "<group>";
@@ -389,9 +391,6 @@
 			children = (
 				6B3987921E82428600985CA4 /* RainbowSwift.framework */,
 				6B3987901E82427E00985CA4 /* Pods_DDJiOS.framework */,
-				7C0BCF19C25A3DC5122DFFBA /* Pods_DDJiOS.framework */,
-				525463D0ADF16FB1A45928D8 /* Pods_DDJiOSTests.framework */,
-				A9ECEB5FEAB836C0F72D02DA /* Pods_DDJiOSUITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -460,6 +459,7 @@
 		9A1862AF1DC10BFA0027D21E /* DDJiOS */ = {
 			isa = PBXGroup;
 			children = (
+				6BD4BC341E8AE4CE00E9556E /* DDJiOS.entitlements */,
 				6B68CDE91E82A3A20045E46F /* DDJClient */,
 				6B90B48A1E4538C300987AB0 /* DDJHost */,
 				6B25FDBB1E3F1229004113CA /* Utility */,
@@ -472,7 +472,7 @@
 				9A1862BF1DC10BFA0027D21E /* Info.plist */,
 				9A1862B71DC10BFA0027D21E /* DDJiOS.xcdatamodeld */,
 				6B12AA7B1DF73B2D00170297 /* DDJiOS-Bridging-Header.h */,
-				6B3987881E82421300985CA4 /* Pods_DDJiOS.framework */,
+				9AB872E01E8AFA2B00F04781 /* Pods_DDJiOS.framework */,
 			);
 			path = DDJiOS;
 			sourceTree = "<group>";
@@ -587,6 +587,14 @@
 						CreatedOnToolsVersion = 7.3;
 						DevelopmentTeam = E7NF7S5WRQ;
 						LastSwiftMigration = 0810;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.SafariKeychain = {
+								enabled = 0;
+							};
+						};
 					};
 					9A1862C31DC10BFA0027D21E = {
 						CreatedOnToolsVersion = 7.3;
@@ -812,6 +820,7 @@
 				6B379EAB1E4287AD00D0182A /* RemoveUserCommand.swift in Sources */,
 				6B21193B1DFF7D5400F12963 /* LandingViewController.swift in Sources */,
 				6B23ABDC1E485E4E002AA441 /* ServerNewUserCommand.swift in Sources */,
+				6BD4BC331E8AE19200E9556E /* DDJAV.swift in Sources */,
 				6B25FDC11E3F14F0004113CA /* IteratorUtil.swift in Sources */,
 				6BCF2D301DD0310900C67ED3 /* ServerSetupViewController.swift in Sources */,
 				6B1AE2211E2AFAA400FD2D68 /* NewUserCommand.swift in Sources */,

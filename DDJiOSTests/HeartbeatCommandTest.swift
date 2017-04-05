@@ -37,7 +37,7 @@ class HeartbeatCommandTest: XCTestCase {
             return
         }
         XCTAssert(des != nil, "deserialization downcast failed.")
-        XCTAssert(des!["command"] as! String == "heartbeat", "Expected=heartbeat Actual=\(des!["command"])")
+        XCTAssert(des!["command"] as! String == "heartbeat", "Expected=heartbeat Actual=\(String(describing: des!["command"]))")
     }
     
     func testHeartbeatReceipt() {

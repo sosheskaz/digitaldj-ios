@@ -23,7 +23,7 @@ class SrvNewUserTest: XCTestCase {
         }
         guard let sessionId = ServerNewSessionCommand.getValue(from: myData) else {
             print("SESSIONID: nil")
-            XCTFail("Failed to get session. SessionId was not present in response. Response was: \n\(String(data: myData, encoding: .utf8))")
+            XCTFail("Failed to get session. SessionId was not present in response. Response was: \n\(String(describing: String(data: myData, encoding: .utf8)))")
             return
         }
         self.sessionId = sessionId
@@ -51,7 +51,7 @@ class SrvNewUserTest: XCTestCase {
             return
         }
         guard let id = ServerNewUserCommand.getValue(from: myData) else {
-            XCTFail("sessionId was not present in response. Response was: \n\(String(data: myData, encoding: .utf8))")
+            XCTFail("sessionId was not present in response. Response was: \n\(String(describing: String(data: myData, encoding: .utf8)))")
             return
         }
         if(testRegex == nil) {
@@ -60,7 +60,7 @@ class SrvNewUserTest: XCTestCase {
         }
         let result = testRegex!.test(against: id)
         
-        XCTAssert(result, "Result did not match regex. Actual: \(id)\nData: \(String(data: myData, encoding: .utf8))")
+        XCTAssert(result, "Result did not match regex. Actual: \(id)\nData: \(String(describing: String(data: myData, encoding: .utf8)))")
     }
     
     func testPerformanceNewUser() {

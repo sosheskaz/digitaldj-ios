@@ -42,10 +42,10 @@ class RemoveUserCommandTest: XCTestCase {
             return
         }
         
-        XCTAssert(des!["command"] as! String == "removeUser", "Expected=removeUser Actual=\(des!["command"])")
+        XCTAssert(des!["command"] as! String == "removeUser", "Expected=removeUser Actual=\(String(describing: des!["command"]))")
         XCTAssert(des != nil, "deserialization downcast failed.")
         XCTAssert(des!["spotifyId"] as! String == mockUserId,
-                  "Spotify ID: Expected=\(mockUserId) Actual=\(des!["spotifyId"])")
+                  "Spotify ID: Expected=\(mockUserId) Actual=\(String(describing: des!["spotifyId"]))")
     }
     
     func testSend() {

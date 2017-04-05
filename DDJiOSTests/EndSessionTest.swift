@@ -17,7 +17,7 @@ class EndSessionTest: XCTestCase {
         super.setUp()
         let nsCmd = ServerNewSessionCommand()
         self.sessionId = ServerNewSessionCommand.getValue(from: nsCmd.executeSync().data)
-        print("New Session: \(ServerNewSessionCommand.getValue(from: nsCmd.executeSync().data))")
+        print("New Session: \(String(describing: ServerNewSessionCommand.getValue(from: nsCmd.executeSync().data)))")
     }
     
     override func tearDown() {

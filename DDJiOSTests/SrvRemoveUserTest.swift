@@ -18,7 +18,7 @@ class SrvRemoveUserTest: XCTestCase {
         super.setUp()
         let nsCmd = ServerNewSessionCommand()
         self.sessionId = ServerNewSessionCommand.getValue(from: nsCmd.executeSync().data)
-        print("New Session: \(ServerNewSessionCommand.getValue(from: nsCmd.executeSync().data))")
+        print("New Session: \(String(describing: ServerNewSessionCommand.getValue(from: nsCmd.executeSync().data)))")
         
         let nuCmd = ServerNewUserCommand(tracks: ["6Fbsun5UAWFjeBpRatOITI", "06WPoSERagUDPT4DnjCK1S"], sessionId: self.sessionId!)
         self.userId = ServerNewUserCommand.getValue(from: nuCmd.executeSync().data)
