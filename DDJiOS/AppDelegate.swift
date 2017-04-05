@@ -17,55 +17,29 @@ let log = SwiftyBeaver.self
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, SPTAudioStreamingDelegate {
     var window: UIWindow?
-    
-    var auth: SPTAuth?
-    var authViewController: UIViewController?
-    var player: SPTAudioStreamingController?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         log.addDestination(ConsoleDestination())
         log.info("Application started.")
         
-        self.auth = SPTAuth.defaultInstance()
-        // The client ID you got from the developer site
-        self.auth!.clientID = CLIENT_ID
-        // The redirect URL as you entered it at the developer site
-        self.auth!.redirectURL = URL(string: CALLBACK_URL)
-        // Setting the `sessionUserDefaultsKey` enables SPTAuth to automatically store the session object for future use.
-        self.auth!.sessionUserDefaultsKey = "current session"
-        // Set the scopes you need the user to authorize. `SPTAuthStreamingScope` is required for playing audio.
-        self.auth!.requestedScopes = [SPTAuthStreamingScope, SPTAuthUserReadTopScope, SPTAuthUserReadPrivateScope,
-            SPTAuthUserLibraryReadScope];
+        MySpt.shared.login()
         
-        // spin up player
-        self.player = SPTAudioStreamingController.sharedInstance()
-        do {
-            try self.player?.start(withClientId: self.auth!.clientID)
-        } catch {
-            assertionFailure("Spotify failed to initialize.")
-        }
-        
-        // Start authenticating when the app is finished launching
-        /*DispatchQueue.main.async(execute: {
-            doSpotifyAuthenticate(player: self.player!, auth: self.auth!, sourceViewController: self.window!.rootViewController!)
-        });*/
-        
-        // Override point for customization after application launch.
         return true
     }
     
     // callback for spotify
     func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
-        print("Opened with URL!")
+        log.info("Opened with URL!")
         
-        if(self.auth?.canHandle(url as URL!))! {
-            self.authViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
-            self.auth!.handleAuthCallback(withTriggeredAuthURL: url as URL!, callback: {error, session in
-                doSpotifyAuthCallback(error: error, session: session)
+        if(MySpt.shared.auth.canHandle(url as URL!)) {
+            log.verbose("Dismissing ViewController")
+            // self.authViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
+            MySpt.shared.auth.handleAuthCallback(withTriggeredAuthURL: url as URL!, callback: {error, session in
+                MySpt.shared.doSpotifyAuthCallback(error: error, session: session)
             })
         } else {
-            print("Could not handle URL: \"" + (url as URL!).absoluteString + "\"")
+            log.error("Could not handle URL: \"" + (url as URL!).absoluteString + "\"")
         }
         return true
     }
