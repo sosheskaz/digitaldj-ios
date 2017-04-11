@@ -1,0 +1,27 @@
+PODS:
+  - Alamofire (4.4.0)
+  - BlueSocket (0.12.35)
+  - Spotify-iOS-SDK (0.25.0):
+    - Spotify-iOS-SDK/Authentication (= 0.25.0)
+    - Spotify-iOS-SDK/Metadata (= 0.25.0)
+    - Spotify-iOS-SDK/Playback (= 0.25.0)
+  - Spotify-iOS-SDK/Authentication (0.25.0)
+  - Spotify-iOS-SDK/Metadata (0.25.0)
+  - Spotify-iOS-SDK/Playback (0.25.0)
+  - SwiftyBeaver (1.1.3)
+
+DEPENDENCIES:
+  - Alamofire (~> 4.0)
+  - BlueSocket (~> 0.12.35)
+  - Spotify-iOS-SDK (~> 0.25.0)
+  - SwiftyBeaver
+
+SPEC CHECKSUMS:
+  Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
+  BlueSocket: 4cdbbcd62b2b02897817b689477f4d4f3fa54944
+  Spotify-iOS-SDK: 58d4092b225578623dd17029f3c7e7042ac3ef6e
+  SwiftyBeaver: 949aa1439b8fa3667f68555cfef65de46a70ccde
+
+PODFILE CHECKSUM: 797d3591e6d3411b09ff26c722ed8cfdb75da706
+
+COCOAPODS: 1.2.0
