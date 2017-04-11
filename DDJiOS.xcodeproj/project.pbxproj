@@ -7,12 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		168C44FFA6F636CB2E59973D /* Pods_DDJiOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68E759ED81C164115540EE50 /* Pods_DDJiOSUITests.framework */; };
 		37D1F7AA9DDE8D959E8D32F0 /* DDJSPTTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D1F73F4F2321E13B1A6D68 /* DDJSPTTools.swift */; };
 		37D1F7FB3D47D847D87FA983 /* ServerNewSessionCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D1FC9DC934147FBAC5E114 /* ServerNewSessionCommand.swift */; };
 		37D1FA1908DBFDA475248817 /* SPTManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D1F272AB009E43B4A67202 /* SPTManager.swift */; };
 		37D1FDDCB21FBF7337B3EFFB /* ServerCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D1F704BCFBA4A74CA53542 /* ServerCommand.swift */; };
-		6AB422BB7B3842F5068A111E /* Pods_DDJiOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AE7A845DD5918931A3093FF /* Pods_DDJiOSTests.framework */; };
 		6B08B8A81E2C1F7800D94898 /* CommandRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B08B8A71E2C1F7800D94898 /* CommandRunner.swift */; };
 		6B1AE2211E2AFAA400FD2D68 /* NewUserCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1AE2201E2AFAA400FD2D68 /* NewUserCommand.swift */; };
 		6B1AE2231E2AFE5500FD2D68 /* NewUserCommandTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1AE2221E2AFE5500FD2D68 /* NewUserCommandTest.swift */; };
@@ -37,6 +35,8 @@
 		6B5D17CD1E4BF2A50082D2FB /* ServerRemoveUserCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B5D17CC1E4BF2A50082D2FB /* ServerRemoveUserCommand.swift */; };
 		6B5D17D11E4BF32D0082D2FB /* SrvRemoveUserTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B5D17D01E4BF32D0082D2FB /* SrvRemoveUserTest.swift */; };
 		6B69F0D01E9D634700684C99 /* SSLService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B69F0CF1E9D634700684C99 /* SSLService.swift */; };
+		6B69F0D11E9DA1DE00684C99 /* Pods_DDJiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2AF7288899672098C67C89C /* Pods_DDJiOS.framework */; };
+		6B69F0D21E9DA1DE00684C99 /* Pods_DDJiOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B2AF7288899672098C67C89C /* Pods_DDJiOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6B7110EB1E2AEA3C007E28B8 /* Command.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7110EA1E2AEA3C007E28B8 /* Command.swift */; };
 		6B7110EE1E2AEBCB007E28B8 /* UpdatePlaylistCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7110ED1E2AEBCB007E28B8 /* UpdatePlaylistCommand.swift */; };
 		6B7110F01E2AEC63007E28B8 /* HostClientCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7110EF1E2AEC63007E28B8 /* HostClientCommand.swift */; };
@@ -74,7 +74,8 @@
 		9A1862B91DC10BFA0027D21E /* DDJiOS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9A1862B71DC10BFA0027D21E /* DDJiOS.xcdatamodeld */; };
 		9A1862BB1DC10BFA0027D21E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A1862BA1DC10BFA0027D21E /* Assets.xcassets */; };
 		9A1862BE1DC10BFA0027D21E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A1862BC1DC10BFA0027D21E /* LaunchScreen.storyboard */; };
-		BDF5674F02F57E0F01A55C81 /* Pods_DDJiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E23BDBC0DC944A86FBA0B0C /* Pods_DDJiOS.framework */; };
+		B9FC5CAE4A1D8EC36F2F3EC5 /* Pods_DDJiOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01FFDBE67A4C4B2C5B1ABC02 /* Pods_DDJiOSTests.framework */; };
+		D5D5A691573966FBFC5442D1 /* Pods_DDJiOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E60B1C24F7CFE9607356B329 /* Pods_DDJiOSUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,14 +95,28 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		6B42A25D1E9D9E6A001B5FEB /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				6B69F0D21E9DA1DE00684C99 /* Pods_DDJiOS.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		01FFDBE67A4C4B2C5B1ABC02 /* Pods_DDJiOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DDJiOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		13898BD6582F1A2F6D37E644 /* Pods-DDJiOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DDJiOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DDJiOS/Pods-DDJiOS.debug.xcconfig"; sourceTree = "<group>"; };
 		37D1F272AB009E43B4A67202 /* SPTManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPTManager.swift; sourceTree = "<group>"; };
 		37D1F704BCFBA4A74CA53542 /* ServerCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerCommand.swift; sourceTree = "<group>"; };
 		37D1F73F4F2321E13B1A6D68 /* DDJSPTTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDJSPTTools.swift; sourceTree = "<group>"; };
 		37D1FC9DC934147FBAC5E114 /* ServerNewSessionCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerNewSessionCommand.swift; sourceTree = "<group>"; };
 		610CAC45FCBFE71222D36158 /* Pods-DDJiOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DDJiOSTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DDJiOSTests/Pods-DDJiOSTests.release.xcconfig"; sourceTree = "<group>"; };
-		68E759ED81C164115540EE50 /* Pods_DDJiOSUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DDJiOSUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B08B8A71E2C1F7800D94898 /* CommandRunner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommandRunner.swift; sourceTree = "<group>"; };
 		6B12AA7B1DF73B2D00170297 /* DDJiOS-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DDJiOS-Bridging-Header.h"; sourceTree = "<group>"; };
 		6B1AE2201E2AFAA400FD2D68 /* NewUserCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewUserCommand.swift; sourceTree = "<group>"; };
@@ -163,9 +178,7 @@
 		6BFCF5E81E3BFA070064C868 /* EZRegex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EZRegex.swift; sourceTree = "<group>"; };
 		6BFCF5EA1E3BFE270064C868 /* ServerEndSessionCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerEndSessionCommand.swift; sourceTree = "<group>"; };
 		757E05A56B20E6E57D7DDCDE /* Pods-DDJiOSUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DDJiOSUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DDJiOSUITests/Pods-DDJiOSUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		8AE7A845DD5918931A3093FF /* Pods_DDJiOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DDJiOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D5EBBF1515CB9D967049504 /* Pods-DDJiOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DDJiOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-DDJiOS/Pods-DDJiOS.release.xcconfig"; sourceTree = "<group>"; };
-		8E23BDBC0DC944A86FBA0B0C /* Pods_DDJiOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DDJiOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A1862AD1DC10BFA0027D21E /* DDJiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DDJiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A1862B01DC10BFA0027D21E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9A1862B51DC10BFA0027D21E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -176,6 +189,8 @@
 		9A1862C41DC10BFA0027D21E /* DDJiOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DDJiOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A1862CA1DC10BFA0027D21E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9AB872E01E8AFA2B00F04781 /* Pods_DDJiOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Pods_DDJiOS.framework; sourceTree = "<group>"; };
+		B2AF7288899672098C67C89C /* Pods_DDJiOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DDJiOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E60B1C24F7CFE9607356B329 /* Pods_DDJiOSUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DDJiOSUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEE9E0795A1E1300C15D6758 /* Pods-DDJiOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DDJiOSTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DDJiOSTests/Pods-DDJiOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		EF79F7EF9EC2A92F35DC825D /* Pods-DDJiOSUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DDJiOSUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DDJiOSUITests/Pods-DDJiOSUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -186,7 +201,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6B39878D1E82422B00985CA4 /* Pods_DDJiOSUITests.framework in Frameworks */,
-				168C44FFA6F636CB2E59973D /* Pods_DDJiOSUITests.framework in Frameworks */,
+				D5D5A691573966FBFC5442D1 /* Pods_DDJiOSUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -194,7 +209,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BDF5674F02F57E0F01A55C81 /* Pods_DDJiOS.framework in Frameworks */,
+				6B69F0D11E9DA1DE00684C99 /* Pods_DDJiOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -203,7 +218,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6B39878B1E82421E00985CA4 /* Pods_DDJiOSTests.framework in Frameworks */,
-				6AB422BB7B3842F5068A111E /* Pods_DDJiOSTests.framework in Frameworks */,
+				B9FC5CAE4A1D8EC36F2F3EC5 /* Pods_DDJiOSTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -377,9 +392,9 @@
 		6BD7080A1E22A5A90008E7A2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				8E23BDBC0DC944A86FBA0B0C /* Pods_DDJiOS.framework */,
-				8AE7A845DD5918931A3093FF /* Pods_DDJiOSTests.framework */,
-				68E759ED81C164115540EE50 /* Pods_DDJiOSUITests.framework */,
+				B2AF7288899672098C67C89C /* Pods_DDJiOS.framework */,
+				01FFDBE67A4C4B2C5B1ABC02 /* Pods_DDJiOSTests.framework */,
+				E60B1C24F7CFE9607356B329 /* Pods_DDJiOSUITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -525,6 +540,7 @@
 				9A1862AB1DC10BFA0027D21E /* Resources */,
 				F8E11E84CBC3B8A17604E312 /* [CP] Embed Pods Frameworks */,
 				F08111D3790019ED659BD014 /* [CP] Copy Pods Resources */,
+				6B42A25D1E9D9E6A001B5FEB /* Embed Frameworks */,
 			);
 			buildRules = (
 			);

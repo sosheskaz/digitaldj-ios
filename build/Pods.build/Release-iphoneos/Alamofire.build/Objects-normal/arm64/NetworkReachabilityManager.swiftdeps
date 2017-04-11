@@ -13,36 +13,36 @@ provides-member:
 - ["OC9Alamofire26NetworkReachabilityManager14ConnectionType", ""]
 provides-dynamic-lookup:
 depends-top-level:
-- !private "withUnsafePointer"
-- !private "SCNetworkReachabilitySetCallback"
-- !private "MemoryLayout"
+- !private "!"
 - !private "!="
-- !private "UInt8"
-- "DispatchQueue"
-- "SCNetworkReachability"
-- !private "||"
-- !private "SCNetworkReachabilityGetFlags"
-- "Equatable"
-- !private "SCNetworkReachabilityCreateWithName"
-- "SCNetworkReachabilityFlags"
-- !private "SCNetworkReachabilitySetDispatchQueue"
-- "Void"
-- !private "BooleanLiteralType"
-- !private "SCNetworkReachabilityCreateWithAddress"
-- !private "AF_INET"
-- "Bool"
-- !private "sa_family_t"
-- !private "??"
-- "NetworkReachabilityManager"
-- !private "sockaddr_in"
 - !private "&&"
 - "=="
+- !private "??"
+- !private "AF_INET"
 - "AssignmentPrecedence"
+- "Bool"
+- !private "BooleanLiteralType"
+- "DispatchQueue"
+- "Equatable"
+- !private "MemoryLayout"
+- "NetworkReachabilityManager"
+- "SCNetworkReachability"
 - !private "SCNetworkReachabilityContext"
+- !private "SCNetworkReachabilityCreateWithAddress"
+- !private "SCNetworkReachabilityCreateWithName"
+- "SCNetworkReachabilityFlags"
+- !private "SCNetworkReachabilityGetFlags"
+- !private "SCNetworkReachabilitySetCallback"
+- !private "SCNetworkReachabilitySetDispatchQueue"
 - "String"
-- !private "sockaddr"
-- !private "!"
+- !private "UInt8"
 - !private "Unmanaged"
+- "Void"
+- !private "sa_family_t"
+- !private "sockaddr"
+- !private "sockaddr_in"
+- !private "withUnsafePointer"
+- !private "||"
 depends-member:
 - !private ["Ps9AnyObject", "AF_INET"]
 - ["Ps9AnyObject", "DispatchQueue"]
@@ -79,7 +79,6 @@ depends-member:
 - !private ["Ps17BitwiseOperations", "hashValue"]
 - !private ["Ps17BitwiseOperations", "init"]
 - !private ["Sb", "_getBuiltinLogicValue"]
-- ["Sb", "deinit"]
 - !private ["Ps7CVarArg", "async"]
 - !private ["Ps7CVarArg", "hashValue"]
 - !private ["Ps7CVarArg", "init"]
@@ -113,10 +112,7 @@ depends-member:
 - !private ["CSo14DispatchObject", "async"]
 - ["CSo14DispatchObject", "main"]
 - !private ["CSo13DispatchQueue", "async"]
-- ["CSo13DispatchQueue", "deinit"]
 - ["CSo13DispatchQueue", "main"]
-- !private ["Ps9Equatable", "Element"]
-- !private ["Ps9Equatable", "RawValue"]
 - !private ["Ps9Equatable", "_getBuiltinLogicValue"]
 - ["Ps9Equatable", "_toAnyHashable"]
 - !private ["Ps9Equatable", "async"]
@@ -136,8 +132,6 @@ depends-member:
 - !private ["Ps9Equatable", "withMemoryRebound"]
 - !private ["Ps9Equatable", "wwan"]
 - ["Ps9Equatable", ""]
-- !private ["Ps25ExpressibleByArrayLiteral", "Element"]
-- !private ["Ps25ExpressibleByArrayLiteral", "RawValue"]
 - !private ["Ps25ExpressibleByArrayLiteral", "connectionOnDemand"]
 - !private ["Ps25ExpressibleByArrayLiteral", "connectionOnTraffic"]
 - !private ["Ps25ExpressibleByArrayLiteral", "connectionRequired"]
@@ -159,9 +153,7 @@ depends-member:
 - !private ["Ps8Hashable", "withMemoryRebound"]
 - !private ["Ps8Hashable", "wwan"]
 - ["Ps8Hashable", ""]
-- ["Si", "deinit"]
 - !private ["Si", "hashValue"]
-- ["Vs5Int32", "deinit"]
 - !private ["Ps7Integer", "hashValue"]
 - !private ["Ps7Integer", "init"]
 - !private ["Ps17IntegerArithmetic", "hashValue"]
@@ -219,8 +211,6 @@ depends-member:
 - ["OC9Alamofire26NetworkReachabilityManager25NetworkReachabilityStatus", "unknown"]
 - !private ["CSo9OS_object", "async"]
 - ["CSo9OS_object", "main"]
-- !private ["Ps9OptionSet", "Element"]
-- !private ["Ps9OptionSet", "RawValue"]
 - !private ["Ps9OptionSet", "connectionOnDemand"]
 - !private ["Ps9OptionSet", "connectionOnTraffic"]
 - !private ["Ps9OptionSet", "connectionRequired"]
@@ -229,9 +219,6 @@ depends-member:
 - !private ["Ps9OptionSet", "interventionRequired"]
 - !private ["Ps9OptionSet", "isWWAN"]
 - !private ["Ps9OptionSet", "reachable"]
-- ["Sq", "deinit"]
-- !private ["Ps16RawRepresentable", "Element"]
-- !private ["Ps16RawRepresentable", "RawValue"]
 - !private ["Ps16RawRepresentable", "connectionOnDemand"]
 - !private ["Ps16RawRepresentable", "connectionOnTraffic"]
 - !private ["Ps16RawRepresentable", "connectionRequired"]
@@ -240,23 +227,16 @@ depends-member:
 - !private ["Ps16RawRepresentable", "interventionRequired"]
 - !private ["Ps16RawRepresentable", "isWWAN"]
 - !private ["Ps16RawRepresentable", "reachable"]
-- ["CSo21SCNetworkReachability", "deinit"]
-- ["VSC28SCNetworkReachabilityContext", "deinit"]
 - !private ["VSC28SCNetworkReachabilityContext", "info"]
 - !private ["VSC28SCNetworkReachabilityContext", "init"]
-- !private ["VSC26SCNetworkReachabilityFlags", "Element"]
-- !private ["VSC26SCNetworkReachabilityFlags", "RawValue"]
 - !private ["VSC26SCNetworkReachabilityFlags", "connectionOnDemand"]
 - !private ["VSC26SCNetworkReachabilityFlags", "connectionOnTraffic"]
 - !private ["VSC26SCNetworkReachabilityFlags", "connectionRequired"]
 - !private ["VSC26SCNetworkReachabilityFlags", "contains"]
-- ["VSC26SCNetworkReachabilityFlags", "deinit"]
 - !private ["VSC26SCNetworkReachabilityFlags", "init"]
 - !private ["VSC26SCNetworkReachabilityFlags", "interventionRequired"]
 - !private ["VSC26SCNetworkReachabilityFlags", "isWWAN"]
 - !private ["VSC26SCNetworkReachabilityFlags", "reachable"]
-- !private ["Ps10SetAlgebra", "Element"]
-- !private ["Ps10SetAlgebra", "RawValue"]
 - !private ["Ps10SetAlgebra", "connectionOnDemand"]
 - !private ["Ps10SetAlgebra", "connectionOnTraffic"]
 - !private ["Ps10SetAlgebra", "connectionRequired"]
@@ -270,16 +250,11 @@ depends-member:
 - !private ["Ps10Strideable", "hashValue"]
 - !private ["Ps10Strideable", "init"]
 - !private ["Ps10Strideable", "withMemoryRebound"]
-- ["SS", "deinit"]
-- ["Vs5UInt8", "deinit"]
 - !private ["Vs5UInt8", "init"]
-- ["Vs9Unmanaged", "deinit"]
 - !private ["Vs9Unmanaged", "fromOpaque"]
 - !private ["Vs9Unmanaged", "passUnretained"]
 - !private ["Vs9Unmanaged", "takeUnretainedValue"]
 - !private ["Vs9Unmanaged", "toOpaque"]
-- ["Sv", "deinit"]
-- !private ["SP", "deinit"]
 - !private ["SP", "withMemoryRebound"]
 - !private ["Ps15UnsignedInteger", "init"]
 - !private ["Ps28_DisallowMixedSignArithmetic", "init"]
@@ -311,14 +286,13 @@ depends-member:
 - !private ["Ps11_Strideable", "init"]
 - !private ["Ps11_Strideable", "withMemoryRebound"]
 - !private ["Ps14_StringElement", "init"]
-- ["VSC11sockaddr_in", "deinit"]
 - !private ["VSC11sockaddr_in", "init"]
 - !private ["VSC11sockaddr_in", "sin_family"]
 - !private ["VSC11sockaddr_in", "sin_len"]
 depends-nominal:
 - "Ps9AnyObject"
 - !private "Ps17BitwiseOperations"
-- "Sb"
+- !private "Sb"
 - "Ps7CVarArg"
 - !private "Ps10Comparable"
 - "OC9Alamofire26NetworkReachabilityManager14ConnectionType"
@@ -333,8 +307,7 @@ depends-nominal:
 - !private "Ps27ExpressibleByBooleanLiteral"
 - !private "Ps27ExpressibleByIntegerLiteral"
 - "Ps8Hashable"
-- "Si"
-- "Vs5Int32"
+- !private "Si"
 - !private "Ps7Integer"
 - !private "Ps17IntegerArithmetic"
 - !private "Ps25LosslessStringConvertible"
@@ -346,19 +319,15 @@ depends-nominal:
 - "OC9Alamofire26NetworkReachabilityManager25NetworkReachabilityStatus"
 - "CSo9OS_object"
 - !private "Ps9OptionSet"
-- "Sq"
 - !private "Ps16RawRepresentable"
-- "CSo21SCNetworkReachability"
-- "VSC28SCNetworkReachabilityContext"
-- "VSC26SCNetworkReachabilityFlags"
+- !private "VSC28SCNetworkReachabilityContext"
+- !private "VSC26SCNetworkReachabilityFlags"
 - !private "Ps10SetAlgebra"
 - !private "Ps13SignedInteger"
 - !private "Ps12SignedNumber"
 - !private "Ps10Strideable"
-- "SS"
-- "Vs5UInt8"
-- "Vs9Unmanaged"
-- "Sv"
+- !private "Vs5UInt8"
+- !private "Vs9Unmanaged"
 - !private "SP"
 - !private "Ps15UnsignedInteger"
 - !private "Ps28_DisallowMixedSignArithmetic"
@@ -373,10 +342,17 @@ depends-nominal:
 - !private "Ps14_SignedInteger"
 - !private "Ps11_Strideable"
 - !private "Ps14_StringElement"
-- "VSC11sockaddr_in"
+- !private "VSC11sockaddr_in"
 depends-dynamic-lookup:
 depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/ObjectiveC.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Dispatch.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Foundation.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreGraphics.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Metal.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreText.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/UIKit.apinotesc"
 - "/Users/ericmiller/Documents/MSOE/Senior Design/ddjios/Pods/Target Support Files/Alamofire/Alamofire-umbrella.h"
 - "/Users/ericmiller/Documents/MSOE/Senior Design/ddjios/build/Pods.build/Release-iphoneos/Alamofire.build/unextended-module.modulemap"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/UIKit.swiftmodule"

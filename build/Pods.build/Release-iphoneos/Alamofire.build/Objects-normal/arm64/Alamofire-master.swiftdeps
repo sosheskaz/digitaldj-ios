@@ -1,6 +1,6 @@
-version: "Apple Swift version 3.0.2 (swiftlang-800.0.63 clang-800.0.42.1)"
-options: "ea26545ae12e1606d95ee2c91ff53f67"
-build_time: [542865726, 178977000]
+version: "Apple Swift version 3.1 (swiftlang-802.0.51 clang-802.0.41)"
+options: "a4a243d0e9b2a1bb3f5f801120eaf7c4"
+build_time: [545268827, 173977000]
 inputs:
   "/Users/ericmiller/Documents/MSOE/Senior Design/ddjios/Pods/Alamofire/Source/AFError.swift": [542865663, 0]
   "/Users/ericmiller/Documents/MSOE/Senior Design/ddjios/Pods/Alamofire/Source/Alamofire.swift": [542865663, 0]

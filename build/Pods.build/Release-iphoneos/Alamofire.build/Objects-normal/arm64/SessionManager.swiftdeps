@@ -9,70 +9,67 @@ provides-member:
 - ["OC9Alamofire14SessionManager31MultipartFormDataEncodingResult", ""]
 provides-dynamic-lookup:
 depends-top-level:
-- "ParameterEncoding"
-- !private "URLEncoding"
-- "Void"
-- "Bool"
 - !private "!"
-- "ServerTrustPolicyManager"
-- !private "+="
-- "String"
-- "DownloadRequest"
-- "??"
-- "kCFBundleVersionKey"
-- !private "==="
-- "UploadRequest"
-- "+"
-- "URLSession"
-- "MultipartFormData"
-- "URLRequestConvertible"
-- "Request"
-- "Locale"
-- "SessionManager"
-- "BooleanLiteralType"
-- !private "CFAbsoluteTimeGetCurrent"
-- "URLConvertible"
-- "InputStream"
-- "HTTPHeaders"
-- "ProcessInfo"
 - !private "!="
-- "HTTPMethod"
-- "Bundle"
-- "kCFBundleExecutableKey"
-- "RequestAdapter"
-- !private "AdaptError"
-- "SessionDelegate"
-- "StringLiteralType"
-- !private "NSTemporaryDirectory"
-- "Parameters"
-- !private "URLRequest"
-- "Double"
-- "AssignmentPrecedence"
-- "RequestRetrier"
-- "CastingPrecedence"
+- !private "&&"
 - "*"
-- "Dictionary"
-- "UUID"
-- "UnicodeScalarType"
-- "DataRequest"
+- "+"
+- !private "+="
+- "-"
 - !private "<"
-- "Int"
+- !private "==="
+- "??"
+- !private "AdaptError"
+- "AssignmentPrecedence"
+- "Bool"
+- "BooleanLiteralType"
+- "Bundle"
+- !private "CFAbsoluteTimeGetCurrent"
+- "CastingPrecedence"
+- "Data"
+- "DataRequest"
 - "DispatchQueue"
-- "NetService"
-- "kCFBundleIdentifierKey"
+- "Double"
+- "DownloadRequest"
 - "Error"
-- "URLSessionConfiguration"
+- !private "FileManager"
+- "HTTPHeaders"
+- "HTTPMethod"
+- "InputStream"
+- "Int"
+- "Locale"
+- "MultipartFormData"
+- !private "NSTemporaryDirectory"
+- "NetService"
+- "ParameterEncoding"
+- "Parameters"
+- "ProcessInfo"
+- "Request"
+- "RequestAdapter"
+- "RequestRetrier"
+- "ServerTrustPolicyManager"
+- "SessionDelegate"
+- "SessionManager"
+- "StreamRequest"
+- "String"
+- "StringLiteralType"
 - "UInt64"
 - "URL"
-- "-"
-- !private "&&"
-- "Data"
-- "StreamRequest"
-- !private "FileManager"
+- "URLConvertible"
+- !private "URLEncoding"
+- !private "URLRequest"
+- "URLRequestConvertible"
+- "URLSession"
+- "URLSessionConfiguration"
+- "UUID"
+- "UnicodeScalarType"
+- "UploadRequest"
+- "Void"
+- "kCFBundleExecutableKey"
+- "kCFBundleIdentifierKey"
+- "kCFBundleVersionKey"
 depends-member:
 - ["Ps16AbsoluteValuable", "init"]
-- !private ["V9Alamofire10AdaptError", "deinit"]
-- ["Vs11AnyIterator", "Element"]
 - ["Ps9AnyObject", "Bundle"]
 - !private ["Ps9AnyObject", "CFAbsoluteTimeGetCurrent"]
 - !private ["Ps9AnyObject", "DataRequest"]
@@ -157,44 +154,18 @@ depends-member:
 - !private ["Ps9AnyObject", "utility"]
 - !private ["Ps9AnyObject", "writeEncodedData"]
 - ["Ps9AnyObject", ""]
-- ["Vs11AnySequence", "Iterator"]
 - ["Vs11AnySequence", "enumerated"]
-- ["Sa", "Iterator"]
-- ["Sa", "SubSequence"]
-- ["Sa", "_Element"]
-- ["Sa", "deinit"]
 - ["Sa", "joined"]
 - ["Sa", "prefix"]
-- ["Vs10ArraySlice", "Iterator"]
-- ["Vs10ArraySlice", "SubSequence"]
-- ["Vs10ArraySlice", "_Element"]
-- ["Vs10ArraySlice", "deinit"]
 - ["Vs10ArraySlice", "enumerated"]
-- ["Ps23BidirectionalCollection", "Iterator"]
-- ["Ps23BidirectionalCollection", "SubSequence"]
-- ["Ps23BidirectionalCollection", "_Element"]
 - ["Ps23BidirectionalCollection", "enumerated"]
 - ["Ps23BidirectionalCollection", "joined"]
 - ["Ps23BidirectionalCollection", "prefix"]
-- ["Ps22BidirectionalIndexable", "Iterator"]
-- ["Ps22BidirectionalIndexable", "SubSequence"]
-- ["Ps22BidirectionalIndexable", "_Element"]
-- ["Ps22BidirectionalIndexable", "enumerated"]
-- ["Ps22BidirectionalIndexable", "joined"]
-- ["Ps22BidirectionalIndexable", "prefix"]
 - ["Ps19BinaryFloatingPoint", "init"]
 - !private ["Sb", "_getBuiltinLogicValue"]
-- ["Sb", "deinit"]
-- ["CSo6Bundle", "deinit"]
 - ["CSo6Bundle", "infoDictionary"]
 - ["CSo6Bundle", "init"]
 - ["CSo6Bundle", "main"]
-- ["Ps7CVarArg", "Index"]
-- ["Ps7CVarArg", "Iterator"]
-- ["Ps7CVarArg", "Key"]
-- ["Ps7CVarArg", "SubSequence"]
-- ["Ps7CVarArg", "Value"]
-- ["Ps7CVarArg", "_Element"]
 - !private ["Ps7CVarArg", "addOperation"]
 - !private ["Ps7CVarArg", "after"]
 - !private ["Ps7CVarArg", "async"]
@@ -227,13 +198,6 @@ depends-member:
 - !private ["Ps7CVarArg", "task"]
 - !private ["Ps7CVarArg", "taskNeedNewBodyStream"]
 - !private ["Ps7CVarArg", "utility"]
-- ["Vs9Character", "deinit"]
-- ["Ps10Collection", "Index"]
-- ["Ps10Collection", "Iterator"]
-- ["Ps10Collection", "Key"]
-- ["Ps10Collection", "SubSequence"]
-- ["Ps10Collection", "Value"]
-- ["Ps10Collection", "_Element"]
 - ["Ps10Collection", "enumerated"]
 - ["Ps10Collection", "joined"]
 - ["Ps10Collection", "prefix"]
@@ -241,16 +205,10 @@ depends-member:
 - ["Ps10Comparable", "init"]
 - ["Ps28CustomDebugStringConvertible", "DownloadFileDestination"]
 - !private ["Ps28CustomDebugStringConvertible", "Downloadable"]
-- ["Ps28CustomDebugStringConvertible", "Index"]
-- ["Ps28CustomDebugStringConvertible", "Iterator"]
-- ["Ps28CustomDebugStringConvertible", "Key"]
 - !private ["Ps28CustomDebugStringConvertible", "RequestTask"]
 - !private ["Ps28CustomDebugStringConvertible", "Requestable"]
 - !private ["Ps28CustomDebugStringConvertible", "Streamable"]
-- ["Ps28CustomDebugStringConvertible", "SubSequence"]
 - !private ["Ps28CustomDebugStringConvertible", "Uploadable"]
-- ["Ps28CustomDebugStringConvertible", "Value"]
-- ["Ps28CustomDebugStringConvertible", "_Element"]
 - !private ["Ps28CustomDebugStringConvertible", "addOperation"]
 - !private ["Ps28CustomDebugStringConvertible", "after"]
 - !private ["Ps28CustomDebugStringConvertible", "appendingPathComponent"]
@@ -296,12 +254,6 @@ depends-member:
 - !private ["Ps29CustomPlaygroundQuickLookable", "_getBuiltinLogicValue"]
 - !private ["Ps29CustomPlaygroundQuickLookable", "appendingPathComponent"]
 - ["Ps29CustomPlaygroundQuickLookable", "init"]
-- ["Ps17CustomReflectable", "Index"]
-- ["Ps17CustomReflectable", "Iterator"]
-- ["Ps17CustomReflectable", "Key"]
-- ["Ps17CustomReflectable", "SubSequence"]
-- ["Ps17CustomReflectable", "Value"]
-- ["Ps17CustomReflectable", "_Element"]
 - !private ["Ps17CustomReflectable", "_getBuiltinLogicValue"]
 - ["Ps17CustomReflectable", "enumerated"]
 - ["Ps17CustomReflectable", "init"]
@@ -313,16 +265,10 @@ depends-member:
 - ["Ps17CustomReflectable", "uuidString"]
 - ["Ps23CustomStringConvertible", "DownloadFileDestination"]
 - !private ["Ps23CustomStringConvertible", "Downloadable"]
-- ["Ps23CustomStringConvertible", "Index"]
-- ["Ps23CustomStringConvertible", "Iterator"]
-- ["Ps23CustomStringConvertible", "Key"]
 - !private ["Ps23CustomStringConvertible", "RequestTask"]
 - !private ["Ps23CustomStringConvertible", "Requestable"]
 - !private ["Ps23CustomStringConvertible", "Streamable"]
-- ["Ps23CustomStringConvertible", "SubSequence"]
 - !private ["Ps23CustomStringConvertible", "Uploadable"]
-- ["Ps23CustomStringConvertible", "Value"]
-- ["Ps23CustomStringConvertible", "_Element"]
 - !private ["Ps23CustomStringConvertible", "_getBuiltinLogicValue"]
 - !private ["Ps23CustomStringConvertible", "addOperation"]
 - !private ["Ps23CustomStringConvertible", "after"]
@@ -366,51 +312,36 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "taskNeedNewBodyStream"]
 - !private ["Ps23CustomStringConvertible", "utility"]
 - ["Ps23CustomStringConvertible", "uuidString"]
-- ["V10Foundation4Data", "deinit"]
 - !private ["C9Alamofire11DataRequest", "Requestable"]
 - !private ["C9Alamofire11DataRequest", "Uploadable"]
-- ["C9Alamofire11DataRequest", "deinit"]
 - !private ["C9Alamofire11DataRequest", "delegate"]
 - !private ["C9Alamofire11DataRequest", "init"]
 - !private ["C9Alamofire11DataRequest", "resume"]
-- ["Vs10Dictionary", "Index"]
-- ["Vs10Dictionary", "Key"]
-- ["Vs10Dictionary", "SubSequence"]
-- ["Vs10Dictionary", "Value"]
-- ["Vs10Dictionary", "deinit"]
 - ["Vs10Dictionary", "subscript"]
 - !private ["CSo14DispatchObject", "after"]
 - !private ["CSo14DispatchObject", "async"]
 - !private ["CSo14DispatchObject", "global"]
-- ["CSo14DispatchObject", "init"]
 - !private ["CSo14DispatchObject", "main"]
 - !private ["CSo14DispatchObject", "sync"]
 - !private ["CSo14DispatchObject", "utility"]
 - !private ["CSo13DispatchQueue", "after"]
 - !private ["CSo13DispatchQueue", "async"]
-- ["CSo13DispatchQueue", "deinit"]
 - !private ["CSo13DispatchQueue", "global"]
 - ["CSo13DispatchQueue", "init"]
 - !private ["CSo13DispatchQueue", "main"]
 - !private ["CSo13DispatchQueue", "sync"]
 - !private ["CSo13DispatchQueue", "utility"]
-- ["Sd", "deinit"]
 - ["Sd", "init"]
 - ["C9Alamofire15DownloadRequest", "DownloadFileDestination"]
 - !private ["C9Alamofire15DownloadRequest", "Downloadable"]
-- ["C9Alamofire15DownloadRequest", "deinit"]
 - !private ["C9Alamofire15DownloadRequest", "downloadDelegate"]
 - !private ["C9Alamofire15DownloadRequest", "init"]
 - !private ["C9Alamofire15DownloadRequest", "resume"]
-- !private ["C9Alamofire20DownloadTaskDelegate", "deinit"]
 - !private ["C9Alamofire20DownloadTaskDelegate", "destination"]
-- ["OC9Alamofire15DownloadRequest12Downloadable", "deinit"]
+- !private ["OC9Alamofire15DownloadRequest12Downloadable", "deinit"]
 - !private ["OC9Alamofire15DownloadRequest12Downloadable", "request"]
 - !private ["OC9Alamofire15DownloadRequest12Downloadable", "resumeData"]
 - !private ["OC9Alamofire15DownloadRequest12Downloadable", "task"]
-- ["Vs18EnumeratedIterator", "Element"]
-- ["Vs18EnumeratedSequence", "Iterator"]
-- ["Vs18EnumeratedSequence", "deinit"]
 - ["Vs18EnumeratedSequence", "map"]
 - !private ["Ps9Equatable", "_getBuiltinLogicValue"]
 - !private ["Ps9Equatable", "addOperation"]
@@ -449,33 +380,21 @@ depends-member:
 - !private ["Ps9Equatable", "taskNeedNewBodyStream"]
 - !private ["Ps9Equatable", "utility"]
 - ["Ps9Equatable", "uuidString"]
-- ["Ps5Error", "deinit"]
 - !private ["Ps5Error", "underlyingAdaptError"]
-- ["Ps25ExpressibleByArrayLiteral", "Iterator"]
-- ["Ps25ExpressibleByArrayLiteral", "SubSequence"]
-- ["Ps25ExpressibleByArrayLiteral", "_Element"]
 - ["Ps25ExpressibleByArrayLiteral", "enumerated"]
 - ["Ps25ExpressibleByArrayLiteral", "joined"]
 - ["Ps25ExpressibleByArrayLiteral", "prefix"]
 - !private ["Ps27ExpressibleByBooleanLiteral", "_getBuiltinLogicValue"]
-- ["Ps30ExpressibleByDictionaryLiteral", "Index"]
-- ["Ps30ExpressibleByDictionaryLiteral", "Key"]
-- ["Ps30ExpressibleByDictionaryLiteral", "SubSequence"]
-- ["Ps30ExpressibleByDictionaryLiteral", "Value"]
 - ["Ps30ExpressibleByDictionaryLiteral", "subscript"]
 - ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "init"]
 - ["Ps25ExpressibleByFloatLiteral", "init"]
 - ["Ps27ExpressibleByIntegerLiteral", "init"]
-- ["Ps32ExpressibleByStringInterpolation", "init"]
 - ["Ps26ExpressibleByStringLiteral", "init"]
 - ["Ps33ExpressibleByUnicodeScalarLiteral", "init"]
 - !private ["CSo11FileManager", "createDirectory"]
 - !private ["CSo11FileManager", "default"]
-- !private ["CSo11FileManager", "deinit"]
 - !private ["CSo11FileManager", "removeItem"]
-- ["Sf", "deinit"]
 - ["Ps13FloatingPoint", "init"]
-- ["O9Alamofire10HTTPMethod", "deinit"]
 - !private ["O9Alamofire10HTTPMethod", "get"]
 - !private ["O9Alamofire10HTTPMethod", "post"]
 - !private ["Ps8Hashable", "_getBuiltinLogicValue"]
@@ -515,42 +434,12 @@ depends-member:
 - !private ["Ps8Hashable", "taskNeedNewBodyStream"]
 - !private ["Ps8Hashable", "utility"]
 - ["Ps8Hashable", "uuidString"]
-- ["SQ", "deinit"]
-- ["Ps9Indexable", "Index"]
-- ["Ps9Indexable", "Iterator"]
-- ["Ps9Indexable", "Key"]
-- ["Ps9Indexable", "SubSequence"]
-- ["Ps9Indexable", "Value"]
-- ["Ps9Indexable", "_Element"]
-- ["Ps9Indexable", "enumerated"]
-- ["Ps9Indexable", "joined"]
-- ["Ps9Indexable", "prefix"]
-- ["Ps9Indexable", "subscript"]
-- ["Ps13IndexableBase", "Index"]
-- ["Ps13IndexableBase", "Iterator"]
-- ["Ps13IndexableBase", "Key"]
-- ["Ps13IndexableBase", "SubSequence"]
-- ["Ps13IndexableBase", "Value"]
-- ["Ps13IndexableBase", "_Element"]
-- ["Ps13IndexableBase", "enumerated"]
-- ["Ps13IndexableBase", "joined"]
-- ["Ps13IndexableBase", "prefix"]
-- ["Ps13IndexableBase", "subscript"]
-- ["Vs16IndexingIterator", "Element"]
-- ["CSo11InputStream", "deinit"]
-- ["Si", "deinit"]
-- ["Vs5Int16", "deinit"]
-- ["Vs5Int32", "deinit"]
-- ["Vs5Int64", "deinit"]
-- ["Vs4Int8", "deinit"]
-- ["Ps16IteratorProtocol", "Element"]
 - ["V10Foundation6Locale", "preferredLanguages"]
 - !private ["Ps25LosslessStringConvertible", "_getBuiltinLogicValue"]
 - ["Ps25LosslessStringConvertible", "init"]
 - ["Ps10MirrorPath", "init"]
 - !private ["C9Alamofire17MultipartFormData", "contentLength"]
 - !private ["C9Alamofire17MultipartFormData", "contentType"]
-- !private ["C9Alamofire17MultipartFormData", "deinit"]
 - !private ["C9Alamofire17MultipartFormData", "encode"]
 - !private ["C9Alamofire17MultipartFormData", "init"]
 - !private ["C9Alamofire17MultipartFormData", "writeEncodedData"]
@@ -558,21 +447,11 @@ depends-member:
 - ["OC9Alamofire14SessionManager31MultipartFormDataEncodingResult", "Error"]
 - ["OC9Alamofire14SessionManager31MultipartFormDataEncodingResult", "URL"]
 - ["OC9Alamofire14SessionManager31MultipartFormDataEncodingResult", "UploadRequest"]
-- !private ["OC9Alamofire14SessionManager31MultipartFormDataEncodingResult", "deinit"]
 - ["OC9Alamofire14SessionManager31MultipartFormDataEncodingResult", "failure"]
 - ["OC9Alamofire14SessionManager31MultipartFormDataEncodingResult", "success"]
-- ["Ps17MutableCollection", "Iterator"]
-- ["Ps17MutableCollection", "SubSequence"]
-- ["Ps17MutableCollection", "_Element"]
 - ["Ps17MutableCollection", "enumerated"]
 - ["Ps17MutableCollection", "joined"]
 - ["Ps17MutableCollection", "prefix"]
-- ["Ps16MutableIndexable", "Iterator"]
-- ["Ps16MutableIndexable", "SubSequence"]
-- ["Ps16MutableIndexable", "_Element"]
-- ["Ps16MutableIndexable", "enumerated"]
-- ["Ps16MutableIndexable", "joined"]
-- ["Ps16MutableIndexable", "prefix"]
 - ["PSo8NSCoding", "init"]
 - ["PSo9NSCopying", "default"]
 - ["PSo9NSCopying", "httpAdditionalHeaders"]
@@ -642,53 +521,27 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "utility"]
 - ["PSo14NSSecureCoding", "init"]
 - ["CSo8NSString", "init"]
-- ["CSo10NetService", "deinit"]
 - !private ["CSo9OS_object", "after"]
 - !private ["CSo9OS_object", "async"]
 - !private ["CSo9OS_object", "global"]
-- ["CSo9OS_object", "init"]
 - !private ["CSo9OS_object", "main"]
 - !private ["CSo9OS_object", "sync"]
 - !private ["CSo9OS_object", "utility"]
-- ["VSC22OperatingSystemVersion", "deinit"]
 - ["VSC22OperatingSystemVersion", "majorVersion"]
 - ["VSC22OperatingSystemVersion", "minorVersion"]
 - ["VSC22OperatingSystemVersion", "patchVersion"]
 - !private ["CSo14OperationQueue", "addOperation"]
-- !private ["CSo14OperationQueue", "deinit"]
-- ["Sq", "deinit"]
 - !private ["P9Alamofire17ParameterEncoding", "default"]
-- ["P9Alamofire17ParameterEncoding", "deinit"]
 - !private ["P9Alamofire17ParameterEncoding", "encode"]
-- ["CSo11ProcessInfo", "deinit"]
 - ["CSo11ProcessInfo", "operatingSystemVersion"]
 - ["CSo11ProcessInfo", "processInfo"]
-- ["OV8Dispatch11DispatchQoS8QoSClass", "deinit"]
 - !private ["OV8Dispatch11DispatchQoS8QoSClass", "utility"]
-- ["Ps22RandomAccessCollection", "Iterator"]
-- ["Ps22RandomAccessCollection", "SubSequence"]
-- ["Ps22RandomAccessCollection", "_Element"]
 - ["Ps22RandomAccessCollection", "enumerated"]
 - ["Ps22RandomAccessCollection", "joined"]
 - ["Ps22RandomAccessCollection", "prefix"]
-- ["Ps21RandomAccessIndexable", "Iterator"]
-- ["Ps21RandomAccessIndexable", "SubSequence"]
-- ["Ps21RandomAccessIndexable", "_Element"]
-- ["Ps21RandomAccessIndexable", "enumerated"]
-- ["Ps21RandomAccessIndexable", "joined"]
-- ["Ps21RandomAccessIndexable", "prefix"]
-- ["Ps26RangeReplaceableCollection", "Iterator"]
-- ["Ps26RangeReplaceableCollection", "SubSequence"]
-- ["Ps26RangeReplaceableCollection", "_Element"]
 - ["Ps26RangeReplaceableCollection", "enumerated"]
 - ["Ps26RangeReplaceableCollection", "joined"]
 - ["Ps26RangeReplaceableCollection", "prefix"]
-- ["Ps25RangeReplaceableIndexable", "Iterator"]
-- ["Ps25RangeReplaceableIndexable", "SubSequence"]
-- ["Ps25RangeReplaceableIndexable", "_Element"]
-- ["Ps25RangeReplaceableIndexable", "enumerated"]
-- ["Ps25RangeReplaceableIndexable", "joined"]
-- ["Ps25RangeReplaceableIndexable", "prefix"]
 - !private ["Ps16RawRepresentable", "get"]
 - !private ["Ps16RawRepresentable", "post"]
 - !private ["P10Foundation20ReferenceConvertible", "appendingPathComponent"]
@@ -702,7 +555,6 @@ depends-member:
 - !private ["C9Alamofire7Request", "Requestable"]
 - !private ["C9Alamofire7Request", "Streamable"]
 - !private ["C9Alamofire7Request", "Uploadable"]
-- ["C9Alamofire7Request", "deinit"]
 - !private ["C9Alamofire7Request", "delegate"]
 - !private ["C9Alamofire7Request", "downloadDelegate"]
 - !private ["C9Alamofire7Request", "endTime"]
@@ -712,29 +564,20 @@ depends-member:
 - !private ["C9Alamofire7Request", "retryCount"]
 - !private ["C9Alamofire7Request", "startTime"]
 - !private ["C9Alamofire7Request", "task"]
-- !private ["P9Alamofire14RequestRetrier", "deinit"]
 - !private ["P9Alamofire14RequestRetrier", "should"]
 - !private ["OC9Alamofire7Request11RequestTask", "data"]
-- ["OC9Alamofire7Request11RequestTask", "deinit"]
 - !private ["OC9Alamofire7Request11RequestTask", "download"]
 - !private ["OC9Alamofire7Request11RequestTask", "stream"]
 - !private ["OC9Alamofire7Request11RequestTask", "upload"]
-- ["VC9Alamofire11DataRequest11Requestable", "deinit"]
+- !private ["VC9Alamofire11DataRequest11Requestable", "deinit"]
 - !private ["VC9Alamofire11DataRequest11Requestable", "init"]
 - !private ["VC9Alamofire11DataRequest11Requestable", "task"]
-- ["Ps8Sequence", "Element"]
-- ["Ps8Sequence", "Index"]
-- ["Ps8Sequence", "Iterator"]
-- ["Ps8Sequence", "Key"]
-- ["Ps8Sequence", "SubSequence"]
-- ["Ps8Sequence", "Value"]
-- ["Ps8Sequence", "_Element"]
 - ["Ps8Sequence", "enumerated"]
 - ["Ps8Sequence", "joined"]
 - ["Ps8Sequence", "map"]
 - ["Ps8Sequence", "prefix"]
 - ["Ps8Sequence", "subscript"]
-- ["C9Alamofire15SessionDelegate", "deinit"]
+- !private ["C9Alamofire15SessionDelegate", "deinit"]
 - !private ["C9Alamofire15SessionDelegate", "init"]
 - !private ["C9Alamofire15SessionDelegate", "retrier"]
 - !private ["C9Alamofire15SessionDelegate", "sessionDidFinishEventsForBackgroundURLSession"]
@@ -805,23 +648,16 @@ depends-member:
 - ["C9Alamofire14SessionManager", "stream"]
 - ["C9Alamofire14SessionManager", "upload"]
 - ["Ps12SignedNumber", "init"]
-- ["Vs5Slice", "Index"]
-- ["Vs5Slice", "Iterator"]
-- ["Vs5Slice", "SubSequence"]
-- ["Vs5Slice", "_Element"]
 - !private ["C9Alamofire13StreamRequest", "Streamable"]
-- ["C9Alamofire13StreamRequest", "deinit"]
 - !private ["C9Alamofire13StreamRequest", "init"]
 - !private ["C9Alamofire13StreamRequest", "resume"]
-- ["OC9Alamofire13StreamRequest10Streamable", "deinit"]
+- !private ["OC9Alamofire13StreamRequest10Streamable", "deinit"]
 - !private ["OC9Alamofire13StreamRequest10Streamable", "netService"]
 - !private ["OC9Alamofire13StreamRequest10Streamable", "stream"]
 - !private ["OC9Alamofire13StreamRequest10Streamable", "task"]
 - ["Ps10Strideable", "init"]
-- ["SS", "deinit"]
 - ["SS", "init"]
 - !private ["P9Alamofire15TaskConvertible", "data"]
-- ["P9Alamofire15TaskConvertible", "deinit"]
 - !private ["P9Alamofire15TaskConvertible", "file"]
 - !private ["P9Alamofire15TaskConvertible", "init"]
 - !private ["P9Alamofire15TaskConvertible", "netService"]
@@ -836,38 +672,28 @@ depends-member:
 - !private ["C9Alamofire12TaskDelegate", "taskNeedNewBodyStream"]
 - ["Ps16TextOutputStream", "init"]
 - ["Ps20TextOutputStreamable", "init"]
-- ["Su", "deinit"]
-- ["Vs6UInt16", "deinit"]
-- ["Vs6UInt32", "deinit"]
-- ["Vs6UInt64", "deinit"]
-- ["Vs5UInt8", "deinit"]
 - !private ["V10Foundation3URL", "appendingPathComponent"]
-- ["V10Foundation3URL", "deinit"]
 - !private ["V10Foundation3URL", "init"]
 - !private ["P9Alamofire14URLConvertible", "appendingPathComponent"]
-- ["P9Alamofire14URLConvertible", "deinit"]
 - ["P9Alamofire14URLConvertible", "init"]
 - !private ["P9Alamofire14URLConvertible", "request"]
 - !private ["P9Alamofire14URLConvertible", "resumeData"]
 - !private ["V9Alamofire11URLEncoding", "default"]
 - !private ["V9Alamofire11URLEncoding", "deinit"]
-- ["V10Foundation10URLRequest", "deinit"]
+- !private ["V10Foundation10URLRequest", "deinit"]
 - !private ["V10Foundation10URLRequest", "init"]
 - !private ["V10Foundation10URLRequest", "setValue"]
 - !private ["P9Alamofire21URLRequestConvertible", "asURLRequest"]
-- ["P9Alamofire21URLRequestConvertible", "deinit"]
 - !private ["P9Alamofire21URLRequestConvertible", "init"]
 - !private ["P9Alamofire21URLRequestConvertible", "request"]
 - !private ["P9Alamofire21URLRequestConvertible", "resumeData"]
 - !private ["P9Alamofire21URLRequestConvertible", "setValue"]
 - !private ["CSo10URLSession", "configuration"]
-- ["CSo10URLSession", "deinit"]
 - !private ["CSo10URLSession", "delegate"]
 - !private ["CSo10URLSession", "init"]
 - !private ["CSo10URLSession", "invalidateAndCancel"]
 - !private ["CSo10URLSession", "serverTrustPolicyManager"]
 - ["CSo23URLSessionConfiguration", "default"]
-- ["CSo23URLSessionConfiguration", "deinit"]
 - ["CSo23URLSessionConfiguration", "httpAdditionalHeaders"]
 - !private ["CSo23URLSessionConfiguration", "identifier"]
 - !private ["PSo22URLSessionDataDelegate", "init"]
@@ -892,7 +718,6 @@ depends-member:
 - !private ["PSo24URLSessionStreamDelegate", "sessionDidFinishEventsForBackgroundURLSession"]
 - !private ["PSo24URLSessionStreamDelegate", "sessionManager"]
 - !private ["PSo24URLSessionStreamDelegate", "subscript"]
-- ["CSo14URLSessionTask", "deinit"]
 - !private ["CSo14URLSessionTask", "resume"]
 - !private ["PSo22URLSessionTaskDelegate", "destination"]
 - !private ["PSo22URLSessionTaskDelegate", "init"]
@@ -900,31 +725,25 @@ depends-member:
 - !private ["PSo22URLSessionTaskDelegate", "sessionDidFinishEventsForBackgroundURLSession"]
 - !private ["PSo22URLSessionTaskDelegate", "sessionManager"]
 - !private ["PSo22URLSessionTaskDelegate", "subscript"]
-- ["V10Foundation4UUID", "deinit"]
 - ["V10Foundation4UUID", "init"]
 - ["V10Foundation4UUID", "uuidString"]
-- ["Sc", "deinit"]
 - !private ["C9Alamofire13UploadRequest", "Uploadable"]
-- ["C9Alamofire13UploadRequest", "deinit"]
 - !private ["C9Alamofire13UploadRequest", "delegate"]
 - !private ["C9Alamofire13UploadRequest", "init"]
 - !private ["C9Alamofire13UploadRequest", "resume"]
 - !private ["OC9Alamofire13UploadRequest10Uploadable", "data"]
-- ["OC9Alamofire13UploadRequest10Uploadable", "deinit"]
+- !private ["OC9Alamofire13UploadRequest10Uploadable", "deinit"]
 - !private ["OC9Alamofire13UploadRequest10Uploadable", "file"]
 - !private ["OC9Alamofire13UploadRequest10Uploadable", "stream"]
 - !private ["OC9Alamofire13UploadRequest10Uploadable", "task"]
-- ["Ps14_ArrayProtocol", "Iterator"]
-- ["Ps14_ArrayProtocol", "SubSequence"]
-- ["Ps14_ArrayProtocol", "_Element"]
 - ["Ps14_ArrayProtocol", "enumerated"]
 - ["Ps14_ArrayProtocol", "joined"]
 - ["Ps14_ArrayProtocol", "prefix"]
+- ["Ps23_BidirectionalIndexable", "enumerated"]
+- ["Ps23_BidirectionalIndexable", "joined"]
+- ["Ps23_BidirectionalIndexable", "prefix"]
 - ["Ps15_CVarArgAligned", "init"]
 - ["Ps22_CVarArgPassedAsDouble", "init"]
-- ["Ps24_DestructorSafeContainer", "Iterator"]
-- ["Ps24_DestructorSafeContainer", "SubSequence"]
-- ["Ps24_DestructorSafeContainer", "_Element"]
 - ["Ps24_DestructorSafeContainer", "enumerated"]
 - ["Ps24_DestructorSafeContainer", "joined"]
 - ["Ps24_DestructorSafeContainer", "prefix"]
@@ -937,6 +756,7 @@ depends-member:
 - ["Ps41_ExpressibleByBuiltinUnicodeScalarLiteral", "init"]
 - !private ["Ps34_ExpressibleByFileReferenceLiteral", "appendingPathComponent"]
 - !private ["Ps34_ExpressibleByFileReferenceLiteral", "init"]
+- ["Ps33_ExpressibleByStringInterpolation", "init"]
 - ["Ps35_HasCustomAnyHashableRepresentation", "init"]
 - !private ["Ps9_Hashable", "_getBuiltinLogicValue"]
 - !private ["Ps9_Hashable", "addOperation"]
@@ -975,12 +795,17 @@ depends-member:
 - !private ["Ps9_Hashable", "taskNeedNewBodyStream"]
 - !private ["Ps9_Hashable", "utility"]
 - ["Ps9_Hashable", "uuidString"]
-- ["Ps21_ObjectiveCBridgeable", "Index"]
-- ["Ps21_ObjectiveCBridgeable", "Iterator"]
-- ["Ps21_ObjectiveCBridgeable", "Key"]
-- ["Ps21_ObjectiveCBridgeable", "SubSequence"]
-- ["Ps21_ObjectiveCBridgeable", "Value"]
-- ["Ps21_ObjectiveCBridgeable", "_Element"]
+- ["Ps10_Indexable", "enumerated"]
+- ["Ps10_Indexable", "joined"]
+- ["Ps10_Indexable", "prefix"]
+- ["Ps10_Indexable", "subscript"]
+- ["Ps14_IndexableBase", "enumerated"]
+- ["Ps14_IndexableBase", "joined"]
+- ["Ps14_IndexableBase", "prefix"]
+- ["Ps14_IndexableBase", "subscript"]
+- ["Ps17_MutableIndexable", "enumerated"]
+- ["Ps17_MutableIndexable", "joined"]
+- ["Ps17_MutableIndexable", "prefix"]
 - !private ["Ps21_ObjectiveCBridgeable", "_getBuiltinLogicValue"]
 - !private ["Ps21_ObjectiveCBridgeable", "appendingPathComponent"]
 - ["Ps21_ObjectiveCBridgeable", "init"]
@@ -990,74 +815,59 @@ depends-member:
 - !private ["Ps21_ObjectiveCBridgeable", "setValue"]
 - ["Ps21_ObjectiveCBridgeable", "subscript"]
 - ["Ps21_ObjectiveCBridgeable", "uuidString"]
-- !private ["Vs26_OptionalNilComparisonType", "deinit"]
+- ["Ps22_RandomAccessIndexable", "enumerated"]
+- ["Ps22_RandomAccessIndexable", "joined"]
+- ["Ps22_RandomAccessIndexable", "prefix"]
+- ["Ps26_RangeReplaceableIndexable", "enumerated"]
+- ["Ps26_RangeReplaceableIndexable", "joined"]
+- ["Ps26_RangeReplaceableIndexable", "prefix"]
 - ["Ps11_Strideable", "init"]
 depends-nominal:
 - "Ps16AbsoluteValuable"
-- !private "V9Alamofire10AdaptError"
-- "Vs11AnyIterator"
 - "Ps9AnyObject"
 - "Vs11AnySequence"
 - "Sa"
 - "Vs10ArraySlice"
 - "Ps23BidirectionalCollection"
-- "Ps22BidirectionalIndexable"
 - "Ps19BinaryFloatingPoint"
-- "Sb"
+- !private "Sb"
 - "CSo6Bundle"
 - "Ps7CVarArg"
-- "Vs9Character"
 - "Ps10Collection"
 - "Ps10Comparable"
 - "Ps28CustomDebugStringConvertible"
 - "Ps29CustomPlaygroundQuickLookable"
 - "Ps17CustomReflectable"
 - "Ps23CustomStringConvertible"
-- "V10Foundation4Data"
-- "C9Alamofire11DataRequest"
+- !private "C9Alamofire11DataRequest"
 - "Vs10Dictionary"
-- "CSo14DispatchObject"
+- !private "CSo14DispatchObject"
 - "CSo13DispatchQueue"
 - "Sd"
 - "C9Alamofire15DownloadRequest"
 - !private "C9Alamofire20DownloadTaskDelegate"
-- "OC9Alamofire15DownloadRequest12Downloadable"
-- "Vs18EnumeratedIterator"
+- !private "OC9Alamofire15DownloadRequest12Downloadable"
 - "Vs18EnumeratedSequence"
 - "Ps9Equatable"
-- "Ps5Error"
+- !private "Ps5Error"
 - "Ps25ExpressibleByArrayLiteral"
 - !private "Ps27ExpressibleByBooleanLiteral"
 - "Ps30ExpressibleByDictionaryLiteral"
 - "Ps43ExpressibleByExtendedGraphemeClusterLiteral"
 - "Ps25ExpressibleByFloatLiteral"
 - "Ps27ExpressibleByIntegerLiteral"
-- "Ps32ExpressibleByStringInterpolation"
 - "Ps26ExpressibleByStringLiteral"
 - "Ps33ExpressibleByUnicodeScalarLiteral"
 - !private "CSo11FileManager"
-- "Sf"
 - "Ps13FloatingPoint"
-- "O9Alamofire10HTTPMethod"
+- !private "O9Alamofire10HTTPMethod"
 - "Ps8Hashable"
-- "SQ"
-- "Ps9Indexable"
-- "Ps13IndexableBase"
-- "Vs16IndexingIterator"
-- "CSo11InputStream"
-- "Si"
-- "Vs5Int16"
-- "Vs5Int32"
-- "Vs5Int64"
-- "Vs4Int8"
-- "Ps16IteratorProtocol"
 - "V10Foundation6Locale"
 - "Ps25LosslessStringConvertible"
 - "Ps10MirrorPath"
 - !private "C9Alamofire17MultipartFormData"
 - "OC9Alamofire14SessionManager31MultipartFormDataEncodingResult"
 - "Ps17MutableCollection"
-- "Ps16MutableIndexable"
 - "PSo8NSCoding"
 - "PSo9NSCopying"
 - "PSo16NSMutableCopying"
@@ -1065,60 +875,50 @@ depends-nominal:
 - "PSo16NSObjectProtocol"
 - "PSo14NSSecureCoding"
 - "CSo8NSString"
-- "CSo10NetService"
-- "CSo9OS_object"
+- !private "CSo9OS_object"
 - "VSC22OperatingSystemVersion"
 - !private "CSo14OperationQueue"
-- "Sq"
-- "P9Alamofire17ParameterEncoding"
+- !private "P9Alamofire17ParameterEncoding"
 - "CSo11ProcessInfo"
-- "OV8Dispatch11DispatchQoS8QoSClass"
+- !private "OV8Dispatch11DispatchQoS8QoSClass"
 - "Ps22RandomAccessCollection"
-- "Ps21RandomAccessIndexable"
 - "Ps26RangeReplaceableCollection"
-- "Ps25RangeReplaceableIndexable"
 - !private "Ps16RawRepresentable"
 - "P10Foundation20ReferenceConvertible"
 - "C9Alamofire7Request"
 - !private "P9Alamofire14RequestRetrier"
-- "OC9Alamofire7Request11RequestTask"
-- "VC9Alamofire11DataRequest11Requestable"
+- !private "OC9Alamofire7Request11RequestTask"
+- !private "VC9Alamofire11DataRequest11Requestable"
 - "Ps8Sequence"
-- "C9Alamofire15SessionDelegate"
+- !private "C9Alamofire15SessionDelegate"
 - "C9Alamofire14SessionManager"
 - "Ps12SignedNumber"
-- "Vs5Slice"
-- "C9Alamofire13StreamRequest"
-- "OC9Alamofire13StreamRequest10Streamable"
+- !private "C9Alamofire13StreamRequest"
+- !private "OC9Alamofire13StreamRequest10Streamable"
 - "Ps10Strideable"
 - "SS"
-- "P9Alamofire15TaskConvertible"
+- !private "P9Alamofire15TaskConvertible"
 - !private "C9Alamofire12TaskDelegate"
 - "Ps16TextOutputStream"
 - "Ps20TextOutputStreamable"
-- "Su"
-- "Vs6UInt16"
-- "Vs6UInt32"
-- "Vs6UInt64"
-- "Vs5UInt8"
-- "V10Foundation3URL"
+- !private "V10Foundation3URL"
 - "P9Alamofire14URLConvertible"
 - !private "V9Alamofire11URLEncoding"
-- "V10Foundation10URLRequest"
-- "P9Alamofire21URLRequestConvertible"
-- "CSo10URLSession"
+- !private "V10Foundation10URLRequest"
+- !private "P9Alamofire21URLRequestConvertible"
+- !private "CSo10URLSession"
 - "CSo23URLSessionConfiguration"
 - !private "PSo22URLSessionDataDelegate"
 - !private "PSo18URLSessionDelegate"
 - !private "PSo26URLSessionDownloadDelegate"
 - !private "PSo24URLSessionStreamDelegate"
-- "CSo14URLSessionTask"
+- !private "CSo14URLSessionTask"
 - !private "PSo22URLSessionTaskDelegate"
 - "V10Foundation4UUID"
-- "Sc"
-- "C9Alamofire13UploadRequest"
-- "OC9Alamofire13UploadRequest10Uploadable"
+- !private "C9Alamofire13UploadRequest"
+- !private "OC9Alamofire13UploadRequest10Uploadable"
 - "Ps14_ArrayProtocol"
+- "Ps23_BidirectionalIndexable"
 - "Ps15_CVarArgAligned"
 - "Ps22_CVarArgPassedAsDouble"
 - "Ps24_DestructorSafeContainer"
@@ -1130,14 +930,26 @@ depends-nominal:
 - "Ps39_ExpressibleByBuiltinUTF16StringLiteral"
 - "Ps41_ExpressibleByBuiltinUnicodeScalarLiteral"
 - !private "Ps34_ExpressibleByFileReferenceLiteral"
+- "Ps33_ExpressibleByStringInterpolation"
 - "Ps35_HasCustomAnyHashableRepresentation"
 - "Ps9_Hashable"
+- "Ps10_Indexable"
+- "Ps14_IndexableBase"
+- "Ps17_MutableIndexable"
 - "Ps21_ObjectiveCBridgeable"
-- !private "Vs26_OptionalNilComparisonType"
+- "Ps22_RandomAccessIndexable"
+- "Ps26_RangeReplaceableIndexable"
 - "Ps11_Strideable"
 depends-dynamic-lookup:
 depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/ObjectiveC.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Dispatch.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Foundation.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreGraphics.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Metal.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreText.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/UIKit.apinotesc"
 - "/Users/ericmiller/Documents/MSOE/Senior Design/ddjios/Pods/Target Support Files/Alamofire/Alamofire-umbrella.h"
 - "/Users/ericmiller/Documents/MSOE/Senior Design/ddjios/build/Pods.build/Release-iphoneos/Alamofire.build/unextended-module.modulemap"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/UIKit.swiftmodule"

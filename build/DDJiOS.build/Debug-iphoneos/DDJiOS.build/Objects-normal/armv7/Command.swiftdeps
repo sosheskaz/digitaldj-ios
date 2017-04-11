@@ -1,0 +1,334 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "commandLabel"
+- "Command"
+- "CommandType"
+- "allCommandTypes"
+- "CommandPort"
+provides-nominal:
+- "P6DDJiOS7Command"
+- "O6DDJiOS11CommandType"
+- "O6DDJiOS11CommandPort"
+provides-member:
+- ["P6DDJiOS7Command", ""]
+- ["O6DDJiOS11CommandType", ""]
+- ["O6DDJiOS11CommandPort", ""]
+- ["P6DDJiOS7Command", "execute"]
+- ["P6DDJiOS7Command", "source"]
+provides-dynamic-lookup:
+depends-top-level:
+- "=="
+- "AssignmentPrecedence"
+- "Bool"
+- !private "BooleanLiteralType"
+- "CastingPrecedence"
+- "Command"
+- "CommandPort"
+- "CommandType"
+- "Data"
+- !private "EZSSL"
+- "Int"
+- !private "Int32"
+- !private "Socket"
+- "String"
+- "StringLiteralType"
+- "allCommandTypes"
+- !private "associatedKeys"
+- "commandLabel"
+- !private "log"
+- !private "objc_AssociationPolicy"
+- !private "objc_getAssociatedObject"
+- !private "objc_setAssociatedObject"
+- !private "~="
+depends-member:
+- ["Ps9AnyObject", "init"]
+- !private ["Ps9AnyObject", "socket"]
+- !private ["Ps17BitwiseOperations", "hashValue"]
+- !private ["Sb", "_getBuiltinLogicValue"]
+- !private ["Ps7CVarArg", "hashValue"]
+- ["Ps7CVarArg", "init"]
+- ["P6DDJiOS7Command", "Bool"]
+- ["P6DDJiOS7Command", "CommandPort"]
+- ["P6DDJiOS7Command", "CommandType"]
+- ["P6DDJiOS7Command", "Data"]
+- !private ["P6DDJiOS7Command", "EZSSL"]
+- !private ["P6DDJiOS7Command", "Int32"]
+- !private ["P6DDJiOS7Command", "Self"]
+- !private ["P6DDJiOS7Command", "Socket"]
+- ["P6DDJiOS7Command", "String"]
+- !private ["P6DDJiOS7Command", "associatedKeys"]
+- ["P6DDJiOS7Command", "command"]
+- ["P6DDJiOS7Command", "destPort"]
+- ["P6DDJiOS7Command", "execute"]
+- !private ["P6DDJiOS7Command", "failableExecute"]
+- ["P6DDJiOS7Command", "init"]
+- ["P6DDJiOS7Command", "json"]
+- !private ["P6DDJiOS7Command", "log"]
+- !private ["P6DDJiOS7Command", "objc_AssociationPolicy"]
+- !private ["P6DDJiOS7Command", "objc_getAssociatedObject"]
+- !private ["P6DDJiOS7Command", "objc_setAssociatedObject"]
+- ["P6DDJiOS7Command", "source"]
+- ["O6DDJiOS11CommandPort", "RawValue"]
+- ["O6DDJiOS11CommandPort", "_toAnyHashable"]
+- ["O6DDJiOS11CommandPort", "client"]
+- ["O6DDJiOS11CommandPort", "commandPort"]
+- ["O6DDJiOS11CommandPort", "deinit"]
+- ["O6DDJiOS11CommandPort", "hashValue"]
+- ["O6DDJiOS11CommandPort", "host"]
+- ["O6DDJiOS11CommandPort", "init"]
+- ["O6DDJiOS11CommandPort", "rawValue"]
+- ["O6DDJiOS11CommandPort", "server"]
+- ["O6DDJiOS11CommandType", "RawValue"]
+- ["O6DDJiOS11CommandType", "_toAnyHashable"]
+- ["O6DDJiOS11CommandType", "deinit"]
+- ["O6DDJiOS11CommandType", "hashValue"]
+- ["O6DDJiOS11CommandType", "heartbeat"]
+- ["O6DDJiOS11CommandType", "heartbeatAck"]
+- ["O6DDJiOS11CommandType", "heartbeatTimeout"]
+- ["O6DDJiOS11CommandType", "init"]
+- ["O6DDJiOS11CommandType", "newUser"]
+- ["O6DDJiOS11CommandType", "rawValue"]
+- ["O6DDJiOS11CommandType", "removeUser"]
+- ["O6DDJiOS11CommandType", "updatePlaylist"]
+- !private ["Ps10Comparable", "hashValue"]
+- ["Ps10Comparable", "init"]
+- ["Ps28CustomDebugStringConvertible", "init"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "_getBuiltinLogicValue"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "hashValue"]
+- ["Ps29CustomPlaygroundQuickLookable", "init"]
+- !private ["Ps17CustomReflectable", "_getBuiltinLogicValue"]
+- !private ["Ps17CustomReflectable", "hashValue"]
+- ["Ps17CustomReflectable", "init"]
+- !private ["Ps23CustomStringConvertible", "_getBuiltinLogicValue"]
+- !private ["Ps23CustomStringConvertible", "hashValue"]
+- ["Ps23CustomStringConvertible", "init"]
+- !private ["C6DDJiOS5EZSSL", "init"]
+- !private ["C6DDJiOS5EZSSL", "socket"]
+- !private ["Ps9Equatable", "OBJC_ASSOCIATION_RETAIN_NONATOMIC"]
+- !private ["Ps9Equatable", "_getBuiltinLogicValue"]
+- ["Ps9Equatable", "_toAnyHashable"]
+- ["Ps9Equatable", "hashValue"]
+- ["Ps9Equatable", "heartbeat"]
+- ["Ps9Equatable", "heartbeatAck"]
+- ["Ps9Equatable", "heartbeatTimeout"]
+- ["Ps9Equatable", "init"]
+- ["Ps9Equatable", "newUser"]
+- ["Ps9Equatable", "rawValue"]
+- ["Ps9Equatable", "removeUser"]
+- ["Ps9Equatable", "updatePlaylist"]
+- ["Ps9Equatable", ""]
+- !private ["Ps27ExpressibleByBooleanLiteral", "_getBuiltinLogicValue"]
+- ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "init"]
+- !private ["Ps27ExpressibleByIntegerLiteral", "hashValue"]
+- ["Ps26ExpressibleByStringLiteral", "init"]
+- ["Ps33ExpressibleByUnicodeScalarLiteral", "init"]
+- !private ["Ps8Hashable", "OBJC_ASSOCIATION_RETAIN_NONATOMIC"]
+- !private ["Ps8Hashable", "_getBuiltinLogicValue"]
+- ["Ps8Hashable", "_toAnyHashable"]
+- ["Ps8Hashable", "hashValue"]
+- ["Ps8Hashable", "heartbeat"]
+- ["Ps8Hashable", "heartbeatAck"]
+- ["Ps8Hashable", "heartbeatTimeout"]
+- ["Ps8Hashable", "init"]
+- ["Ps8Hashable", "newUser"]
+- ["Ps8Hashable", "rawValue"]
+- ["Ps8Hashable", "removeUser"]
+- ["Ps8Hashable", "updatePlaylist"]
+- ["Ps8Hashable", ""]
+- !private ["Si", "hashValue"]
+- !private ["Ps7Integer", "hashValue"]
+- !private ["Ps17IntegerArithmetic", "hashValue"]
+- !private ["Ps25LosslessStringConvertible", "_getBuiltinLogicValue"]
+- ["Ps25LosslessStringConvertible", "init"]
+- !private ["Ps10MirrorPath", "hashValue"]
+- ["Ps10MirrorPath", "init"]
+- ["PSo8NSCoding", "init"]
+- ["PSo9NSCopying", "init"]
+- ["PSo16NSMutableCopying", "init"]
+- ["PSo16NSObjectProtocol", "init"]
+- ["PSo14NSSecureCoding", "init"]
+- ["CSo8NSString", "init"]
+- !private ["Ps16RawRepresentable", "OBJC_ASSOCIATION_RETAIN_NONATOMIC"]
+- ["Ps16RawRepresentable", "_toAnyHashable"]
+- ["Ps16RawRepresentable", "hashValue"]
+- ["Ps16RawRepresentable", "heartbeat"]
+- ["Ps16RawRepresentable", "heartbeatAck"]
+- ["Ps16RawRepresentable", "heartbeatTimeout"]
+- ["Ps16RawRepresentable", "init"]
+- ["Ps16RawRepresentable", "newUser"]
+- ["Ps16RawRepresentable", "rawValue"]
+- ["Ps16RawRepresentable", "removeUser"]
+- ["Ps16RawRepresentable", "updatePlaylist"]
+- ["Ps16RawRepresentable", ""]
+- !private ["Ps13SignedInteger", "hashValue"]
+- !private ["Ps12SignedNumber", "hashValue"]
+- !private ["Ps10Strideable", "hashValue"]
+- ["SS", "init"]
+- ["Ps16TextOutputStream", "init"]
+- ["Ps20TextOutputStreamable", "init"]
+- ["P9Alamofire14URLConvertible", "init"]
+- !private ["Ps35_ExpressibleByBuiltinBooleanLiteral", "_getBuiltinLogicValue"]
+- ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "init"]
+- !private ["Ps35_ExpressibleByBuiltinIntegerLiteral", "hashValue"]
+- ["Ps34_ExpressibleByBuiltinStringLiteral", "init"]
+- ["Ps39_ExpressibleByBuiltinUTF16StringLiteral", "init"]
+- ["Ps41_ExpressibleByBuiltinUnicodeScalarLiteral", "init"]
+- ["Ps33_ExpressibleByStringInterpolation", "init"]
+- ["Ps35_HasCustomAnyHashableRepresentation", "init"]
+- !private ["Ps9_Hashable", "OBJC_ASSOCIATION_RETAIN_NONATOMIC"]
+- !private ["Ps9_Hashable", "_getBuiltinLogicValue"]
+- ["Ps9_Hashable", "_toAnyHashable"]
+- ["Ps9_Hashable", "hashValue"]
+- ["Ps9_Hashable", "heartbeat"]
+- ["Ps9_Hashable", "heartbeatAck"]
+- ["Ps9_Hashable", "heartbeatTimeout"]
+- ["Ps9_Hashable", "init"]
+- ["Ps9_Hashable", "newUser"]
+- ["Ps9_Hashable", "rawValue"]
+- ["Ps9_Hashable", "removeUser"]
+- ["Ps9_Hashable", "updatePlaylist"]
+- ["Ps9_Hashable", ""]
+- !private ["Ps14_Incrementable", "hashValue"]
+- !private ["Ps8_Integer", "hashValue"]
+- !private ["Ps18_IntegerArithmetic", "hashValue"]
+- !private ["Ps21_ObjectiveCBridgeable", "_getBuiltinLogicValue"]
+- !private ["Ps21_ObjectiveCBridgeable", "hashValue"]
+- ["Ps21_ObjectiveCBridgeable", "init"]
+- !private ["Ps14_SignedInteger", "hashValue"]
+- !private ["Ps11_Strideable", "hashValue"]
+- !private ["OSC22objc_AssociationPolicy", "OBJC_ASSOCIATION_RETAIN_NONATOMIC"]
+depends-nominal:
+- "Ps9AnyObject"
+- !private "Ps17BitwiseOperations"
+- !private "Sb"
+- "Ps7CVarArg"
+- "P6DDJiOS7Command"
+- "O6DDJiOS11CommandPort"
+- "O6DDJiOS11CommandType"
+- "Ps10Comparable"
+- "Ps28CustomDebugStringConvertible"
+- "Ps29CustomPlaygroundQuickLookable"
+- "Ps17CustomReflectable"
+- "Ps23CustomStringConvertible"
+- !private "C6DDJiOS5EZSSL"
+- "Ps9Equatable"
+- !private "Ps27ExpressibleByBooleanLiteral"
+- "Ps43ExpressibleByExtendedGraphemeClusterLiteral"
+- !private "Ps27ExpressibleByIntegerLiteral"
+- "Ps26ExpressibleByStringLiteral"
+- "Ps33ExpressibleByUnicodeScalarLiteral"
+- "Ps8Hashable"
+- !private "Si"
+- !private "Ps7Integer"
+- !private "Ps17IntegerArithmetic"
+- "Ps25LosslessStringConvertible"
+- "Ps10MirrorPath"
+- "PSo8NSCoding"
+- "PSo9NSCopying"
+- "PSo16NSMutableCopying"
+- "PSo16NSObjectProtocol"
+- "PSo14NSSecureCoding"
+- "CSo8NSString"
+- "Ps16RawRepresentable"
+- !private "Ps13SignedInteger"
+- !private "Ps12SignedNumber"
+- !private "Ps10Strideable"
+- "SS"
+- "Ps16TextOutputStream"
+- "Ps20TextOutputStreamable"
+- "P9Alamofire14URLConvertible"
+- !private "Ps35_ExpressibleByBuiltinBooleanLiteral"
+- "Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral"
+- !private "Ps35_ExpressibleByBuiltinIntegerLiteral"
+- "Ps34_ExpressibleByBuiltinStringLiteral"
+- "Ps39_ExpressibleByBuiltinUTF16StringLiteral"
+- "Ps41_ExpressibleByBuiltinUnicodeScalarLiteral"
+- "Ps33_ExpressibleByStringInterpolation"
+- "Ps35_HasCustomAnyHashableRepresentation"
+- "Ps9_Hashable"
+- !private "Ps14_Incrementable"
+- !private "Ps8_Integer"
+- !private "Ps18_IntegerArithmetic"
+- "Ps21_ObjectiveCBridgeable"
+- !private "Ps14_SignedInteger"
+- !private "Ps11_Strideable"
+- !private "OSC22objc_AssociationPolicy"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Swift.swiftmodule"
+- "/Users/ericmiller/Documents/MSOE/Senior Design/ddjios/DDJiOS/DDJiOS-Bridging-Header.h"
+- "/Users/ericmiller/Documents/MSOE/Senior Design/ddjios/DDJiOS/SpotifyAuthentication.framework/Headers/SpotifyAuthentication.h"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/ObjectiveC.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Dispatch.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Foundation.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/CoreGraphics.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Metal.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/CoreText.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/UIKit.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/QuartzCore.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/CoreImage.swiftmodule"
+- "/Users/ericmiller/Documents/MSOE/Senior Design/ddjios/DDJiOS/SpotifyAuthentication.framework/Headers/SPTAuth.h"
+- "/Users/ericmiller/Documents/MSOE/Senior Design/ddjios/DDJiOS/SpotifyAuthentication.framework/Headers/SPTSession.h"
+- "/Users/ericmiller/Documents/MSOE/Senior Design/ddjios/DDJiOS/SpotifyAuthentication.framework/Headers/SPTConnectButton.h"
+- "/Users/ericmiller/Documents/MSOE/Senior Design/ddjios/DDJiOS/SpotifyAuthentication.framework/Headers/SPTAuthViewController.h"
+- "/Users/ericmiller/Documents/MSOE/Senior Design/ddjios/DDJiOS/SpotifyAuthentication.framework/Headers/SPTStoreViewController.h"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/StoreKit.apinotesc"
+- "/Users/ericmiller/Documents/MSOE/Senior Design/ddjios/DDJiOS/SpotifyAuthentication.framework/Headers/SPTEmbeddedImages.h"
+- "/Users/ericmiller/Documents/MSOE/Senior Design/ddjios/DDJiOS/SpotifyAudioPlayback.framework/Headers/SpotifyAudioPlayback.h"
+- "/Users/ericmiller/Documents/MSOE/Senior Design/ddjios/DDJiOS/SpotifyAudioPlayback.framework/Headers/SPTCircularBuffer.h"
+- "/Users/ericmiller/Documents/MSOE/Senior Design/ddjios/DDJiOS/SpotifyAudioPlayback.framework/Headers/SPTCoreAudioController.h"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/AudioToolbox.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/CoreAudio.swiftmodule"
+- "/Users/ericmiller/Documents/MSOE/Senior Design/ddjios/DDJiOS/SpotifyAudioPlayback.framework/Headers/SPTAudioStreamingController.h"
+- "/Users/ericmiller/Documents/MSOE/Senior Design/ddjios/DDJiOS/SpotifyAudioPlayback.framework/Headers/SPTAudioPlaybackTypes.h"
+- "/Users/ericmiller/Documents/MSOE/Senior Design/ddjios/DDJiOS/SpotifyAudioPlayback.framework/Headers/SPTDiskCache.h"
+- "/Users/ericmiller/Documents/MSOE/Senior Design/ddjios/DDJiOS/SpotifyAudioPlayback.framework/Headers/SPTDiskCaching.h"
+- "/Users/ericmiller/Documents/MSOE/Senior Design/ddjios/DDJiOS/SpotifyAudioPlayback.framework/Headers/SPTPlaybackMetadata.h"
+- "/Users/ericmiller/Documents/MSOE/Senior Design/ddjios/DDJiOS/SpotifyAudioPlayback.framework/Headers/SpPlaybackEvent.h"
+- "/Users/ericmiller/Documents/MSOE/Senior Design/ddjios/DDJiOS/SpotifyAudioPlayback.framework/Headers/SPTPlaybackState.h"
+- "/Users/ericmiller/Documents/MSOE/Senior Design/ddjios/DDJiOS/SpotifyAudioPlayback.framework/Headers/SPTAudioStreamingController_ErrorCodes.h"
+- "/Users/ericmiller/Documents/MSOE/Senior Design/ddjios/DDJiOS/SpotifyMetadata.framework/Headers/SpotifyMetadata.h"
+- "/Users/ericmiller/Documents/MSOE/Senior Design/ddjios/DDJiOS/SpotifyMetadata.framework/Headers/SPTJSONDecoding.h"
+- "/Users/ericmiller/Documents/MSOE/Senior Design/ddjios/DDJiOS/SpotifyMetadata.framework/Headers/SPTRequest.h"
+- "/Users/ericmiller/Documents/MSOE/Senior Design/ddjios/DDJiOS/SpotifyMetadata.framework/Headers/SPTPartialObject.h"
+- "/Users/ericmiller/Documents/MSOE/Senior Design/ddjios/DDJiOS/SpotifyMetadata.framework/Headers/SPTAlbum.h"
+- "/Users/ericmiller/Documents/MSOE/Senior Design/ddjios/DDJiOS/SpotifyMetadata.framework/Headers/SPTTrackProvider.h"
+- "/Users/ericmiller/Documents/MSOE/Senior Design/ddjios/DDJiOS/SpotifyMetadata.framework/Headers/SPTPartialAlbum.h"
+- "/Users/ericmiller/Documents/MSOE/Senior Design/ddjios/DDJiOS/SpotifyMetadata.framework/Headers/SPTArtist.h"
+- "/Users/ericmiller/Documents/MSOE/Senior Design/ddjios/DDJiOS/SpotifyMetadata.framework/Headers/SPTPartialArtist.h"
+- "/Users/ericmiller/Documents/MSOE/Senior Design/ddjios/DDJiOS/SpotifyMetadata.framework/Headers/SPTPartialPlaylist.h"
+- "/Users/ericmiller/Documents/MSOE/Senior Design/ddjios/DDJiOS/SpotifyMetadata.framework/Headers/SPTImage.h"
+- "/Users/ericmiller/Documents/MSOE/Senior Design/ddjios/DDJiOS/SpotifyMetadata.framework/Headers/SPTPartialTrack.h"
+- "/Users/ericmiller/Documents/MSOE/Senior Design/ddjios/DDJiOS/SpotifyMetadata.framework/Headers/SPTPlaylistList.h"
+- "/Users/ericmiller/Documents/MSOE/Senior Design/ddjios/DDJiOS/SpotifyMetadata.framework/Headers/SPTPlaylistSnapshot.h"
+- "/Users/ericmiller/Documents/MSOE/Senior Design/ddjios/DDJiOS/SpotifyMetadata.framework/Headers/SPTMetadataTypes.h"
+- "/Users/ericmiller/Documents/MSOE/Senior Design/ddjios/DDJiOS/SpotifyMetadata.framework/Headers/SPTListPage.h"
+- "/Users/ericmiller/Documents/MSOE/Senior Design/ddjios/DDJiOS/SpotifyMetadata.framework/Headers/SPTTrack.h"
+- "/Users/ericmiller/Documents/MSOE/Senior Design/ddjios/DDJiOS/SpotifyMetadata.framework/Headers/SPTPlaylistTrack.h"
+- "/Users/ericmiller/Documents/MSOE/Senior Design/ddjios/DDJiOS/SpotifyMetadata.framework/Headers/SPTSavedTrack.h"
+- "/Users/ericmiller/Documents/MSOE/Senior Design/ddjios/DDJiOS/SpotifyMetadata.framework/Headers/SPTUser.h"
+- "/Users/ericmiller/Documents/MSOE/Senior Design/ddjios/DDJiOS/SpotifyMetadata.framework/Headers/SPTFeaturedPlaylistList.h"
+- "/Users/ericmiller/Documents/MSOE/Senior Design/ddjios/DDJiOS/SpotifyMetadata.framework/Headers/SPTFollow.h"
+- "/Users/ericmiller/Documents/MSOE/Senior Design/ddjios/DDJiOS/SpotifyMetadata.framework/Headers/SPTBrowse.h"
+- "/Users/ericmiller/Documents/MSOE/Senior Design/ddjios/DDJiOS/SpotifyMetadata.framework/Headers/SPTYourMusic.h"
+- "/Users/ericmiller/Documents/MSOE/Senior Design/ddjios/DDJiOS/SpotifyMetadata.framework/Headers/SPTSearch.h"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/usr/include/ifaddrs.h"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/SwiftOnoneSupport.swiftmodule"
+- "/Users/ericmiller/Documents/MSOE/Senior Design/ddjios/build/Release-iphoneos/Alamofire/Alamofire.framework/Modules/Alamofire.swiftmodule/arm.swiftmodule"
+- "/Users/ericmiller/Documents/MSOE/Senior Design/ddjios/build/Release-iphoneos/Alamofire/Alamofire.framework/Headers/Alamofire-Swift.h"
+- "/Users/ericmiller/Documents/MSOE/Senior Design/ddjios/build/Release-iphoneos/Alamofire/Alamofire.framework/Headers/Alamofire-umbrella.h"
+- "/Users/ericmiller/Documents/MSOE/Senior Design/ddjios/build/Release-iphoneos/Alamofire/Alamofire.framework/Modules/module.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/AVFoundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/AVFoundation.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/CoreMedia.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/AVKit.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/WebKit.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/CoreData.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/CoreData.apinotesc"
+interface-hash: "6ae113c74c6824a505dbf6341083c3b5"
