@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import BlueSocket
+import Socket
 import Security
 
 private class MySSL {

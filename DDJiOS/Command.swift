@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import BlueSocket
+import Socket
 
 let commandLabel: String = "command"
 

@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import BlueSocket
+import Socket
 
 class CommandRunner {
     private let port: Int

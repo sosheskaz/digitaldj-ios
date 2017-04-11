@@ -78,6 +78,7 @@ class MySpt {
     }
     
     func logout() {
+        print(HTTPCookieStorage.shared.removeCookies(since: Date(timeIntervalSince1970: 0)))
         self._auth = SPTAuth()
     }
     
