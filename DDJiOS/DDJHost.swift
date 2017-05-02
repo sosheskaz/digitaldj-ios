@@ -26,6 +26,7 @@ class DDJHost: HostCommandListenerDelegate {
     private var sessionId: String?
     
     private var hostListener = HostCommandListener.shared
+    private var clientListener = ClientCommandListener.shared
     
     var delegate: DDJHostDelegate?
     

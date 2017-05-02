@@ -20,14 +20,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SPTAudioStreamingDelegate
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        MySpt.shared.logout()
-        print(UserDefaults.standard.dictionaryRepresentation())
+        log.verbose("Defaults: \(UserDefaults.standard.dictionaryRepresentation())")
         
-        UserDefaults.standard.removeObject(forKey: "current SPT session")
         log.addDestination(ConsoleDestination())
         log.info("Application started.")
-        
-        MySpt.shared.login()
         
         return true
     }

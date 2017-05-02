@@ -12,7 +12,7 @@ import Alamofire
 
 class MySpt {
     static var shared = MySpt()
-    private static let numTracks = 75
+    private static let numTracks = 50
     
     private let authLock = DispatchQueue(label: "myspt.authQueue")
     
@@ -68,17 +68,28 @@ class MySpt {
         }
     }
     
+    var loggedIn: Bool {
+        get {
+            return self.session?.isValid() ?? false
+        }
+    }
+    
+    var authUrl: URL {
+        get {
+            return self.auth.spotifyWebAuthenticationURL()
+        }
+    }
+    
     // MARK: general public functions
     
     func touch() { }
     
-    func login() {
+    func login(callback: (() -> Void)? = nil) {
         self.initializeAuth()
-        self.ensureAuthenticated()
+        self.ensureAuthenticated(callback)
     }
     
     func logout() {
-        print(HTTPCookieStorage.shared.removeCookies(since: Date(timeIntervalSince1970: 0)))
         self._auth = SPTAuth()
     }
     
@@ -109,28 +120,43 @@ class MySpt {
         log.info("Attempting to renew session")
         SPTAuth.renewSession(self._auth)(self.session, callback: nil)
     }
-    private func ensureAuthenticated() -> Void {
-        DispatchQueue.main.async {
+    
+    private func ensureAuthenticated(_ callback: (() -> Void)? = nil) -> Void {
+        self.authDQ.async {
             guard let session = self.auth.session else {
                 log.verbose("Session does not exist. Showing auth window.")
                 self.presentAuthWindow()
+                self.afterAuthenticated()
+                callback?()
                 return
             }
             guard session.isValid() else {
                 log.verbose("Session is not valid. Showing auth window.")
                 self.presentAuthWindow()
+                self.afterAuthenticated()
+                callback?()
                 return
             }
             log.info("Already authenticated.")
+            self.afterAuthenticated()
+            guard let cb = callback else {
+                return
+            }
+            cb()
         }
     }
     
     private func afterAuthenticated() {
         log.info("Auth Session Valid - Logging into player and fetching tracks.")
         self.fetchTopTracks()
+        log.info("Fetched tracks.")
+        self.authDQ.async {
+            self.player?.login(withAccessToken: self.session!.accessToken)
+            log.info("Logged into player.")
+        }
+        
         self.dismissAuthWindow()
         // Use it to log in
-        self.player?.login(withAccessToken: self.session!.accessToken)
     }
     
     private func presentAuthWindow() {
@@ -158,6 +184,7 @@ class MySpt {
                 self.authViewController = SFSafariViewController(url: authURL!)
             }
             self.authIsPresenting = true
+            
             sourceViewController?.present(self.authViewController!, animated: true, completion:nil)
             
             log.info("Exiting Auth VC")
@@ -183,6 +210,8 @@ class MySpt {
         
         do {
             let req = try SPTRequest.createRequest(for: URL(string: "https://api.spotify.com/v1/me/top/tracks"), withAccessToken: self.token, httpMethod: "GET", values: ["limit": MySpt.numTracks], valueBodyIsJSON: false, sendDataAsQueryString: true)
+            
+            log.info("Fetching tracks for \(self.userId ?? "nil") with token \(self.token ?? "nil")")
             
             let response = Alamofire.request(req).responseJSON()
             
@@ -213,14 +242,21 @@ class MySpt {
             // fill in extra items with spares from their library
             if(finalTracks.count < MySpt.numTracks) {
                 do {
-                    log.info("Not enough top tracks found, pulling from library.")
-                    let req2 = try SPTRequest.createRequest(for: URL(string: "https://api.spotify.com/v1/me/tracks"), withAccessToken: self.token, httpMethod: "GET", values: ["limit": MySpt.numTracks], valueBodyIsJSON: false, sendDataAsQueryString: true)
+                    log.info("Not enough top tracks found (\(finalTracks.count)), pulling from library.")
+                    let limit = 50 // there is a hard limit on 50.
+                    let req2 = try SPTRequest.createRequest(for: URL(string: "https://api.spotify.com/v1/me/tracks"), withAccessToken: self.token, httpMethod: "GET", values: ["limit": limit], valueBodyIsJSON: false, sendDataAsQueryString: true)
                     
                     let response2 = Alamofire.request(req2).responseJSON()
                     
                     guard response2.result.error == nil else {
-                        log.error("Coult not get top tracks!")
+                        log.error("Coult not pull supplementary tracks from library!")
                         log.error("Error: \(String(describing: response.result.error))")
+                        return
+                    }
+                    
+                    guard response2.result.isSuccess else {
+                        log.error("Coult not pull supplementary tracks from library for unknown reason!")
+                        log.error(String(data: response2.data!, encoding: .utf8) ?? "nil")
                         return
                     }
                     
@@ -232,6 +268,7 @@ class MySpt {
                     
                     do {
                         let json = try JSONSerialization.jsonObject(with: data, options: []) as AnyObject
+                        
                         let jsonItems: [AnyObject] = json["items"] as! [AnyObject]
                         
                         let trimmed = jsonItems.map({ jsonItem in
