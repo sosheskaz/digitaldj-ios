@@ -149,7 +149,7 @@ class MySpt {
     }
     
     private func afterAuthenticated() {
-        log.info("Auth Session Valid - Logging into player and fetching tracks.")
+        log.info("Auth Session Valid - fetching tracks.")
         self.fetchTopTracks()
         log.info("Fetched tracks.")
         
@@ -162,7 +162,8 @@ class MySpt {
                 return
             }
             
-            DispatchQueue.global().async {
+            DispatchQueue.main.async {
+                log.info("User is a premium user. Logging into player.")
                 self.player?.login(withAccessToken: self.session!.accessToken)
                 log.info("Logged into player.")
             }

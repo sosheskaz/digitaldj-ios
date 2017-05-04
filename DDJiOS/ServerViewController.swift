@@ -45,9 +45,6 @@ class ServerViewController: UIViewController, UITableViewDataSource, UITableView
             log.verbose("Server starting.")
             self.isStarted = true
             self.zc.start(name: self.zcName)
-            log.verbose("Playing")
-            self.sptPlayer.login(withAccessToken: MySpt.shared.token!)
-            log.verbose("logged in")
             self.play()
             log.verbose("Started")
         }
