@@ -164,6 +164,11 @@ class MySpt {
             
             DispatchQueue.main.async {
                 log.info("User is a premium user. Logging into player.")
+                do {
+                    try self.player?.start(withClientId: CLIENT_ID)
+                } catch let error2 {
+                    log.error("Failed to start player: \(error2.localizedDescription)")
+                }
                 self.player?.login(withAccessToken: self.session!.accessToken)
                 log.info("Logged into player.")
             }

@@ -203,7 +203,7 @@ class ServerViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func audioStreaming(_ audioStreaming: SPTAudioStreamingController!, didChangePosition position: TimeInterval) {
-        log.verbose("Spotify player did change position to \(position).")
+        // log.verbose("Spotify player did change position to \(position).")
     }
     
     func audioStreaming(_ audioStreaming: SPTAudioStreamingController!, didChangePlaybackStatus isPlaying: Bool) {
