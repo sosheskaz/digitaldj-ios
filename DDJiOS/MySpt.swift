@@ -26,6 +26,7 @@ class MySpt {
     
     private let authDQ = DispatchQueue(label: "MySpt_auth_queue")
     private var authIsPresenting = false
+    private var profile: SPTUser?
     
     let player = SPTAudioStreamingController.sharedInstance()
     
@@ -138,6 +139,7 @@ class MySpt {
                 return
             }
             log.info("Already authenticated.")
+            
             self.afterAuthenticated()
             guard let cb = callback else {
                 return
@@ -150,17 +152,56 @@ class MySpt {
         log.info("Auth Session Valid - Logging into player and fetching tracks.")
         self.fetchTopTracks()
         log.info("Fetched tracks.")
-        self.authDQ.async {
-            self.player?.login(withAccessToken: self.session!.accessToken)
-            log.info("Logged into player.")
-        }
+        
+        self.fetchUserProfile({ user, error in
+            guard error == nil else {
+                return
+            }
+            guard user?.product == SPTProduct.premium else {
+                log.warning("User is not a premium user. Cannot stream music.")
+                return
+            }
+            
+            DispatchQueue.global().async {
+                self.player?.login(withAccessToken: self.session!.accessToken)
+                log.info("Logged into player.")
+            }
+        })
         
         self.dismissAuthWindow()
         // Use it to log in
     }
     
+    private func fetchUserProfile(_ callback: @escaping ((SPTUser?, Error?) -> Void)) {
+        do {
+            let sptRequest = try SPTUser.createRequestForCurrentUser(withAccessToken: self.token) as URLRequestConvertible
+            let request = Alamofire.request(sptRequest)
+            request.responseJSON(completionHandler: {response in
+                guard let result = response.result.value as AnyObject? else {
+                    log.error("Result was nil.")
+                    log.error("Error: \(String(describing: response.error))")
+                    log.error("Was success? \(response.result.isSuccess)")
+                    return
+                }
+                do {
+                    log.info("Got user profile.")
+                    self.profile = try SPTUser(fromDecodedJSON: result)
+                    callback(self.profile, nil)
+                } catch let error {
+                    log.error("Failed to decode SPTUser.")
+                    log.error(error.localizedDescription)
+                    callback(nil, error)
+                }
+            }).resume()
+        } catch let error {
+            log.error("Unanticipated error. Send this log to Eric.")
+            log.error(error.localizedDescription)
+            callback(nil, error)
+        }
+    }
+    
     private func presentAuthWindow() {
-        self.authDQ.sync {
+        DispatchQueue.main.async {
             if(self.authIsPresenting) {
                 return
             }
