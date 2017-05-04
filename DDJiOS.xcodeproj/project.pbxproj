@@ -34,9 +34,8 @@
 		6B5D17C91E4BE2DA0082D2FB /* Alamofire-Synchronous.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B5D17C81E4BE2DA0082D2FB /* Alamofire-Synchronous.swift */; };
 		6B5D17CD1E4BF2A50082D2FB /* ServerRemoveUserCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B5D17CC1E4BF2A50082D2FB /* ServerRemoveUserCommand.swift */; };
 		6B5D17D11E4BF32D0082D2FB /* SrvRemoveUserTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B5D17D01E4BF32D0082D2FB /* SrvRemoveUserTest.swift */; };
+		6B642A5F1EBBD945002A076B /* Pods_DDJiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B642A5E1EBBD945002A076B /* Pods_DDJiOS.framework */; };
 		6B69F0D01E9D634700684C99 /* SSLService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B69F0CF1E9D634700684C99 /* SSLService.swift */; };
-		6B69F0D11E9DA1DE00684C99 /* Pods_DDJiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2AF7288899672098C67C89C /* Pods_DDJiOS.framework */; };
-		6B69F0D21E9DA1DE00684C99 /* Pods_DDJiOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B2AF7288899672098C67C89C /* Pods_DDJiOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6B6ECD401EBBC1C50036AFD9 /* ModeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6ECD3F1EBBC1C50036AFD9 /* ModeController.swift */; };
 		6B6ECD421EBBC5430036AFD9 /* UIApplicationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6ECD411EBBC5430036AFD9 /* UIApplicationExtension.swift */; };
 		6B7110EB1E2AEA3C007E28B8 /* Command.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7110EA1E2AEA3C007E28B8 /* Command.swift */; };
@@ -76,8 +75,6 @@
 		9A1862B91DC10BFA0027D21E /* DDJiOS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9A1862B71DC10BFA0027D21E /* DDJiOS.xcdatamodeld */; };
 		9A1862BB1DC10BFA0027D21E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A1862BA1DC10BFA0027D21E /* Assets.xcassets */; };
 		9A1862BE1DC10BFA0027D21E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A1862BC1DC10BFA0027D21E /* LaunchScreen.storyboard */; };
-		B9FC5CAE4A1D8EC36F2F3EC5 /* Pods_DDJiOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01FFDBE67A4C4B2C5B1ABC02 /* Pods_DDJiOSTests.framework */; };
-		D5D5A691573966FBFC5442D1 /* Pods_DDJiOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E60B1C24F7CFE9607356B329 /* Pods_DDJiOSUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,7 +101,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				6B69F0D21E9DA1DE00684C99 /* Pods_DDJiOS.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -112,7 +108,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		01FFDBE67A4C4B2C5B1ABC02 /* Pods_DDJiOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DDJiOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		13898BD6582F1A2F6D37E644 /* Pods-DDJiOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DDJiOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DDJiOS/Pods-DDJiOS.debug.xcconfig"; sourceTree = "<group>"; };
 		37D1F272AB009E43B4A67202 /* SPTManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPTManager.swift; sourceTree = "<group>"; };
 		37D1F704BCFBA4A74CA53542 /* ServerCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerCommand.swift; sourceTree = "<group>"; };
@@ -143,6 +138,7 @@
 		6B5D17C81E4BE2DA0082D2FB /* Alamofire-Synchronous.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Alamofire-Synchronous.swift"; sourceTree = "<group>"; };
 		6B5D17CC1E4BF2A50082D2FB /* ServerRemoveUserCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerRemoveUserCommand.swift; sourceTree = "<group>"; };
 		6B5D17D01E4BF32D0082D2FB /* SrvRemoveUserTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SrvRemoveUserTest.swift; sourceTree = "<group>"; };
+		6B642A5E1EBBD945002A076B /* Pods_DDJiOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Pods_DDJiOS.framework; sourceTree = "<group>"; };
 		6B69F0CF1E9D634700684C99 /* SSLService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSLService.swift; sourceTree = "<group>"; };
 		6B6ECD3F1EBBC1C50036AFD9 /* ModeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModeController.swift; sourceTree = "<group>"; };
 		6B6ECD411EBBC5430036AFD9 /* UIApplicationExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIApplicationExtension.swift; sourceTree = "<group>"; };
@@ -193,8 +189,6 @@
 		9A1862C41DC10BFA0027D21E /* DDJiOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DDJiOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A1862CA1DC10BFA0027D21E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9AB872E01E8AFA2B00F04781 /* Pods_DDJiOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Pods_DDJiOS.framework; sourceTree = "<group>"; };
-		B2AF7288899672098C67C89C /* Pods_DDJiOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DDJiOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E60B1C24F7CFE9607356B329 /* Pods_DDJiOSUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DDJiOSUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEE9E0795A1E1300C15D6758 /* Pods-DDJiOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DDJiOSTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DDJiOSTests/Pods-DDJiOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		EF79F7EF9EC2A92F35DC825D /* Pods-DDJiOSUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DDJiOSUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DDJiOSUITests/Pods-DDJiOSUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -205,7 +199,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				6B39878D1E82422B00985CA4 /* Pods_DDJiOSUITests.framework in Frameworks */,
-				D5D5A691573966FBFC5442D1 /* Pods_DDJiOSUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -213,7 +206,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6B69F0D11E9DA1DE00684C99 /* Pods_DDJiOS.framework in Frameworks */,
+				6B642A5F1EBBD945002A076B /* Pods_DDJiOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -222,7 +215,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				6B39878B1E82421E00985CA4 /* Pods_DDJiOSTests.framework in Frameworks */,
-				B9FC5CAE4A1D8EC36F2F3EC5 /* Pods_DDJiOSTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -406,9 +398,7 @@
 		6BD7080A1E22A5A90008E7A2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				B2AF7288899672098C67C89C /* Pods_DDJiOS.framework */,
-				01FFDBE67A4C4B2C5B1ABC02 /* Pods_DDJiOSTests.framework */,
-				E60B1C24F7CFE9607356B329 /* Pods_DDJiOSUITests.framework */,
+				6B642A5E1EBBD945002A076B /* Pods_DDJiOS.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
