@@ -11,6 +11,7 @@
 		37D1F7FB3D47D847D87FA983 /* ServerNewSessionCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D1FC9DC934147FBAC5E114 /* ServerNewSessionCommand.swift */; };
 		37D1FA1908DBFDA475248817 /* SPTManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D1F272AB009E43B4A67202 /* SPTManager.swift */; };
 		37D1FDDCB21FBF7337B3EFFB /* ServerCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D1F704BCFBA4A74CA53542 /* ServerCommand.swift */; };
+		6B04503D1EBBEC0D006915A2 /* ServerDisconnectSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B04503C1EBBEC0D006915A2 /* ServerDisconnectSegue.swift */; };
 		6B08B8A81E2C1F7800D94898 /* CommandRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B08B8A71E2C1F7800D94898 /* CommandRunner.swift */; };
 		6B1AE2211E2AFAA400FD2D68 /* NewUserCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1AE2201E2AFAA400FD2D68 /* NewUserCommand.swift */; };
 		6B1AE2231E2AFE5500FD2D68 /* NewUserCommandTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1AE2221E2AFE5500FD2D68 /* NewUserCommandTest.swift */; };
@@ -114,6 +115,7 @@
 		37D1F73F4F2321E13B1A6D68 /* DDJSPTTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDJSPTTools.swift; sourceTree = "<group>"; };
 		37D1FC9DC934147FBAC5E114 /* ServerNewSessionCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerNewSessionCommand.swift; sourceTree = "<group>"; };
 		610CAC45FCBFE71222D36158 /* Pods-DDJiOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DDJiOSTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DDJiOSTests/Pods-DDJiOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		6B04503C1EBBEC0D006915A2 /* ServerDisconnectSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerDisconnectSegue.swift; sourceTree = "<group>"; };
 		6B08B8A71E2C1F7800D94898 /* CommandRunner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommandRunner.swift; sourceTree = "<group>"; };
 		6B12AA7B1DF73B2D00170297 /* DDJiOS-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DDJiOS-Bridging-Header.h"; sourceTree = "<group>"; };
 		6B1AE2201E2AFAA400FD2D68 /* NewUserCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewUserCommand.swift; sourceTree = "<group>"; };
@@ -243,6 +245,7 @@
 		6B544CFB1EB9037700E88FE4 /* Segue */ = {
 			isa = PBXGroup;
 			children = (
+				6B04503C1EBBEC0D006915A2 /* ServerDisconnectSegue.swift */,
 			);
 			name = Segue;
 			sourceTree = "<group>";
@@ -827,6 +830,7 @@
 				6B9E22511DC73468001F1871 /* ZeroconfClient.swift in Sources */,
 				6B5D17C91E4BE2DA0082D2FB /* Alamofire-Synchronous.swift in Sources */,
 				6B25FDBD1E3F1238004113CA /* Shuffle.swift in Sources */,
+				6B04503D1EBBEC0D006915A2 /* ServerDisconnectSegue.swift in Sources */,
 				6B379EAB1E4287AD00D0182A /* RemoveUserCommand.swift in Sources */,
 				6B21193B1DFF7D5400F12963 /* LandingViewController.swift in Sources */,
 				6B23ABDC1E485E4E002AA441 /* ServerNewUserCommand.swift in Sources */,

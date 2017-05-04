@@ -80,7 +80,7 @@ class ServerViewController: UIViewController, UITableViewDataSource, UITableView
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        self.stop()
+        // self.stop()
     }
     
     override func viewDidAppear(_ animated: Bool) {

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="pkQ-Hw-f7M">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="FXf-ei-AFc">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -83,7 +83,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="LjO-MP-Pcf" kind="showDetail" identifier="ServerSelectSegue" action="showViewController:sender:" id="xN9-It-t0w">
+                                            <segue destination="LjO-MP-Pcf" kind="show" identifier="ServerSelectSegue" id="xN9-It-t0w">
                                                 <segue key="commit" inheritsFrom="parent" id="qiL-LB-9f0"/>
                                                 <segue key="preview" inheritsFrom="commit" id="9rL-df-qTD"/>
                                             </segue>
@@ -232,18 +232,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Create"/>
                                 <connections>
-                                    <segue destination="9RS-eU-D9j" kind="showDetail" action="showViewController:sender:" id="CGk-6d-w7K"/>
+                                    <segue destination="9RS-eU-D9j" kind="show" id="CGk-6d-w7K"/>
                                 </connections>
                             </button>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Dws-Mc-hcJ">
-                                <rect key="frame" x="-1" y="20" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <items>
-                                    <navigationItem title="Server Configuration" id="MI6-n8-J1X">
-                                        <barButtonItem key="backBarButtonItem" title="Back" id="SrD-Hf-JDx"/>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <variation key="default">
@@ -314,7 +305,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <state key="normal" title="Disconnect"/>
                                 <connections>
-                                    <segue destination="InX-Gg-qpK" kind="show" id="v0o-r0-NuY"/>
+                                    <segue destination="InX-Gg-qpK" kind="show" customClass="ServerDisconnectSegue" customModule="DDJiOS" customModuleProvider="target" id="Wsr-T2-FxU"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Song" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IxS-tW-rZM">
@@ -425,9 +416,9 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="i7O-9D-suj"/>
-        <segue reference="v0o-r0-NuY"/>
-        <segue reference="N2Q-zA-LQv"/>
         <segue reference="xN9-It-t0w"/>
+        <segue reference="i7O-9D-suj"/>
+        <segue reference="Wsr-T2-FxU"/>
+        <segue reference="N2Q-zA-LQv"/>
     </inferredMetricsTieBreakers>
 </document>
