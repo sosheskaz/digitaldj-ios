@@ -1086,7 +1086,6 @@
 					"$(PROJECT_DIR)/build/Release-iphoneos/SwiftSocket",
 					"$(PROJECT_DIR)/build/Release-iphoneos/Spotify-iOS-SDK",
 					"$(PROJECT_DIR)/build/Release-iphoneos/Alamofire",
-					"$(PROJECT_DIR)/build/Release-iphoneos/RainbowSwift",
 				);
 				INFOPLIST_FILE = DDJiOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1116,7 +1115,6 @@
 					"$(PROJECT_DIR)/build/Release-iphoneos/SwiftSocket",
 					"$(PROJECT_DIR)/build/Release-iphoneos/Spotify-iOS-SDK",
 					"$(PROJECT_DIR)/build/Release-iphoneos/Alamofire",
-					"$(PROJECT_DIR)/build/Release-iphoneos/RainbowSwift",
 				);
 				INFOPLIST_FILE = DDJiOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

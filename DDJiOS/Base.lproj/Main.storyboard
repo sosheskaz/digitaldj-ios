@@ -408,7 +408,7 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="szC-so-Srn">
                                 <rect key="frame" x="168" y="320" width="38" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Login"/>
                                 <connections>
                                     <segue destination="InX-Gg-qpK" kind="show" id="bca-Qr-ssv"/>
@@ -425,8 +425,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="bca-Qr-ssv"/>
         <segue reference="i7O-9D-suj"/>
+        <segue reference="v0o-r0-NuY"/>
         <segue reference="N2Q-zA-LQv"/>
         <segue reference="xN9-It-t0w"/>
     </inferredMetricsTieBreakers>
