@@ -21,7 +21,7 @@ class UpdatePlaylistCommand: HostClientCommand {
         do {
             let dict = try JSONSerialization.jsonObject(with: data, options: []) as AnyObject
             
-            self.currentlyPlaying = dict[currentlyPlayingLabel] as! String
+            self.currentlyPlaying = dict[currentlyPlayingLabel] as? String
             self.queue = dict[queueLabel] as! [String]
         } catch {
             return nil

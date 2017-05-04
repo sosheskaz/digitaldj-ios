@@ -84,9 +84,8 @@ class ServerViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        self.serverNameLabel?.text = zcName
-        
         super.viewDidAppear(animated)
+        self.serverNameLabel?.text = zcName
         log.info("Playing URI \(host.playlist.first!.playableUri.absoluteString)")
         let track = host.playlist[0]
         

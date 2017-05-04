@@ -83,7 +83,7 @@ class EZSSL {
 extension Socket {
     func enableSSL() {
         do {
-            let service = try SSLService(usingConfiguration: MySSL.config!)!
+            _ = try SSLService(usingConfiguration: MySSL.config!)!
             // self.delegate = service
         } catch let error as SSLError {
             log.error("An error occurred while trying to initialize the SSL service.")

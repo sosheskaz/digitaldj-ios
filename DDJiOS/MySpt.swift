@@ -127,7 +127,7 @@ class MySpt {
             guard let session = self.auth.session else {
                 log.verbose("Session does not exist. Showing auth window.")
                 self.presentAuthWindow()
-                self.afterAuthenticated()
+                // self.afterAuthenticated()
                 callback?()
                 return
             }
@@ -162,16 +162,14 @@ class MySpt {
                 return
             }
             
-            DispatchQueue.main.async {
-                log.info("User is a premium user. Logging into player.")
-                do {
-                    try self.player?.start(withClientId: CLIENT_ID)
-                } catch let error2 {
-                    log.error("Failed to start player: \(error2.localizedDescription)")
-                }
-                self.player?.login(withAccessToken: self.session!.accessToken)
-                log.info("Logged into player.")
+            log.info("User is a premium user. Logging into player.")
+            do {
+                try self.player?.start(withClientId: CLIENT_ID)
+            } catch let error2 {
+                log.error("Failed to start player: \(error2.localizedDescription)")
             }
+            self.player?.login(withAccessToken: self.session!.accessToken)
+            log.info("Logged into player.")
         })
         
         self.dismissAuthWindow()
@@ -213,7 +211,7 @@ class MySpt {
             }
             log.info("Starting Auth VC.")
             
-            let sourceViewController = UIApplication.shared.keyWindow?.rootViewController
+            let sourceViewController = UIApplication.topViewController() // UIApplication.shared.keyWindow?.rootViewController
             
             if self.authViewController == sourceViewController {
                 log.info("AuthViewController already active.")
