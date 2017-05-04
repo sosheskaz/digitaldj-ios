@@ -113,7 +113,6 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Vj3-8z-gdV"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cz0-MH-SRP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
