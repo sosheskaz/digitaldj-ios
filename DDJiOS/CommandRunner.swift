@@ -163,9 +163,6 @@ class CommandRunner {
             case .removeUser:
                 cmd = RemoveUserCommand(from: data)
                 break
-            default:
-                // 💩
-                break
             }
             
             if(cmd == nil){

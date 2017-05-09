@@ -25,11 +25,11 @@ class DDJSPTTools {
             let responseData = Alamofire.request(tracksRequest).responseData()
             
             guard let data = responseData.data else {
-                print(responseData.result.error)
+                print(responseData.result.error ?? "nil")
                 return nil
             }
             guard let response = responseData.response else {
-                print(responseData.result.error)
+                print(responseData.result.error ?? "nil")
                 return nil
             }
             

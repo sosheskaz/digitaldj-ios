@@ -14,8 +14,10 @@ class ZeroconfServer {
     private let DOMAIN: String = "local"
     private let TYPE: String = "_ddj._tcp"
     private let DEFAULT_TIMEOUT: TimeInterval = 1.0
+    
+    public static let shared = ZeroconfServer()
 
-    init() {
+    private init() {
         self.name = DEFAULT_NAME
         self.service = NetService(domain: DOMAIN, type: TYPE, name: name, port: PORT)
     }

@@ -26,15 +26,20 @@ class ServerSetupViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         guard let svc = segue.destination as? ServerViewController else {
+            log.error("svc is not ServerViewController.")
             return
         }
         guard var name = nameField?.text else {
+            log.error("Name field is empty.")
             return
         }
+        log.verbose("Checking name is valid.")
         if(EZRegex(pattern: "^\\s*$")?.test(against: name) ?? true) {
             name = UIDevice.current.name
         }
         defaults.set(name, forKey: ServerSetupViewController.defaultsNameLabel)
+        log.verbose("Passing name data.")
         svc.passZcNameData(name)
+        log.verbose("Prepare complete.")
     }
 }

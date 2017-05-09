@@ -36,7 +36,7 @@ class ClientViewController: UIViewController, DDJClientDelegate, UITableViewData
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        RemoveUserCommand(userId: MySpt.shared.userId).execute(hostAddress)
+        _ = RemoveUserCommand(userId: MySpt.shared.userId).execute(hostAddress)
     }
     
     func ddjClientHeartbeatTimeout() {
