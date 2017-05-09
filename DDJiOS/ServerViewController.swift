@@ -26,7 +26,7 @@ class ServerViewController: UIViewController, UITableViewDataSource, UITableView
     
     let sptPlayer: SPTAudioStreamingController = SPTAudioStreamingController.sharedInstance()
     
-    private let zc: ZeroconfServer = ZeroconfServer()
+    private let zc: ZeroconfServer = ZeroconfServer.shared
     private let host = DDJHost.shared
     private let DEFAULT_ZC_NAME: String = "iOS Digital DJ"
     private let audioDelegate: ServerAudioStreamingDelegate = ServerAudioStreamingDelegate(host: DDJHost.shared)
@@ -64,11 +64,15 @@ class ServerViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func ddjHost(newUser: NewUserCommand) {
-        self.playlistTableView?.reloadData()
+        DispatchQueue.main.async {
+            self.playlistTableView?.reloadData()
+        }
     }
     
     func ddjHost(updatePlaylist: [SPTTrack]) {
-        self.playlistTableView?.reloadData()
+        DispatchQueue.main.async {
+            self.playlistTableView?.reloadData()
+        }
     }
     
     func ddjHost(removeUser: RemoveUserCommand) {
@@ -104,6 +108,16 @@ class ServerViewController: UIViewController, UITableViewDataSource, UITableView
         super.viewWillAppear(animated)
         log.verbose("Server view will appear.")
         self.start()
+        DispatchQueue.main.async {
+            guard let album = self.albumArt else {
+                return
+            }
+            let x = album.frame.minX
+            let y = album.frame.minY
+            let width = album.frame.maxX - x
+            let height = width
+            album.frame = CGRect(x: x, y: y, width: width, height: height)
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {

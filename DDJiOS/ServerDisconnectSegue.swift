@@ -12,5 +12,6 @@ class ServerDisconnectSegue: UIStoryboardSegue {
     override func perform() {
         super.perform()
         MySpt.shared.player?.setIsPlaying(false, callback: nil)
+        ZeroconfServer.shared.stop()
     }
 }
