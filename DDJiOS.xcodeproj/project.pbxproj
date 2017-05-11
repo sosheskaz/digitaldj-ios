@@ -72,11 +72,13 @@
 		6BF1ED2A1E79B6D500B8AA3F /* EZSSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF1ED291E79B6D500B8AA3F /* EZSSL.swift */; };
 		6BFCF5E91E3BFA070064C868 /* EZRegex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BFCF5E81E3BFA070064C868 /* EZRegex.swift */; };
 		6BFCF5EB1E3BFE270064C868 /* ServerEndSessionCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BFCF5EA1E3BFE270064C868 /* ServerEndSessionCommand.swift */; };
+		9421D8D20DC663882FBE5151 /* Pods_DDJiOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA1DE4934BF6BC9ED695168C /* Pods_DDJiOSUITests.framework */; };
 		9A1862B11DC10BFA0027D21E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1862B01DC10BFA0027D21E /* AppDelegate.swift */; };
 		9A1862B61DC10BFA0027D21E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A1862B41DC10BFA0027D21E /* Main.storyboard */; };
 		9A1862B91DC10BFA0027D21E /* DDJiOS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9A1862B71DC10BFA0027D21E /* DDJiOS.xcdatamodeld */; };
 		9A1862BB1DC10BFA0027D21E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A1862BA1DC10BFA0027D21E /* Assets.xcassets */; };
 		9A1862BE1DC10BFA0027D21E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A1862BC1DC10BFA0027D21E /* LaunchScreen.storyboard */; };
+		DEC320AF51FE63DFEE3DF40D /* Pods_DDJiOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E175E99B4020AC44338FD2AA /* Pods_DDJiOSTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -193,6 +195,8 @@
 		9A1862C41DC10BFA0027D21E /* DDJiOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DDJiOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A1862CA1DC10BFA0027D21E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9AB872E01E8AFA2B00F04781 /* Pods_DDJiOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Pods_DDJiOS.framework; sourceTree = "<group>"; };
+		DA1DE4934BF6BC9ED695168C /* Pods_DDJiOSUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DDJiOSUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E175E99B4020AC44338FD2AA /* Pods_DDJiOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DDJiOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEE9E0795A1E1300C15D6758 /* Pods-DDJiOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DDJiOSTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DDJiOSTests/Pods-DDJiOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		EF79F7EF9EC2A92F35DC825D /* Pods-DDJiOSUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DDJiOSUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DDJiOSUITests/Pods-DDJiOSUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -203,6 +207,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6B39878D1E82422B00985CA4 /* Pods_DDJiOSUITests.framework in Frameworks */,
+				9421D8D20DC663882FBE5151 /* Pods_DDJiOSUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -219,6 +224,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6B39878B1E82421E00985CA4 /* Pods_DDJiOSTests.framework in Frameworks */,
+				DEC320AF51FE63DFEE3DF40D /* Pods_DDJiOSTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -413,6 +419,8 @@
 			isa = PBXGroup;
 			children = (
 				6B642A5E1EBBD945002A076B /* Pods_DDJiOS.framework */,
+				E175E99B4020AC44338FD2AA /* Pods_DDJiOSTests.framework */,
+				DA1DE4934BF6BC9ED695168C /* Pods_DDJiOSUITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -615,7 +623,7 @@
 								enabled = 1;
 							};
 							com.apple.SafariKeychain = {
-								enabled = 0;
+								enabled = 1;
 							};
 						};
 					};
@@ -1082,6 +1090,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = DDJiOS/DDJiOS.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = E7NF7S5WRQ;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1111,6 +1120,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = DDJiOS/DDJiOS.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = E7NF7S5WRQ;
 				FRAMEWORK_SEARCH_PATHS = (

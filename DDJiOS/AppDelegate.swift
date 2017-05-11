@@ -10,6 +10,7 @@ import UIKit
 import CoreData
 import SafariServices
 import SwiftyBeaver
+import AVFoundation
 
 import SwiftyBeaver
 let log = SwiftyBeaver.self
@@ -24,6 +25,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SPTAudioStreamingDelegate
         
         log.addDestination(ConsoleDestination())
         log.info("Application started.")
+        
+        do {
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
+        }
+        catch let error {
+            log.error("Failed to set audio category: \(error.localizedDescription)")
+        }
         
         return true
     }
